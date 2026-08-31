@@ -27,6 +27,12 @@ MODEL = os.environ.get("MBB_MODEL", "openrouter/z-ai/glm-5.3-flash")
 LIMIT = int(os.environ.get("MBB_LIMIT", "30"))
 CONCURRENCY = int(os.environ.get("MBB_CONCURRENCY", "12"))
 REQUEST_TIMEOUT = int(os.environ.get("MBB_TIMEOUT", "900"))
+
+# Per-sample wall clock. One baseline sample hung on a single model request for
+# 2h15m with no file activity and never came back; the request timeout did not
+# bound it. Samples that finish take 8 to 15 minutes, so 30 is generous, and an
+# unbounded straggler blocking a whole run is worth more than the sample.
+SAMPLE_TIME_LIMIT = int(os.environ.get("MBB_SAMPLE_LIMIT", "1800"))
 OUT = Path("results")
 
 
@@ -88,6 +94,7 @@ if __name__ == "__main__":
         fail_on_error=False,
         timeout=REQUEST_TIMEOUT,
         max_retries=3,
+        time_limit=SAMPLE_TIME_LIMIT,
     )[0]
     after = credits_used()
 
