@@ -83,8 +83,13 @@ def sample_row(sample: Any, spec: ScratchSpec | None = None) -> dict[str, Any]:
     final = _final_score(sample)
     meta = (getattr(final, "metadata", None) or {}) if final else {}
 
+    # tool_spans_only is not optional here: without it our own setup solver's
+    # `mkdir -p /workspace/scratch` counts as the agent writing to the directory, and
+    # every run reports a write.
     use = scratch_use(
-        interactions_from_events(getattr(sample, "events", None) or [], spec=spec)
+        interactions_from_events(
+            getattr(sample, "events", None) or [], spec=spec, tool_spans_only=True
+        )
     )
     ever, final_only = was_test_modified(sample)
 

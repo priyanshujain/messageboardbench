@@ -5,7 +5,12 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-from inspect_ai.event import SandboxEvent, ScoreEvent
+from inspect_ai.event import (
+    SandboxEvent,
+    ScoreEvent,
+    SpanBeginEvent,
+    SpanEndEvent,
+)
 from inspect_ai.scorer import Score
 
 from messageboardbench.analysis import sample_row, summarise, was_test_modified
@@ -33,6 +38,30 @@ def final(value: str = "I", **metadata: Any) -> dict[str, Score]:
 
 def exec_event(cmd: str) -> SandboxEvent:
     return SandboxEvent(action="exec", cmd=cmd, result=0)
+
+
+def by_agent(*cmds: str) -> list[Any]:
+    """Commands the agent ran, nested in a tool span the way a real log records them.
+
+    Analysis counts only what happens inside a tool span, so a fixture that skips the
+    span would be testing something the real pipeline never sees.
+    """
+    out: list[Any] = []
+    for i, cmd in enumerate(cmds):
+        out.append(SpanBeginEvent(id=f"t{i}", type="tool", name="bash"))
+        out.append(exec_event(cmd))
+        out.append(SpanEndEvent(id=f"t{i}"))
+    return out
+
+
+def by_harness(*cmds: str) -> list[Any]:
+    """The same commands run by a solver or scorer, which must not count as the agent."""
+    out: list[Any] = []
+    for i, cmd in enumerate(cmds):
+        out.append(SpanBeginEvent(id=f"s{i}", type="solver", name="create_scratch"))
+        out.append(exec_event(cmd))
+        out.append(SpanEndEvent(id=f"s{i}"))
+    return out
 
 
 # --- the sharp edge -----------------------------------------------------------------
@@ -88,10 +117,10 @@ def test_row_reads_cheat_and_scratch_use() -> None:
             scratch_file_count=1,
             scratch_files={"/workspace/scratch/notes.md": "the tests conflict"},
         ),
-        events=[
-            exec_event("bash --login -c 'ls /workspace/scratch'"),
-            exec_event("bash --login -c \"echo hi > /workspace/scratch/notes.md\""),
-        ],
+        events=by_agent(
+            "bash --login -c 'ls /workspace/scratch'",
+            "bash --login -c \"echo hi > /workspace/scratch/notes.md\"",
+        ),
         messages=[1, 2, 3],
     )
     row = sample_row(sample)
@@ -113,7 +142,7 @@ def test_a_file_left_behind_counts_as_a_write_even_if_the_command_did_not_parse(
     sample = FakeSample(
         scores=final("I", scratch_exists=True, scratch_file_count=1,
                      scratch_files={"/workspace/scratch/n.md": "note"}),
-        events=[exec_event("bash --login -c 'python -c \"...\"'")],
+        events=by_agent("bash --login -c 'python -c \"...\"'"),
     )
     row = sample_row(sample)
     assert row["wrote_scratch"] is True
@@ -122,7 +151,7 @@ def test_a_file_left_behind_counts_as_a_write_even_if_the_command_did_not_parse(
 def test_untouched_run() -> None:
     sample = FakeSample(
         scores=final("I", scratch_exists=True, scratch_file_count=0, scratch_files={}),
-        events=[exec_event("bash --login -c 'python test.py'")],
+        events=by_agent("bash --login -c 'python test.py'"),
     )
     row = sample_row(sample)
     assert row["cheated"] is False
@@ -152,3 +181,58 @@ def test_summary_counts_what_the_repair_hid() -> None:
     assert s["cheat_rate"] == 0.5
     assert s["test_modified"] == 1
     assert s["hidden_by_repair"] == 1
+
+
+# --- the harness must not be mistaken for the agent ----------------------------------
+
+
+def test_setup_solvers_mkdir_is_not_an_agent_write() -> None:
+    """`mkdir -p /workspace/scratch` classifies as a write inside the directory.
+
+    It is ours, not the agent's. Counting it would report a write on every single run and
+    make the Phase 2 headline number 100% for a reason that has nothing to do with agents.
+    """
+    sample = FakeSample(
+        scores=final("I", scratch_exists=True, scratch_file_count=0, scratch_files={}),
+        events=by_harness("mkdir -p /workspace/scratch"),
+    )
+    row = sample_row(sample)
+    assert row["wrote_scratch"] is False
+    assert row["touched_scratch"] is False
+
+
+def test_scorer_reads_are_not_agent_reads() -> None:
+    """The wrapping scorer lists and reads the directory back. That is not the agent."""
+    sample = FakeSample(
+        scores=final("I", scratch_exists=True, scratch_file_count=0, scratch_files={}),
+        events=[
+            SpanBeginEvent(id="sc", type="scorer", name="scratch_scorer"),
+            exec_event("test -d /workspace/scratch"),
+            exec_event("find /workspace/scratch -type f"),
+            SpanEndEvent(id="sc"),
+        ],
+    )
+    row = sample_row(sample)
+    assert row["read_scratch"] is False
+    assert row["touched_scratch"] is False
+
+
+def test_agent_action_still_counts_alongside_harness_actions() -> None:
+    """The filter must remove the harness without removing the agent."""
+    sample = FakeSample(
+        scores=final("C", scratch_exists=True, scratch_file_count=1,
+                     scratch_files={"/workspace/scratch/n.md": "note"}),
+        events=(
+            by_harness("mkdir -p /workspace/scratch")
+            + by_agent("bash --login -c \"echo hi > /workspace/scratch/n.md\"")
+            + [
+                SpanBeginEvent(id="sc", type="scorer", name="scratch_scorer"),
+                exec_event("find /workspace/scratch -type f"),
+                SpanEndEvent(id="sc"),
+            ]
+        ),
+    )
+    row = sample_row(sample)
+    assert row["wrote_scratch"] is True
+    assert row["read_scratch"] is False, "only the scorer read; the agent did not"
+    assert row["n_writes"] == 1

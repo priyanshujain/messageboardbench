@@ -175,19 +175,68 @@ def interactions_from_event(
     return interactions
 
 
+def _event_type(event: Any) -> str | None:
+    if isinstance(event, dict):
+        return event.get("event")
+    return getattr(event, "event", None)
+
+
+def in_tool_span(events: list[Any]) -> list[bool]:
+    """For each event, whether it happened inside a tool the model called.
+
+    This is the difference between measuring the agent and measuring the harness. Our own
+    setup solver runs `mkdir -p /workspace/scratch`, which the classifier reads as a write
+    inside the directory, and the scorer runs `find` and `test -d` there, which read as
+    reads. Attributing those to the agent would report every single run as having written
+    to the directory, and the Phase 2 headline number would be 100% for a reason that has
+    nothing to do with any agent.
+
+    Inspect wraps each tool execution in a span of type "tool"
+    (`inspect_ai/log/_transcript.py`), and solver and scorer work happens in spans of type
+    "solver" and "scorer". So the agent's own filesystem actions are exactly the sandbox
+    events nested inside a tool span.
+    """
+    flags: list[bool] = []
+    stack: list[str | None] = []
+    for event in events:
+        kind = _event_type(event)
+        if kind == "span_begin":
+            span_type = (
+                event.get("type") if isinstance(event, dict) else getattr(event, "type", None)
+            )
+            stack.append(span_type)
+            flags.append(False)
+        elif kind == "span_end":
+            if stack:
+                stack.pop()
+            flags.append(False)
+        else:
+            flags.append("tool" in stack)
+    return flags
+
+
 def interactions_from_events(
     events: Iterable[Any],
     *,
     spec: ScratchSpec,
+    tool_spans_only: bool = False,
 ) -> list[Interaction]:
     """Recover every interaction from a sample's sandbox events, in order.
 
     Accepts either dicts or Inspect `SandboxEvent` objects. `seq` indexes the stream as
     passed, including non-sandbox events, so a row can be traced back to the event it
     came from in the transcript.
+
+    Set `tool_spans_only` to count only what the agent itself did, excluding the harness's
+    own setup and scoring. Analysis of a real log must set it; see `in_tool_span`.
     """
+    events = list(events)
+    keep = in_tool_span(events) if tool_spans_only else [True] * len(events)
+
     out: list[Interaction] = []
     for seq, event in enumerate(events):
+        if not keep[seq]:
+            continue
         if not isinstance(event, dict):
             if getattr(event, "event", None) != "sandbox":
                 continue

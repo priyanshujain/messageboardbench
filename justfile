@@ -39,3 +39,7 @@ pilot:
 # Rebuild the CSV and hand-read file from an existing log, no re-run.
 report log_dir="logs/pilot":
     uv run python scripts/report.py {{log_dir}}
+
+# Proves the scorer captures a file an agent leaves in scratch. Free, needs Docker.
+verify-snapshot:
+    uv run python scripts/verify_snapshot.py

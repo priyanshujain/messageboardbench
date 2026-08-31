@@ -190,14 +190,21 @@ async def snapshot_scratch() -> tuple[bool, dict[str, str]]:
     probe = await sandbox().exec(["test", "-d", SCRATCH_ROOT])
     exists = probe.success
 
-    listing = await sandbox().exec(
-        ["find", SCRATCH_ROOT, "-type", "f", "-size", "-1M"]
-    )
+    listing = await sandbox().exec(["find", SCRATCH_ROOT, "-type", "f"])
     if not listing.success:
         return exists, {}
 
+    # Every file counts towards "did it write", including one too big to read back. The
+    # size filter belongs on reading, not on listing: filtering the listing would drop a
+    # large file from the count and report a write as a miss.
+    oversized = await sandbox().exec(["find", SCRATCH_ROOT, "-type", "f", "-size", "+1M"])
+    too_big = set(filter(None, (p.strip() for p in oversized.stdout.splitlines())))
+
     files: dict[str, str] = {}
     for path in sorted(filter(None, (p.strip() for p in listing.stdout.splitlines()))):
+        if path in too_big:
+            files[path] = "[over 1MB, not read back]"
+            continue
         try:
             content = await sandbox().read_file(path)
         except Exception as e:  # noqa: BLE001 - a scorer must not fail on a stray file
