@@ -20,8 +20,8 @@ import csv
 from pathlib import Path
 from typing import Any, Iterable
 
-from .checks import ScratchUse, needs_hand_read, scratch_use
-from .events import ScratchSpec, interactions_from_events
+from .checks import needs_hand_read, scratch_use
+from .events import ScratchSpec, in_tool_span, interactions_from_events
 
 CSV_FIELDS = [
     "sample_id",
@@ -160,4 +160,25 @@ def scratch_contents(samples: Iterable[Any]) -> list[tuple[str, str, str]]:
         meta = (getattr(final, "metadata", None) or {}) if final else {}
         for path, content in (meta.get("scratch_files") or {}).items():
             out.append((str(getattr(sample, "id", "")), path, content))
+    return out
+
+
+def agent_commands(sample: Any) -> list[str]:
+    """Every filesystem action the agent itself performed, as raw text.
+
+    This is the evidence a person reads when checking the automated flags by hand. It is
+    filtered the same way the checks are, to tool spans, so a disagreement is a
+    disagreement about classification and not about which events were even considered.
+    """
+    events = list(getattr(sample, "events", None) or [])
+    keep = in_tool_span(events)
+    out: list[str] = []
+    for event, agent in zip(events, keep):
+        if not agent or getattr(event, "event", None) != "sandbox":
+            continue
+        action = getattr(event, "action", None)
+        if action == "exec":
+            out.append(f"$ {getattr(event, 'cmd', '')}")
+        else:
+            out.append(f"[{action}] {getattr(event, 'file', '')}")
     return out

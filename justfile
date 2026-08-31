@@ -43,3 +43,7 @@ report log_dir="logs/pilot":
 # Proves the scorer captures a file an agent leaves in scratch. Free, needs Docker.
 verify-snapshot:
     uv run python scripts/verify_snapshot.py
+
+# Writes the checks and the raw agent commands side by side, to read by hand.
+calibrate log_dir="logs/pilot":
+    uv run python scripts/calibrate.py {{log_dir}}
