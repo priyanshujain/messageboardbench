@@ -12,6 +12,10 @@ dependencies = [
     # ImpossibleBench is installed with --no-deps (see docs/setup.md), so its
     # own declaration of datasets does not reach us.
     "datasets>=3.0.0",
+    # inspect-ai's openrouter provider is a thin wrapper over the openai client,
+    # which it treats as an optional dependency.
+    "openai>=1.0.0",
+    "httpx>=0.28.1",
 ]
 
 [build-system]
