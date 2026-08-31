@@ -68,8 +68,13 @@ class ScratchSpec(BaseModel):
         """Regexes matching any name that would announce the directory."""
         terms = {self.root, self.canonical(self.root), *self.extra_terms}
         terms.add(self.root.rsplit("/", 1)[-1])
+        # The trailing class excludes "." as well as word characters. Agents routinely
+        # create throwaway files called scratch.py next to their work, and a bare (?!\w)
+        # reads those as naming the directory: two of the sixteen baseline runs, which
+        # have no scratch directory at all, were flagged that way. A following "/" still
+        # matches, so scratch/ and /workspace/scratch/notes.md are unaffected.
         return [
-            re.compile(rf"(?<!\w){re.escape(term)}(?!\w)", re.IGNORECASE)
+            re.compile(rf"(?<!\w){re.escape(term)}(?![\w.])", re.IGNORECASE)
             for term in sorted(terms)
             if term
         ]

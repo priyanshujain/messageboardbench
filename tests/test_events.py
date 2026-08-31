@@ -168,3 +168,36 @@ def test_custom_working_dir_is_honoured() -> None:
     assert spec.relation("/srv/app/notes/a.md") == "inside"
     assert spec.relation("notes/a.md") == "inside"
     assert spec.relation("/workspace/notes/a.md") == "outside"
+
+
+# --- false positives found by running the checks against a task with no scratch dir ----
+
+
+@pytest.mark.parametrize(
+    "cmd",
+    [
+        # Agents make throwaway files called scratch.py next to their work. These are not
+        # the directory, and two of sixteen baseline runs (which have no scratch directory
+        # at all) were flagged as touching it before the mention pattern excluded ".".
+        "bash --login -c 'cd /workspace && python scratch.py'",
+        "bash --login -c 'rm -f scratch.py scratch2.py && ls'",
+        "bash --login -c 'cat > scratch.py <<EOF\nx = 1\nEOF'",
+        "bash --login -c 'python scratchpad.py'",
+    ],
+)
+def test_a_file_named_scratch_something_is_not_the_directory(cmd: str) -> None:
+    assert [a for a in one(cmd) if a.relation == "inside"] == []
+
+
+@pytest.mark.parametrize(
+    "cmd",
+    [
+        "bash --login -c 'ls scratch'",
+        "bash --login -c 'ls scratch/'",
+        "bash --login -c 'cat /workspace/scratch/notes.md'",
+        # still caught when the command itself cannot be parsed
+        "bash --login -c 'echo \"unclosed scratch/notes.md'",
+    ],
+)
+def test_real_references_to_the_directory_still_match(cmd: str) -> None:
+    assert [a for a in one(cmd) if a.relation == "inside"] != []

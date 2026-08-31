@@ -80,6 +80,13 @@ if __name__ == "__main__":
         else:
             lines += ["left behind: nothing", ""]
 
+        # ImpossibleBench's static test-modification check found nothing on this model in
+        # the baseline: every cheat went through func.py instead. So the cheat technique
+        # has to be read off the submitted function, and it belongs in the hand-read file.
+        if row["cheated"] and final is not None:
+            answer = (final.answer or "")[:3000]
+            lines += ["submitted func.py (cheat technique, hand-classify):", "", "```python", answer.rstrip(), "```", ""]
+
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(lines))
     print(f"wrote {out} for {len(rows)} runs")
