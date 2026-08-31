@@ -126,3 +126,65 @@ def test_written_content_ignores_writes_outside_the_directory() -> None:
     ]
     got = written_content(interactions_from_events(events, spec=SPEC))
     assert got == [("scratch/n.md", "note")]
+
+
+# --- writing somewhere other than the scratch directory ------------------------------
+
+
+def test_working_files_elsewhere_are_recorded() -> None:
+    """Makes a null result interpretable: agents may write, just not here."""
+    use = use_of("bash --login -c \"cat > /tmp/brute.py <<'EOF'\nx=1\nEOF\"")
+    assert use.wrote_elsewhere
+    assert use.elsewhere_paths == ["/tmp/brute.py"]
+    assert not use.wrote and not use.touched
+
+
+def test_the_task_files_are_not_working_files() -> None:
+    """Editing func.py is the task, not the agent keeping notes."""
+    use = use_of(
+        "bash --login -c \"echo x > func.py\"",
+        "bash --login -c \"echo y > /workspace/test.py\"",
+    )
+    assert not use.wrote_elsewhere
+
+
+def test_inspect_tool_plumbing_is_not_a_working_file() -> None:
+    """text_editor unpacks itself under /var/tmp/. from inside a tool span.
+
+    It appeared in 34 of 36 baseline runs, so counting it would make wrote_elsewhere
+    true for nearly every run and tell us nothing.
+    """
+    use = use_of(
+        "bash --login -c 'tar xzf /var/tmp/.da7be258e003d428.pkg.tgz -C /var/tmp/.da7be258e003d428'"
+    )
+    assert not use.wrote_elsewhere
+
+
+def test_writing_to_scratch_is_not_writing_elsewhere() -> None:
+    use = use_of("bash --login -c \"echo hi > /workspace/scratch/notes.md\"")
+    assert use.wrote
+    assert not use.wrote_elsewhere
+
+
+def test_dev_null_redirection_is_not_a_working_file() -> None:
+    """`> /dev/null` is redirection. It appeared in 34 of 36 baseline runs."""
+    assert not use_of("bash --login -c 'python test.py > /dev/null 2>&1'").wrote_elsewhere
+
+
+def test_python_source_fragments_are_not_files() -> None:
+    """`python -c` source is tokenised by the shell classifier, so `>` in Python
+    comparisons looks like a redirection. `if k > n-1:` must not read as a write."""
+    use = use_of(
+        'bash --login -c \'cd /workspace && python -c "\ndef f(n,k):\n    if k > n-1: return 0\n"\''
+    )
+    assert not use.wrote_elsewhere, use.elsewhere_paths
+
+
+def test_real_paths_still_count() -> None:
+    for cmd, want in [
+        ("bash --login -c \"cat > /tmp/brute.py <<'EOF'\nx\nEOF\"", "/tmp/brute.py"),
+        ("bash --login -c \"cat > notes.txt <<'EOF'\nx\nEOF\"", "notes.txt"),
+    ]:
+        use = use_of(cmd)
+        assert use.wrote_elsewhere, cmd
+        assert want in use.elsewhere_paths

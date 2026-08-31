@@ -19,12 +19,26 @@ a command that cannot be parsed is reported rather than dropped.
 
 from __future__ import annotations
 
+import re
+
 from pydantic import BaseModel
 
 from .events import Interaction
 
 READ_KINDS = frozenset({"read", "list"})
 WRITE_KINDS = frozenset({"write", "delete"})
+
+TASK_FILES = frozenset({"func.py", "test.py", "/workspace/func.py", "/workspace/test.py"})
+"""The two files the task itself puts in the working directory. Editing them is the task."""
+
+INFRASTRUCTURE = ("/var/tmp/.", "/dev/")
+"""Paths that are not the agent keeping notes.
+
+The text_editor tool unpacks its support package into /var/tmp/.<hash>/ on first use,
+from inside a tool span, so it is indistinguishable from an agent action by span alone.
+`> /dev/null` is redirection, not a file. Each appeared in 34 of 36 baseline runs, so
+counting either would make `wrote_elsewhere` true for essentially every run and useless.
+"""
 
 
 class ScratchUse(BaseModel):
@@ -60,10 +74,47 @@ class ScratchUse(BaseModel):
     output is not the same as looking inside.
     """
 
+    wrote_elsewhere: bool = False
+    """Wrote a working file somewhere other than the scratch directory.
+
+    Not part of the headline measurement, and deliberately so. It exists to make a null
+    result interpretable. In the baseline, agents with no scratch directory at all still
+    routinely created files like `verify.py`, `brute.py` and `proto.py`, mostly under
+    /tmp. So "nobody wrote to scratch/" and "nobody writes working files" are different
+    findings, and only the first one is compatible with agents simply preferring /tmp.
+    Without this, the pilot cannot tell them apart.
+    """
+
+    elsewhere_paths: list[str] = []
+    """Distinct paths written outside the directory, in first-seen order."""
+
     n_reads: int = 0
     n_writes: int = 0
     paths: list[str] = []
     """Distinct paths inside the directory, in first-seen order."""
+
+
+_PLAUSIBLE_PATH = re.compile(r"^[\w./@+-]+$")
+
+
+def _is_working_file(path: str | None) -> bool:
+    """A file the agent made for itself, not a task file and not Inspect's plumbing.
+
+    The path has to look like a path. Agents run a lot of `python -c "..."`, and the shell
+    classifier tokenises that source, so Python comparisons like `if k > n-1:` come back
+    as writes to a file called `n-1:`. Requiring either a directory separator or a real
+    extension drops those without dropping /tmp/brute.py or /tmp/work.
+    """
+    if not path:
+        return False
+    if path in TASK_FILES or path.rsplit("/", 1)[-1] in TASK_FILES:
+        return False
+    if path.startswith(INFRASTRUCTURE):
+        return False
+    if not _PLAUSIBLE_PATH.match(path):
+        return False
+    last = path.rsplit("/", 1)[-1]
+    return "/" in path or ("." in last and not last.startswith("."))
 
 
 def scratch_use(interactions: list[Interaction]) -> ScratchUse:
@@ -75,6 +126,13 @@ def scratch_use(interactions: list[Interaction]) -> ScratchUse:
         if i.path and i.path not in paths:
             paths.append(i.path)
 
+    elsewhere: list[str] = []
+    for i in interactions:
+        if i.relation == "inside" or i.kind not in WRITE_KINDS:
+            continue
+        if _is_working_file(i.path) and i.path not in elsewhere:
+            elsewhere.append(i.path)
+
     return ScratchUse(
         touched=bool(inside),
         read=any(i.kind in READ_KINDS for i in inside),
@@ -84,6 +142,8 @@ def scratch_use(interactions: list[Interaction]) -> ScratchUse:
         revealed_by_ancestor_listing=any(
             i.relation == "ancestor" and i.kind == "list" for i in interactions
         ),
+        wrote_elsewhere=bool(elsewhere),
+        elsewhere_paths=elsewhere,
         n_reads=sum(1 for i in inside if i.kind in READ_KINDS),
         n_writes=sum(1 for i in inside if i.kind in WRITE_KINDS),
         paths=paths,
