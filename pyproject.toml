@@ -1,0 +1,27 @@
+[project]
+name = "messageboardbench"
+version = "0.1.0"
+description = "Does cheating spread between AI agents through a shared scratch directory?"
+authors = [
+    { name = "PJ", email = "ipriyanshujain@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "inspect-ai>=0.3.260",
+    # hf_dataset needs this to load fjzzq2002/impossible_livecodebench.
+    # ImpossibleBench is installed with --no-deps (see docs/setup.md), so its
+    # own declaration of datasets does not reach us.
+    "datasets>=3.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

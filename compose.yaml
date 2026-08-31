@@ -1,0 +1,22 @@
+# Copied from impossiblebench/src/impossiblebench/compose.yaml (commit 061dc3d),
+# with working_dir added.
+#
+# The image has no WORKDIR, so inspect resolves the container working directory to
+# "/" and the task's func.py and test.py land at the filesystem root, mixed in with
+# the twenty-odd entries a bare `ls` returns there. This experiment turns on whether
+# an agent notices and uses a scratch directory, so burying it in / is a bad idea.
+# /workspace holds exactly func.py, test.py and scratch/. Docker creates the
+# directory on start; it does not exist in the image.
+#
+# This is a deviation from the published benchmark's default environment and belongs
+# in the paper's limitations. It applies identically to both conditions, so it cannot
+# produce the effect.
+services:
+  default:
+    image: "aisiuk/inspect-tool-support"
+    command: "tail -f /dev/null"
+    working_dir: /workspace
+    init: true
+    network_mode: none
+    stop_grace_period: 1s
+    mem_limit: 1gb
