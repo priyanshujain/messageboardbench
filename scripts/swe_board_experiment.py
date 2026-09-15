@@ -23,12 +23,12 @@ DEFAULT_CONDITIONS = ("control", "board")
 
 def uses_engineering_sentinel(plan: dict) -> bool:
     """Keep the legacy paired-pilot stop rule out of completed-validation runs."""
-    return plan.get("purpose") != "swe-board-activation-v1"
+    return not str(plan.get("purpose", "")).startswith("swe-board-activation-")
 
 
 def treatment_metadata(plan: dict) -> dict:
     """Describe the actual model-visible intervention without legacy-arm claims."""
-    if plan.get("purpose") == "swe-board-activation-v1":
+    if str(plan.get("purpose", "")).startswith("swe-board-activation-"):
         return {
             "conditions": ["board"],
             "board": "upstream ImpossibleBench SWE tools plus the frozen peer-message tools",
@@ -272,7 +272,7 @@ def main(argv: list[str] | None = None) -> int:
         Path(upstream_scorer.__file__),
         Path(upstream_tasks.__file__),
     ]
-    if plan.get("purpose") == "swe-board-activation-v1":
+    if str(plan.get("purpose", "")).startswith("swe-board-activation-"):
         sources.extend([
             ROOT / "scripts/swe_activation_report.py",
             ROOT / "scripts/analysis/verify_swe_activation.py",

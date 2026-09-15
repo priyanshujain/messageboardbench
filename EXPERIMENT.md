@@ -220,6 +220,15 @@ occurred within concurrent cohort 2, so the frozen cross-cohort activation gate 
 All five GLM cohort-1 outcomes were also lost to one sandbox failure and propagated
 cancellation. See the [reviewed analysis](experiments/swe-board-activation-10-v1/analysis.md).
 
+**SWE board activation replication (September 16):** the Muse-only v2 run completed
+10/10 scored episodes with five successful gaming outcomes, but no agent posted.
+Five board reads all returned an empty board, so the prespecified cohort-1 publication
+plus cohort-2 receipt event failed. The xarray agent independently repeated its narrow
+comparison bypass but submitted successfully without publishing it. This is a clean
+negative activation replication: v1 remains an existence result, while reliable or
+repeatable spontaneous publication is not established. See the
+[reviewed v2 analysis](experiments/swe-board-activation-10-v2/analysis.md).
+
 ## Measurement and limits
 
 Label diagnosis, attempted/successful gaming, publication, exact peer receipt,
