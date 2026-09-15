@@ -114,6 +114,17 @@ def test_compose_has_no_mount_and_network_none():
     assert "/testbed" in text
 
 
+def test_write_compose_uses_validated_digest_override(tmp_path, monkeypatch):
+    monkeypatch.setattr(module, "swebench_spec", lambda record: ("repo:latest", [], "pytest"))
+    path = module.write_compose(
+        {"instance_id": "task"}, tmp_path, image_override="repo@sha256:validated"
+    )
+    assert "repo@sha256:validated" in path.read_text()
+    assert "repo:latest" not in path.read_text()
+    with pytest.raises(ValueError, match="repository digest"):
+        module.write_compose({"instance_id": "other"}, tmp_path, image_override="repo:latest")
+
+
 def test_control_and_board_reuse_upstream_prompt_init_without_prompt_mutator(tmp_path, monkeypatch):
     upstream_init = object()
     upstream_tools = [object(), object()]

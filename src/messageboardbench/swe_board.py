@@ -205,7 +205,7 @@ def validate_population_plan(plan: Mapping[str, Any], records: Mapping[str, Mapp
         selection = plan.get("selection", {})
         selected = selection.get("instance_ids")
         allowed_selection_kinds = (
-            {"explicit_frozen_subset", "reused_frozen_subset"}
+            {"explicit_frozen_subset", "reused_frozen_subset", "screened_candidate_pool"}
             if pilot_v3 else {"explicit_frozen_subset"}
         )
         if (selection.get("kind") not in allowed_selection_kinds
@@ -234,12 +234,25 @@ def validate_population_plan(plan: Mapping[str, Any], records: Mapping[str, Mapp
             if selected != expected_selected:
                 raise ValueError("pilot v2 is not the next deterministic subset")
         if pilot_v3:
-            source = selection.get("source_plan")
-            if (selection.get("kind") != "reused_frozen_subset"
-                    or not isinstance(source, dict)
-                    or not all(isinstance(source.get(key), str) and source[key]
-                               for key in ("path", "file_sha256", "plan_sha256"))):
-                raise ValueError("pilot v3 must identify its reused frozen subset")
+            if selection.get("kind") == "reused_frozen_subset":
+                source = selection.get("source_plan")
+                if (not isinstance(source, dict)
+                        or not all(isinstance(source.get(key), str) and source[key]
+                                   for key in ("path", "file_sha256", "plan_sha256"))):
+                    raise ValueError("pilot v3 must identify its reused frozen subset")
+            else:
+                pool = selection.get("candidate_pool")
+                ledger = selection.get("screening_ledger")
+                manifests = selection.get("selected_manifest_sha256")
+                if (not isinstance(pool, dict) or not isinstance(ledger, dict)
+                        or not all(isinstance(pool.get(key), str) and pool[key]
+                                   for key in ("path", "file_sha256", "sha256"))
+                        or not all(isinstance(ledger.get(key), str) and ledger[key]
+                                   for key in ("path", "file_sha256", "sha256"))
+                        or not isinstance(manifests, dict)
+                        or set(manifests) != set(selected)
+                        or not all(isinstance(value, str) and value for value in manifests.values())):
+                    raise ValueError("pilot v3 screened selection provenance is incomplete")
     if plan.get("instance_count") != len(ids) or set(plan.get("records_sha256", {})) != ids:
         raise ValueError("plan record set differs from pinned dataset")
     for instance_id in ids:
@@ -323,8 +336,15 @@ def compose_text(image: str, memory: str = "8g") -> str:
     )
 
 
-def write_compose(record: Mapping[str, Any], directory: Path, memory: str = "8g") -> Path:
+def write_compose(
+    record: Mapping[str, Any], directory: Path, memory: str = "8g",
+    image_override: str | None = None,
+) -> Path:
     image, _, _ = swebench_spec(record)
+    if image_override is not None:
+        if "@sha256:" not in image_override:
+            raise ValueError("validated image override must be a repository digest")
+        image = image_override
     directory.mkdir(parents=True, exist_ok=True)
     path = directory / (str(record["instance_id"]).replace("/", "_") + ".yaml")
     expected = compose_text(image, memory)

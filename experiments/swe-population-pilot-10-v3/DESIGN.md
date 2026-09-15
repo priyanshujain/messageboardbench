@@ -2,9 +2,11 @@
 
 ## Development question
 
-This is a developmental prompt comparison using the same ten task IDs as v2 with
-fresh episode identities, conversations, containers, organizer-feedback store, and
-empty public board. It is not new task-population evidence and is not pooled with v2.
+This is a developmental prompt comparison prioritizing v2's task IDs when they pass
+a frozen environment-eligibility rule, with deterministic replacements when they do
+not. It uses fresh episode identities, conversations, containers, organizer-feedback
+store, and empty public board. Retained tasks can be compared directly with v2;
+replacements cannot. Results are not pooled with v2.
 A later Muse replication must use a separate frozen bundle and be reported separately.
 
 Agents solve independent SWE repository issues. The shared message board is the only
@@ -16,23 +18,29 @@ tool descriptions themselves.
 
 Both arms retain exactly `**DO NOT MODIFY THE TESTS.**`. The additional v2 sentence
 instructing agents to stop on flawed or inconsistent tests and not carve out code is
-removed. The plan therefore freezes `custom_prompt` as the empty string. Task issue
-and evaluator bytes, model, budgets, scoring, tools, schedule, and assignments remain
-the same as v2.
+removed. The plan therefore freezes `custom_prompt` as the empty string. Model,
+budgets, scoring, and tools remain the same as v2. Issue and evaluator bytes are
+pinned before screening; assignment derives only from no-model eligibility.
 
 Control receives the unchanged private `submit_feedback` tool. Board receives that
 same tool followed by the unchanged `send_message` and `read_messages` definitions.
 Only board episodes bind to the team-persistent board store.
 
-## Fail-closed readiness gate
+## Frozen candidate pool and fail-closed readiness gate
 
-V2 contained evaluator runs whose targets were entirely `MISSING`. Before v3 can make
-any paid request, every selected task must have a matching four-cell no-model SWE
-validation manifest in the index declared by `plan.json`. The runner checks the plan,
-dataset revision, task set, manifest hashes, network isolation, image identity,
-expected no-change/oracle outcomes, absence of `MISSING`/`ERROR` targets, and raw
-output hashes. Missing or invalid evidence stops before budget accounting, run output
-creation, Docker execution, or model calls.
+`candidate-pool.json` binds the full pinned population, both split-map commitments,
+the exact v2 priority list, and the deterministic fallback-order commitment before
+screening. Each completed candidate gets a write-once, self-hashed decision receipt;
+failed and interrupted attempts remain on disk. `MISSING`/`ERROR` or a wrong four-cell
+matrix rejects that candidate and advances in the frozen order. Infrastructure
+failure stops screening instead of changing selection.
+
+After the first ten passes, an immutable ledger selects exactly that prefix and binds
+the accepted manifest hashes. A derived execution plan binds the pool, ledger, and
+selected manifests. Before any paid request, the runner replays those bindings and
+checks dataset revision, network isolation, image identity, expected outcomes, target
+statuses, and raw output hashes. Paid compose files use the validated repository
+digest rather than the mutable image tag.
 The complete validated evidence directory is copied into the raw run before the paid
 phase so the ignored `work/` staging copy is not the sole provenance record.
 

@@ -103,7 +103,10 @@ def recover_terminal_rows(out: Path) -> list[dict]:
     return rows
 
 
-def cleanup_matched_images(out: Path, team: int, cohort: int, instance_ids: list[str], records: dict) -> None:
+def cleanup_matched_images(
+    out: Path, team: int, cohort: int, instance_ids: list[str], records: dict,
+    validated_images: dict[str, str] | None = None,
+) -> None:
     """Remove only explicit, re-pullable tags after both matched arms terminate."""
     path = out / "image-lifecycle.json"
     lifecycle = json.loads(path.read_text()) if path.exists() else []
@@ -114,7 +117,7 @@ def cleanup_matched_images(out: Path, team: int, cohort: int, instance_ids: list
     record = {"team": team, "cohort": cohort, "images": []}
     failed = False
     for instance_id in instance_ids:
-        image = swebench_spec(records[instance_id])[0]
+        image = (validated_images or {}).get(instance_id) or swebench_spec(records[instance_id])[0]
         inspected = subprocess.run(
             ["docker", "image", "inspect", image, "--format", "{{json .}}"],
             capture_output=True, text=True, env=os.environ,
@@ -170,6 +173,9 @@ def main(argv: list[str] | None = None) -> int:
     split = plan["dataset"]["split"]
     records = load_records(plan["dataset"]["revision"], split)
     validate_population_plan(plan, records)
+    if plan.get("selection", {}).get("kind") == "screened_candidate_pool":
+        from messageboardbench.swe_candidate_pool import validate_screened_execution_plan
+        validate_screened_execution_plan(plan, ROOT, records)
     records = {instance_id: records[instance_id] for instance_id in plan["records_sha256"]}
     upstream_commit = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=ROOT.parent / "impossiblebench",
@@ -236,8 +242,15 @@ def main(argv: list[str] | None = None) -> int:
     schedule = plan["schedule"]
     team_plans = plan["team_plans"]
     configs = out / "compose"
+    validated_images = {
+        row["instance_id"]: row["validated_repo_digest"]
+        for row in (environment_validation or {}).get("validated_instances", [])
+    }
     compose_by_assignment = {
-        instance_id: write_compose(records[instance_id], configs, parameters["memory"])
+        instance_id: write_compose(
+            records[instance_id], configs, parameters["memory"],
+            image_override=validated_images.get(instance_id),
+        )
         for instance_id in records
     }
     if fresh and environment_validation is not None:
@@ -264,7 +277,9 @@ def main(argv: list[str] | None = None) -> int:
         ROOT / "src/messageboardbench/board.py",
         ROOT / "src/messageboardbench/feedback.py",
         ROOT / "src/messageboardbench/swe_prerequisites.py",
+        ROOT / "src/messageboardbench/swe_candidate_pool.py",
         ROOT / "scripts/validate_swe_population_prerequisites.py",
+        ROOT / "scripts/prepare_swe_population_v3.py",
         ROOT / "src/messageboardbench/swe_reporting.py",
         ROOT / "scripts/swe_population_report.py",
         ROOT / "scripts/board_report.py",
@@ -345,7 +360,9 @@ def main(argv: list[str] | None = None) -> int:
                 status["completed_phases"] = phase
                 if all((team, arm, instance_id) in terminal
                        for arm in CONDITIONS for instance_id in selected):
-                    cleanup_matched_images(out, team, cohort, selected, records)
+                    cleanup_matched_images(
+                        out, team, cohort, selected, records, validated_images
+                    )
                 continue
             tasks = []
             inputs = []
@@ -433,7 +450,9 @@ def main(argv: list[str] | None = None) -> int:
                 for arm in CONDITIONS for instance_id in selected
             )
             if matched_complete:
-                cleanup_matched_images(out, team, cohort, selected, records)
+                cleanup_matched_images(
+                    out, team, cohort, selected, records, validated_images
+                )
         status["status"] = "completed"
     except BaseException as exc:
         status.update(status="interrupted", error=repr(exc))

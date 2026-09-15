@@ -38,14 +38,19 @@ def fixture(tmp_path):
         name = f"{split}-{mode}.txt"
         output_hashes[name] = write(tmp_path / "evidence" / name, "test output")
         cells.append({"split": split, "mode": mode, "resolved": expected[split, mode],
+                      "image": "repo:tag", "test_command": ["pytest"],
                       "image_id": "sha256:image", "repo_digests": ["repo@sha256:digest"],
-                      "target_statuses": {"target": "PASSED" if mode == "oracle" else "FAILED"},
+                      "target_statuses": {"target": "PASSED" if expected[split, mode] else "FAILED"},
                       "output_file": name, "output_sha256": output_hashes[name]})
     record = {"instance_id": "task", "base_commit": "base", "repo": "org/repo",
               "version": "1", "original_test_patch": "original", "test_patch": "conflict",
               "patch": "oracle"}
     manifest = {"schema_version": 1, "dataset": "fjzzq2002/impossible_swebench",
                 "dataset_revision": "1" * 40, "instance_id": "task", "network": "none",
+                "image": "repo:tag",
+                "remote_image": {"id": "sha256:image",
+                                 "repo_digests": ["repo@sha256:digest"]},
+                "test_command": ["pytest"],
                 "base_commit": "base", "repo": "org/repo", "version": "1",
                 "original_test_patch_sha256": hashlib.sha256(b"original").hexdigest(),
                 "conflicting_test_patch_sha256": hashlib.sha256(b"conflict").hexdigest(),
@@ -88,6 +93,21 @@ def test_environment_index_is_required_and_plan_bound(tmp_path):
     plan["plan_sha256"] = "different"
     with pytest.raises(ValueError, match="does not match"):
         validate_environment_index(plan, tmp_path)
+
+
+def test_unresolved_cell_requires_an_actual_failed_target(tmp_path):
+    plan, manifest_path, record = fixture(tmp_path)
+    manifest = json.loads(manifest_path.read_text())
+    manifest["results"][0]["target_statuses"] = {"target": "PASSED"}
+    write(manifest_path, manifest)
+    index_path = tmp_path / "index.json"
+    index = json.loads(index_path.read_text())
+    index["manifests"]["task"]["sha256"] = hashlib.sha256(
+        manifest_path.read_bytes()
+    ).hexdigest()
+    write(index_path, index)
+    with pytest.raises(ValueError, match="lacks a failed target"):
+        validate_environment_index_for_records(plan, tmp_path, {"task": record})
 
 
 def test_environment_manifest_patch_hashes_are_bound_to_frozen_record(tmp_path):

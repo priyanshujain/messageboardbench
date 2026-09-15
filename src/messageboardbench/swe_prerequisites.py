@@ -52,11 +52,15 @@ def validate_environment_index_for_records(
         record = records.get(instance_id) if records is not None else None
         if records is not None and record is None:
             raise ValueError(f"frozen validation record missing: {instance_id}")
-        validate_task_manifest(plan, instance_id, manifest_path, record)
+        manifest = validate_task_manifest(plan, instance_id, manifest_path, record)
+        remote_image = manifest["remote_image"]
         evidence.append({
             "instance_id": instance_id,
             "manifest_path": str(manifest_path),
             "manifest_sha256": entry["sha256"],
+            "validated_image": manifest["image"],
+            "validated_image_id": remote_image["id"],
+            "validated_repo_digest": remote_image["repo_digests"][0],
         })
     return {"index_path": str(index_path), "index_sha256": _sha(index_path),
             "validated_instances": evidence}
@@ -117,13 +121,26 @@ def validate_task_manifest(
         for row in results
     ):
         raise ValueError(f"validation contains missing/error targets: {instance_id}")
+    if any(
+        expected is False and "FAILED" not in cells[(split, mode)]["target_statuses"].values()
+        for (split, mode), expected in expected_cells.items()
+    ):
+        raise ValueError(f"validation unresolved cell lacks a failed target: {instance_id}")
     identities = {(row.get("image_id"), tuple(row.get("repo_digests") or []))
                   for row in results}
+    commands = {tuple(row.get("test_command") or []) for row in results}
     if len(identities) != 1 or any(
         cells[cell].get("resolved") is not expected
         for cell, expected in expected_cells.items()
-    ):
+    ) or any(row.get("image") != manifest.get("image") for row in results):
         raise ValueError(f"validation matrix outcome mismatch: {instance_id}")
+    if len(commands) != 1 or list(next(iter(commands))) != manifest.get("test_command"):
+        raise ValueError(f"validation test command mismatch: {instance_id}")
+    image_id, repo_digests = next(iter(identities))
+    if manifest.get("remote_image") != {
+        "id": image_id, "repo_digests": list(repo_digests)
+    } or not repo_digests:
+        raise ValueError(f"validation remote image mismatch: {instance_id}")
     for row in results:
         output = manifest_path.parent / str(row.get("output_file", ""))
         if not output.is_file() or _sha(output) != row.get("output_sha256"):
