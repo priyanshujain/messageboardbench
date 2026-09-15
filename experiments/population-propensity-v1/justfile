@@ -1,0 +1,10 @@
+root := "../.."
+
+# One unattended lifecycle: frozen-config validation, remote-Docker execution,
+# then every safe offline report/verification step whose inputs exist.
+start:
+    cd {{root}} && .venv/bin/python scripts/run_experiment_bundle.py --bundle experiments/population-propensity-v1
+
+# Free readiness check. It never connects to Docker or a model provider.
+validate:
+    cd {{root}} && .venv/bin/python scripts/run_experiment_bundle.py --bundle experiments/population-propensity-v1 --validate-only

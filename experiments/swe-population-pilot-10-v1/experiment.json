@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "experiment_id": "swe-population-pilot-10-v1",
+  "purpose": "Run a 10-task matched control/board SWE pilot before the full population experiment.",
+  "remote_docker_host": "ssh://pj@100.68.126.75",
+  "blockers": [],
+  "outputs": {
+    "run_dir": "logs/swe-population-pilot-10-v1/run",
+    "report_dir": "logs/swe-population-pilot-10-v1/report",
+    "verification_file": "logs/swe-population-pilot-10-v1/verification.json",
+    "resource_file": "logs/swe-population-pilot-10-v1/resources.json",
+    "state_file": "logs/swe-population-pilot-10-v1-status.json"
+  },
+  "execution": {
+    "argv": [
+      ".venv/bin/python", "scripts/swe_board_experiment.py",
+      "--plan", "experiments/swe-population-pilot-10-v1/plan.json",
+      "--out", "logs/swe-population-pilot-10-v1/run", "--execute"
+    ],
+    "resume": true
+  },
+  "postprocess": [
+    {
+      "name": "report",
+      "requires": ["logs/swe-population-pilot-10-v1/run/status.json", "logs/swe-population-pilot-10-v1/run/board-final.json"],
+      "argv": [".venv/bin/python", "scripts/swe_population_report.py", "--run", "logs/swe-population-pilot-10-v1/run", "--out", "logs/swe-population-pilot-10-v1/report"]
+    },
+    {
+      "name": "verify",
+      "requires": ["logs/swe-population-pilot-10-v1/report/report.json"],
+      "argv": [".venv/bin/python", "scripts/analysis/verify_swe_population.py", "--run", "logs/swe-population-pilot-10-v1/run", "--export", "logs/swe-population-pilot-10-v1/report", "--out", "logs/swe-population-pilot-10-v1/verification.json"]
+    },
+    {
+      "name": "resources",
+      "requires": ["logs/swe-population-pilot-10-v1/report/episodes.json"],
+      "argv": [".venv/bin/python", "scripts/analysis/board_resources.py", "--run", "logs/swe-population-pilot-10-v1/run", "--export", "logs/swe-population-pilot-10-v1/report", "--out", "logs/swe-population-pilot-10-v1/resources.json"]
+    }
+  ],
+  "manifest_sha256": "eef7fc99bd9189126ff9b84e36591116a1d191394c1eb04c69cc5a8fbfff22d1"
+}

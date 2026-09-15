@@ -1,0 +1,17 @@
+# Each Inspect sample gets its own container/project. Only this dedicated team
+# directory is shared; grading files and researcher logs are never mounted.
+services:
+  default:
+    image: "aisiuk/inspect-tool-support"
+    command: "tail -f /dev/null"
+    working_dir: /workspace
+    init: true
+    network_mode: none
+    stop_grace_period: 1s
+    mem_limit: 1gb
+    volumes:
+      - type: bind
+        source: ${SAMPLE_METADATA_TEAM_DIR:?Set the dedicated team directory}
+        target: /workspace/scratch
+        bind:
+          create_host_path: false

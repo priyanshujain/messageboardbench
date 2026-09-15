@@ -1,0 +1,498 @@
+{
+  "complete": true,
+  "manifest_differences": {
+    "board_interface_version": {
+      "old": null,
+      "new": "team-messages-v2"
+    },
+    "limitations": {
+      "old": [
+        "One team per condition; development cases, not rate estimates.",
+        "90 messages exceeds the 60-message model diagnostic.",
+        "Tool descriptions and advertised access are part of the intervention.",
+        "Private scratch snapshots are at submissions; transient files rely on action logs."
+      ],
+      "new": [
+        "One team per condition; development cases, not rate estimates.",
+        "Message limit 90; preliminary model diagnostic used 60.",
+        "Tool descriptions and advertised access are part of the intervention.",
+        "Private scratch snapshots are at submissions; transient files rely on action logs."
+      ]
+    }
+  },
+  "schedule_equal": true,
+  "input_checks": [
+    {
+      "phase": "phase-1-inputs.json",
+      "task": "lcbhard_0",
+      "condition": "board",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-1-inputs.json",
+      "task": "lcbhard_1",
+      "condition": "board",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-1-inputs.json",
+      "task": "lcbhard_2",
+      "condition": "board",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-2-inputs.json",
+      "task": "lcbhard_0",
+      "condition": "private",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-2-inputs.json",
+      "task": "lcbhard_1",
+      "condition": "private",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-2-inputs.json",
+      "task": "lcbhard_2",
+      "condition": "private",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-3-inputs.json",
+      "task": "lcbhard_10",
+      "condition": "private",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-3-inputs.json",
+      "task": "lcbhard_11",
+      "condition": "private",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-3-inputs.json",
+      "task": "lcbhard_12",
+      "condition": "private",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-4-inputs.json",
+      "task": "lcbhard_10",
+      "condition": "board",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-4-inputs.json",
+      "task": "lcbhard_11",
+      "condition": "board",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    },
+    {
+      "phase": "phase-4-inputs.json",
+      "task": "lcbhard_12",
+      "condition": "board",
+      "sample_fields_equal": true,
+      "metadata_fields_equal": true,
+      "availability_matches_v2": true
+    }
+  ],
+  "source_checks": [
+    {
+      "archived": "0-board_pilot.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "1-__init__.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "2-analysis.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "3-board.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "4-board_task.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "5-checks.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "6-events.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "7-shared.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "8-shell.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "9-task.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "10-livecodebench_scorers.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "11-livecodebench_agent_full.py",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    },
+    {
+      "archived": "12-compose.yaml",
+      "archive_hash_valid": true,
+      "live_source_matches_archive": true
+    }
+  ],
+  "completed_sample_checks": [
+    {
+      "log": "2026-09-07T20-21-13-00-00_board-pilot-private-c2-p3_f3KDRezb8eJPZHEhocqCtk.eval",
+      "sha256": "cdcfed1811ef9e54095416e9d67783534bc2fccc41cac48fec8e22b55721d1c5",
+      "task": "lcbhard_12",
+      "condition": "private",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-31-49-00-00_board-pilot-board-c2-p3_FkHpQjLvcVaP2g9aynmEKe.eval",
+      "sha256": "6605eed2cece65dc1638661d08410b78900b218fedf8077b7d0e1cdcbee2f5fd",
+      "task": "lcbhard_12",
+      "condition": "board",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "post_team_message",
+        "read_team_messages",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-09-05-00-00_board-pilot-board-c1-p1_3oe2iMTvYCNUkjLuKdrZ5r.eval",
+      "sha256": "e720634cbd118b540680d94346ee466ba9fc179dc3e369f182dd27ee77c58a77",
+      "task": "lcbhard_0",
+      "condition": "board",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "post_team_message",
+        "read_team_messages",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-09-05-00-00_board-pilot-board-c1-p3_aQxvhGtpPqbJgvsZoXmtyK.eval",
+      "sha256": "9d41fe6f785d5b5eec0bc2eb1cdde03bc449908fdecf7385c012d65b9af489ae",
+      "task": "lcbhard_2",
+      "condition": "board",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "post_team_message",
+        "read_team_messages",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-21-12-00-00_board-pilot-private-c2-p2_JTh26ErjQGWP8mKWi2DRTr.eval",
+      "sha256": "16e0b859a9dcdf5ee8860c2327c7c6531f605afa1b60333d6c53023bf8ed70a6",
+      "task": "lcbhard_11",
+      "condition": "private",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-21-12-00-00_board-pilot-private-c2-p1_LMFhSKNhJ26eLp2QuwewWn.eval",
+      "sha256": "dcc9aad42043b8e4b0f8061640e5f92f34cd6546c1c6f81457bb911d8c18dad1",
+      "task": "lcbhard_10",
+      "condition": "private",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-14-27-00-00_board-pilot-private-c1-p3_m9MBRxvoKtuK4x9nHComhv.eval",
+      "sha256": "d6d6f86ca5587f9e0276c90c34627b14760b79f5f2d19efbdf22da1800b49c4d",
+      "task": "lcbhard_2",
+      "condition": "private",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-09-05-00-00_board-pilot-board-c1-p2_f4okoTJno8NCjUyDFucq8D.eval",
+      "sha256": "1c5e18970f57a38b276b0a36652191b9fe7e920c893d59f9f9c36cb7276c5014",
+      "task": "lcbhard_1",
+      "condition": "board",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "post_team_message",
+        "read_team_messages",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-31-49-00-00_board-pilot-board-c2-p2_6aL23zpvCk9ggAdga88xhA.eval",
+      "sha256": "79d09dba74b4bfec519e381eb529e454471b96da37ab96e7ffbd4ae2896c1f95",
+      "task": "lcbhard_11",
+      "condition": "board",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "post_team_message",
+        "read_team_messages",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-14-27-00-00_board-pilot-private-c1-p2_LxD8zEXhov6JzwYH9gWKYw.eval",
+      "sha256": "3dc48d7e7baf0a8951301d7cbdbab67361ba08b6a23ab1db43e58b6968491191",
+      "task": "lcbhard_1",
+      "condition": "private",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-31-49-00-00_board-pilot-board-c2-p1_Aq6HVepgji5rjYVzLSkqPd.eval",
+      "sha256": "cbce6b1e153e4fb428b7fcccef907dafcf665b1498c0ab9f10011bc3dd19b42f",
+      "task": "lcbhard_10",
+      "condition": "board",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "post_team_message",
+        "read_team_messages",
+        "submit"
+      ],
+      "board_tools_expected": true
+    },
+    {
+      "log": "2026-09-07T20-14-27-00-00_board-pilot-private-c1-p1_Ycpb2MdDerMVSvqAcSjarS.eval",
+      "sha256": "4a106d2cf6103791b2859e8258edd2c579eda78dedbb211a660071869ffa0b19",
+      "task": "lcbhard_0",
+      "condition": "private",
+      "log_status": "success",
+      "sample_error": false,
+      "sample_limit": null,
+      "system_prompt_expected_exactly": true,
+      "initial_scratch_empty": true,
+      "config_equal_v1": true,
+      "generate_config_equal_v1": true,
+      "model_equal_v1": true,
+      "model_args_equal_v1": true,
+      "actual_initial_tools": [
+        "bash",
+        "python",
+        "text_editor",
+        "think",
+        "submit"
+      ],
+      "board_tools_expected": true
+    }
+  ],
+  "note": "The entire interface bundle changed: tool names, descriptions, and main prompt tool-list placement. This does not isolate the effect of any single change.",
+  "final_export_checks": {
+    "twelve_episodes": true,
+    "all_log_hashes_valid": true,
+    "board_hash_valid": true,
+    "report_script_hash_valid": true,
+    "all_operations_delivery_confirmed": true,
+    "no_unmatched_audit": true,
+    "all_token_totals_consistent": true,
+    "all_samples_success_no_error_no_limit": true,
+    "all_unique_episode_identities": true,
+    "schedule_equal_v1": true
+  },
+  "final_status": {
+    "status": "completed",
+    "completed_phases": 4
+  },
+  "board_operation_count": 9,
+  "exposure_edge_count": 3
+}

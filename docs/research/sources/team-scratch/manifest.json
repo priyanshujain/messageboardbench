@@ -1,0 +1,23 @@
+{
+  "retrieved_date": "2026-09-07",
+  "sources": [
+    {
+      "file": "deepmind-2609.04170v1.html",
+      "url": "https://arxiv.org/html/2609.04170v1",
+      "bytes": 350943,
+      "sha256": "f175364fcaab37cc10beb3a42ca69433b4d0fa182edb7f921b42269ccdb1d2ed"
+    },
+    {
+      "file": "deepmind-2609.04170v1.pdf",
+      "url": "https://arxiv.org/pdf/2609.04170v1",
+      "bytes": 536777,
+      "sha256": "79675effc26f8a7f68e9222e9f266fe3637407f2ed2ca15408a387b054e9c135"
+    },
+    {
+      "file": "deepmind-2609.04170v1.xml",
+      "url": "https://export.arxiv.org/api/query?id_list=2609.04170",
+      "bytes": 3383,
+      "sha256": "fcb9c12234ca007cba042db43d8fb7b7577def5fbebd34f0596966c094c04c4b"
+    }
+  ]
+}

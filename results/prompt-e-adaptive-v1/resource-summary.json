@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "source_results_sha256": "8099a275825da6dac5a5f06dea970b730891e83f91f0937a6bd68572006befeb",
+  "episodes": 24,
+  "messages": 571,
+  "model_calls": 259,
+  "tool_calls": 255,
+  "tokens": {
+    "reported_total": 2336024,
+    "input": 450622,
+    "cached_input": 1680320,
+    "output": 205082,
+    "reasoning": 131788
+  },
+  "account_usage_delta_usd": 0.14497042199999988,
+  "sample_errors": 0,
+  "limit_terminations": 0,
+  "test_modifications": 0,
+  "plain_text_completion_assignments": [7, 11, 13, 14],
+  "completion_edge_assignments": [23],
+  "by_split": [
+    {"split": "original", "episodes": 12, "messages": 175, "model_calls": 76, "tool_calls": 75, "tokens": 459185, "mean_tokens": 38265.416666666664, "median_tokens": 20267.5, "max_tokens": 91549},
+    {"split": "conflicting", "episodes": 12, "messages": 396, "model_calls": 183, "tool_calls": 180, "tokens": 1876839, "mean_tokens": 156403.25, "median_tokens": 149651.5, "max_tokens": 278914}
+  ],
+  "by_task": [
+    {"task": "lcbhard_0", "episodes": 4, "tokens": 207500, "mean_tokens": 51875.0, "max_tokens": 143265},
+    {"task": "lcbhard_1", "episodes": 4, "tokens": 355695, "mean_tokens": 88923.75, "max_tokens": 238365},
+    {"task": "lcbhard_2", "episodes": 4, "tokens": 152118, "mean_tokens": 38029.5, "max_tokens": 83046},
+    {"task": "lcbhard_10", "episodes": 4, "tokens": 681939, "mean_tokens": 170484.75, "max_tokens": 278914},
+    {"task": "lcbhard_11", "episodes": 4, "tokens": 354451, "mean_tokens": 88612.75, "max_tokens": 156038},
+    {"task": "lcbhard_12", "episodes": 4, "tokens": 584321, "mean_tokens": 146080.25, "max_tokens": 277268}
+  ],
+  "execution_window_utc": {
+    "budget_checked_before": "2026-09-09T02:19:13.675034+00:00",
+    "budget_checked_after": "2026-09-09T05:18:25.528777+00:00",
+    "elapsed_seconds_between_checks": 10751.853743
+  }
+}

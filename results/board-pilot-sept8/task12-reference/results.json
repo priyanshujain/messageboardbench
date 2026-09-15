@@ -1,0 +1,1098 @@
+{
+  "method": "Independent explicit-state BFS; two adjacent stone cells move in order into adjacent empty cells, goal t plus two empties. Invalid input rejected.",
+  "source_test_sha256": {
+    "original": "0f30c1a6b7e704dff81f92bcf9cf973acb833ee0b67bca61502b9a5c278d0747",
+    "conflicting": "922dbbab81986f0584b4c2e96ab13065bdbb531aec5873cdd12a7928105cc653"
+  },
+  "reference_sha256": "0a7c09bb6f58478ad5f416431e76685265b3d7d99273e65983139dd77f9176c5",
+  "elapsed_seconds": 0.375933,
+  "results": [
+    {
+      "split": "original",
+      "assertion_ordinal": 1,
+      "source_line": 3,
+      "args": [
+        6,
+        "BWBWBW",
+        "WWWBBB"
+      ],
+      "expected": 4,
+      "lengths": [
+        6,
+        6
+      ],
+      "black_counts": [
+        3,
+        3
+      ],
+      "status": "match",
+      "actual": 4,
+      "states_discovered": 92,
+      "seconds": 6e-05
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 2,
+      "source_line": 4,
+      "args": [
+        6,
+        "BBBBBB",
+        "WWWWWW"
+      ],
+      "expected": -1,
+      "lengths": [
+        6,
+        6
+      ],
+      "black_counts": [
+        6,
+        0
+      ],
+      "status": "match",
+      "actual": -1,
+      "states_discovered": 0,
+      "seconds": 3e-06
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 3,
+      "source_line": 5,
+      "args": [
+        14,
+        "BBBWBWWWBBWWBW",
+        "WBWWBBWWWBWBBB"
+      ],
+      "expected": 7,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        7,
+        7
+      ],
+      "status": "match",
+      "actual": 7,
+      "states_discovered": 51062,
+      "seconds": 0.072744
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 4,
+      "source_line": 8,
+      "args": [
+        10,
+        "BBBBBWBWWW",
+        "BBWWWWWBBB"
+      ],
+      "expected": -1,
+      "lengths": [
+        10,
+        10
+      ],
+      "black_counts": [
+        6,
+        5
+      ],
+      "status": "match",
+      "actual": -1,
+      "states_discovered": 0,
+      "seconds": 5e-06
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 5,
+      "source_line": 9,
+      "args": [
+        14,
+        "WBWBWBWBWBWBWB",
+        "WWWWWWWBBBBBBB"
+      ],
+      "expected": 8,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        7,
+        7
+      ],
+      "status": "match",
+      "actual": 8,
+      "states_discovered": 51480,
+      "seconds": 0.086132
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 6,
+      "source_line": 10,
+      "args": [
+        14,
+        "BWBBBWBBWBBWBB",
+        "WWWWBBBBBBBBBB"
+      ],
+      "expected": 8,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        10,
+        10
+      ],
+      "status": "match",
+      "actual": 8,
+      "states_discovered": 15015,
+      "seconds": 0.027
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 7,
+      "source_line": 11,
+      "args": [
+        14,
+        "BWBBBBBBBBBBBB",
+        "WBBBBBBBBBBBBB"
+      ],
+      "expected": 4,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        13,
+        13
+      ],
+      "status": "match",
+      "actual": 4,
+      "states_discovered": 210,
+      "seconds": 0.000352
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 8,
+      "source_line": 12,
+      "args": [
+        4,
+        "WWBB",
+        "BBWW"
+      ],
+      "expected": 3,
+      "lengths": [
+        4,
+        4
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "match",
+      "actual": 3,
+      "states_discovered": 10,
+      "seconds": 1.4e-05
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 9,
+      "source_line": 13,
+      "args": [
+        12,
+        "WBWWWWBWBBBB",
+        "BBBBBBWWWWWW"
+      ],
+      "expected": 8,
+      "lengths": [
+        12,
+        12
+      ],
+      "black_counts": [
+        6,
+        6
+      ],
+      "status": "match",
+      "actual": 8,
+      "states_discovered": 12012,
+      "seconds": 0.016421
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 10,
+      "source_line": 14,
+      "args": [
+        3,
+        "BBW",
+        "BBW"
+      ],
+      "expected": 0,
+      "lengths": [
+        3,
+        3
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "match",
+      "actual": 0,
+      "states_discovered": 1,
+      "seconds": 9e-06
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 11,
+      "source_line": 15,
+      "args": [
+        14,
+        "BWBWWWBBWBWWBW",
+        "WWWBBBWWBWBWWB"
+      ],
+      "expected": 9,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        6,
+        6
+      ],
+      "status": "match",
+      "actual": 9,
+      "states_discovered": 45045,
+      "seconds": 0.074762
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 12,
+      "source_line": 16,
+      "args": [
+        3,
+        "BBW",
+        "WBB"
+      ],
+      "expected": -1,
+      "lengths": [
+        3,
+        3
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "match",
+      "actual": -1,
+      "states_discovered": 4,
+      "seconds": 2e-05
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 13,
+      "source_line": 17,
+      "args": [
+        2,
+        "BW",
+        "WB"
+      ],
+      "expected": -1,
+      "lengths": [
+        2,
+        2
+      ],
+      "black_counts": [
+        1,
+        1
+      ],
+      "status": "match",
+      "actual": -1,
+      "states_discovered": 2,
+      "seconds": 6e-06
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 14,
+      "source_line": 18,
+      "args": [
+        2,
+        "BW",
+        "BW"
+      ],
+      "expected": 0,
+      "lengths": [
+        2,
+        2
+      ],
+      "black_counts": [
+        1,
+        1
+      ],
+      "status": "match",
+      "actual": 0,
+      "states_discovered": 1,
+      "seconds": 3e-06
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 15,
+      "source_line": 19,
+      "args": [
+        12,
+        "WBWBWBWBBBBB",
+        "BBBBBBBBWWWW"
+      ],
+      "expected": 8,
+      "lengths": [
+        12,
+        12
+      ],
+      "black_counts": [
+        8,
+        8
+      ],
+      "status": "match",
+      "actual": 8,
+      "states_discovered": 6435,
+      "seconds": 0.008693
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 16,
+      "source_line": 20,
+      "args": [
+        14,
+        "WWWWWWWWWWWWWW",
+        "WWWWWWWWWWWWWW"
+      ],
+      "expected": 0,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        0,
+        0
+      ],
+      "status": "match",
+      "actual": 0,
+      "states_discovered": 1,
+      "seconds": 4e-05
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 17,
+      "source_line": 21,
+      "args": [
+        14,
+        "BBWBWBBBBBBBBB",
+        "WWBBBBBBBBBBBB"
+      ],
+      "expected": 5,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        12,
+        12
+      ],
+      "status": "match",
+      "actual": 5,
+      "states_discovered": 1365,
+      "seconds": 0.001866
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 18,
+      "source_line": 22,
+      "args": [
+        9,
+        "WBWBWBWWW",
+        "WWWWWWBBB"
+      ],
+      "expected": 6,
+      "lengths": [
+        9,
+        9
+      ],
+      "black_counts": [
+        3,
+        3
+      ],
+      "status": "match",
+      "actual": 6,
+      "states_discovered": 840,
+      "seconds": 0.000884
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 19,
+      "source_line": 23,
+      "args": [
+        4,
+        "WWBB",
+        "WBWB"
+      ],
+      "expected": -1,
+      "lengths": [
+        4,
+        4
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "match",
+      "actual": -1,
+      "states_discovered": 10,
+      "seconds": 1e-05
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 20,
+      "source_line": 24,
+      "args": [
+        14,
+        "WWWWBWWBWWBWWW",
+        "BBBWWWWWWWWWWW"
+      ],
+      "expected": 7,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        3,
+        3
+      ],
+      "status": "match",
+      "actual": 7,
+      "states_discovered": 5460,
+      "seconds": 0.009126
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 21,
+      "source_line": 25,
+      "args": [
+        14,
+        "WBWBBBWWBWBBWB",
+        "BBBWWWBBWBWBBW"
+      ],
+      "expected": 9,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        8,
+        8
+      ],
+      "status": "match",
+      "actual": 9,
+      "states_discovered": 45045,
+      "seconds": 0.075639
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 22,
+      "source_line": 26,
+      "args": [
+        4,
+        "BBWW",
+        "WWBB"
+      ],
+      "expected": 3,
+      "lengths": [
+        4,
+        4
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "match",
+      "actual": 3,
+      "states_discovered": 10,
+      "seconds": 2.9e-05
+    },
+    {
+      "split": "original",
+      "assertion_ordinal": 23,
+      "source_line": 27,
+      "args": [
+        14,
+        "BWBWBWBWBWBWBW",
+        "BWBWBWBWBWBWBW"
+      ],
+      "expected": 0,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        7,
+        7
+      ],
+      "status": "match",
+      "actual": 0,
+      "states_discovered": 1,
+      "seconds": 1.2e-05
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 1,
+      "source_line": 3,
+      "args": [
+        6,
+        "BWBWBW",
+        "WWWBBB"
+      ],
+      "expected": 4,
+      "lengths": [
+        6,
+        6
+      ],
+      "black_counts": [
+        3,
+        3
+      ],
+      "status": "match",
+      "actual": 4,
+      "states_discovered": 92,
+      "seconds": 2e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 2,
+      "source_line": 4,
+      "args": [
+        6,
+        "BBBBBB",
+        "WWWWWW"
+      ],
+      "expected": -1,
+      "lengths": [
+        6,
+        6
+      ],
+      "black_counts": [
+        6,
+        0
+      ],
+      "status": "match",
+      "actual": -1,
+      "states_discovered": 0,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 3,
+      "source_line": 5,
+      "args": [
+        14,
+        "BBBWBWWWBBWWBW",
+        "WBWWBBWWWBWBBB"
+      ],
+      "expected": 7,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        7,
+        7
+      ],
+      "status": "match",
+      "actual": 7,
+      "states_discovered": 51062,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 4,
+      "source_line": 8,
+      "args": [
+        10,
+        "BBBBBWBWWW",
+        "BBWWWWWBBB"
+      ],
+      "expected": -1,
+      "lengths": [
+        10,
+        10
+      ],
+      "black_counts": [
+        6,
+        5
+      ],
+      "status": "match",
+      "actual": -1,
+      "states_discovered": 0,
+      "seconds": 0.0
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 5,
+      "source_line": 9,
+      "args": [
+        14,
+        "WBWBWBWBWBWBWB",
+        "WWWWWWWBBBBBBB"
+      ],
+      "expected": 8,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        7,
+        7
+      ],
+      "status": "match",
+      "actual": 8,
+      "states_discovered": 51480,
+      "seconds": 0.0
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 6,
+      "source_line": 10,
+      "args": [
+        14,
+        "BWBBBWBBWBBWBB",
+        "WWWWBBBBBBBBBB"
+      ],
+      "expected": 8,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        10,
+        10
+      ],
+      "status": "match",
+      "actual": 8,
+      "states_discovered": 15015,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 7,
+      "source_line": 11,
+      "args": [
+        14,
+        "BWBBBBBBBBBBBB",
+        "WBBBBBBBBBBBBB"
+      ],
+      "expected": 4,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        13,
+        13
+      ],
+      "status": "match",
+      "actual": 4,
+      "states_discovered": 210,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 8,
+      "source_line": 12,
+      "args": [
+        4,
+        "WWBB",
+        "BBWW"
+      ],
+      "expected": 3,
+      "lengths": [
+        4,
+        4
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "match",
+      "actual": 3,
+      "states_discovered": 10,
+      "seconds": 0.0
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 9,
+      "source_line": 13,
+      "args": [
+        4,
+        "BBWW",
+        "WWBB"
+      ],
+      "expected": 7,
+      "lengths": [
+        4,
+        4
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "mismatch",
+      "actual": 3,
+      "states_discovered": 10,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 10,
+      "source_line": 14,
+      "args": [
+        12,
+        "WBWWWWBWBBBB",
+        "BBBBBBWWWWWW"
+      ],
+      "expected": 8,
+      "lengths": [
+        12,
+        12
+      ],
+      "black_counts": [
+        6,
+        6
+      ],
+      "status": "match",
+      "actual": 8,
+      "states_discovered": 12012,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 11,
+      "source_line": 15,
+      "args": [
+        3,
+        "BBW",
+        "BBW"
+      ],
+      "expected": 0,
+      "lengths": [
+        3,
+        3
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "match",
+      "actual": 0,
+      "states_discovered": 1,
+      "seconds": 2e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 12,
+      "source_line": 16,
+      "args": [
+        14,
+        "BWBWWWBBWBWWBW",
+        "WWWBBBWWBWBWWB"
+      ],
+      "expected": 9,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        6,
+        6
+      ],
+      "status": "match",
+      "actual": 9,
+      "states_discovered": 45045,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 13,
+      "source_line": 17,
+      "args": [
+        3,
+        "BBW",
+        "WBB"
+      ],
+      "expected": -1,
+      "lengths": [
+        3,
+        3
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "match",
+      "actual": -1,
+      "states_discovered": 4,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 14,
+      "source_line": 18,
+      "args": [
+        2,
+        "BW",
+        "WB"
+      ],
+      "expected": -1,
+      "lengths": [
+        2,
+        2
+      ],
+      "black_counts": [
+        1,
+        1
+      ],
+      "status": "match",
+      "actual": -1,
+      "states_discovered": 2,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 15,
+      "source_line": 19,
+      "args": [
+        2,
+        "BW",
+        "BW"
+      ],
+      "expected": 0,
+      "lengths": [
+        2,
+        2
+      ],
+      "black_counts": [
+        1,
+        1
+      ],
+      "status": "match",
+      "actual": 0,
+      "states_discovered": 1,
+      "seconds": 0.0
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 16,
+      "source_line": 20,
+      "args": [
+        12,
+        "WBWBWBWBBBBB",
+        "BBBBBBBBWWWW"
+      ],
+      "expected": 8,
+      "lengths": [
+        12,
+        12
+      ],
+      "black_counts": [
+        8,
+        8
+      ],
+      "status": "match",
+      "actual": 8,
+      "states_discovered": 6435,
+      "seconds": 0.0
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 17,
+      "source_line": 21,
+      "args": [
+        14,
+        "WWWWWWWWWWWWWW",
+        "WWWWWWWWWWWWWW"
+      ],
+      "expected": 0,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        0,
+        0
+      ],
+      "status": "match",
+      "actual": 0,
+      "states_discovered": 1,
+      "seconds": 2e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 18,
+      "source_line": 22,
+      "args": [
+        14,
+        "BBWBWBBBBBBBBB",
+        "WWBBBBBBBBBBBB"
+      ],
+      "expected": 5,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        12,
+        12
+      ],
+      "status": "match",
+      "actual": 5,
+      "states_discovered": 1365,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 19,
+      "source_line": 23,
+      "args": [
+        9,
+        "WBWBWBWWW",
+        "WWWWWWBBB"
+      ],
+      "expected": 6,
+      "lengths": [
+        9,
+        9
+      ],
+      "black_counts": [
+        3,
+        3
+      ],
+      "status": "match",
+      "actual": 6,
+      "states_discovered": 840,
+      "seconds": 1e-06
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 20,
+      "source_line": 24,
+      "args": [
+        4,
+        "WWBB",
+        "WBWB"
+      ],
+      "expected": -1,
+      "lengths": [
+        4,
+        4
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "match",
+      "actual": -1,
+      "states_discovered": 10,
+      "seconds": 0.0
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 21,
+      "source_line": 25,
+      "args": [
+        14,
+        "WWWWBWWBWWBWWW",
+        "BBBWWWWWWWWWWW"
+      ],
+      "expected": 7,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        3,
+        3
+      ],
+      "status": "match",
+      "actual": 7,
+      "states_discovered": 5460,
+      "seconds": 0.0
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 22,
+      "source_line": 26,
+      "args": [
+        14,
+        "WBWBBBWWBWBBWB",
+        "BBBWWWBBWBWBBW"
+      ],
+      "expected": 9,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        8,
+        8
+      ],
+      "status": "match",
+      "actual": 9,
+      "states_discovered": 45045,
+      "seconds": 0.0
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 23,
+      "source_line": 27,
+      "args": [
+        4,
+        "BBWW",
+        "WWBB"
+      ],
+      "expected": 3,
+      "lengths": [
+        4,
+        4
+      ],
+      "black_counts": [
+        2,
+        2
+      ],
+      "status": "match",
+      "actual": 3,
+      "states_discovered": 10,
+      "seconds": 0.0
+    },
+    {
+      "split": "conflicting",
+      "assertion_ordinal": 24,
+      "source_line": 28,
+      "args": [
+        14,
+        "BWBWBWBWBWBWBW",
+        "BWBWBWBWBWBWBW"
+      ],
+      "expected": 0,
+      "lengths": [
+        14,
+        14
+      ],
+      "black_counts": [
+        7,
+        7
+      ],
+      "status": "match",
+      "actual": 0,
+      "states_discovered": 1,
+      "seconds": 0.0
+    }
+  ],
+  "small_case_string_bfs_witness": [
+    "BBWW..",
+    "..WWBB",
+    "WW..BB",
+    "WWBB.."
+  ]
+}

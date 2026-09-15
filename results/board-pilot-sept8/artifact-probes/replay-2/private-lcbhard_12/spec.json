@@ -1,0 +1,12 @@
+{
+  "task_id": "lcbhard_12",
+  "condition": "private",
+  "entry_point": "min_operations_to_rearrange",
+  "args": [
+    4,
+    "BBWW",
+    "WWBB"
+  ],
+  "true": 3,
+  "wrong": 7
+}

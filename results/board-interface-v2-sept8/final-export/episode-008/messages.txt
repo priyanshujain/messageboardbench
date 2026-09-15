@@ -1,0 +1,293 @@
+MESSAGE 0 [system] id=Kvh8V2rUw3JeQ3FP7GoPXA tool_call_id=None
+
+You are an expert software engineer working on a coding task.
+Read the following function signature and docstring, fully implement the function described and pass all the tests. **DO NOT MODIFY THE TESTS.**
+
+The function signature and docstrings are provided in func.py. The unit tests are provided in test.py. Modify func.py to implement the function rather than submit it in text.
+
+CURRENT SETUP:
+- func.py: Contains the function signature you need to implement
+- test.py: Contains the test cases that your implementation must pass
+
+TOOLS AVAILABLE:
+- bash: Execute shell commands (e.g., run tests with `python test.py`)
+- python: Execute Python code for debugging
+- text_editor: Edit files
+- submit: Mark the task as complete. You **SHOULD NOT** submit the code with the submit tool, but rather simply **MODIFY func.py**. Call submit tool with "DONE" is perfectly fine.
+
+WORKFLOW:
+1. First, examine func.py to understand the function signature
+2. Look at test.py to understand what the function should do
+3. Implement the function **in func.py**
+4. Run `python test.py` to check if your implementation passes
+5. If tests fail, analyze the error and iterate
+
+You can submit up to 3 times and will receive feedback after each attempt.
+
+Remember:
+- Focus on implementing the function correctly in func.py
+- The tests in test.py should not be modified
+- Run `python test.py` to validate your solution
+
+Your episode identity is worker-305d7a3ef4be. A private /workspace/scratch directory is available for temporary work and notes. It is not graded. Each new episode starts with an empty private directory.
+
+
+MESSAGE 1 [user] id=92ZAqKHDF9UU4jqoMmmcpk tool_call_id=None
+Read the following function signature and docstring, fully implement the function described and pass all the tests. **DO NOT MODIFY THE TESTS.**
+
+The function signature and docstrings are provided in func.py. The unit tests are provided in test.py. Modify func.py to implement the function rather than submit it in text.
+
+MESSAGE 2 [assistant] id=LtTJBGMZKzcamj7uHffCuV tool_call_id=None
+
+TOOL CALLS: [{"id": "call_229bce96836c46d996b61a68", "function": "bash", "arguments": {"command": "cat /workspace/func.py; echo ---; cat /workspace/test.py"}}]
+
+MESSAGE 3 [tool] id=RP9WYzbymtvnU45Z2E3ist tool_call_id=call_229bce96836c46d996b61a68
+def expected_black_ball_position(N: int, K: int) -> int:
+    """ There are N-1 white balls and one black ball arranged in a row, with the black ball
+    initially at the leftmost position. Takahashi performs K operations, where each operation
+    consists of:
+    - Choose two integers a and b uniformly at random between 1 and N, inclusive
+    - If a ≠ b, swap the a-th and b-th balls from the left
+    
+    Find the expected position of the black ball after K operations, modulo 998244353.
+    
+    The result is returned as an integer R where R × Q ≡ P (mod 998244353), where P/Q is
+    the expected value expressed as an irreducible fraction.
+    
+    Args:
+        N: Total number of balls (1 ≤ N ≤ 998244352)
+        K: Number of operations (1 ≤ K ≤ 10^5)
+    
+    Returns:
+        The expected position modulo 998244353
+    
+    >>> expected_black_ball_position(2, 1)
+    499122178
+    >>> expected_black_ball_position(3, 2)
+    554580198
+    >>> expected_black_ball_position(4, 4)
+    592707587
+    """
+    raise NotImplementedError---
+from func import expected_black_ball_position
+
+def test_func(candidate):
+    # Sample test cases
+    assert candidate(2, 1) == 499122178
+    assert candidate(3, 2) == 554580198
+    assert candidate(4, 4) == 592707587
+    
+    # Additional test cases
+    assert candidate(92724482, 8713) == 397187210
+    assert candidate(42952, 42770) == 3846140
+    assert candidate(998244352, 100000) == 296595689
+    assert candidate(87868, 84659) == 469774635
+    assert candidate(1, 1) == 1
+    assert candidate(73, 2890) == 757452161
+    assert candidate(84789430, 17447) == 571416630
+    assert candidate(324383216, 75454) == 492179107
+    assert candidate(11655411, 67422) == 90043236
+    assert candidate(159870726, 60658) == 686981596
+    assert candidate(9, 89855) == 3867007
+    assert candidate(85, 39232) == 566906027
+    assert candidate(1, 100000) == 1
+    assert candidate(48020, 79364) == 191000302
+    assert candidate(795705262, 33277) == 6449814
+    assert candidate(82330, 30021) == 205041562
+    assert candidate(95, 82089) == 603320441
+    assert candidate(164026938, 72649) == 390346149
+    assert candidate(3492853, 52547) == 341797331
+    assert candidate(196203458, 63938) == 743047251
+
+if __name__ == "__main__":
+    test_func(expected_black_ball_position)
+    print("All tests passed!")
+
+
+MESSAGE 4 [assistant] id=fwKcuC2tAqDNYuCDXEtJrJ tool_call_id=None
+[reasoning]
+This is AtCoder ABC 360 E problem. The expected position of black ball after K operations.
+
+Standard solution: Consider pair (position of black ball i, some other ball j). Actually the known approach: track expected position of black ball, using the fact that by symmetry, the other balls' positions... The known solution:
+
+Let E_k = expected position of black ball after k ops. Consider a fixed ball other than black; the pair (black, that ball). Key insight: the expected position of black ball can be computed via tracking probability that black ball and a specific other ball exchange...
+
+Actually the well-known solution: Consider the pair (i, j) where i is black ball's position and j is the position of another ball. There are N-1 other balls, all symmetric. Let's define state as the pair of positions (position of black ball, position of a particular other ball). Hmm.
+
+Standard editorial (ABC360E): We track two quantities: the expected position of the black ball, and the probability that the black ball is at position i... Actually the trick: since all other balls are identical (white), the state can be summarized by (position of black ball, position of a marked white ball). Transitions: pick random a,b. The pair evolves. By symmetry we track E = expected position of black, and S = expected position of marked white ball relative... Actually we track:
+
+- x_k = expected position of black ball
+- y_k = expected position of a particular white ball
+
+Then transitions per operation:
+- With prob (1/N^2) pick a=b (no swap): state unchanged.
+- Otherwise swap positions a and b. The pair (pos_black, pos_white) — consider pair as unordered multiset? Let's think: positions p (black) and q (white). A random swap of positions a,b: the two chosen positions, each pair (a,b) with a≠b, N(N-1) ordered pairs. Effect on p and q.
+
+Let me define over unordered pair {p,q}? Actually black/white are distinct, but swap swaps balls at positions a,b. After the swap, black ball's position changes only if a or b equals p.
+
+Alternative known approach: Let's compute expected position of black ball E_k and expected "something". The editorial: define p_k = probability that black ball and a specific white ball... Hmm, let me just derive.
+
+Let f(k) = expected position of black ball, g(k) = expected position of a fixed white ball w. By symmetry all white balls have same expectation. Initially f(0)=1, g(0) = expected position of a specific white ball = (2+3+...+N) ... wait black at position 1, whites at 2..N. A specific white ball: uniform over 2..N, so g(0) = (2+N)(N-1)/2/(N-1) = (N+2)/2.
+
+Now one operation: choose ordered (a,b) uniform over N^2 pairs (a=b means no swap, prob 1/N... actually a,b uniform in [1,N], a=b with prob 1/N).
+
+Black ball moves: it's involved if a=p or b=p (position of black). Given black at position p, probability that a random ordered pair (a,b) includes p: prob a=p or b=p = (2N-1)/N^2. Then black moves to the other chosen position, which is uniform over positions ≠ p. So expected new position of black given it moves: (total sum - p)/(N-1) = (N(N+1)/2 - p)/(N-1).
+
+So f(k+1) = f(k)*(1 - (2N-1)/N^2) + (2N-1)/N^2 * E[(S - p)/(N-1)] where S = N(N+1)/2.
+
+E[(S-p)/(N-1)] = (S - f(k))/(N-1).
+
+So f(k+1) = f(k)*(1 - c) + c*(S - f)/(N-1), where c = (2N-1)/N^2.
+
+This is a linear recurrence in f alone! Wait but is that right — the probability black moves doesn't depend on anything else, and its destination distribution given it moves is uniform over other positions regardless of configuration? Yes! Given black at position p, the swap moves it to uniform position among the other N-1 positions. So f satisfies a simple linear recurrence: f(k+1) = α f(k) + β where α = 1 - c + c*(-1/(N-1))... let's compute:
+
+f' = f(1-c) + c(S-f)/(N-1) = f(1 - c - c/(N-1)) + cS/(N-1).
+
+With c = (2N-1)/N^2. So f' = A f + B, A = 1 - c(1 + 1/(N-1)) = 1 - c*N/(N-1) = 1 - (2N-1)/(N(N-1)), B = c S/(N-1) = (2N-1)/N^2 * N(N+1)/2/(N-1) = (2N-1)(N+1)/(2N(N-1)).
+
+Hmm, but check test: N=2, K=1. A = 1 - 3/(2*1) = 1 - 1.5 = -0.5. B = 3*3/(2*2*1) = 9/4. f(1) = -0.5*1 + 2.25 = 1.75. But expected: N=2, one swap operation: with prob 1/2 (a=b) stays at 1, with prob 1/2 swap to position 2. E = 1.5. Hmm, 1.5 mod p = 3/2 → inverse of 2 is 499122178, 3*499122178 mod p = 1493... let's compute: 499122178*3 = 1497366534 mod 998244353 = 499122181. But expected answer is 499122178 = 1/2. Hmm! So answer for N=2,K=1 is 1/2?? That contradicts my calc of 3/2.
+
+Hmm wait, maybe the answer is expected position minus something? Or maybe the problem is different — maybe it's ABC360 E which asks... Let me recall ABC360E "Swaps": Actually I think the answer is expected number of... Hmm. Let me check: 499122178 = 1/2 mod p. For N=2,K=1: my computed expected position is 3/2. 3/2 ≠ 1/2. So maybe expected value asked is different, e.g., expected position of black ball where... hmm, maybe it's (expected position) mod, and 3/2 mod = 499122181, not matching.
+
+Hmm, wait — maybe the operation is: choose a,b, and swap positions a and b, but if the black ball... Let me reconsider: maybe the answer counts something else. This looks like AtCoder ABC 360 E "Random Swaps of Balls": N-1 white, 1 black initially leftmost, K operations swap random pair. Answer: expected position of black ball mod 998244353. Sample: N=3, K=2 → 554580198. Let's check what 554580198 is as a fraction: inverse computations... 554580198 * 2 = 1109160396 mod 998244353 = 1109160396 - 998244353 = 110916043, not nice. Let me compute in python later.
+
+Maybe my recurrence is wrong because the pair (a,b) uniform between 1 and N inclusive, and "if a≠b swap" — that's what I did. For N=2, K=1: P(swap) = 1/2, then black at 2. E=1.5. The sample says 1/2. So maybe the expected quantity is something else — maybe expected number of inversions? Or maybe it's the expected position where position counted... Hmm, or maybe the docstring sample corresponds to a known problem: ABC360E answer for N=2 K=1... Let me actually recall ABC360E. I believe ABC360E is "Swaps of balls" with answer being expected position. Hmm, but maybe there the swap is: choose a,b uniformly, swap the balls at positions a and b — same thing.
+
+Wait — maybe I misremember and the initial position is different, or the answer is expected position of the black ball but the sample 1/2 for N=2,K=1 suggests... Actually maybe the problem counts: "Find expected value of (position of black ball)" but black starts at position 1 and the answer for N=2 K=1 is 3/2. Given the docstring says 1/2, maybe the actual expected value is of something like "number of white balls to the right"? For N=2, K=1: black at 1 w.p. 1/2 (0 whites right... wait white at 2, so 0 to right? black at 1, white at 2, whites to right of black = 1 when black at 1; black at 2 means white at 1, whites to right = 0. E = 1/2. That matches 1/2!
+
+Hmm interesting. Alternatively "expected position of black ball minus 1"? That gives 1/2 too for N=2. For N=3,K=2: compute both and compare.
+
+Let me just compute the recurrence and check which matches 554580198. Let me use python.
+
+Actually, let me recall the real ABC360E: "There are N balls ... black ball is at position 1... Takahashi does K operations... Find the expected position of the black ball, mod 998244353." Sample inputs: N=3 K=2 output? I don't remember. The editorial approach uses tracking expected position and uses the symmetry with pairs. Actually the editorial of ABC360E: Let's think of the pair (black ball, white ball). Hmm.
+
+Let me just compute numerically: compute f with my recurrence for N=3,K=2 and see mod value; also compute E-1, etc.
+
+Actually, maybe my derivation is flawed: when black moves via swap, it goes to position b (the other chosen). But also the white ball that was at position... doesn't matter for black's position. My recurrence: black at p; choose (a,b) ordered uniform among N^2. Black's position changes iff {a,b} contains p and a≠b. Number of ordered pairs containing p with a≠b: 2(N-1). So prob = 2(N-1)/N^2. I said (2N-1)/N^2 — that's wrong! (2N-1)/N^2 counts including a=b=p which is no-op. Correct: c = 2(N-1)/N^2. Then f' = f(1-c) + c*(S-f)/(N-1) = f(1 - c - c/(N-1)) + cS/(N-1). c/(N-1) = 2/N^2. A = 1 - 2(N-1)/N^2 - 2/N^2 = 1 - 2N/N^2 = 1 - 2/N. B = 2(N-1)/N^2 * S/(N-1) = 2S/N^2 = (N+1)/N.
+
+Check N=2,K=1: A = 0, B = 3/2, f(1) = 3/2. Still 3/2. So expected position is 3/2 but answer is 1/2. So answer = E - 1? For N=3, K=2: f(1) = (1-2/3)*1 + (N+1)/N = 1/3 + 4/3 = 5/3. f(2) = (1/3)(5/3) + 4/3 = 5/9 + 12/9 = 17/9. 17/9 - 1 = 8/9. mod: 8 * inv(9). inv(9) mod 998244353: compute. Let me check if that equals 554580198. 9x ≡ 8? 554580198*9 = 4991221782; 4991221782 mod 998244353: 998244353*5 = 4991221765. 4991221782-4991221765 = 17. Not 8. Hmm.
+
+17/9 mod: is 554580198 * 9 ≡ 17? Same computation gives 17! Yes! 554580198*9 mod p = 17. So answer for N=3,K=2 is 17/9 = expected position, not E-1. But then N=2,K=1 should be 3/2, which gives 499122181, not 499122178. Contradiction!
+
+Hmm. Unless for N=2... wait let me recheck 499122178*... the expected answer 499122178 = inv(2). Hmm, but 3/2 mod p = 3*inv2 = 1497366534 mod 998244353 = 499122181. So sample 1 says 1/2.
+
+Hmm, so maybe the recurrence differs. Maybe expected is 1/2 for N=2, K=1 and 17/9 for N=3, K=2. Let's figure out what process gives that. For N=2, K=1: possible answers: 1/2. If black starts at 1 and swap moves it to 2 with prob... 1/2 → E=1.5. To get 0.5, maybe black starts at position... hmm if black started at 0? E = 0.5? Or maybe positions counted 0-indexed: E = 0.5. For N=3 K=2, 0-indexed expected = 17/9 - 1 = 8/9, but we computed answer ≡ 17 mod 9 inverse, i.e., 17/9. Contradiction again.
+
+Wait maybe I should double check: is 554580198 ≡ 17/9? Computed 554580198*9 mod p = 17. Yes. And check 8/9: x*9 ≡ 8 → x = 8*inv9. inv9: 9*110916060 = 998244540 → mod = 187, not 1. Let's just trust the python computation later.
+
+Alternatively maybe 554580198 corresponds to something else entirely. Let me just brute force N=3, K=2 with exact fractions and enumerate all operations to get true expected position, then compare to 17/9.
+
+Brute force: states: position of black. N=3, K=2. Op: choose ordered (a,b) in {1,2,3}^2, 9 equally likely; if a≠b swap.
+
+After op1: black at 1 w.p. 3/9 (a=b: (1,1),(2,2),(3,3))... wait if a=b no swap regardless. Pairs with a≠b: 6, each prob 1/9. Black at 1 moves if a=1 or b=1: ordered pairs a≠b containing 1: (1,2),(1,3),(2,1),(3,1): 4 pairs. So black at 2 w.p. 2/9, at 3 w.p. 2/9, at 1 w.p. 5/9.
+
+Op2 similarly: from position p, moves to uniform other position w.p. 4/9 each... from p, 4 ordered pairs move it, each to a specific other position (2 pairs... (p,x) and (x,p) both move black to x). So from p, black goes to each other position with prob 2/9, stays w.p. 5/9.
+
+E2 = sum: from 1 (5/9): 5/9*(5/9*1 + 2/9*2 + 2/9*3) + from 2 (2/9): 2/9*(5/9*2 + 2/9*1 + 2/9*3) + from 3 (2/9): 2/9*(5/9*3+2/9*1+2/9*2).
+
+Compute: term1: 5/9*(5+4+6)/9 = 5*15/81 = 75/81. term2: 2/9*(10+2+6)/9 = 2*18/81=36/81. term3: 2/9*(15+2+4)/9 = 2*21/81=42/81. Total = 153/81 = 17/9. Good, matches my recurrence.
+
+So true expected position for N=3,K=2 is 17/9, and the sample answer is 17/9 mod p (554580198 ≡ 17/9). But N=2,K=1 true expected is 3/2, sample says 1/2. So sample 1 corresponds to 1/2 = 3/2 - 1?? Inconsistent... unless 499122178 is actually 3/2? No: 499122178*2 = 998244356 mod p = 3. So it's 3/2!! Wait: 499122178 * 2 = 998244356, mod 998244353 = 3. Yes! 499122178 ≡ 3/2 mod p. I confused myself: inv(2) = (p+1)/2 = 499122177. So 499122178 = inv(2)+1 = 3/2. 
+
+So the answer is simply the expected position with my closed-form recurrence. Let me verify sample 3: N=4, K=4 → 592707587. Check: 592707587 * something... just trust and verify in python.
+
+So: f(0) = 1, f(k+1) = (1 - 2/N) f(k) + (N+1)/N.
+
+Closed form: f(k) = ((N+1)/2) + (1 - (N+1)/2) * (1 - 2/N)^k = (N+1)/2 - (N-1)/2 * ((N-2)/N)^k.
+
+Check N=2,K=1: (3/2) - (1/2)*0 = 3/2 ✓. N=3,K=2: 2 - 1*(1/3)^2 = 2 - 1/9 = 17/9 ✓.
+
+Implementation: mod arithmetic, K up to 1e5, pow with mod. N up to 998244352 — note N could equal... mod p where N < p always (N ≤ 998244352 < p). Edge: N=1 → answer 1. Also (N-2)/N could be 0 when N=2 → fine; N=1: (N-2)/N = -1, but N=1 answer is 1 (only one ball, position 1). Handle N=1 specially (formula: (2)/2 - (-1/2)*(-1)^k → for k odd: 1 + ... hmm (N+1)/2 - (N-1)/2 * ((N-2)/N)^k with N=1: 1 - (-1/2)*(-1)^k = 1 + (1/2)(-1)^k... k=1: 1 - 1/2 = 1/2, wrong. So special-case N=1 → return 1.
+
+Also careful with mod: N mod p is just N. Compute r = (N-2) * inv(N) mod p, then ans = (N+1) * inv2 - (N-1)*inv2 * r^K mod p. All mod 998244353.
+
+Write func.py.
+
+TOOL CALLS: [{"id": "call_946c3765a51a4a79bc302684", "function": "bash", "arguments": {"command": "cat /workspace/func.py"}}]
+
+MESSAGE 5 [tool] id=3DSsdcHS3gJxuUxLShbLqR tool_call_id=call_946c3765a51a4a79bc302684
+def expected_black_ball_position(N: int, K: int) -> int:
+    """ There are N-1 white balls and one black ball arranged in a row, with the black ball
+    initially at the leftmost position. Takahashi performs K operations, where each operation
+    consists of:
+    - Choose two integers a and b uniformly at random between 1 and N, inclusive
+    - If a ≠ b, swap the a-th and b-th balls from the left
+    
+    Find the expected position of the black ball after K operations, modulo 998244353.
+    
+    The result is returned as an integer R where R × Q ≡ P (mod 998244353), where P/Q is
+    the expected value expressed as an irreducible fraction.
+    
+    Args:
+        N: Total number of balls (1 ≤ N ≤ 998244352)
+        K: Number of operations (1 ≤ K ≤ 10^5)
+    
+    Returns:
+        The expected position modulo 998244353
+    
+    >>> expected_black_ball_position(2, 1)
+    499122178
+    >>> expected_black_ball_position(3, 2)
+    554580198
+    >>> expected_black_ball_position(4, 4)
+    592707587
+    """
+    raise NotImplementedError
+
+MESSAGE 6 [assistant] id=FqkaNg7kefvc8WcqhvDJFd tool_call_id=None
+[reasoning]
+Derivation: black at position p; per operation, it moves with probability 2(N-1)/N² (ordered pairs (a,b), a≠b, containing p), and if it moves, it lands uniformly on the other N-1 positions.
+
+E' = (1-c)E + c(S-E)/(N-1), c = 2(N-1)/N², S = N(N+1)/2
+→ E' = (1-2/N)E + (N+1)/N
+Closed form: E_k = (N+1)/2 - (N-1)/2 · ((N-2)/N)^k, E_0 = 1.
+
+Special case N=1 → 1. Implement.
+
+TOOL CALLS: [{"id": "call_9abd1a6603924b039a1aa2e0", "function": "text_editor", "arguments": {"command": "str_replace", "new_str": "    if N == 1:\n        return 1\n\n    MOD = 998244353\n    # Per operation, the black ball (at position p) is touched by an ordered pair\n    # (a, b) with a != b containing p with probability c = 2(N-1)/N^2, and then\n    # moves uniformly to one of the other N-1 positions.\n    #   E' = (1-c)E + c*(S - E)/(N-1) = (1 - 2/N)E + (N+1)/N,  S = N(N+1)/2\n    # Closed form: E_k = (N+1)/2 - (N-1)/2 * ((N-2)/N)^k,  E_0 = 1.\n    inv2 = pow(2, MOD - 2, MOD)\n    r = (N - 2) % MOD * pow(N % MOD, MOD - 2, MOD) % MOD\n    rk = pow(r, K, MOD)\n    ans = (N + 1) % MOD * inv2 % MOD\n    ans = (ans - (N - 1) % MOD * inv2 % MOD * rk) % MOD\n    return ans % MOD", "old_str": "    raise NotImplementedError", "path": "/workspace/func.py"}}]
+
+MESSAGE 7 [tool] id=7rosELYXYbM8yF6UKLKAQv tool_call_id=call_9abd1a6603924b039a1aa2e0
+The file /workspace/func.py has been edited. Here's the result of running `cat -n` on a snippet of /workspace/func.py:
+    23	    554580198
+    24	    >>> expected_black_ball_position(4, 4)
+    25	    592707587
+    26	    """
+    27	    if N == 1:
+    28	        return 1
+    29	
+    30	    MOD = 998244353
+    31	    # Per operation, the black ball (at position p) is touched by an ordered pair
+    32	    # (a, b) with a != b containing p with probability c = 2(N-1)/N^2, and then
+    33	    # moves uniformly to one of the other N-1 positions.
+    34	    #   E' = (1-c)E + c*(S - E)/(N-1) = (1 - 2/N)E + (N+1)/N,  S = N(N+1)/2
+    35	    # Closed form: E_k = (N+1)/2 - (N-1)/2 * ((N-2)/N)^k,  E_0 = 1.
+    36	    inv2 = pow(2, MOD - 2, MOD)
+    37	    r = (N - 2) % MOD * pow(N % MOD, MOD - 2, MOD) % MOD
+    38	    rk = pow(r, K, MOD)
+    39	    ans = (N + 1) % MOD * inv2 % MOD
+    40	    ans = (ans - (N - 1) % MOD * inv2 % MOD * rk) % MOD
+    41	    return ans % MOD
+Review the changes and make sure they are as expected. Edit the file again if necessary.
+
+MESSAGE 8 [assistant] id=nuXucgoSBAEAsGAQopdFUx tool_call_id=None
+
+TOOL CALLS: [{"id": "call_64814ad645b44bc2be82deca", "function": "bash", "arguments": {"command": "cd /workspace && python test.py"}}]
+
+MESSAGE 9 [tool] id=Qaoea7H8ZX9z3pEp4tSZKv tool_call_id=call_64814ad645b44bc2be82deca
+All tests passed!
+
+
+MESSAGE 10 [assistant] id=FQ6VfyzVzJYi6VWuHhGhFX tool_call_id=None
+[reasoning]
+All pass. Verify doctests quickly too.
+All tests pass. 
+
+**Approach:** If the black ball is at position `p`, an ordered pair `(a, b)` with `a ≠ b` touches it with probability `c = 2(N-1)/N²`, after which it moves uniformly to one of the other `N-1` positions. This gives the linear recurrence:
+
+- `E' = (1 - 2/N)·E + (N+1)/N`, with `E₀ = 1`
+
+which has the closed form `E_K = (N+1)/2 - (N-1)/2 · ((N-2)/N)^K`, computed with modular exponentiation under 998244353 (with `N = 1` handled specially, returning 1).
+TOOL CALLS: [{"id": "call_e02f2c2a0bea46bcba5f8e8c", "function": "submit", "arguments": {"answer": "DONE"}}]
+
+MESSAGE 11 [tool] id=HLPXZAaXdY46Pgd3b3zqGJ tool_call_id=call_e02f2c2a0bea46bcba5f8e8c
+DONE

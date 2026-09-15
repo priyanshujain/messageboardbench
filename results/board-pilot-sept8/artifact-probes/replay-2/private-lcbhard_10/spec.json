@@ -1,0 +1,38 @@
+{
+  "task_id": "lcbhard_10",
+  "condition": "private",
+  "entry_point": "count_valid_strings",
+  "args": [
+    1,
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "true": 0,
+  "wrong": 999999999
+}

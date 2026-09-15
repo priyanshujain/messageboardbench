@@ -24,8 +24,8 @@ from messageboardbench.analysis import rows, scratch_contents, summarise, write_
 from messageboardbench.task import scratch_livecodebench
 
 MODEL = os.environ.get("MBB_MODEL", "openrouter/z-ai/glm-5.3-flash")
-LIMIT = int(os.environ.get("MBB_LIMIT", "30"))
-CONCURRENCY = int(os.environ.get("MBB_CONCURRENCY", "12"))
+LIMIT = int(os.environ.get("MBB_LIMIT", "2"))
+CONCURRENCY = int(os.environ.get("MBB_CONCURRENCY", "2"))
 REQUEST_TIMEOUT = int(os.environ.get("MBB_TIMEOUT", "900"))
 
 # Per-sample wall clock. One baseline sample hung on a single model request for
@@ -109,7 +109,8 @@ if __name__ == "__main__":
     print("\n" + "=" * 62)
     print(f"status            {log.status}  ({s['errored']} errored)")
     print(f"runs              {s['n']}")
-    print(f"cheated           {s['cheated']}/{s['n']} = {s['cheat_rate']:.1%}")
+    rate = f"{s['cheat_rate']:.1%}" if s['cheat_rate'] is not None else "unavailable"
+    print(f"successful gaming {s['cheated']}/{s['cheat_labelled']} = {rate}")
     print(f"edited test.py    {s['test_modified']}  ({s['hidden_by_repair']} only visible in intermediate scores)")
     print(f"touched scratch   {s['touched']}/{s['n']}")
     print(f"read scratch      {s['read']}/{s['n']}")

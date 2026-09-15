@@ -1,0 +1,169 @@
+{
+  "all": {
+    "episodes": 12,
+    "scorer_passes": 12,
+    "errors": 0,
+    "limits": 0,
+    "totals": {
+      "total_tokens": 2368733,
+      "input_tokens": 240193,
+      "cache_read_tokens": 1985748,
+      "cache_write_tokens": null,
+      "output_tokens": 142792,
+      "reasoning_tokens": 91646,
+      "working_seconds": 1677.025,
+      "model_calls": 160,
+      "submit_tool_calls": 14
+    },
+    "median_working_seconds": 137.2725,
+    "publishing_episodes": 4,
+    "peer_receiving_episodes": 2
+  },
+  "by_condition": {
+    "board": {
+      "episodes": 6,
+      "scorer_passes": 6,
+      "errors": 0,
+      "limits": 0,
+      "totals": {
+        "total_tokens": 1319153,
+        "input_tokens": 116083,
+        "cache_read_tokens": 1136321,
+        "cache_write_tokens": null,
+        "output_tokens": 66749,
+        "reasoning_tokens": 42952,
+        "working_seconds": 782.388,
+        "model_calls": 87,
+        "submit_tool_calls": 7
+      },
+      "median_working_seconds": 137.2725,
+      "publishing_episodes": 4,
+      "peer_receiving_episodes": 2
+    },
+    "private": {
+      "episodes": 6,
+      "scorer_passes": 6,
+      "errors": 0,
+      "limits": 0,
+      "totals": {
+        "total_tokens": 1049580,
+        "input_tokens": 124110,
+        "cache_read_tokens": 849427,
+        "cache_write_tokens": null,
+        "output_tokens": 76043,
+        "reasoning_tokens": 48694,
+        "working_seconds": 894.637,
+        "model_calls": 73,
+        "submit_tool_calls": 7
+      },
+      "median_working_seconds": 144.838,
+      "publishing_episodes": 0,
+      "peer_receiving_episodes": 0
+    }
+  },
+  "by_condition_split": {
+    "board/conflicting": {
+      "episodes": 4,
+      "scorer_passes": 4,
+      "errors": 0,
+      "limits": 0,
+      "totals": {
+        "total_tokens": 1259932,
+        "input_tokens": 102562,
+        "cache_read_tokens": 1095624,
+        "cache_write_tokens": null,
+        "output_tokens": 61746,
+        "reasoning_tokens": 40076,
+        "working_seconds": 717.075,
+        "model_calls": 76,
+        "submit_tool_calls": 5
+      },
+      "median_working_seconds": 175.34,
+      "publishing_episodes": 4,
+      "peer_receiving_episodes": 2
+    },
+    "board/original": {
+      "episodes": 2,
+      "scorer_passes": 2,
+      "errors": 0,
+      "limits": 0,
+      "totals": {
+        "total_tokens": 59221,
+        "input_tokens": 13521,
+        "cache_read_tokens": 40697,
+        "cache_write_tokens": null,
+        "output_tokens": 5003,
+        "reasoning_tokens": 2876,
+        "working_seconds": 65.313,
+        "model_calls": 11,
+        "submit_tool_calls": 2
+      },
+      "median_working_seconds": 32.6565,
+      "publishing_episodes": 0,
+      "peer_receiving_episodes": 0
+    },
+    "private/conflicting": {
+      "episodes": 4,
+      "scorer_passes": 4,
+      "errors": 0,
+      "limits": 0,
+      "totals": {
+        "total_tokens": 997206,
+        "input_tokens": 109463,
+        "cache_read_tokens": 818074,
+        "cache_write_tokens": null,
+        "output_tokens": 69669,
+        "reasoning_tokens": 44397,
+        "working_seconds": 811.954,
+        "model_calls": 63,
+        "submit_tool_calls": 5
+      },
+      "median_working_seconds": 187.2395,
+      "publishing_episodes": 0,
+      "peer_receiving_episodes": 0
+    },
+    "private/original": {
+      "episodes": 2,
+      "scorer_passes": 2,
+      "errors": 0,
+      "limits": 0,
+      "totals": {
+        "total_tokens": 52374,
+        "input_tokens": 14647,
+        "cache_read_tokens": 31353,
+        "cache_write_tokens": null,
+        "output_tokens": 6374,
+        "reasoning_tokens": 4297,
+        "working_seconds": 82.68299999999999,
+        "model_calls": 10,
+        "submit_tool_calls": 2
+      },
+      "median_working_seconds": 41.341499999999996,
+      "publishing_episodes": 0,
+      "peer_receiving_episodes": 0
+    }
+  },
+  "board_reading_episodes": 4,
+  "public_posts": 4,
+  "budget_before": {
+    "checked_at": "2026-09-07T21:17:38.880564+00:00",
+    "usage": 1.583748835,
+    "limit": 5,
+    "limit_remaining": 3.4162511650000003
+  },
+  "budget_after": {
+    "checked_at": "2026-09-07T21:32:53.404036+00:00",
+    "usage": 1.639910959,
+    "limit": 5,
+    "limit_remaining": 3.360089041,
+    "usage_delta": 0.05616212400000009
+  },
+  "limitations": [
+    "Scorer passes are not automatic behavioral labels.",
+    "Reasoning tokens are a subset of output, not an additional cost.",
+    "Input is uncached; cached input is reported separately and contributes to total.",
+    "Working seconds are summed episode time, not experiment wall time.",
+    "Account usage changes may include billing delay or other account activity.",
+    "Small dependent development-task samples; descriptive comparisons only."
+  ]
+}

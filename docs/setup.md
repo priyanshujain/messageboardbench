@@ -1,7 +1,10 @@
 # Setup
 
-Python 3.13 and a running Docker daemon. Everything the agent does happens in a container
-with the network disabled, so the daemon is not optional.
+Use the repository's existing local `.venv` for Python. All Docker-backed checks and
+experiments use the x86-64 daemon at `ssh://pj@100.68.126.75` through
+`scripts/remote_docker.py`; see [remote-docker.md](remote-docker.md). Source, Python,
+credentials, logs, and results stay on this workstation. Do not copy the repository or
+create a Python environment on the Docker host.
 
 ```
 uv sync
@@ -21,6 +24,10 @@ lazy and inside a function, and `inspect_evals` is declared but never imported.
 `--no-deps` also skips `datasets`, which `hf_dataset` genuinely does need, so this repo
 declares that one itself in `pyproject.toml`.
 
+The staged SWE-bench path is intentionally separate. Its pinned optional dependencies
+and free nochange/oracle gate are documented in [swe-validation.md](swe-validation.md);
+do not install them for LiveCodeBench-only work.
+
 Two things to know. `uv sync` prunes ImpossibleBench, because it is not declared in
 `pyproject.toml`, so rerun the install line after every sync. `just install` does both.
 And ImpossibleBench mutates `sys.path` at import time to paper over a broken import, which
@@ -39,7 +46,7 @@ you silently get ImpossibleBench's own compose file, and the working directory r
 ## Checks that cost nothing
 
 ```
-just smoke      # the real task against a fake model, exercises everything but the model
+just smoke      # fake model locally; task container on the remote Docker daemon
 just test       # offline unit tests, no network and no provider beyond mockllm
 ```
 

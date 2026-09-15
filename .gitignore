@@ -7,3 +7,7 @@ logs/
 .env.*
 !.env.example
 .DS_Store
+work/
+
+
+personal-notes/*

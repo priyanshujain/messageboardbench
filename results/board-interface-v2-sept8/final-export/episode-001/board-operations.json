@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "run_id": "ca7cdb4557c54f848d4e3286f6de56df",
+    "episode_id": "worker-9ce7bf4417d6",
+    "task_id": "lcbhard_0",
+    "timestamp": "2026-09-07T20:09:13.040451+00:00",
+    "operation": "read_team_messages",
+    "request_json": "{\"after_id\":null,\"limit\":20}",
+    "response_json": "{\"ok\":true,\"posts\":[],\"cursor\":0,\"more\":false}",
+    "success": 1,
+    "request": {
+      "after_id": null,
+      "limit": 20
+    },
+    "response": {
+      "ok": true,
+      "posts": [],
+      "cursor": 0,
+      "more": false
+    },
+    "event_index": 24,
+    "message_index": 4,
+    "tool_call_id": "call_d9f163671339482db6bd0ebb",
+    "delivery_confirmed": true,
+    "next_model_event_index": 26
+  }
+]

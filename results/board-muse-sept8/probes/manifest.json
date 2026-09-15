@@ -1,0 +1,98 @@
+[
+  {
+    "episode_id": "worker-9219ac5b48f8",
+    "condition": "board",
+    "task_id": "lcbhard_1",
+    "report_directory": "episode-002",
+    "probe_directory": "probes/board-c1-task1",
+    "source_log": "/Users/pj/Workspace/projects/python/research/messageboardbench/logs/board-muse-sept8/evals/2026-09-07T21-17-39-00-00_board-pilot-t1-board-c1-p2_RX6QHTZmU2stk2JQkPa3Ra.eval",
+    "source_log_sha256": "93c97a3e6d4c39049c65332e6f86d298577d44eedc15b02f1e682663a1523709",
+    "final_source_sha256": "ddd6d9d9cb79a96f66feb350bf02a109009e6560d4eac97dd17f88e0660a9fa2",
+    "probe_matches_final_export": true,
+    "container_exit_code": 0
+  },
+  {
+    "episode_id": "worker-ea4c5120d4e6",
+    "condition": "board",
+    "task_id": "lcbhard_2",
+    "report_directory": "episode-003",
+    "probe_directory": "probes/board-c1-task2",
+    "source_log": "/Users/pj/Workspace/projects/python/research/messageboardbench/logs/board-muse-sept8/evals/2026-09-07T21-17-39-00-00_board-pilot-t1-board-c1-p3_JVkMb97DVFwtX5R95LzqSB.eval",
+    "source_log_sha256": "221cce977cd44b56993a5de6d95ef3e1407842e42dcb2ac97244d11e88133b95",
+    "final_source_sha256": "dff459b7d0eea82dbf5a3044f68b1d4e7bc74dba56b3d92fc59d50a9f77dee9b",
+    "probe_matches_final_export": true,
+    "container_exit_code": 0
+  },
+  {
+    "episode_id": "worker-52f1a3e7637d",
+    "condition": "private",
+    "task_id": "lcbhard_1",
+    "report_directory": "episode-005",
+    "probe_directory": "probes/private-c1-task1",
+    "source_log": "/Users/pj/Workspace/projects/python/research/messageboardbench/logs/board-muse-sept8/evals/2026-09-07T21-20-18-00-00_board-pilot-t1-private-c1-p2_mLNLSJR3ughtnRFyupD8jM.eval",
+    "source_log_sha256": "e8cd5119c225dae052da25d7ba0d01c07fd650a8b5ee973bdda03abd48a68fae",
+    "final_source_sha256": "8743930571c4538743ebf1aa718f573adca59813b5aeeb23b0df66c062137c60",
+    "probe_matches_final_export": true,
+    "container_exit_code": 0
+  },
+  {
+    "episode_id": "worker-fbab81041603",
+    "condition": "private",
+    "task_id": "lcbhard_2",
+    "report_directory": "episode-006",
+    "probe_directory": "probes/private-c1-task2",
+    "source_log": "/Users/pj/Workspace/projects/python/research/messageboardbench/logs/board-muse-sept8/evals/2026-09-07T21-20-18-00-00_board-pilot-t1-private-c1-p3_4639zgTnLAw7WS8rcs5rwo.eval",
+    "source_log_sha256": "4628d1f51fc1c4ff4197799d56ac7f3889d76a6dff701aace744a8f31540edf9",
+    "final_source_sha256": "0670960fff5b6057298ea999ed97bc21a46940a910d6a297af58cc0702be84cf",
+    "probe_matches_final_export": true,
+    "container_exit_code": 0
+  },
+  {
+    "episode_id": "worker-5821db971b18",
+    "condition": "private",
+    "task_id": "lcbhard_10",
+    "report_directory": "episode-007",
+    "probe_directory": "probes/private-c2-task10",
+    "source_log": "/Users/pj/Workspace/projects/python/research/messageboardbench/logs/board-muse-sept8/evals/2026-09-07T21-23-16-00-00_board-pilot-t1-private-c2-p1_d7ADbdAgQC5yQS22nczgqf.eval",
+    "source_log_sha256": "e3c5357bfd5b11114a2b50af8c802b24fd429e5a064dcf98602fce19cba05be6",
+    "final_source_sha256": "71252e53b77c423758fbc297ffd3f773c7862d270dd04723c03684f20679d77d",
+    "probe_matches_final_export": true,
+    "container_exit_code": 0
+  },
+  {
+    "episode_id": "worker-f1f710d84479",
+    "condition": "private",
+    "task_id": "lcbhard_12",
+    "report_directory": "episode-009",
+    "probe_directory": "probes/private-c2-task12",
+    "source_log": "/Users/pj/Workspace/projects/python/research/messageboardbench/logs/board-muse-sept8/evals/2026-09-07T21-23-16-00-00_board-pilot-t1-private-c2-p3_GCPLzg4gKGGFM5ZdS98toE.eval",
+    "source_log_sha256": "915b42e0308165985ca8207c6decf3055afcfdd90ed6ef4eeefebcf74da7ad9f",
+    "final_source_sha256": "86e34ee43fabb6a7358da7ae7e8880b911494f9663d9363509a09e02f81003a7",
+    "probe_matches_final_export": true,
+    "container_exit_code": 0
+  },
+  {
+    "episode_id": "worker-26755bb31749",
+    "condition": "board",
+    "task_id": "lcbhard_10",
+    "report_directory": "episode-010",
+    "probe_directory": "probes/board-c2-task10",
+    "source_log": "/Users/pj/Workspace/projects/python/research/messageboardbench/logs/board-muse-sept8/evals/2026-09-07T21-28-42-00-00_board-pilot-t1-board-c2-p1_LTjoHs5YNR3fXW7sJiFCan.eval",
+    "source_log_sha256": "7ff0d9cdcb841b3f1ceeb9c13e8adb4e4143cb264198769d63598c06ade62f15",
+    "final_source_sha256": "560d74327fcc0365800c0eecd9f1d0518e43ba0a089bc0b09da2c68340e8038d",
+    "probe_matches_final_export": true,
+    "container_exit_code": 0
+  },
+  {
+    "episode_id": "worker-03126db75143",
+    "condition": "board",
+    "task_id": "lcbhard_12",
+    "report_directory": "episode-012",
+    "probe_directory": "probes/board-c2-task12",
+    "source_log": "/Users/pj/Workspace/projects/python/research/messageboardbench/logs/board-muse-sept8/evals/2026-09-07T21-28-42-00-00_board-pilot-t1-board-c2-p3_Q7aPFUTrqjDom2xAnHSm8o.eval",
+    "source_log_sha256": "87b8467fba17267de3e746f610899163385dc1d7a4b614617ee85ac940a45be0",
+    "final_source_sha256": "6583e55f06d493a525c9b4e0d9c255dd93f0801ff9fb815b382889ff5e3ded82",
+    "probe_matches_final_export": true,
+    "container_exit_code": 0
+  }
+]

@@ -1,0 +1,2961 @@
+{
+  "created_at": "2026-09-07T21:02:28.933169+00:00",
+  "source_root": "/Users/pj/Workspace/projects/python/research/messageboard",
+  "destination_root": "/Users/pj/Workspace/projects/python/research/messageboardbench",
+  "retired_archive": "../archive/messageboard-20260908",
+  "policy": "Evidence bytes and embedded historical paths remain unchanged. This map resolves historical messageboard paths. Personal material and unselected files stay in retired archive.",
+  "files": [
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/README.md",
+      "path": "results/board-interface-v2-sept8/README.md",
+      "bytes": 2146,
+      "sha256": "99bf8af945f0d2ac7789a23779912768b780f8465450682476d8089338861316"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/RESULTS.md",
+      "path": "results/board-interface-v2-sept8/RESULTS.md",
+      "bytes": 5103,
+      "sha256": "7c1b7b7fe221a6f6d45944a3c4942333890f1a0b4e2aa724a013d6ff98c5eb2d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/func.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/func.py",
+      "bytes": 3312,
+      "sha256": "e79da8682b968c526af54bf49e47db9497aaf828ee4cc3548a1db26b57faa9da"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/probe.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/probe.py",
+      "bytes": 1487,
+      "sha256": "d1db067f0f01f24c0ef03cfac9c141ec3b945f4ddaab24258dfdaa4ec554ae14"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/result.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/result.json",
+      "bytes": 2432,
+      "sha256": "b2b6b333aebe0d90b1fcbf6ce7e060014d19a4e1fdde366ed8c88497e68a27f1"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/spec.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/spec.json",
+      "bytes": 168,
+      "sha256": "a5cac0f27ccba3439038d94510a265cb623acfa3c567908a33a8e758e222fc82"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/stderr.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/stdout.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_1/stdout.txt",
+      "bytes": 567,
+      "sha256": "46f91368a45080bab28ae57623118feeae1fccad900eb4df314db3c7c03338ef"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/func.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/func.py",
+      "bytes": 1509,
+      "sha256": "f3d64f00558c6ab37b6bf51c63de2df5bcbc321380c2c681215052ee3a797e48"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/probe.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/probe.py",
+      "bytes": 1487,
+      "sha256": "d1db067f0f01f24c0ef03cfac9c141ec3b945f4ddaab24258dfdaa4ec554ae14"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/result.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/result.json",
+      "bytes": 2402,
+      "sha256": "26908df1ef0601152be8b6621d3059429039c729873d7e1d2a5b77f24834532d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/spec.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/spec.json",
+      "bytes": 144,
+      "sha256": "ddf516efd2a587b17923e9ec842623cfc4c81ed31b9d9f609934818beff6c50c"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/stderr.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/stdout.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/board-lcbhard_2/stdout.txt",
+      "bytes": 565,
+      "sha256": "4ebe52aa82b1f4eec91cb59c3e8f6ba5d8b82c8377b24b63cfa22c216b0d2cbb"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/func.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/func.py",
+      "bytes": 3808,
+      "sha256": "2448eb0b2221eb0eff12f35020d2d68b62e5903fef45596f2de09a1bed46eeef"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/probe.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/probe.py",
+      "bytes": 1487,
+      "sha256": "d1db067f0f01f24c0ef03cfac9c141ec3b945f4ddaab24258dfdaa4ec554ae14"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/result.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/result.json",
+      "bytes": 2438,
+      "sha256": "9ff18bbd0eb6562f82ea3bc336eaebf2f480dc6b9678f99566ae870766a4b98b"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/spec.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/spec.json",
+      "bytes": 168,
+      "sha256": "a5cac0f27ccba3439038d94510a265cb623acfa3c567908a33a8e758e222fc82"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/stderr.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/stdout.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_1/stdout.txt",
+      "bytes": 567,
+      "sha256": "46f91368a45080bab28ae57623118feeae1fccad900eb4df314db3c7c03338ef"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/func.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/func.py",
+      "bytes": 1973,
+      "sha256": "09174d1a6555d0b21d7c554ab461653dbd08e69ab73420be3d4d13d5aa5dff2e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/probe.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/probe.py",
+      "bytes": 1487,
+      "sha256": "d1db067f0f01f24c0ef03cfac9c141ec3b945f4ddaab24258dfdaa4ec554ae14"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/result.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/result.json",
+      "bytes": 2426,
+      "sha256": "339cc177db1fd1ebbdc78f0f2f130597e9437366a8291482a44a26483fad28c3"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/spec.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/spec.json",
+      "bytes": 144,
+      "sha256": "ddf516efd2a587b17923e9ec842623cfc4c81ed31b9d9f609934818beff6c50c"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/stderr.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/stdout.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/private-lcbhard_2/stdout.txt",
+      "bytes": 583,
+      "sha256": "15272b697559ea94e63cd4729bdebc1a8585115500d938dfc524a152bbb33473"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-1/results.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-1/results.json",
+      "bytes": 10409,
+      "sha256": "8f8401740879c65a1363f5325354fd7c7d947957b9b45269baea0ea5948c6c80"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/func.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/func.py",
+      "bytes": 4133,
+      "sha256": "c8a4a7e30bc5229f8b8f7a33029fcaea289fa3a9e47c5e19e8add586919b9d04"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/probe.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/probe.py",
+      "bytes": 2586,
+      "sha256": "951f8a008d84bc5fc8e588b8ff4430f252890b7ffe5a2941074ddf016513125f"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/result.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/result.json",
+      "bytes": 2821,
+      "sha256": "466b99d217e7d549ff000648b9d1278abf5a3752c887fc077a05e2e5b84f684f"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/spec.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/spec.json",
+      "bytes": 459,
+      "sha256": "ffa2790df00e6e7c103471816138b662df241d13ec437149648aac9cb6c19776"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/stderr.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/stdout.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_10/stdout.txt",
+      "bytes": 597,
+      "sha256": "5f8042da7df865ded349a544690a5e8ac3e88b30dfc35f96f3c13ed8826daf92"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/func.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/func.py",
+      "bytes": 4469,
+      "sha256": "e9fc99be4935efe27341d4f27aff53b43a914973f6b008a925bbe88df735be4d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/probe.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/probe.py",
+      "bytes": 2586,
+      "sha256": "951f8a008d84bc5fc8e588b8ff4430f252890b7ffe5a2941074ddf016513125f"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/result.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/result.json",
+      "bytes": 2432,
+      "sha256": "f1b10939e6fa2d9f911451e59a8ad5154ece00f34b81a566abfe6120f704ee60"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/spec.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/spec.json",
+      "bytes": 178,
+      "sha256": "0562731d11c633a3a7c62510b7b3e5b3b44d5a502df7a65c463b37ab7927c32a"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/stderr.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/stdout.txt",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/private-lcbhard_12/stdout.txt",
+      "bytes": 541,
+      "sha256": "b3c7c73ee3be81e744e69aaab038aaa7076b8dead41131ba9fddb0df3cbc51f0"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay-private-2/results.json",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay-private-2/results.json",
+      "bytes": 5666,
+      "sha256": "49b1a38258a040f22b909157311b14f338ca8eb2c363726569f79db1ee83a324"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/artifact-probes/replay_private_cohort2.py",
+      "path": "results/board-interface-v2-sept8/artifact-probes/replay_private_cohort2.py",
+      "bytes": 6945,
+      "sha256": "759608c5b147886a58aaaf28724f5733f9989dced9818bae7faf615954078063"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/annotations.csv",
+      "path": "results/board-interface-v2-sept8/final-export/annotations.csv",
+      "bytes": 2896,
+      "sha256": "0837a77fd8e0b13b5ac1a5e31f08c10f9928fd44bc9169f9275a4651f58f26b2"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/board-operations.json",
+      "bytes": 28508,
+      "sha256": "03738ed8f2c2f5ed1860380dabc5c1538f92c7c770cf308da1b2315972e4c215"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-001/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-001/board-operations.json",
+      "bytes": 721,
+      "sha256": "c8bb63746e4e36dee8458586d4b3a5f81032cff2b04316908887ffcd249f8de7"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-001/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-001/final-artifacts.json",
+      "bytes": 3212,
+      "sha256": "5826ff86d277933b227b51f92857f3d4f93ec842d2915938b70d0f03c00f993d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-001/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-001/final-func.py",
+      "bytes": 1971,
+      "sha256": "419f82a26b61d2d0f537b7b5a48f2e2ad1f4d08eb607fd711488c11cd67c03ff"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-001/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-001/final-test.py",
+      "bytes": 858,
+      "sha256": "a5e33e48668e81abdb14f31771f9f8c751d17747337412ed341c241c89c5f2ab"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-001/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-001/messages.json",
+      "bytes": 9397,
+      "sha256": "413157403e6a8207ba5f50785534030996060132792bbe58f1d2b137fc20123a"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-001/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-001/messages.txt",
+      "bytes": 8185,
+      "sha256": "478187bef7e22969e7312358b05c3ed6395450bb01cf5ed84a8bbcd7e72182de"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-001/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-001/scorer-artifacts.json",
+      "bytes": 6478,
+      "sha256": "01c769ccd605069324dc1de0301ca81a9fc0308630ad513e74878c236a5a0e9a"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-002/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-002/board-operations.json",
+      "bytes": 7643,
+      "sha256": "334958584b7a936c6f6d813a010cb815e75446e4ee1c084b8b1ab1e7e2aca2e8"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-002/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-002/final-artifacts.json",
+      "bytes": 4872,
+      "sha256": "08874805cb207cd852fabcf92daedba5f1cda295dba6866034fd493eb3c15a86"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-002/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-002/final-func.py",
+      "bytes": 3312,
+      "sha256": "e79da8682b968c526af54bf49e47db9497aaf828ee4cc3548a1db26b57faa9da"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-002/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-002/final-test.py",
+      "bytes": 1098,
+      "sha256": "ac65aee1a8907c5cd0b3b700eeaa396c74fbed75017f96aaa62721775e6a4852"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-002/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-002/messages.json",
+      "bytes": 84758,
+      "sha256": "c74200313effeceeef0b7c349fbe93a4eb0c3f32619eaeeeb8854da57afd3c2f"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-002/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-002/messages.txt",
+      "bytes": 77440,
+      "sha256": "5a4509d9f739d288890444d1f3ffdbab1acad6a8095035409bec82a8052021a9"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-002/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-002/scorer-artifacts.json",
+      "bytes": 14150,
+      "sha256": "f75f9c393f9d41a320b04998834d7d8f22fe801c500d92ef587f6af89b7a1e94"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-003/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-003/board-operations.json",
+      "bytes": 4464,
+      "sha256": "2fc2f789dd2182a2021ad3c509cffe08d02580b311cc5d45b90fdf7e8a6f3ad7"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-003/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-003/final-artifacts.json",
+      "bytes": 2817,
+      "sha256": "92966f1bf27e57d2f41e2946780739c8e75834289266c064b0dd48faca97040f"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-003/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-003/final-func.py",
+      "bytes": 1509,
+      "sha256": "f3d64f00558c6ab37b6bf51c63de2df5bcbc321380c2c681215052ee3a797e48"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-003/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-003/final-test.py",
+      "bytes": 941,
+      "sha256": "0998b10a2ae51339c09c69ca1bc6cbff47e5690f03f28104c5143d16d5f24808"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-003/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-003/messages.json",
+      "bytes": 50318,
+      "sha256": "19d18498ed11542cae84191426c11981c9c3480a7a930344f5232764c82aa59f"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-003/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-003/messages.txt",
+      "bytes": 45721,
+      "sha256": "d72a3439e73e4873cb3a6ec43d9f3edeb676667f91880315f8d6188b95256cf0"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-003/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-003/scorer-artifacts.json",
+      "bytes": 5690,
+      "sha256": "a6b588e807a3d78fb7f5cbf22f37680e4eeebb617717b59fe34e8689cc19ff9a"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-004/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-004/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-004/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-004/final-artifacts.json",
+      "bytes": 3096,
+      "sha256": "59f3db721d0b7aeda5b0e61c14afc32bce68511df944c2af1b3034c930bc9e4d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-004/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-004/final-func.py",
+      "bytes": 1861,
+      "sha256": "cde6639c68e23d3709de4b7c314f41dda640667f94766f45a8487c9958e05e86"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-004/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-004/final-test.py",
+      "bytes": 858,
+      "sha256": "a5e33e48668e81abdb14f31771f9f8c751d17747337412ed341c241c89c5f2ab"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-004/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-004/messages.json",
+      "bytes": 15180,
+      "sha256": "4c7f64ad5b893bdb997f0916532ee94cf1ed00a61292b8c1c95039ef6f4a7f3d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-004/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-004/messages.txt",
+      "bytes": 13278,
+      "sha256": "61f360b73763780ed398f9ea04e36db3881f26576ab323092d5e887b1e94db63"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-004/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-004/scorer-artifacts.json",
+      "bytes": 6246,
+      "sha256": "86bbc9131ef38fe10a1f3f5fddc48065eaeabca8738dfe97e418b32a29248c0e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-005/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-005/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-005/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-005/final-artifacts.json",
+      "bytes": 5386,
+      "sha256": "056d0822ba5b63529964a1abddf8c3cce6237e7c75713321351a4c8e2d986267"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-005/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-005/final-func.py",
+      "bytes": 3808,
+      "sha256": "2448eb0b2221eb0eff12f35020d2d68b62e5903fef45596f2de09a1bed46eeef"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-005/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-005/final-test.py",
+      "bytes": 1098,
+      "sha256": "ac65aee1a8907c5cd0b3b700eeaa396c74fbed75017f96aaa62721775e6a4852"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-005/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-005/messages.json",
+      "bytes": 69286,
+      "sha256": "9aa68984cf7ec327e7d2d0de584a37875c099ab54ed633fc6f0826991b3e6db3"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-005/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-005/messages.txt",
+      "bytes": 63885,
+      "sha256": "d6c2614036d2f7703d8a1013b0960338e1f90bf0025f4e36b58d8cb118ce6146"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-005/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-005/scorer-artifacts.json",
+      "bytes": 15496,
+      "sha256": "c40870ddf590f6afc93ef623478c923c0eefdecc90d2941d5112df5de7cd12a6"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-006/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-006/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-006/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-006/final-artifacts.json",
+      "bytes": 3305,
+      "sha256": "130cd11a56627e1c8dfea8e72397bd21a2422ec082c996d9fc808e990dcfe352"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-006/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-006/final-func.py",
+      "bytes": 1973,
+      "sha256": "09174d1a6555d0b21d7c554ab461653dbd08e69ab73420be3d4d13d5aa5dff2e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-006/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-006/final-test.py",
+      "bytes": 941,
+      "sha256": "0998b10a2ae51339c09c69ca1bc6cbff47e5690f03f28104c5143d16d5f24808"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-006/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-006/messages.json",
+      "bytes": 34996,
+      "sha256": "3266ef1f57ba6f6ef0daa34dc6e4bcfddc03ebe2f4a415d9819a33e4c1cfef0d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-006/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-006/messages.txt",
+      "bytes": 31976,
+      "sha256": "102a06324aee9009ebadc0d2f26e23375c6b4c19bac654bbbf53332f0fd60204"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-006/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-006/scorer-artifacts.json",
+      "bytes": 6665,
+      "sha256": "bf2a33d63c1392918b32f086b63665c9c266113e18d920ac9c9be8305368c44a"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-007/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-007/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-007/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-007/final-artifacts.json",
+      "bytes": 8173,
+      "sha256": "03b9df1518cee6112f998d92957e31c2bd679fcf1ad5ef1a3fcda18b3a2a760a"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-007/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-007/final-func.py",
+      "bytes": 4133,
+      "sha256": "c8a4a7e30bc5229f8b8f7a33029fcaea289fa3a9e47c5e19e8add586919b9d04"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-007/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-007/final-test.py",
+      "bytes": 3575,
+      "sha256": "bb90451ef0919a34bc150b6db9d4ce661265c412b946594b15563be85af9b599"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-007/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-007/messages.json",
+      "bytes": 84240,
+      "sha256": "f1c3a2285f0bb322e2660b35c7aabf308a5c404f6dcbda1331414a73e83b7c1d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-007/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-007/messages.txt",
+      "bytes": 78334,
+      "sha256": "36ca198719d71b4c1b00f2bb85c55b43e1950cf30f1da3481c51f1fac9fd01bc"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-007/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-007/scorer-artifacts.json",
+      "bytes": 23812,
+      "sha256": "7b986c919be95682db05474880ee0b6528346af30508702fd2bd897d4f1cbb63"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-008/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-008/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-008/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-008/final-artifacts.json",
+      "bytes": 3336,
+      "sha256": "fdcb79fab294a81aac25082ccf2a9bc3229e6d1b8399faf17d5308010e74c8ea"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-008/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-008/final-func.py",
+      "bytes": 1666,
+      "sha256": "4f9a030e8aab160adba0f20393914dd4a0244226a4fb177ed8506d3ea59d387e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-008/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-008/final-test.py",
+      "bytes": 1300,
+      "sha256": "f4361d7e31aef9f46f42b030037702ffb2dc505511aa6a99fdd93d1316607678"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-008/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-008/messages.json",
+      "bytes": 24176,
+      "sha256": "50a155185b6e7852f25633741ba4f934eae1d0eb232aac0b661745176a568de9"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-008/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-008/messages.txt",
+      "bytes": 22375,
+      "sha256": "83a7c17df5c80f6e17fe601aab2dd12f5235ebd55b6f1f3342f228ea9c69eabe"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-008/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-008/scorer-artifacts.json",
+      "bytes": 6726,
+      "sha256": "f7078a228ef0dc25aae0097c2dbd2dee864b5851328b646ddbff1b91291f7e35"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-009/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-009/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-009/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-009/final-artifacts.json",
+      "bytes": 6519,
+      "sha256": "50cb6d7e7302d00dc811f10447b27759dc8f495ec6f505e83de5a86cd8ec62ec"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-009/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-009/final-func.py",
+      "bytes": 4469,
+      "sha256": "e9fc99be4935efe27341d4f27aff53b43a914973f6b008a925bbe88df735be4d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-009/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-009/final-test.py",
+      "bytes": 1579,
+      "sha256": "12837b2e48b66b6b285e928c3ade175a3443857e0b587aa5047f6a5995edf807"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-009/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-009/messages.json",
+      "bytes": 121042,
+      "sha256": "8184ad1e94b613dcc92ba5046ea3bd1d160ac11b15cc0b0c4ae96f138abfb36e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-009/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-009/messages.txt",
+      "bytes": 114632,
+      "sha256": "f99b1797d843f012c9fe702f722d3ebf7408b08ac1aec9290263eed07f823dcc"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-009/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-009/scorer-artifacts.json",
+      "bytes": 13094,
+      "sha256": "a47760f1a61a324f173c502b340fa4636ae98a59afe5f61e61c81a10dd621fd9"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-010/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-010/board-operations.json",
+      "bytes": 11137,
+      "sha256": "c318025ae84baa00a767b97fdac82159f676a8f72685244d556aa818b0b6616f"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-010/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-010/final-artifacts.json",
+      "bytes": 7784,
+      "sha256": "189c8e328f4e6e1864695406abe9f8a6c15b7b496e7dd9002218996f0108f593"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-010/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-010/final-func.py",
+      "bytes": 3771,
+      "sha256": "5ae6aeb6ca920cf6c498110d6963c08f708aebeb29d8f059a2f1601ae155f4eb"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-010/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-010/final-test.py",
+      "bytes": 3575,
+      "sha256": "bb90451ef0919a34bc150b6db9d4ce661265c412b946594b15563be85af9b599"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-010/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-010/messages.json",
+      "bytes": 46078,
+      "sha256": "78221738f0964c8520cd3fe0def11c4c7ceccceb993f714fce6dbf9b73c4e7c7"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-010/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-010/messages.txt",
+      "bytes": 42177,
+      "sha256": "30c599f1d32de7e49edf0730df649f90071f4b462019a1e6b385fdbee687dc38"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-010/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-010/scorer-artifacts.json",
+      "bytes": 15624,
+      "sha256": "5af2ca3bc2162dc39e177ea98cd2497c69c22c1c116589292bc0d6c58e476597"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-011/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-011/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-011/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-011/final-artifacts.json",
+      "bytes": 3056,
+      "sha256": "228737b750865c249abed42a3ac53d04e765e59374888fe45013ddf310cdfb6d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-011/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-011/final-func.py",
+      "bytes": 1386,
+      "sha256": "ecc30c26e40fe9ffe03d36503e3f1d0449c5a02eb143862120296434ddce987f"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-011/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-011/final-test.py",
+      "bytes": 1300,
+      "sha256": "f4361d7e31aef9f46f42b030037702ffb2dc505511aa6a99fdd93d1316607678"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-011/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-011/messages.json",
+      "bytes": 31013,
+      "sha256": "458ea162b97b2ac5fe95aa3f4655434832f8c0c43f4b12fb7cf42a62e3569110"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-011/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-011/messages.txt",
+      "bytes": 28755,
+      "sha256": "bcf5e68309fa3d042a189f60f4a04bb1d4ab86481ddabd1a64ea07aa041a7aeb"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-011/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-011/scorer-artifacts.json",
+      "bytes": 6166,
+      "sha256": "5300939c11c2a5938648588423366a0c42e9d623f0cf7592199d3fbd5ae61c37"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-012/board-operations.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-012/board-operations.json",
+      "bytes": 4555,
+      "sha256": "f65ca52eb20d6efddda931d74c9c0c82eaecc8c9e0867cebbee75ce1f3e8421e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-012/final-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-012/final-artifacts.json",
+      "bytes": 5456,
+      "sha256": "5cdea2ea692f8210970b191485e923d5c411a3c9611584348b7a5cd218cad683"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-012/final-func.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-012/final-func.py",
+      "bytes": 3447,
+      "sha256": "a3ede3690c8a19f0b9b24cbf1bb3be36a000aa591c82814450a3a4776e8df016"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-012/final-test.py",
+      "path": "results/board-interface-v2-sept8/final-export/episode-012/final-test.py",
+      "bytes": 1579,
+      "sha256": "12837b2e48b66b6b285e928c3ade175a3443857e0b587aa5047f6a5995edf807"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-012/messages.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-012/messages.json",
+      "bytes": 100736,
+      "sha256": "c9ba8ba8e33393e5d83c4eb8e308ac8ee4eeb57ce49a22369efba67fd423539e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-012/messages.txt",
+      "path": "results/board-interface-v2-sept8/final-export/episode-012/messages.txt",
+      "bytes": 95952,
+      "sha256": "8922591bda1bbe7c4f64e768653c0e245da60b237e722aa133adf28cb7fb93fe"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episode-012/scorer-artifacts.json",
+      "path": "results/board-interface-v2-sept8/final-export/episode-012/scorer-artifacts.json",
+      "bytes": 10968,
+      "sha256": "51251c822e8f614fa4f832203ee52d0de3a8d24089b150febe117553bbd719d4"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episodes.csv",
+      "path": "results/board-interface-v2-sept8/final-export/episodes.csv",
+      "bytes": 5121,
+      "sha256": "2361e2ed5ee5e7c03cc9d470a2870dfd088d114d10c3ed1e10c65369ef6b3f2c"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/episodes.json",
+      "path": "results/board-interface-v2-sept8/final-export/episodes.json",
+      "bytes": 11876,
+      "sha256": "c7ebfdde8a04aadc9887f53d14c8f69d91ae9fea4551cbedcf0ebd52bcf9f1ba"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/exposure-edges.json",
+      "path": "results/board-interface-v2-sept8/final-export/exposure-edges.json",
+      "bytes": 3268,
+      "sha256": "ccf30f9f1e0158d29793a73e3f8b3ba6a94e4e7d3e3ab76b92b840f563415e45"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/manifest.json",
+      "path": "results/board-interface-v2-sept8/final-export/manifest.json",
+      "bytes": 38531,
+      "sha256": "5c93ec01dc6588c6575a9cee523944444f2db2a1be3870a5798f3dd803e80ada"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/public-posts.json",
+      "path": "results/board-interface-v2-sept8/final-export/public-posts.json",
+      "bytes": 4886,
+      "sha256": "c79d449cd6886ba04982f2c82e535a8608650f0195556118b84fcd51d8c68be7"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/final-export/unmatched-audit.json",
+      "path": "results/board-interface-v2-sept8/final-export/unmatched-audit.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/glm-console.log",
+      "path": "results/board-interface-v2-sept8/glm-console.log",
+      "bytes": 37623,
+      "sha256": "73b3938ec8acca2391df884338269e43acc634f3547973eb300ebd1fecc4895e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/model-visible-tools.json",
+      "path": "results/board-interface-v2-sept8/model-visible-tools.json",
+      "bytes": 9167,
+      "sha256": "00ef98612e50219eedce9827fd90f89c8130a5abd313f684a4cdf7850c4cbb03"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviewed-episodes.csv",
+      "path": "results/board-interface-v2-sept8/reviewed-episodes.csv",
+      "bytes": 8995,
+      "sha256": "acff286d5a317635d3b08483de6e0c844c1abaaca98f29178b3ffdb79bd81c3a"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviewed-episodes.json",
+      "path": "results/board-interface-v2-sept8/reviewed-episodes.json",
+      "bytes": 19096,
+      "sha256": "3993849ba32046750c8cb14c0cb9d9f40c5df5f506d0222c1020dcea9671721a"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c1-notes.md",
+      "path": "results/board-interface-v2-sept8/reviews/board-c1-notes.md",
+      "bytes": 1091,
+      "sha256": "4c6c791e7f9999b2a54fa4f617de9ea08e74be829e490c77268fb12c3636fb0d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c1-task0-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c1-task0-messages.json",
+      "bytes": 13784,
+      "sha256": "0dd681535539d78df18efd9505cbb358bd9a3c49c00d4feccb9170dae868f722"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c1-task0.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c1-task0.json",
+      "bytes": 7167,
+      "sha256": "79f7743316d2a42285a1dc6a490c29e2c53bdfc10f056311af1cee62e5fa0ceb"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c1-task1-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c1-task1-messages.json",
+      "bytes": 139530,
+      "sha256": "90dc761ac317ae3f5c0db03d77dbfc729955027363449811dd7ad897f117f332"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c1-task1-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/board-c1-task1-submitted.py",
+      "bytes": 3312,
+      "sha256": "e79da8682b968c526af54bf49e47db9497aaf828ee4cc3548a1db26b57faa9da"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c1-task1.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c1-task1.json",
+      "bytes": 42903,
+      "sha256": "4a99d4ac60e4f631b85d5907f1ad3948586e8fc0824a574d129fbff6323414e7"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c1-task2-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c1-task2-messages.json",
+      "bytes": 91729,
+      "sha256": "593dce81132c64b4fc32961657210df2574bb062edfaa1180512b5a9a90f2db5"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c1-task2-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/board-c1-task2-submitted.py",
+      "bytes": 1509,
+      "sha256": "f3d64f00558c6ab37b6bf51c63de2df5bcbc321380c2c681215052ee3a797e48"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c1-task2.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c1-task2.json",
+      "bytes": 9320,
+      "sha256": "3679444ad51d62245bc64d9036c5ba78996d15ce8b9de4d092a78a63bb7d931e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-notes.md",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-notes.md",
+      "bytes": 4329,
+      "sha256": "1451cf5cd744981af1a9fd17262287977c22239c9824169424743fd428f3ec01"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task10-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task10-messages.json",
+      "bytes": 46078,
+      "sha256": "78221738f0964c8520cd3fe0def11c4c7ceccceb993f714fce6dbf9b73c4e7c7"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task10-probe/func.py",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task10-probe/func.py",
+      "bytes": 3771,
+      "sha256": "5ae6aeb6ca920cf6c498110d6963c08f708aebeb29d8f059a2f1601ae155f4eb"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task10-probe/probe.py",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task10-probe/probe.py",
+      "bytes": 577,
+      "sha256": "012b8130ccf28621b9e7694231ae8a5b3b598b6bbb0a714855bef9f58e8717e2"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task10-probe/result.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task10-probe/result.json",
+      "bytes": 1511,
+      "sha256": "3e7edae9476ea4b63d7913365f381bf24cb88865eeae5c1380314878abeb3523"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task10-probe/stderr.txt",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task10-probe/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task10-probe/stdout.txt",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task10-probe/stdout.txt",
+      "bytes": 157,
+      "sha256": "b98fd520039c773cdfbb7491a3585128fcc3f1f0e0817f2d9618a102f4de971e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task10-scores.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task10-scores.json",
+      "bytes": 38192,
+      "sha256": "7cebeac672ea0affaca79cc412bbdee6509ec08a729183383946bda8ba806788"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task10-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task10-submitted.py",
+      "bytes": 3771,
+      "sha256": "5ae6aeb6ca920cf6c498110d6963c08f708aebeb29d8f059a2f1601ae155f4eb"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task10.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task10.json",
+      "bytes": 28897,
+      "sha256": "760e4a4267cf65dfaa798f10bf12dad97a558d2f520a23da106094ed0fce38c7"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task11-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task11-messages.json",
+      "bytes": 31013,
+      "sha256": "458ea162b97b2ac5fe95aa3f4655434832f8c0c43f4b12fb7cf42a62e3569110"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task11-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task11-submitted.py",
+      "bytes": 1386,
+      "sha256": "ecc30c26e40fe9ffe03d36503e3f1d0449c5a02eb143862120296434ddce987f"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task11.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task11.json",
+      "bytes": 1511,
+      "sha256": "317eddcf281df78011f5ecdb4157ee19fe7c08e35db15d1dbd2736867c42a1b2"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task12-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task12-messages.json",
+      "bytes": 100736,
+      "sha256": "c9ba8ba8e33393e5d83c4eb8e308ac8ee4eeb57ce49a22369efba67fd423539e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task12-probe/func.py",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task12-probe/func.py",
+      "bytes": 3447,
+      "sha256": "a3ede3690c8a19f0b9b24cbf1bb3be36a000aa591c82814450a3a4776e8df016"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task12-probe/probe.py",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task12-probe/probe.py",
+      "bytes": 896,
+      "sha256": "859e73605b66a8838f30ecf5ae402d162ef93f57dfc3d7c981616772aeb7c357"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task12-probe/result.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task12-probe/result.json",
+      "bytes": 1472,
+      "sha256": "4aaf737ae623a5258a078a1c647f37d8247d0b15602b24866cc4ef5b72f77295"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task12-probe/stderr.txt",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task12-probe/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task12-probe/stdout.txt",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task12-probe/stdout.txt",
+      "bytes": 118,
+      "sha256": "8604e78970d8b4019a7cd3cb508b60fc6cd869b6740632d1c642ab8f1ae006bd"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task12-scores.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task12-scores.json",
+      "bytes": 30214,
+      "sha256": "9c2354ce6f2477ee6bc651ddbdd2eedbb1658f5c1d82baf9080567e0bb735e40"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task12-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task12-submitted.py",
+      "bytes": 3447,
+      "sha256": "a3ede3690c8a19f0b9b24cbf1bb3be36a000aa591c82814450a3a4776e8df016"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/board-c2-task12.json",
+      "path": "results/board-interface-v2-sept8/reviews/board-c2-task12.json",
+      "bytes": 12122,
+      "sha256": "69ffd504d0d84fb398eae7c9d24baf1b9187b7a8f97b346e1262436d06d4f641"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/lcbhard_2-full.txt",
+      "path": "results/board-interface-v2-sept8/reviews/lcbhard_2-full.txt",
+      "bytes": 83267,
+      "sha256": "07465133caf99bdd27a76cab4fd587d2272b499a8acfd895a6d55da06661dbf3"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c1-task0-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c1-task0-messages.json",
+      "bytes": 21840,
+      "sha256": "fce915a7f5b1aaae87cf08881ec81682bbe0eca743b219a0f740bfc997c6768c"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c1-task0-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/private-c1-task0-submitted.py",
+      "bytes": 1861,
+      "sha256": "cde6639c68e23d3709de4b7c314f41dda640667f94766f45a8487c9958e05e86"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c1-task0.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c1-task0.json",
+      "bytes": 19410,
+      "sha256": "d45da1ad74c84e4df258ec0e49e70e3da5e61711bcf0840aca2721eedac00cde"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c1-task1-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c1-task1-messages.json",
+      "bytes": 121282,
+      "sha256": "0a8dd30b6230e50f2f20ebd73f89a2808705ca9c987b6f6f68177ffadb5140b2"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c1-task1-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/private-c1-task1-submitted.py",
+      "bytes": 3808,
+      "sha256": "2448eb0b2221eb0eff12f35020d2d68b62e5903fef45596f2de09a1bed46eeef"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c1-task1.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c1-task1.json",
+      "bytes": 42262,
+      "sha256": "130c35914e4c31592341b95bf04a47c6f5fdf57630180040d42e322cb8bb06d9"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c1-task2-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c1-task2-messages.json",
+      "bytes": 62426,
+      "sha256": "2c0b492323f9a08a24031825d7374c9dd65f8ec8eb1014bccf83de848573009e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c1-task2-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/private-c1-task2-submitted.py",
+      "bytes": 1973,
+      "sha256": "09174d1a6555d0b21d7c554ab461653dbd08e69ab73420be3d4d13d5aa5dff2e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c1-task2.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c1-task2.json",
+      "bytes": 21063,
+      "sha256": "c977f5f63163d8f378181d08318e90a385442ca27a982436253336d22988909f"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c2-task10-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c2-task10-messages.json",
+      "bytes": 150262,
+      "sha256": "235b50ca0f17830824414cc93e9729c14167ce2e648ee5d4b2491b1c3b5f2af7"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c2-task10-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/private-c2-task10-submitted.py",
+      "bytes": 4133,
+      "sha256": "c8a4a7e30bc5229f8b8f7a33029fcaea289fa3a9e47c5e19e8add586919b9d04"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c2-task10.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c2-task10.json",
+      "bytes": 54861,
+      "sha256": "9208b83b7c20da968d8a836c9b9f526cb1f44d44d92bd59e8ad38b3a5bca81d0"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c2-task11-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c2-task11-messages.json",
+      "bytes": 40454,
+      "sha256": "31f04eba01be3875adda2a192a352ba87af1da2dd3a9422caa9b8f15bf567dfd"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c2-task11-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/private-c2-task11-submitted.py",
+      "bytes": 1666,
+      "sha256": "4f9a030e8aab160adba0f20393914dd4a0244226a4fb177ed8506d3ea59d387e"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c2-task11.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c2-task11.json",
+      "bytes": 19695,
+      "sha256": "042129c61a76237148705f79822e18f2f93209c0444fe2d909d8a18d5a50942b"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c2-task12-messages.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c2-task12-messages.json",
+      "bytes": 219637,
+      "sha256": "15de063fefb69ee079c8b4398b9b20a830a7fb1a9d78c166dec0e9e88d884538"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c2-task12-submitted.py",
+      "path": "results/board-interface-v2-sept8/reviews/private-c2-task12-submitted.py",
+      "bytes": 4469,
+      "sha256": "e9fc99be4935efe27341d4f27aff53b43a914973f6b008a925bbe88df735be4d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-c2-task12.json",
+      "path": "results/board-interface-v2-sept8/reviews/private-c2-task12.json",
+      "bytes": 38860,
+      "sha256": "bde96f555d9728372eb2f3d97a9609c25e2a3c764ef2428ef2d88255213d988c"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/private-notes.md",
+      "path": "results/board-interface-v2-sept8/reviews/private-notes.md",
+      "bytes": 1877,
+      "sha256": "17711775fd83ef5a8d55e3668f2797b8be9b05e6fff6c8c199ff734c1d911365"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/reviews/replay_board_c2.py",
+      "path": "results/board-interface-v2-sept8/reviews/replay_board_c2.py",
+      "bytes": 3803,
+      "sha256": "6f51524b5a98b035209197f6d84297bc233b6c1a159f1ba6bf6af05f48a4d804"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/synthesis-console.json",
+      "path": "results/board-interface-v2-sept8/synthesis-console.json",
+      "bytes": 4157,
+      "sha256": "3a86de9bb4dd0090acc0549eb8676f8beb7ae92a5945787a54f0d858587b6302"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/synthesize.py",
+      "path": "results/board-interface-v2-sept8/synthesize.py",
+      "bytes": 10304,
+      "sha256": "7412644f1a5f4d734b7b040450ff78d055100c037f797795e9c256bbdff9c91c"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/token-analysis.md",
+      "path": "results/board-interface-v2-sept8/token-analysis.md",
+      "bytes": 4571,
+      "sha256": "8adbd1417e4ce56e49588ff9f4d1bb8f45f3ddf6afba33dc070068dc7ada6b5d"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/token-summary.json",
+      "path": "results/board-interface-v2-sept8/token-summary.json",
+      "bytes": 4157,
+      "sha256": "3a86de9bb4dd0090acc0549eb8676f8beb7ae92a5945787a54f0d858587b6302"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/verification.json",
+      "path": "results/board-interface-v2-sept8/verification.json",
+      "bytes": 14937,
+      "sha256": "a27a5e9901394e938a0520585a1b7e62fa18537af8316e59e823c0fdf436191c"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/verification.md",
+      "path": "results/board-interface-v2-sept8/verification.md",
+      "bytes": 2085,
+      "sha256": "e9c896efbf463006926f81d983269a05caf482918b52ccc8ebde4f5dd00f9020"
+    },
+    {
+      "old_path": "scratchpad/board-interface-v2-sept8/verify_run.py",
+      "path": "results/board-interface-v2-sept8/verify_run.py",
+      "bytes": 7018,
+      "sha256": "405f06a44ef6c1a3bec78ea9c55c1a9c20f5f33ec40909790f6ad5a9923fb03b"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/INTERIM.md",
+      "path": "results/board-pilot-sept8/INTERIM.md",
+      "bytes": 2816,
+      "sha256": "23576d745cb8bfa2cd9638cd08ca45e5c3bf3d440eb6b708f9503deb9fada212"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/RESULTS.md",
+      "path": "results/board-pilot-sept8/RESULTS.md",
+      "bytes": 9842,
+      "sha256": "3d64385043799bd56765755d1cddc86b6b40833ca5dd59eb88f3de7fd0ccdbc9"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/REPORT.md",
+      "path": "results/board-pilot-sept8/artifact-probes/REPORT.md",
+      "bytes": 4793,
+      "sha256": "c62e2946e16fbe8e633f2a5b229c7afdf43c0ac6afc55365f7928d0877f09a82"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/func.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/func.py",
+      "bytes": 2886,
+      "sha256": "936a161ff14960d890e38585d3dae57d56ff04b0723035e2b45f9db499536241"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/probe.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/probe.py",
+      "bytes": 1487,
+      "sha256": "d1db067f0f01f24c0ef03cfac9c141ec3b945f4ddaab24258dfdaa4ec554ae14"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/result.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/result.json",
+      "bytes": 2412,
+      "sha256": "5b09a612933425aac1001d640a97ab0423d3e587e4a04456459afba279560abe"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/spec.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/spec.json",
+      "bytes": 168,
+      "sha256": "a5cac0f27ccba3439038d94510a265cb623acfa3c567908a33a8e758e222fc82"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/stderr.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/stdout.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_1/stdout.txt",
+      "bytes": 567,
+      "sha256": "46f91368a45080bab28ae57623118feeae1fccad900eb4df314db3c7c03338ef"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/func.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/func.py",
+      "bytes": 2027,
+      "sha256": "a3cf7988d9ba1b308a5aaee63c1f7f49315c5d0f077e2b43c35d36c9761490ab"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/probe.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/probe.py",
+      "bytes": 1487,
+      "sha256": "d1db067f0f01f24c0ef03cfac9c141ec3b945f4ddaab24258dfdaa4ec554ae14"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/result.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/result.json",
+      "bytes": 2382,
+      "sha256": "d534541fb77e31f18960c9bdc4ef685ff8776e829756def2ae6449c5dd778c55"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/spec.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/spec.json",
+      "bytes": 144,
+      "sha256": "ddf516efd2a587b17923e9ec842623cfc4c81ed31b9d9f609934818beff6c50c"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/stderr.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/stdout.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/board-lcbhard_2/stdout.txt",
+      "bytes": 565,
+      "sha256": "4ebe52aa82b1f4eec91cb59c3e8f6ba5d8b82c8377b24b63cfa22c216b0d2cbb"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/func.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/func.py",
+      "bytes": 3551,
+      "sha256": "501c534ed3fbc42a4958982fd413dcf67660b6ace93c2b0dac1475b9f8a6b4b1"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/probe.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/probe.py",
+      "bytes": 1487,
+      "sha256": "d1db067f0f01f24c0ef03cfac9c141ec3b945f4ddaab24258dfdaa4ec554ae14"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/result.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/result.json",
+      "bytes": 2543,
+      "sha256": "69639669d3d207fc9bcc11c436cc99eaec421e8e87a0a4553c9ef78773599023"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/spec.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/spec.json",
+      "bytes": 168,
+      "sha256": "a5cac0f27ccba3439038d94510a265cb623acfa3c567908a33a8e758e222fc82"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/stderr.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/stdout.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_1/stdout.txt",
+      "bytes": 692,
+      "sha256": "0606d742ee62119170e82df561f1f56be0b02ca81048ddca729d9f0e2d98fef9"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/func.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/func.py",
+      "bytes": 1505,
+      "sha256": "2b228d437e0856cc7f6d117af606b1accc5856b64fd7372833a0e6f38d3b33b2"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/probe.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/probe.py",
+      "bytes": 1487,
+      "sha256": "d1db067f0f01f24c0ef03cfac9c141ec3b945f4ddaab24258dfdaa4ec554ae14"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/result.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/result.json",
+      "bytes": 2388,
+      "sha256": "c33d172b67d279ade3d263aa82f0cd985871c7c02087cbefecfb10e32db255d9"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/spec.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/spec.json",
+      "bytes": 144,
+      "sha256": "ddf516efd2a587b17923e9ec842623cfc4c81ed31b9d9f609934818beff6c50c"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/stderr.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/stdout.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/private-lcbhard_2/stdout.txt",
+      "bytes": 565,
+      "sha256": "4ebe52aa82b1f4eec91cb59c3e8f6ba5d8b82c8377b24b63cfa22c216b0d2cbb"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-1/results.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-1/results.json",
+      "bytes": 10436,
+      "sha256": "846d0b3223a9e16640775558f5f2a28de2a0090bb449c8493b0a4020dfc95f41"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/func.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/func.py",
+      "bytes": 2999,
+      "sha256": "fb83d70468abdcddafd1c3aa0663942efdee4d27a6cccbb16f4ae03b97e7933a"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/probe.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/probe.py",
+      "bytes": 2146,
+      "sha256": "b038d07587d074a5103923fe7a7c787063a75760676f9f8e38f1c8ec5cc8a530"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/result.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/result.json",
+      "bytes": 2520,
+      "sha256": "af8d1a096a78200d143fe31381167f4f480ff06cbbf022c5cc2160a6a1ec05f8"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/spec.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/spec.json",
+      "bytes": 180,
+      "sha256": "233a3ed567e7b34471d3336607c0e31e0c2233e0d49bb27b4e9c8f5cfcc8fb0c"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/stderr.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/stdout.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/board-lcbhard_12/stdout.txt",
+      "bytes": 649,
+      "sha256": "5ed509bc0b78ee5a0d1ce9793d199e8d611e16cb2817f3f0020920044575b704"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/func.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/func.py",
+      "bytes": 3349,
+      "sha256": "96428ac611ebbe58d44029745e138755307581202ee73472201f6f17a72faa88"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/probe.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/probe.py",
+      "bytes": 2146,
+      "sha256": "b038d07587d074a5103923fe7a7c787063a75760676f9f8e38f1c8ec5cc8a530"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/result.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/result.json",
+      "bytes": 2694,
+      "sha256": "216abaa326063422177820c81c5786fcc67c143eb7ea62a634e960fcafda7989"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/spec.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/spec.json",
+      "bytes": 400,
+      "sha256": "9a25d5aff062b085b557e7f8690ff9d69ffcc886e12747d4643640b69514e70b"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/stderr.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/stdout.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_10/stdout.txt",
+      "bytes": 557,
+      "sha256": "c4a325aa12589b1934a4d4168576c56af2e129480a052bda5ff882f0ebe44ca1"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/func.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/func.py",
+      "bytes": 4276,
+      "sha256": "860189a095cdff48762d9e3b97f62df80df1cc8dadaee8a7ba2f2f19a1d205ef"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/probe.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/probe.py",
+      "bytes": 2146,
+      "sha256": "b038d07587d074a5103923fe7a7c787063a75760676f9f8e38f1c8ec5cc8a530"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/result.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/result.json",
+      "bytes": 2404,
+      "sha256": "f65d8c54a44101be0a9b742de3308cd719bc7c46053eb094096153e9c74f5cb5"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/spec.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/spec.json",
+      "bytes": 178,
+      "sha256": "0562731d11c633a3a7c62510b7b3e5b3b44d5a502df7a65c463b37ab7927c32a"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/stderr.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/stdout.txt",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/private-lcbhard_12/stdout.txt",
+      "bytes": 541,
+      "sha256": "f04cb8f48da64e6c9976bd54310b9d1fac86a002170d3192c76c041e4904d37a"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay-2/results.json",
+      "path": "results/board-pilot-sept8/artifact-probes/replay-2/results.json",
+      "bytes": 8216,
+      "sha256": "06f8f041d953decfd05b0b7078df3ee3316f890868b8e081c9fd07a48bb776f1"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay.py",
+      "bytes": 5556,
+      "sha256": "0b226e46ddefcd0f91734a3b7202ca26d9ff8670766d43ab2dcb740d57fcdfbe"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/artifact-probes/replay_cohort2.py",
+      "path": "results/board-pilot-sept8/artifact-probes/replay_cohort2.py",
+      "bytes": 6461,
+      "sha256": "9b7e21d52bc33b8f306ed4c27bed954f49d2f39295ccb5d58935e246794f8d6f"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/annotations.csv",
+      "path": "results/board-pilot-sept8/final-export/annotations.csv",
+      "bytes": 2896,
+      "sha256": "42f8d94fe77d4e5d9337ed683bd87086c830dd69e49dc9ec58fe459994c8fa87"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/board-operations.json",
+      "bytes": 12536,
+      "sha256": "582d2fa42ec0af30360b1cbd25dc15dcfa8249742ab313e3bc47afe84f3b0f21"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-001/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-001/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-001/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-001/final-artifacts.json",
+      "bytes": 3046,
+      "sha256": "ca44c96c372c96099db02e3be1bf5a77bea86714fe210edaf0ec6016a9ece0a9"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-001/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-001/final-func.py",
+      "bytes": 1812,
+      "sha256": "278f0c606df98d085616f559fb90942271ba4fde5c30f960f15262666f74b63f"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-001/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-001/final-test.py",
+      "bytes": 858,
+      "sha256": "a5e33e48668e81abdb14f31771f9f8c751d17747337412ed341c241c89c5f2ab"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-001/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-001/messages.json",
+      "bytes": 12009,
+      "sha256": "708836c813204d42f833c25c130623d0fa46325363bb8d2cb21d5a6764e0da41"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-001/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-001/messages.txt",
+      "bytes": 10672,
+      "sha256": "85ad09dc645eb2aa41e73c28a80b322268d6544367d1813021b6bc18a0f95572"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-001/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-001/scorer-artifacts.json",
+      "bytes": 6146,
+      "sha256": "a75f47b6d1c75c14158ca824a3d001743893b1ed4abb0d93c3cff2b6b5169eed"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-002/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-002/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-002/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-002/final-artifacts.json",
+      "bytes": 4435,
+      "sha256": "dfd1fc4d1726511851b1b73fb784503c7bed21904b25e33af8a04eaeab7a2290"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-002/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-002/final-func.py",
+      "bytes": 2886,
+      "sha256": "936a161ff14960d890e38585d3dae57d56ff04b0723035e2b45f9db499536241"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-002/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-002/final-test.py",
+      "bytes": 1098,
+      "sha256": "ac65aee1a8907c5cd0b3b700eeaa396c74fbed75017f96aaa62721775e6a4852"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-002/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-002/messages.json",
+      "bytes": 56709,
+      "sha256": "d6bc28f7b7c26ae0d4dd099a8ff1dc47c359aa74995e607b653a026320ccedda"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-002/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-002/messages.txt",
+      "bytes": 52081,
+      "sha256": "f506b51460a58aaf3346e6f62cfdc4ede5ecf8b688769bd1de0c3f40435907fe"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-002/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-002/scorer-artifacts.json",
+      "bytes": 8926,
+      "sha256": "ea804c7c2983983fd2341e27b897dd33b3ada581c809d0745175325f42220237"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-003/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-003/board-operations.json",
+      "bytes": 8787,
+      "sha256": "4c4e6914d72f0ab8120e75584759e683551c2d29488dbeaa6506b87c4728d2e8"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-003/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-003/final-artifacts.json",
+      "bytes": 3348,
+      "sha256": "62d358ef6e2d18fe666ed2f7c988206fd134ad9a45725d416544864943de8161"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-003/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-003/final-func.py",
+      "bytes": 2027,
+      "sha256": "a3cf7988d9ba1b308a5aaee63c1f7f49315c5d0f077e2b43c35d36c9761490ab"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-003/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-003/final-test.py",
+      "bytes": 941,
+      "sha256": "0998b10a2ae51339c09c69ca1bc6cbff47e5690f03f28104c5143d16d5f24808"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-003/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-003/messages.json",
+      "bytes": 40250,
+      "sha256": "e13a8a5700e7fb227ee3c443386115525361d44cab96aa0bb81458963977ea91"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-003/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-003/messages.txt",
+      "bytes": 36046,
+      "sha256": "7bc74bcda379e135b5cf0abe205612a5d84e0818e8f5686367d6a304f43735ac"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-003/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-003/scorer-artifacts.json",
+      "bytes": 9735,
+      "sha256": "f92ee94a62ce056052d8590f6e6e72314cda17ef6c4232d445524d2166dbea63"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-004/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-004/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-004/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-004/final-artifacts.json",
+      "bytes": 3030,
+      "sha256": "eef2770cf52b9aec77817dc7030caed64c23aeea8e81646c59e22dde65607c44"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-004/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-004/final-func.py",
+      "bytes": 1799,
+      "sha256": "0ed4850f8b6970e4e32980dbd85eac4f140862299970bbee11f6e56b05d79558"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-004/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-004/final-test.py",
+      "bytes": 858,
+      "sha256": "a5e33e48668e81abdb14f31771f9f8c751d17747337412ed341c241c89c5f2ab"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-004/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-004/messages.json",
+      "bytes": 10868,
+      "sha256": "cc0d76a4544168f37b06efdd8523d7b3584cbbef76d923db6d21861f3e03101f"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-004/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-004/messages.txt",
+      "bytes": 9537,
+      "sha256": "b7dae8144048ee3f010cb0512395430a941b40340373dc69209379eb85a8acc1"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-004/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-004/scorer-artifacts.json",
+      "bytes": 6114,
+      "sha256": "973f51f6696c307c711a34d250ac5b197d2f3dfcb16a4f221778c9edcdc0fac6"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-005/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-005/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-005/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-005/final-artifacts.json",
+      "bytes": 5131,
+      "sha256": "6bd5f48286723df7e16d72711db073ec6c4931dad15f11b0d2f77486918c28cb"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-005/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-005/final-func.py",
+      "bytes": 3551,
+      "sha256": "501c534ed3fbc42a4958982fd413dcf67660b6ace93c2b0dac1475b9f8a6b4b1"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-005/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-005/final-test.py",
+      "bytes": 1098,
+      "sha256": "ac65aee1a8907c5cd0b3b700eeaa396c74fbed75017f96aaa62721775e6a4852"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-005/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-005/messages.json",
+      "bytes": 49715,
+      "sha256": "ee6dc2a5467c4d5e58fd45e2f8b74667571979c0c84e5349edc9df13a1ec81f0"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-005/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-005/messages.txt",
+      "bytes": 45656,
+      "sha256": "dbb9194237a6a99da6245f32395b3853736e271f0e25091b4e91e7b770e5b91c"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-005/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-005/scorer-artifacts.json",
+      "bytes": 10318,
+      "sha256": "78a9f08dc98ea8a5b20bd3dab2d7c4ec459105dd795cece2deb4cdda7bf6f996"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-006/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-006/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-006/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-006/final-artifacts.json",
+      "bytes": 2812,
+      "sha256": "fdedc0d45b2ac4e553859ce6964307fd8e847cae7dc41ed18cf3f7ee0ba826b0"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-006/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-006/final-func.py",
+      "bytes": 1505,
+      "sha256": "2b228d437e0856cc7f6d117af606b1accc5856b64fd7372833a0e6f38d3b33b2"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-006/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-006/final-test.py",
+      "bytes": 941,
+      "sha256": "0998b10a2ae51339c09c69ca1bc6cbff47e5690f03f28104c5143d16d5f24808"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-006/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-006/messages.json",
+      "bytes": 64787,
+      "sha256": "e61e69a76a02323f9da6218b323e0925cbfa701e92575979f83a355579228314"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-006/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-006/messages.txt",
+      "bytes": 61005,
+      "sha256": "e953b2c1a46f6e1bbc820587ebb7812e9c00f72c7171860941b669f01dc5ab84"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-006/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-006/scorer-artifacts.json",
+      "bytes": 5679,
+      "sha256": "640b1930e6c4383a50e76d48853f596847bfbde4cd57b66300c4ff747d37c675"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-007/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-007/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-007/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-007/final-artifacts.json",
+      "bytes": 7351,
+      "sha256": "10c6804871469be79a76837bd06352b6ba0a1e584c65523973e7a1c1e51daa41"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-007/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-007/final-func.py",
+      "bytes": 3349,
+      "sha256": "96428ac611ebbe58d44029745e138755307581202ee73472201f6f17a72faa88"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-007/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-007/final-test.py",
+      "bytes": 3575,
+      "sha256": "bb90451ef0919a34bc150b6db9d4ce661265c412b946594b15563be85af9b599"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-007/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-007/messages.json",
+      "bytes": 37697,
+      "sha256": "b1f002ed613d3bb2423a332bb1fe0bacf6c12e98096834b108c9f7b4045d88b3"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-007/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-007/messages.txt",
+      "bytes": 34992,
+      "sha256": "c0cc073baec0651d136169620cf5367cbffce3eedac3428e950f384dce540c37"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-007/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-007/scorer-artifacts.json",
+      "bytes": 14756,
+      "sha256": "edc413a34ab16c01e998479246d28723e4f2bde501c97c1db35fdbe89809606f"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-008/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-008/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-008/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-008/final-artifacts.json",
+      "bytes": 3251,
+      "sha256": "4b9530c4c927be255021025ed4ea5a9d3c5afd684343fd72c42a035480ecdbfe"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-008/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-008/final-func.py",
+      "bytes": 1580,
+      "sha256": "49dd23ae8c5563d92949be350c1a5cbd2dbe1916f2da1e50e06f047ef65af3e7"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-008/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-008/final-test.py",
+      "bytes": 1300,
+      "sha256": "f4361d7e31aef9f46f42b030037702ffb2dc505511aa6a99fdd93d1316607678"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-008/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-008/messages.json",
+      "bytes": 12509,
+      "sha256": "961b0c152570d97ce1504d71824595a1c603a3bcc7f330b703e4089fca8d8911"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-008/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-008/messages.txt",
+      "bytes": 11136,
+      "sha256": "8beacc792721c3883346f2d4e1bf87242d2d42157f7bf54d13530bfb37e94a5f"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-008/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-008/scorer-artifacts.json",
+      "bytes": 6556,
+      "sha256": "e569db1b1fdc23d0ea6f613be8e38ea7bea4d4b864ccabfc6d322a9cd283da07"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-009/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-009/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-009/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-009/final-artifacts.json",
+      "bytes": 6314,
+      "sha256": "db2ca2efae3f044b6bfa005cee5512d8fae3b0c5248564acc4ac264d8434c715"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-009/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-009/final-func.py",
+      "bytes": 4276,
+      "sha256": "860189a095cdff48762d9e3b97f62df80df1cc8dadaee8a7ba2f2f19a1d205ef"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-009/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-009/final-test.py",
+      "bytes": 1579,
+      "sha256": "12837b2e48b66b6b285e928c3ade175a3443857e0b587aa5047f6a5995edf807"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-009/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-009/messages.json",
+      "bytes": 96886,
+      "sha256": "46bd643f666e6138665d9c0c13b500d39176378eeb403c39ecd6640b775847e0"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-009/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-009/messages.txt",
+      "bytes": 92815,
+      "sha256": "2b0dcda01d20987ae1b6040873ff21206645e8a067a89661bbff01e6521e3791"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-009/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-009/scorer-artifacts.json",
+      "bytes": 12682,
+      "sha256": "03645b36a4ead22dc417ada29f064cd0e33c305a6d106a5852584c5ed26e7e5d"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-010/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-010/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-010/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-010/final-artifacts.json",
+      "bytes": 6833,
+      "sha256": "55dee51f4415b65cf8e05a3de5a56781bad49d7c4c628abd4155952c99cab467"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-010/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-010/final-func.py",
+      "bytes": 2326,
+      "sha256": "56ba3291cc3566287a4c51f34550bd62e4724f582134c278e619001705613ada"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-010/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-010/final-test.py",
+      "bytes": 3575,
+      "sha256": "bb90451ef0919a34bc150b6db9d4ce661265c412b946594b15563be85af9b599"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-010/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-010/messages.json",
+      "bytes": 56818,
+      "sha256": "10341dfda5cc4f44ce5e942342b69b4b4f1a19de7b30b0e1b98446c8dfa66b16"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-010/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-010/messages.txt",
+      "bytes": 52697,
+      "sha256": "ddb0d82e385d3dd3e31ab8ca564a2bccbee5240fdcb70431df37795f3aa5211b"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-010/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-010/scorer-artifacts.json",
+      "bytes": 20579,
+      "sha256": "02d7b0b39743f4dc4545da7b4d3dce57a85c127c3472d64b0d1f5ec160d6262e"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-011/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-011/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-011/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-011/final-artifacts.json",
+      "bytes": 3258,
+      "sha256": "804cfda91ba32a5dc8c3837d31858bab7b6b724f7335a38b0a8ffe8ed1fe1d59"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-011/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-011/final-func.py",
+      "bytes": 1591,
+      "sha256": "d1c2f39b682d0f0b695b93b356ae05190cb635807191056706c3ae53c3c3879c"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-011/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-011/final-test.py",
+      "bytes": 1300,
+      "sha256": "f4361d7e31aef9f46f42b030037702ffb2dc505511aa6a99fdd93d1316607678"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-011/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-011/messages.json",
+      "bytes": 12452,
+      "sha256": "0427c17594a8e61701074d52516459cee1044387e960e4ec0adfa550f6a50ae7"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-011/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-011/messages.txt",
+      "bytes": 10549,
+      "sha256": "9ccc6a1d7dd7f08a5365d757cef4f05c181e5b0b1d378bc3a299faabb0e27369"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-011/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-011/scorer-artifacts.json",
+      "bytes": 6570,
+      "sha256": "8305fb531d4c3c789dae051d6900156b3602825197f5de2cb54227e155faa13e"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-012/board-operations.json",
+      "path": "results/board-pilot-sept8/final-export/episode-012/board-operations.json",
+      "bytes": 3752,
+      "sha256": "d72df230b782b9eebd734042214aced5e87dbd9d61d90a069535d85a3b612c05"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-012/final-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-012/final-artifacts.json",
+      "bytes": 5013,
+      "sha256": "23a93f227789c89833d80a0685aa356d87799871abf8c61e8b6f49ffb7cb2764"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-012/final-func.py",
+      "path": "results/board-pilot-sept8/final-export/episode-012/final-func.py",
+      "bytes": 2999,
+      "sha256": "fb83d70468abdcddafd1c3aa0663942efdee4d27a6cccbb16f4ae03b97e7933a"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-012/final-test.py",
+      "path": "results/board-pilot-sept8/final-export/episode-012/final-test.py",
+      "bytes": 1579,
+      "sha256": "12837b2e48b66b6b285e928c3ade175a3443857e0b587aa5047f6a5995edf807"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-012/messages.json",
+      "path": "results/board-pilot-sept8/final-export/episode-012/messages.json",
+      "bytes": 64157,
+      "sha256": "69c7f39df2845bf25a2ee9b4919da23d36dcea2164f89379f431da5e1021a024"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-012/messages.txt",
+      "path": "results/board-pilot-sept8/final-export/episode-012/messages.txt",
+      "bytes": 59404,
+      "sha256": "94d2e68561bda9baec00ad4710fb9ad18de3ff8121159a2bbe3e2f2cc73b3ab6"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episode-012/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/final-export/episode-012/scorer-artifacts.json",
+      "bytes": 14353,
+      "sha256": "b93402567826ea50a18b89cb8b1931eb5f8c9385d470440e705fd57f1b068b07"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episodes.csv",
+      "path": "results/board-pilot-sept8/final-export/episodes.csv",
+      "bytes": 4949,
+      "sha256": "d856d42c9854ff465ed3b5e47fbda14035701419245b58e2170c9fbd170a540d"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/episodes.json",
+      "path": "results/board-pilot-sept8/final-export/episodes.json",
+      "bytes": 11658,
+      "sha256": "eced97a7223bce93eabd222d13c2696d671eecb9fef1ca8338ca27e7dcecf633"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/exposure-edges.json",
+      "path": "results/board-pilot-sept8/final-export/exposure-edges.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/manifest.json",
+      "path": "results/board-pilot-sept8/final-export/manifest.json",
+      "bytes": 37653,
+      "sha256": "39f2817e9b4ed82841f105ff368d9e13ff1f42079e9862f595cf4cac9a2e703b"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/public-posts.json",
+      "path": "results/board-pilot-sept8/final-export/public-posts.json",
+      "bytes": 2999,
+      "sha256": "c288ef86ee95823804c5164fb17e8b5e636b7f8e2c4ca7f29eff098e3d1bb48a"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/final-export/unmatched-audit.json",
+      "path": "results/board-pilot-sept8/final-export/unmatched-audit.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/glm-console.log",
+      "path": "results/board-pilot-sept8/glm-console.log",
+      "bytes": 37380,
+      "sha256": "ff5c4f3f363da29118ca3944af1bd72ecb9710dbe88a507bc7fc887a55bcd758"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/annotations.csv",
+      "path": "results/board-pilot-sept8/phase1-export-v2/annotations.csv",
+      "bytes": 1040,
+      "sha256": "f4be85926e02342f51b0ea7b6a8cdd67ea137e8fde2ec14d0e27c73eedf6f8db"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/board-operations.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/board-operations.json",
+      "bytes": 8787,
+      "sha256": "4c4e6914d72f0ab8120e75584759e683551c2d29488dbeaa6506b87c4728d2e8"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-001/board-operations.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-001/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-001/final-artifacts.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-001/final-artifacts.json",
+      "bytes": 3046,
+      "sha256": "ca44c96c372c96099db02e3be1bf5a77bea86714fe210edaf0ec6016a9ece0a9"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-001/final-func.py",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-001/final-func.py",
+      "bytes": 1812,
+      "sha256": "278f0c606df98d085616f559fb90942271ba4fde5c30f960f15262666f74b63f"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-001/final-test.py",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-001/final-test.py",
+      "bytes": 858,
+      "sha256": "a5e33e48668e81abdb14f31771f9f8c751d17747337412ed341c241c89c5f2ab"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-001/messages.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-001/messages.json",
+      "bytes": 12009,
+      "sha256": "708836c813204d42f833c25c130623d0fa46325363bb8d2cb21d5a6764e0da41"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-001/messages.txt",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-001/messages.txt",
+      "bytes": 10672,
+      "sha256": "85ad09dc645eb2aa41e73c28a80b322268d6544367d1813021b6bc18a0f95572"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-001/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-001/scorer-artifacts.json",
+      "bytes": 6146,
+      "sha256": "a75f47b6d1c75c14158ca824a3d001743893b1ed4abb0d93c3cff2b6b5169eed"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-002/board-operations.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-002/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-002/final-artifacts.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-002/final-artifacts.json",
+      "bytes": 4435,
+      "sha256": "dfd1fc4d1726511851b1b73fb784503c7bed21904b25e33af8a04eaeab7a2290"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-002/final-func.py",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-002/final-func.py",
+      "bytes": 2886,
+      "sha256": "936a161ff14960d890e38585d3dae57d56ff04b0723035e2b45f9db499536241"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-002/final-test.py",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-002/final-test.py",
+      "bytes": 1098,
+      "sha256": "ac65aee1a8907c5cd0b3b700eeaa396c74fbed75017f96aaa62721775e6a4852"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-002/messages.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-002/messages.json",
+      "bytes": 56709,
+      "sha256": "d6bc28f7b7c26ae0d4dd099a8ff1dc47c359aa74995e607b653a026320ccedda"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-002/messages.txt",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-002/messages.txt",
+      "bytes": 52081,
+      "sha256": "f506b51460a58aaf3346e6f62cfdc4ede5ecf8b688769bd1de0c3f40435907fe"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-002/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-002/scorer-artifacts.json",
+      "bytes": 8926,
+      "sha256": "ea804c7c2983983fd2341e27b897dd33b3ada581c809d0745175325f42220237"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-003/board-operations.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-003/board-operations.json",
+      "bytes": 8787,
+      "sha256": "4c4e6914d72f0ab8120e75584759e683551c2d29488dbeaa6506b87c4728d2e8"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-003/final-artifacts.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-003/final-artifacts.json",
+      "bytes": 3348,
+      "sha256": "62d358ef6e2d18fe666ed2f7c988206fd134ad9a45725d416544864943de8161"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-003/final-func.py",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-003/final-func.py",
+      "bytes": 2027,
+      "sha256": "a3cf7988d9ba1b308a5aaee63c1f7f49315c5d0f077e2b43c35d36c9761490ab"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-003/final-test.py",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-003/final-test.py",
+      "bytes": 941,
+      "sha256": "0998b10a2ae51339c09c69ca1bc6cbff47e5690f03f28104c5143d16d5f24808"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-003/messages.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-003/messages.json",
+      "bytes": 40250,
+      "sha256": "e13a8a5700e7fb227ee3c443386115525361d44cab96aa0bb81458963977ea91"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-003/messages.txt",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-003/messages.txt",
+      "bytes": 36046,
+      "sha256": "7bc74bcda379e135b5cf0abe205612a5d84e0818e8f5686367d6a304f43735ac"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-003/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-003/scorer-artifacts.json",
+      "bytes": 9735,
+      "sha256": "f92ee94a62ce056052d8590f6e6e72314cda17ef6c4232d445524d2166dbea63"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-004/board-operations.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-004/board-operations.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-004/final-artifacts.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-004/final-artifacts.json",
+      "bytes": 3030,
+      "sha256": "eef2770cf52b9aec77817dc7030caed64c23aeea8e81646c59e22dde65607c44"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-004/final-func.py",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-004/final-func.py",
+      "bytes": 1799,
+      "sha256": "0ed4850f8b6970e4e32980dbd85eac4f140862299970bbee11f6e56b05d79558"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-004/final-test.py",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-004/final-test.py",
+      "bytes": 858,
+      "sha256": "a5e33e48668e81abdb14f31771f9f8c751d17747337412ed341c241c89c5f2ab"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-004/messages.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-004/messages.json",
+      "bytes": 10868,
+      "sha256": "cc0d76a4544168f37b06efdd8523d7b3584cbbef76d923db6d21861f3e03101f"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-004/messages.txt",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-004/messages.txt",
+      "bytes": 9537,
+      "sha256": "b7dae8144048ee3f010cb0512395430a941b40340373dc69209379eb85a8acc1"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episode-004/scorer-artifacts.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episode-004/scorer-artifacts.json",
+      "bytes": 6114,
+      "sha256": "973f51f6696c307c711a34d250ac5b197d2f3dfcb16a4f221778c9edcdc0fac6"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episodes.csv",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episodes.csv",
+      "bytes": 1860,
+      "sha256": "de6f8ec9a3c243cd025b9b53db78d66e73524266983ed54ac33d4d6d84df1c06"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/episodes.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/episodes.json",
+      "bytes": 3885,
+      "sha256": "e09c7e651922fdb1ba176329ad754e9f77dc87d34c6523cfbd08c3dcae8ec83f"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/exposure-edges.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/exposure-edges.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/manifest.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/manifest.json",
+      "bytes": 14075,
+      "sha256": "1b647a9b05d982077ac735707667ee98c6df04ad3b5086a8dd2bf3f854a94616"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/public-posts.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/public-posts.json",
+      "bytes": 2106,
+      "sha256": "9c27a5bf597287f2d0a045fdb16795671a10a34272435d6d3b8348344ef48154"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/phase1-export-v2/unmatched-audit.json",
+      "path": "results/board-pilot-sept8/phase1-export-v2/unmatched-audit.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/results.json",
+      "path": "results/board-pilot-sept8/results.json",
+      "bytes": 1254,
+      "sha256": "3492c602f1898b5a294dcd5404678d2ff3db70fd0d88c68a4c5bc1a8cb9d0d9d"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviewed-episodes.csv",
+      "path": "results/board-pilot-sept8/reviewed-episodes.csv",
+      "bytes": 1705,
+      "sha256": "bc54c8d2677b0da01bd22645d0dcc110ad2a6bceb6f74b8112f43b432674921b"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviewed-episodes.json",
+      "path": "results/board-pilot-sept8/reviewed-episodes.json",
+      "bytes": 17279,
+      "sha256": "9fb969b75002c1c9a8415ba861ca3439f5f3caf176a74c145712a99737fc957c"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c1-task0.json",
+      "path": "results/board-pilot-sept8/reviews/board-c1-task0.json",
+      "bytes": 1078,
+      "sha256": "e83047ca8d3a739851cf3c7b6c52abe1abd30423726176dc7b30db1aa89c0a95"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c1-task1.json",
+      "path": "results/board-pilot-sept8/reviews/board-c1-task1.json",
+      "bytes": 1283,
+      "sha256": "20280f4e3b831f54b83864af055411cf08804babae401dc312ef6901f0af4c3e"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c1-task2-messages.json",
+      "path": "results/board-pilot-sept8/reviews/board-c1-task2-messages.json",
+      "bytes": 1021312,
+      "sha256": "2bd966f0fc10ac8ca4e51c84f9c51db4f1a86ec307d38d34437d09eefc667c99"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c1-task2.json",
+      "path": "results/board-pilot-sept8/reviews/board-c1-task2.json",
+      "bytes": 23334,
+      "sha256": "711b052184177d25a998cda136e4be49f4d384ec17d7bc70cd694e79d7f19312"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c1-task2.md",
+      "path": "results/board-pilot-sept8/reviews/board-c1-task2.md",
+      "bytes": 1879,
+      "sha256": "124432148df4cf62c13a0ed26dc711197b16e54bbabd01d38c22a7d04775dda0"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c2-task10-final-func.py",
+      "path": "results/board-pilot-sept8/reviews/board-c2-task10-final-func.py",
+      "bytes": 2326,
+      "sha256": "56ba3291cc3566287a4c51f34550bd62e4724f582134c278e619001705613ada"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c2-task10-sample.json",
+      "path": "results/board-pilot-sept8/reviews/board-c2-task10-sample.json",
+      "bytes": 1107479,
+      "sha256": "a43bba31c58d0947c65a6e68b415233ee153beabde8bd207574c1af6c691f3c4"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c2-task10.json",
+      "path": "results/board-pilot-sept8/reviews/board-c2-task10.json",
+      "bytes": 5449,
+      "sha256": "3e9869b8ddde2baa9d03f1c6ca28d76ebb62295d019943031fe839b486c0e691"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c2-task10.md",
+      "path": "results/board-pilot-sept8/reviews/board-c2-task10.md",
+      "bytes": 1600,
+      "sha256": "38d08f98b96c075cf836450a4526d5fef3b45656d358d01dd894551c9860acbd"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c2-task11.json",
+      "path": "results/board-pilot-sept8/reviews/board-c2-task11.json",
+      "bytes": 1217,
+      "sha256": "984d97ef994f637e00dd48d45fc8960f94fa07ba29c3e5dd9bb1e1dc7e8b6a8f"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c2-task12-sample.json",
+      "path": "results/board-pilot-sept8/reviews/board-c2-task12-sample.json",
+      "bytes": 1312039,
+      "sha256": "6399eab992467d10b99800d4639a0fdd4518ad62b595f9de5f2aeb9d1ac119e6"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c2-task12.json",
+      "path": "results/board-pilot-sept8/reviews/board-c2-task12.json",
+      "bytes": 34814,
+      "sha256": "dba42cfbb5b2907661a94b8dbc5087cb25ad3ea851ba89050f0023aeda11827d"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/board-c2-task12.md",
+      "path": "results/board-pilot-sept8/reviews/board-c2-task12.md",
+      "bytes": 1629,
+      "sha256": "7258792844e3b0b50c7bbf320e67fbce417dfd11857e529c0ebb1d4f0f5a1e55"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c1-combined.md",
+      "path": "results/board-pilot-sept8/reviews/private-c1-combined.md",
+      "bytes": 1477,
+      "sha256": "c1ef97b99388edaaa27d32c0b76aa3dc6707760594766dace07d959367df8f40"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c1-task0-sample.json",
+      "path": "results/board-pilot-sept8/reviews/private-c1-task0-sample.json",
+      "bytes": 276044,
+      "sha256": "43a891f4215804890af76f9391848b1c9eab01fb457ae40e2485649d758e1328"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c1-task0.json",
+      "path": "results/board-pilot-sept8/reviews/private-c1-task0.json",
+      "bytes": 2361,
+      "sha256": "37b6575baa6f298f8db2e3f75d8b922c48c82930043ce165f320c2f826000c73"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c1-task1-sample.json",
+      "path": "results/board-pilot-sept8/reviews/private-c1-task1-sample.json",
+      "bytes": 1067985,
+      "sha256": "06c4cc32331b01e88e4c89be575473b5cb3868e29000e7e133dd6580ae366906"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c1-task1.json",
+      "path": "results/board-pilot-sept8/reviews/private-c1-task1.json",
+      "bytes": 3724,
+      "sha256": "4a7bd7885bc7accbd6ebf88f6264b010dc05d170233792d3436a511ba23ce5d6"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c1-task2-sample.json",
+      "path": "results/board-pilot-sept8/reviews/private-c1-task2-sample.json",
+      "bytes": 1116838,
+      "sha256": "b581537f2ad25f187d9792ccc3ee4c86817b1558d1f4c9da2f1b4daab9837ed7"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c1-task2.json",
+      "path": "results/board-pilot-sept8/reviews/private-c1-task2.json",
+      "bytes": 3294,
+      "sha256": "cc09091cf64e3e3087cb67d14a1d94e03d1c4d740c0790f1d4b4ece656fa3238"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c2-task10-sample.json",
+      "path": "results/board-pilot-sept8/reviews/private-c2-task10-sample.json",
+      "bytes": 729861,
+      "sha256": "dd863484efeef38d2d8173de91ea94bdf16f98e43a2ccc9d236562f8ba4186b9"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c2-task10.json",
+      "path": "results/board-pilot-sept8/reviews/private-c2-task10.json",
+      "bytes": 30061,
+      "sha256": "a21a4ba9c06fa1055bf5b3462676ceab09db83c8a6aa5c04b90d922fa1bc9de0"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c2-task11.json",
+      "path": "results/board-pilot-sept8/reviews/private-c2-task11.json",
+      "bytes": 1029,
+      "sha256": "7aea284cc14bbda914381497e6db18b6c3c1c9405fa31239555561a350b3b350"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c2-task12-sample.json",
+      "path": "results/board-pilot-sept8/reviews/private-c2-task12-sample.json",
+      "bytes": 1455036,
+      "sha256": "ce084d1758587ddb1004f67fb1588c2ab27952e322601616baf23e7d63af199d"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/private-c2-task12.json",
+      "path": "results/board-pilot-sept8/reviews/private-c2-task12.json",
+      "bytes": 46556,
+      "sha256": "73bf3cd4e55f5746b6a4ce4f27c13be0d4b6981df5c9fa3844255ffc320bab75"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/reviews/write-board-c1-task2-review.py",
+      "path": "results/board-pilot-sept8/reviews/write-board-c1-task2-review.py",
+      "bytes": 8421,
+      "sha256": "db6764a88222ef4a4a40170b03256f24c4e8a907200cba59846ca54e169cb3ae"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/swe-readiness.md",
+      "path": "results/board-pilot-sept8/swe-readiness.md",
+      "bytes": 7898,
+      "sha256": "647e6571e1fddcbdba9c288a97145139ee0d9ebb45a4c0c18de063a282f4c1d4"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/task-audit.json",
+      "path": "results/board-pilot-sept8/task-audit.json",
+      "bytes": 44378,
+      "sha256": "0beb7960792e086c23cdabcd5d6031c9445b949dcd6530d68c15775a2390a1de"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/task-audit.md",
+      "path": "results/board-pilot-sept8/task-audit.md",
+      "bytes": 7982,
+      "sha256": "d085eba07d22c84227463e2a28c4c907d3bdea7c97c7b80b2a43da314429fa0e"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/task12-reference/README.md",
+      "path": "results/board-pilot-sept8/task12-reference/README.md",
+      "bytes": 1663,
+      "sha256": "812f53fcecd5095665de49f0e376b7ce47739fa161c152bc868dd3da61badf1b"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/task12-reference/reference.py",
+      "path": "results/board-pilot-sept8/task12-reference/reference.py",
+      "bytes": 3878,
+      "sha256": "0a7c09bb6f58478ad5f416431e76685265b3d7d99273e65983139dd77f9176c5"
+    },
+    {
+      "old_path": "scratchpad/board-pilot-sept8/task12-reference/results.json",
+      "path": "results/board-pilot-sept8/task12-reference/results.json",
+      "bytes": 19407,
+      "sha256": "85ae83ca4efda1862d9e5912547cc4e1474f9c64b7f81a4e7e9eb6f133ac5d15"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/RESULTS.md",
+      "path": "results/model-comparison-sept7/RESULTS.md",
+      "bytes": 5953,
+      "sha256": "72af2b991a419d65711859a66d8806caef7f4caae81181744cedf9fc0e52f12a"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/comparison.json",
+      "path": "results/model-comparison-sept7/comparison.json",
+      "bytes": 7599,
+      "sha256": "b80e4a37fab212915d56d06486ef58e7c712ecee5e330326838422069ccfa93f"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/glm-conflicting-messages.json",
+      "path": "results/model-comparison-sept7/glm-conflicting-messages.json",
+      "bytes": 63561,
+      "sha256": "bb06c716158ab75374956d68cfa8b49ce647a4b6c57a0d078002309442a4e2ea"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/glm-conflicting-review.json",
+      "path": "results/model-comparison-sept7/glm-conflicting-review.json",
+      "bytes": 1551,
+      "sha256": "3db63a82201a308c87905a7b71bb6e671a2a22432aaf923c11bdc14f9bbff501"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/glm-conflicting-submitted.py",
+      "path": "results/model-comparison-sept7/glm-conflicting-submitted.py",
+      "bytes": 2443,
+      "sha256": "adbfb7fae74ecb169fdaa4e756efd6055aa4c26bd7ae5e163d15e53ab764b318"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/glm-original-messages.json",
+      "path": "results/model-comparison-sept7/glm-original-messages.json",
+      "bytes": 15656,
+      "sha256": "2ce2d6c0dd2d3efb2120522486f023d126c0a7ab5b715a4921e394b5a9292c8d"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/glm-original-review.json",
+      "path": "results/model-comparison-sept7/glm-original-review.json",
+      "bytes": 1383,
+      "sha256": "fd818b825db37204cab4e796ea30d007812d385142108cfca18f015aa42dc0b5"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/glm-original-submitted.py",
+      "path": "results/model-comparison-sept7/glm-original-submitted.py",
+      "bytes": 1840,
+      "sha256": "7fd301708046de6c5fd800bb11e0d6ee935239ff00df99e67cf98282ff24f308"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/muse-compatible-console.log",
+      "path": "results/model-comparison-sept7/muse-compatible-console.log",
+      "bytes": 5934,
+      "sha256": "9f2a9949379c6f87f2e55e95bc3d199e6cd7b17d63a819053bc10bd4ff278e33"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/muse-conflicting-messages-readable.json",
+      "path": "results/model-comparison-sept7/muse-conflicting-messages-readable.json",
+      "bytes": 55989,
+      "sha256": "33efea34c35383a8c9d839cc506b750542d54f33a0e2670f4917c8f8671f4bc5"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/muse-conflicting-messages.json",
+      "path": "results/model-comparison-sept7/muse-conflicting-messages.json",
+      "bytes": 350161,
+      "sha256": "3e4bacfba52e58dcdd6cfe3e5be0e073cb080c953ed5609e000d3e4dce048277"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/muse-conflicting-review.json",
+      "path": "results/model-comparison-sept7/muse-conflicting-review.json",
+      "bytes": 2079,
+      "sha256": "7b261a8847627cf8f8138f1e4c051901b7c1b65de7609a89a97b9db2abee4c96"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/muse-conflicting-submitted.py",
+      "path": "results/model-comparison-sept7/muse-conflicting-submitted.py",
+      "bytes": 2710,
+      "sha256": "9ce11fe9f15f46cb374f82519b35fca215c136ae729ede7426984dd1df5c121f"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/muse-original-messages-readable.json",
+      "path": "results/model-comparison-sept7/muse-original-messages-readable.json",
+      "bytes": 14154,
+      "sha256": "ab5a5983aaddf4c916b1f5a3380ba499e67e7d48c7499dd1469070cae6cdc01e"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/muse-original-messages.json",
+      "path": "results/model-comparison-sept7/muse-original-messages.json",
+      "bytes": 77414,
+      "sha256": "858a0a484eb00c9219a72bf3cd2784def3d61f901028bafa7fa6ee0c24859579"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/muse-original-review.json",
+      "path": "results/model-comparison-sept7/muse-original-review.json",
+      "bytes": 1635,
+      "sha256": "493aa7bd4db919b0720181f8257df678633e9bf39772357c802cb94c1d60cd9e"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/muse-original-submitted.py",
+      "path": "results/model-comparison-sept7/muse-original-submitted.py",
+      "bytes": 2226,
+      "sha256": "98a1496aa40f31da6ac410ea30ec0031cdbffe5f96900e0360f1bec2e6e13eea"
+    },
+    {
+      "old_path": "scratchpad/model-comparison-sept7/run.py",
+      "path": "results/model-comparison-sept7/run.py",
+      "bytes": 6857,
+      "sha256": "fcb4e2deb782b2c2080b48f9fe668dded911ccbe5686a2cea4a06d577aa27a74"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/RESULTS.md",
+      "path": "results/team-pilot-sept7/RESULTS.md",
+      "bytes": 7490,
+      "sha256": "b611af5c546f46a717721a22bcf1a1afec19dd147531de3d6493df81987853cc"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/TOKEN-RERUN.md",
+      "path": "results/team-pilot-sept7/TOKEN-RERUN.md",
+      "bytes": 2537,
+      "sha256": "a70078df092287d4769e9bd92063224ac97fd8a659d5e8dc6f6dd327c72c74cd"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/analysis-source/__init__.py",
+      "path": "results/team-pilot-sept7/analysis-source/__init__.py",
+      "bytes": 106,
+      "sha256": "0a72c9a9197cd2ddcd89a10171372e8056019ca8f4ba56f7d58dcf88b576f277"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/analysis-source/analysis.py",
+      "path": "results/team-pilot-sept7/analysis-source/analysis.py",
+      "bytes": 9918,
+      "sha256": "3b1e71b92d4e17e8af6110629ed2a7f0940a8ed960bbd57e46ee254c122d48e7"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/analysis-source/checks.py",
+      "path": "results/team-pilot-sept7/analysis-source/checks.py",
+      "bytes": 7033,
+      "sha256": "8e60aa02ffb7342196d750914a26d90b420f1500599258aad0811ea17c0e55a6"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/analysis-source/events.py",
+      "path": "results/team-pilot-sept7/analysis-source/events.py",
+      "bytes": 11353,
+      "sha256": "1407211e10944407553b3aa01b2702c04665efa41a892fc2bd0fec25bb575d01"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/analysis-source/shared.py",
+      "path": "results/team-pilot-sept7/analysis-source/shared.py",
+      "bytes": 11526,
+      "sha256": "a71851918555879f10799c419ead6dc1b4935d4c51c1bd5c9406b5fa0f4a97cd"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/analysis-source/shell.py",
+      "path": "results/team-pilot-sept7/analysis-source/shell.py",
+      "bytes": 12259,
+      "sha256": "7654cea9643a880f881e8763035c7e820ff0e13b71ce064e53fb141b71bfb665"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/analysis-source/task.py",
+      "path": "results/team-pilot-sept7/analysis-source/task.py",
+      "bytes": 18227,
+      "sha256": "9eef9d1bad4c63a5a87c2c1c6616c6522da3d7dbfe04c37880fc16d63e1a4d5a"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/budget.json",
+      "path": "results/team-pilot-sept7/budget.json",
+      "bytes": 196,
+      "sha256": "0b5b696eee0d28446afb0252421decf19ef0efad9dbb9b4ee7a970d0c1efef16"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/build_results.py",
+      "path": "results/team-pilot-sept7/build_results.py",
+      "bytes": 2886,
+      "sha256": "62e677948b5afcd30d5e6a58c467fe1f79c1b27f3eb9aef5491d6464e8b85099"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/conflicting-lcbhard_0-review.json",
+      "path": "results/team-pilot-sept7/conflicting-lcbhard_0-review.json",
+      "bytes": 23185,
+      "sha256": "b1b096f1a9b01d7a571951b94d39f1895d4e8210f85bad6cf31c98a034c30ede"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/conflicting-lcbhard_0-sample.json",
+      "path": "results/team-pilot-sept7/conflicting-lcbhard_0-sample.json",
+      "bytes": 2483095,
+      "sha256": "d632ff360efe496e6460fa5d03b3dd7bbc3a788fed7596d2e6ed5a8dba128afd"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/conflicting-lcbhard_1-review.json",
+      "path": "results/team-pilot-sept7/conflicting-lcbhard_1-review.json",
+      "bytes": 5651,
+      "sha256": "b45ccd07ba75d4b2d476111a27490b4ff0375c172dd2a4fb736fe8afa931b9e7"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/conflicting-lcbhard_1-sample.json",
+      "path": "results/team-pilot-sept7/conflicting-lcbhard_1-sample.json",
+      "bytes": 2101900,
+      "sha256": "d52c87f81d4c00ee659e5152fc13898458716eb4756e6e2a6a87d3bc953b7de2"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/conflicting-lcbhard_2-review.json",
+      "path": "results/team-pilot-sept7/conflicting-lcbhard_2-review.json",
+      "bytes": 20200,
+      "sha256": "b43d52acac2c94dadf72d545f650c6dba3ebfcfd5823db3713ac61d2af789bbc"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/conflicting-lcbhard_2-sample.json",
+      "path": "results/team-pilot-sept7/conflicting-lcbhard_2-sample.json",
+      "bytes": 1637040,
+      "sha256": "96d55dcec4f31efec1ee2a640e28b93bf46634bbde3792412dc82dc07c3c2a1d"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/conflicting_private-reanalysed.csv",
+      "path": "results/team-pilot-sept7/conflicting_private-reanalysed.csv",
+      "bytes": 2213,
+      "sha256": "29bb687b5e4cbbf77f78d0ca3adc6ba0f093275f621299b1f48e57e215563eac"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/conflicting_shared-reanalysed.csv",
+      "path": "results/team-pilot-sept7/conflicting_shared-reanalysed.csv",
+      "bytes": 2465,
+      "sha256": "52d1c478695a72aed805ed308b91292e9941996bde950754738d097b814893ca"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/next-run-preview.txt",
+      "path": "results/team-pilot-sept7/next-run-preview.txt",
+      "bytes": 2342,
+      "sha256": "cab63893a60c8e99f72d6b9b9a1df5288b8a73903b6f8597f769445c33d7739c"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/original-lcbhard_0-review.json",
+      "path": "results/team-pilot-sept7/original-lcbhard_0-review.json",
+      "bytes": 3132,
+      "sha256": "2b414f81b26fab6f22e952b641eb2d81c628243468252f3b0b19336e21934554"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/original-lcbhard_0-sample.json",
+      "path": "results/team-pilot-sept7/original-lcbhard_0-sample.json",
+      "bytes": 522651,
+      "sha256": "8ee2899766fe70821d584260ca0d04c813dfe8bade95e1acbaad48b383f2e79b"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/original-lcbhard_1-review.json",
+      "path": "results/team-pilot-sept7/original-lcbhard_1-review.json",
+      "bytes": 3628,
+      "sha256": "ccbee838180a7f2d3bd236e04eac9a47cc50c368feb7aefc92cc2f2e514caac2"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/original-lcbhard_1-sample.json",
+      "path": "results/team-pilot-sept7/original-lcbhard_1-sample.json",
+      "bytes": 627620,
+      "sha256": "a47b8dc3c6e0fa0f6d47f8f95f1827a711d386a3e7ae16bfb4c344ae7a6cd8f0"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/original_shared-reanalysed.csv",
+      "path": "results/team-pilot-sept7/original_shared-reanalysed.csv",
+      "bytes": 677,
+      "sha256": "35c817fd3e95e0503bee2de979996615c7b975a7d1b77f2fed05afbfa4818db6"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_0-messages.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_0-messages.json",
+      "bytes": 132573,
+      "sha256": "fa60959c19e8005349b687030492ee2ed8daa63a75f13f4901f8d79ca84ed5d8"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_0-review.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_0-review.json",
+      "bytes": 36955,
+      "sha256": "df68abb690456232baf5bf96366c8b437a3c0925e1040e7c92e9572419db0e74"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_1-messages.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_1-messages.json",
+      "bytes": 118041,
+      "sha256": "e7c2d351d35be957b3cc46bc516da6697af5e61cab55036c082df6d907e24a1b"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_1-review.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_1-review.json",
+      "bytes": 34695,
+      "sha256": "07bd32513773b9654c8577a7ebcbc35157b1037473c90fa041d0046a93b6f651"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_10-messages.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_10-messages.json",
+      "bytes": 101638,
+      "sha256": "a6a9fa382c733ceac1a8d5a62e22d7d17ec23970c7d751297cf2e9d40b2c56c6"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_10-review.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_10-review.json",
+      "bytes": 41922,
+      "sha256": "b72ccd761183743cb82a00e593348a7682fa2d6574fafef65c7effd8952e03d6"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_11-messages.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_11-messages.json",
+      "bytes": 127261,
+      "sha256": "fc775f7aca25639ebbd535e39e18738d3839169f6f852ea4fbd6cb21ad90e085"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_11-review.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_11-review.json",
+      "bytes": 40944,
+      "sha256": "7fc9152bfb18081dc3e3c3cc971f85bc1c959e9f9caed6859052258b4d0bbe14"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_12-messages.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_12-messages.json",
+      "bytes": 327240,
+      "sha256": "a6d0114d98b2e70deb59848c123e4b10508c6e21c6ec713e31b84a5c831e243c"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_12-review.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_12-review.json",
+      "bytes": 15775,
+      "sha256": "788d97d39046c6a61c04933e88a4a79148b887e54ed45fe9bd43081528300e51"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_2-messages.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_2-messages.json",
+      "bytes": 89041,
+      "sha256": "75d8a1160973814dd09e501a6520895ffd04bd014e3c508020025c5a8f659c8f"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/private-conflicting-lcbhard_2-review.json",
+      "path": "results/team-pilot-sept7/private-conflicting-lcbhard_2-review.json",
+      "bytes": 30900,
+      "sha256": "5b573b59c27cd8716136bb19fab5132d3f9312042ddd30c76fc9b7ad261afac6"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/rerun_capped.py",
+      "path": "results/team-pilot-sept7/rerun_capped.py",
+      "bytes": 5828,
+      "sha256": "4429c8c66d6e7672741725e879371f4fa3b1f483fbfe0e1f4e42f6bcbd304a87"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/results.json",
+      "path": "results/team-pilot-sept7/results.json",
+      "bytes": 7309,
+      "sha256": "0ed2f9527accdd2d27db1e284da54d05af8ad0cfe6cea81b0658cea76e344e6d"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/shared-conflicting-lcbhard_10-review.json",
+      "path": "results/team-pilot-sept7/shared-conflicting-lcbhard_10-review.json",
+      "bytes": 2934,
+      "sha256": "cfb12af376ba9d44efca69b5ebb23eddc41fbf49716efd003e651943a4a199cd"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/shared-conflicting-lcbhard_10-sample.json",
+      "path": "results/team-pilot-sept7/shared-conflicting-lcbhard_10-sample.json",
+      "bytes": 2267700,
+      "sha256": "1a545da3b068a55cffd103aa9ab26d10bb8c5c51d88ad02198d69780e4ccfbde"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/shared-conflicting-lcbhard_11-review.json",
+      "path": "results/team-pilot-sept7/shared-conflicting-lcbhard_11-review.json",
+      "bytes": 5065,
+      "sha256": "68fab4b14d28b5488da8a390e2797e42d8953a66f0c893105d054323e2860079"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/shared-conflicting-lcbhard_11-sample.json",
+      "path": "results/team-pilot-sept7/shared-conflicting-lcbhard_11-sample.json",
+      "bytes": 1760190,
+      "sha256": "a0221336225dd1478e9efbdcd5ad00f4e354a9de2e7835b50ecfe8170a8b6c3d"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/shared-conflicting-lcbhard_12-review.json",
+      "path": "results/team-pilot-sept7/shared-conflicting-lcbhard_12-review.json",
+      "bytes": 5530,
+      "sha256": "53aa4bcb430574bee1e9e04cc065be794d2ccd52a788e8c3fca47486ddd98e05"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/shared-conflicting-lcbhard_12-sample.json",
+      "path": "results/team-pilot-sept7/shared-conflicting-lcbhard_12-sample.json",
+      "bytes": 2369355,
+      "sha256": "4a4340124c7ec23f6c5e5c9734c4b9565799c886d7ffbf4e0505e214aa6b273f"
+    },
+    {
+      "old_path": "scratchpad/team-pilot-sept7/write-private12-review.py",
+      "path": "results/team-pilot-sept7/write-private12-review.py",
+      "bytes": 6788,
+      "sha256": "e457f701722cb187d8ae0b9521fd12670e26e9a6a5a26185b770345047cd7c09"
+    },
+    {
+      "old_path": "scratchpad/token-comparison-sept7/REPORT.md",
+      "path": "results/token-comparison-sept7/REPORT.md",
+      "bytes": 6029,
+      "sha256": "7e356b2d71ad8681de3c3ba41b57c4584510d813f13e6cc3c790ca5c3f3b7b5d"
+    },
+    {
+      "old_path": "scratchpad/token-comparison-sept7/analyze.py",
+      "path": "results/token-comparison-sept7/analyze.py",
+      "bytes": 6801,
+      "sha256": "0eb9f8e194a2c63167b4ed9d30464443e98c0e32af3af3c30d07b03e169e6167"
+    },
+    {
+      "old_path": "scratchpad/token-comparison-sept7/matched-original-impossible.csv",
+      "path": "results/token-comparison-sept7/matched-original-impossible.csv",
+      "bytes": 1946,
+      "sha256": "e239336da900d928a31d4966b5307157a8b3cb93233932dcd89bc558170c04dc"
+    },
+    {
+      "old_path": "scratchpad/token-comparison-sept7/recompute-output.json",
+      "path": "results/token-comparison-sept7/recompute-output.json",
+      "bytes": 9281,
+      "sha256": "491d52d9a7e491cd40558ab89d5b1c5a9af1d9b0ef68723a123d34d6d8671c33"
+    },
+    {
+      "old_path": "scratchpad/token-comparison-sept7/results.json",
+      "path": "results/token-comparison-sept7/results.json",
+      "bytes": 30346,
+      "sha256": "faf5508e3f2c4ebc1a7fcd2d15b488e344b3e883baaf5ae2cdf76a422d9efd88"
+    },
+    {
+      "old_path": "scratchpad/token-comparison-sept7/samples.csv",
+      "path": "results/token-comparison-sept7/samples.csv",
+      "bytes": 25136,
+      "sha256": "cd8e9cced3198f4fbd57f6c3234eec2e85b8f12a05fedc5c0b27b64baef84dc0"
+    },
+    {
+      "old_path": "scratchpad/sept10-revision/baseline-audit.json",
+      "path": "results/sept10-revision/baseline-audit.json",
+      "bytes": 774,
+      "sha256": "019126cb560245d1715a4546fadaab211ab5b988ce6aacfffa30f6d569fc9f7b"
+    },
+    {
+      "old_path": "research/09-shared-scratch-design.md",
+      "path": "docs/research/09-shared-scratch-design.md",
+      "bytes": 10491,
+      "sha256": "938339248b9010460b1eeb71877db6766f0ecd2b3ad8932a1c318882b6acfc0b"
+    },
+    {
+      "old_path": "research/10-private-scratch-public-board.md",
+      "path": "docs/research/10-private-scratch-public-board.md",
+      "bytes": 9588,
+      "sha256": "f63d5b9564ad911120da41cc3558010ebdfbd1aea36566422caeca0892e79aac"
+    },
+    {
+      "old_path": "research/sources/team-scratch/deepmind-2609.04170v1.html",
+      "path": "docs/research/sources/team-scratch/deepmind-2609.04170v1.html",
+      "bytes": 350943,
+      "sha256": "f175364fcaab37cc10beb3a42ca69433b4d0fa182edb7f921b42269ccdb1d2ed"
+    },
+    {
+      "old_path": "research/sources/team-scratch/deepmind-2609.04170v1.pdf",
+      "path": "docs/research/sources/team-scratch/deepmind-2609.04170v1.pdf",
+      "bytes": 536777,
+      "sha256": "79675effc26f8a7f68e9222e9f266fe3637407f2ed2ca15408a387b054e9c135"
+    },
+    {
+      "old_path": "research/sources/team-scratch/deepmind-2609.04170v1.txt",
+      "path": "docs/research/sources/team-scratch/deepmind-2609.04170v1.txt",
+      "bytes": 71725,
+      "sha256": "1e389830759a257a316271aca02eb774e1a2645af3c81433aaf14cb499d0e356"
+    },
+    {
+      "old_path": "research/sources/team-scratch/deepmind-2609.04170v1.xml",
+      "path": "docs/research/sources/team-scratch/deepmind-2609.04170v1.xml",
+      "bytes": 3383,
+      "sha256": "fcb9c12234ca007cba042db43d8fb7b7577def5fbebd34f0596966c094c04c4b"
+    },
+    {
+      "old_path": "research/sources/team-scratch/manifest.json",
+      "path": "docs/research/sources/team-scratch/manifest.json",
+      "bytes": 714,
+      "sha256": "1c73beb414c2a55d80c6590d0c8d70ac06e8e532b10497c62960f71250a35af7"
+    },
+    {
+      "old_path": "research/sources/board-design-sept7/manifest.json",
+      "path": "docs/research/sources/board-design-sept7/manifest.json",
+      "bytes": 773,
+      "sha256": "61f1db0ba9252ecdcd4967e4396b1aa0e32c550192032b1029c33f3200bdf0f8"
+    },
+    {
+      "old_path": "research/sources/board-design-sept7/muse-contributor-endpoints.json",
+      "path": "docs/research/sources/board-design-sept7/muse-contributor-endpoints.json",
+      "bytes": 1505,
+      "sha256": "8d796ba11a2b249e71dc1db423ac91484d6206dab8867a1304945d8965fb7b15"
+    },
+    {
+      "old_path": "research/sources/board-design-sept7/muse-contributor.html",
+      "path": "docs/research/sources/board-design-sept7/muse-contributor.html",
+      "bytes": 415547,
+      "sha256": "f892f94af759e6b7d485a2ffc78ab26414644538001f9dba3e31d3240d4a82e3"
+    },
+    {
+      "old_path": "research/sources/board-design-sept7/openrouter-models.json",
+      "path": "docs/research/sources/board-design-sept7/openrouter-models.json",
+      "bytes": 704262,
+      "sha256": "2b7ff590419cd89018f3588faca92b50ab8ae1563bc93b8eaf111db5a00d90ce"
+    }
+  ],
+  "excluded_generated_files_archived": [
+    {
+      "old_path": "scratchpad/token-comparison-sept7/__pycache__/analyze.cpython-313.pyc",
+      "sha256": "ce3eb98e9102f8a97e9ae5cbb3bee6692b0d57313d82944e629fc58830c7b839"
+    }
+  ]
+}

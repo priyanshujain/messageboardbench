@@ -1,0 +1,40 @@
+{
+  "purpose": "exploratory-team-pilot",
+  "condition": "shared",
+  "split": "conflicting",
+  "agents": 3,
+  "waves": 2,
+  "ids": [
+    "lcbhard_0",
+    "lcbhard_1",
+    "lcbhard_2",
+    "lcbhard_10",
+    "lcbhard_11",
+    "lcbhard_12"
+  ],
+  "model": "openrouter/z-ai/glm-5.3-flash",
+  "message_limit": 60,
+  "time_limit": 1800,
+  "token_limit": 1000000,
+  "max_attempts": 3,
+  "concurrency": 3,
+  "sample_retries": 0,
+  "model_request_retries": 1,
+  "timeout": 300,
+  "fresh_context_each_wave": true,
+  "automatic_source_sharing": false,
+  "snapshot_interval_seconds": 1,
+  "source_sha256": {
+    "/Users/pj/Workspace/projects/python/research/messageboardbench/scripts/team.py": "f1d93e73129e50513a416e144daafe820c2e5f44a0537e1a281b630f597f34f3",
+    "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/__init__.py": "0a72c9a9197cd2ddcd89a10171372e8056019ca8f4ba56f7d58dcf88b576f277",
+    "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/analysis.py": "3b1e71b92d4e17e8af6110629ed2a7f0940a8ed960bbd57e46ee254c122d48e7",
+    "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/checks.py": "8e60aa02ffb7342196d750914a26d90b420f1500599258aad0811ea17c0e55a6",
+    "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/events.py": "1407211e10944407553b3aa01b2702c04665efa41a892fc2bd0fec25bb575d01",
+    "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/shared.py": "a71851918555879f10799c419ead6dc1b4935d4c51c1bd5c9406b5fa0f4a97cd",
+    "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/shell.py": "7654cea9643a880f881e8763035c7e820ff0e13b71ce064e53fb141b71bfb665",
+    "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/task.py": "9eef9d1bad4c63a5a87c2c1c6616c6522da3d7dbfe04c37880fc16d63e1a4d5a",
+    "/Users/pj/Workspace/projects/python/research/impossiblebench/src/impossiblebench/livecodebench_scorers.py": "ef39b07a4288700e466dcba8bb8603904a6a10dd8457477f6359010e4d70b2d0",
+    "/Users/pj/Workspace/projects/python/research/messageboardbench/compose.team.yaml": "cb5471b5d9bfea2a0b996577acdd0ea8823a5ae24d4806f8a076a2d86d7e49af"
+  }
+}
+Preview only; no Docker container or model request started.

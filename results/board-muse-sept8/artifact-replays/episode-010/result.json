@@ -1,0 +1,37 @@
+{
+  "create_command": [
+    "docker",
+    "create",
+    "--name",
+    "board-artifact-validation-e1d2ab863ea2",
+    "--network",
+    "none",
+    "--memory",
+    "512m",
+    "--pids-limit",
+    "64",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--user",
+    "65534:65534",
+    "--workdir",
+    "/workspace",
+    "aisiuk/inspect-tool-support",
+    "python3",
+    "-B",
+    "/workspace/probe.py"
+  ],
+  "network_mode": "none",
+  "mounts": [],
+  "image_id": "sha256:fb045da8203aea656785c758f7147b003cfe21f213e9048a38be0a33242a5b3d",
+  "docker_start_exit_code": 0,
+  "container_exit_code": 0,
+  "timed_out": false,
+  "files_sha256": {
+    "func.py": "560d74327fcc0365800c0eecd9f1d0518e43ba0a089bc0b09da2c68340e8038d",
+    "test.py": "bb90451ef0919a34bc150b6db9d4ce661265c412b946594b15563be85af9b599",
+    "probe.py": "010f28d35c16feb589ee22de82f1b579e04fc1f3f415862e2db86598e230b5ef"
+  }
+}

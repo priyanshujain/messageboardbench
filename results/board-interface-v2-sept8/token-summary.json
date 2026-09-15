@@ -1,0 +1,140 @@
+{
+  "interface_comparison": {
+    "v1": {
+      "board_episodes": 6,
+      "reader_episodes": 0,
+      "read_calls": 0,
+      "peer_exposed_episodes": 0,
+      "publisher_episodes": 2,
+      "posts": 3,
+      "board_conflicting_gaming": 3,
+      "board_conflicting_n": 4,
+      "private_conflicting_gaming": 4,
+      "private_conflicting_n": 4,
+      "peer_adoption_episodes": 0,
+      "peer_rejection_episodes": 0
+    },
+    "v2": {
+      "board_episodes": 6,
+      "reader_episodes": 4,
+      "read_calls": 4,
+      "peer_exposed_episodes": 1,
+      "publisher_episodes": 4,
+      "posts": 5,
+      "board_conflicting_gaming": 4,
+      "board_conflicting_n": 4,
+      "private_conflicting_gaming": 4,
+      "private_conflicting_n": 4,
+      "peer_adoption_episodes": 1,
+      "peer_rejection_episodes": 0
+    }
+  },
+  "v2_usage": {
+    "original": {
+      "n": 4,
+      "sum_total_tokens": 129258,
+      "median_total_tokens": 26331.0,
+      "sum_output_tokens": 16992,
+      "median_output_tokens": 3649.5,
+      "sum_reasoning_tokens": 12997,
+      "median_reasoning_tokens": 2725.5,
+      "sum_input_tokens": 42122,
+      "median_input_tokens": 6969.5,
+      "sum_cache_read_tokens": 70144,
+      "median_cache_read_tokens": 15712.0
+    },
+    "conflicting": {
+      "n": 8,
+      "sum_total_tokens": 1743907,
+      "median_total_tokens": 222548.5,
+      "sum_output_tokens": 122724,
+      "median_output_tokens": 14410.5,
+      "sum_reasoning_tokens": 77569,
+      "median_reasoning_tokens": 7557.5,
+      "sum_input_tokens": 263295,
+      "median_input_tokens": 32776.0,
+      "sum_cache_read_tokens": 1357888,
+      "median_cache_read_tokens": 168320.0
+    },
+    "gaming": {
+      "n": 8,
+      "sum_total_tokens": 1743907,
+      "median_total_tokens": 222548.5,
+      "sum_output_tokens": 122724,
+      "median_output_tokens": 14410.5,
+      "sum_reasoning_tokens": 77569,
+      "median_reasoning_tokens": 7557.5,
+      "sum_input_tokens": 263295,
+      "median_input_tokens": 32776.0,
+      "sum_cache_read_tokens": 1357888,
+      "median_cache_read_tokens": 168320.0
+    },
+    "non_gaming": {
+      "n": 4,
+      "sum_total_tokens": 129258,
+      "median_total_tokens": 26331.0,
+      "sum_output_tokens": 16992,
+      "median_output_tokens": 3649.5,
+      "sum_reasoning_tokens": 12997,
+      "median_reasoning_tokens": 2725.5,
+      "sum_input_tokens": 42122,
+      "median_input_tokens": 6969.5,
+      "sum_cache_read_tokens": 70144,
+      "median_cache_read_tokens": 15712.0
+    }
+  },
+  "v1_usage": {
+    "original": {
+      "n": 4,
+      "sum_total_tokens": 52015,
+      "median_total_tokens": 12103.5,
+      "sum_output_tokens": 5793,
+      "median_output_tokens": 1480.0,
+      "sum_reasoning_tokens": 1919,
+      "median_reasoning_tokens": 376.5,
+      "sum_input_tokens": 16974,
+      "median_input_tokens": 3871.5,
+      "sum_cache_read_tokens": 29248,
+      "median_cache_read_tokens": 6752.0
+    },
+    "conflicting": {
+      "n": 8,
+      "sum_total_tokens": 1120635,
+      "median_total_tokens": 141619.5,
+      "sum_output_tokens": 99728,
+      "median_output_tokens": 12006.5,
+      "sum_reasoning_tokens": 62230,
+      "median_reasoning_tokens": 7018.0,
+      "sum_input_tokens": 206059,
+      "median_input_tokens": 25667.0,
+      "sum_cache_read_tokens": 814848,
+      "median_cache_read_tokens": 104864.0
+    },
+    "gaming": {
+      "n": 7,
+      "sum_total_tokens": 971006,
+      "median_total_tokens": 140417,
+      "sum_output_tokens": 91287,
+      "median_output_tokens": 12196,
+      "sum_reasoning_tokens": 59036,
+      "median_reasoning_tokens": 8355,
+      "sum_input_tokens": 183079,
+      "median_input_tokens": 28354,
+      "sum_cache_read_tokens": 696640,
+      "median_cache_read_tokens": 104640
+    },
+    "non_gaming": {
+      "n": 5,
+      "sum_total_tokens": 201644,
+      "median_total_tokens": 13171,
+      "sum_output_tokens": 14234,
+      "median_output_tokens": 1593,
+      "sum_reasoning_tokens": 5113,
+      "median_reasoning_tokens": 382,
+      "sum_input_tokens": 39954,
+      "median_input_tokens": 3962,
+      "sum_cache_read_tokens": 147456,
+      "median_cache_read_tokens": 7616
+    }
+  }
+}

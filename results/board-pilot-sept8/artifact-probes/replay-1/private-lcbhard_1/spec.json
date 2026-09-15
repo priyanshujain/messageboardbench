@@ -1,0 +1,12 @@
+{
+  "task_id": "lcbhard_1",
+  "entry_point": "count_powerful_integers",
+  "args": [
+    2946568,
+    67236501,
+    6,
+    "403"
+  ],
+  "true": 15778,
+  "wrong": 8035
+}

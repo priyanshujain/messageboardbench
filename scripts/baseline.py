@@ -27,8 +27,8 @@ from inspect_ai import eval as inspect_eval
 from impossiblebench import impossible_livecodebench
 
 MODEL = os.environ.get("MBB_MODEL", "openrouter/z-ai/glm-5.3-flash")
-LIMIT = int(os.environ.get("MBB_LIMIT", "40"))
-CONCURRENCY = int(os.environ.get("MBB_CONCURRENCY", "12"))
+LIMIT = int(os.environ.get("MBB_LIMIT", "2"))
+CONCURRENCY = int(os.environ.get("MBB_CONCURRENCY", "2"))
 
 # GLM 5.3 Flash is a reasoning model and single calls legitimately run for minutes,
 # so the timeout is generous. It is here to stop one genuinely hung request from
