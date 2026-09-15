@@ -17,6 +17,7 @@ from typing import Any, Callable, Mapping, Sequence
 
 DATASET = "fjzzq2002/impossible_swebench"
 REMOTE_DOCKER_HOST = "ssh://pj@100.68.126.75"
+GRADING_LIFECYCLE = "upstream-testspec-eval-commands-status-monitored-v2"
 FULL_SHA = re.compile(r"[0-9a-f]{40}\Z")
 PATCH_PATH_RE = re.compile(r"^(?:--- a/|\+\+\+ b/)(.+)$", re.MULTILINE)
 
@@ -81,18 +82,28 @@ def load_pair(revision: str, instance_id: str) -> tuple[dict[str, Any], dict[str
     return records["original"], records["conflicting"]
 
 
-def swebench_spec(record: Mapping[str, Any]) -> tuple[str, list[str], str]:
-    """Resolve image, test directives and command using the pinned SWE-bench API."""
+def swebench_test_spec(record: Mapping[str, Any]):
+    """Build the pinned upstream TestSpec used by both screening and scoring."""
     try:
-        from swebench.harness.constants import MAP_REPO_VERSION_TO_SPECS
-        from swebench.harness.test_spec.python import get_test_directives
         from swebench.harness.test_spec.test_spec import make_test_spec
     except ImportError as exc:
         raise ValidationError(
             "SWE dependencies are absent; run `just swe-install`"
         ) from exc
+    return make_test_spec(dict(record), namespace="swebench")
 
-    spec = make_test_spec(dict(record), namespace="swebench")
+
+def swebench_spec(record: Mapping[str, Any]) -> tuple[str, list[str], str]:
+    """Resolve image, test directives and command using the pinned SWE-bench API."""
+    try:
+        from swebench.harness.constants import MAP_REPO_VERSION_TO_SPECS
+        from swebench.harness.test_spec.python import get_test_directives
+    except ImportError as exc:
+        raise ValidationError(
+            "SWE dependencies are absent; run `just swe-install`"
+        ) from exc
+
+    spec = swebench_test_spec(record)
     image = spec.instance_image_key
     if ".x86_64." not in image:
         raise ValidationError(f"resolved non-x86_64 SWE image: {image}")
@@ -123,16 +134,20 @@ def patch_files(patch: str) -> list[str]:
 
 
 def parse_target_statuses(record: Mapping[str, Any], output: str) -> dict[str, str]:
-    """Parse target tests through SWE-bench's repo-specific parser."""
+    """Parse only SWE-bench's marker-bounded test output with its repo parser."""
+    from swebench.harness.constants import END_TEST_OUTPUT, START_TEST_OUTPUT
     from swebench.harness.grading import MAP_REPO_TO_PARSER
 
+    if START_TEST_OUTPUT not in output or END_TEST_OUTPUT not in output:
+        raise ValidationError("complete SWE-bench test-output markers were not observed")
+    test_output = output.split(START_TEST_OUTPUT, 1)[1].split(END_TEST_OUTPUT, 1)[0]
     parser = MAP_REPO_TO_PARSER[record["repo"]]
     try:
-        parsed = parser(output)
+        parsed = parser(test_output)
     except TypeError:
         from swebench.harness.test_spec.test_spec import make_test_spec
 
-        parsed = parser(output, make_test_spec(dict(record)))
+        parsed = parser(test_output, make_test_spec(dict(record)))
     targets = [*record["FAIL_TO_PASS"], *record["PASS_TO_PASS"]]
     return {target: parsed.get(target, "MISSING") for target in targets}
 
@@ -150,6 +165,10 @@ class TrialResult:
     test_command: list[str]
     target_statuses: dict[str, str]
     resolved: bool
+    grader_container_fresh: bool = True
+    eval_script_sha256: str = ""
+    eval_script_file: str = ""
+    model_patch_sha256: str = ""
 
 
 Runner = Callable[..., subprocess.CompletedProcess[str]]
@@ -208,6 +227,135 @@ def _must(result: subprocess.CompletedProcess[str], action: str) -> None:
         raise ValidationError(f"{action} failed (exit {result.returncode}): {detail}")
 
 
+COMMAND_STATUS = re.compile(r"^__MBB_EVAL_COMMAND_(\d{4})__=(\d+)$", re.MULTILINE)
+
+
+def instrument_eval_script(commands: Sequence[str]) -> tuple[str, set[int]]:
+    """Retain TestSpec commands/order and record non-test command exit statuses."""
+    from swebench.harness.constants import END_TEST_OUTPUT, START_TEST_OUTPUT
+
+    start_marker = f": '{START_TEST_OUTPUT}'"
+    end_marker = f": '{END_TEST_OUTPUT}'"
+    start = next((i for i, command in enumerate(commands) if command == start_marker), None)
+    end = next((i for i, command in enumerate(commands) if command == end_marker), None)
+    if start is None or end is None or end <= start:
+        raise ValidationError("TestSpec eval command list lacks ordered test markers")
+    monitored: list[str] = ["#!/bin/bash", "set -uxo pipefail"]
+    monitored_indices: set[int] = set()
+    for index, command in enumerate(commands):
+        monitored.append(command)
+        if not (start <= index <= end):
+            monitored_indices.add(index)
+            monitored.extend([
+                "__mbb_command_status=$?",
+                f"printf '__MBB_EVAL_COMMAND_{index:04d}__=%s\\n' \"$__mbb_command_status\"",
+            ])
+    return "\n".join(monitored) + "\n", monitored_indices
+
+
+def validate_command_statuses(output: str, expected_indices: set[int]) -> None:
+    matches = [(int(index), int(status)) for index, status in COMMAND_STATUS.findall(output)]
+    statuses = dict(matches)
+    if len(matches) != len(statuses):
+        raise ValidationError("fresh grader command-status evidence was duplicated")
+    if set(statuses) != expected_indices:
+        raise ValidationError("fresh grader did not report every setup/cleanup status")
+    failed = [index for index, status in statuses.items() if status != 0]
+    if failed:
+        raise ValidationError(
+            "fresh grader setup/evaluator/cleanup command failed at TestSpec indices: "
+            + ", ".join(map(str, sorted(failed)))
+        )
+
+
+def run_fresh_grader(
+    record: Mapping[str, Any],
+    *,
+    model_patch: str,
+    image: str,
+    environ: Mapping[str, str],
+    run: Runner = subprocess.run,
+    memory: str = "8g",
+    timeout_seconds: int = 600,
+) -> tuple[subprocess.CompletedProcess[str], str, dict[str, str], str, str]:
+    """Grade a patch in a new container using the complete upstream TestSpec script.
+
+    The container shares neither filesystem state nor environment configuration with
+    the agent sandbox. The upstream eval script performs repo-specific setup/install,
+    resets and reapplies evaluator files, and runs the exact targeted test command.
+    """
+    if environ.get("DOCKER_HOST") != REMOTE_DOCKER_HOST:
+        raise ValidationError(f"fresh grader requires DOCKER_HOST={REMOTE_DOCKER_HOST}")
+    if "@sha256:" not in image:
+        raise ValidationError("fresh grader image must be an inspected repository digest")
+    spec = swebench_test_spec(record)
+    eval_script = spec.eval_script
+    executed_script, monitored_indices = instrument_eval_script(spec.eval_script_list)
+    container = "mbb-swe-grader-" + uuid.uuid4().hex[:12]
+    started = _docker(
+        [
+            "run", "--detach", "--rm", "--name", container, "--network", "none",
+            "--memory", memory, "--workdir", "/testbed", image, "sleep", "infinity",
+        ],
+        environ, run, capture_output=True,
+    )
+    _must(started, "fresh grader container start")
+    try:
+        base = str(record["base_commit"])
+        reset = _docker(
+            ["exec", container, "git", "reset", "--hard", base], environ, run,
+            capture_output=True,
+        )
+        _must(reset, "fresh grader base reset")
+        cleaned = _docker(
+            ["exec", container, "git", "clean", "-fd"], environ, run,
+            capture_output=True,
+        )
+        _must(cleaned, "fresh grader repository clean")
+        with tempfile.TemporaryDirectory(prefix="mbb-swe-grader-") as tmp:
+            temp = Path(tmp)
+            if model_patch:
+                patch_path = temp / "model.patch"
+                patch_path.write_text(model_patch)
+                copied = _docker(
+                    ["cp", str(patch_path), f"{container}:/tmp/model.patch"],
+                    environ, run, capture_output=True,
+                )
+                _must(copied, "model-patch copy")
+                checked = _docker(
+                    ["exec", container, "git", "apply", "--check", "/tmp/model.patch"],
+                    environ, run, capture_output=True,
+                )
+                _must(checked, "model-patch check")
+                applied = _docker(
+                    ["exec", container, "git", "apply", "/tmp/model.patch"],
+                    environ, run, capture_output=True,
+                )
+                _must(applied, "model-patch apply")
+            script_path = temp / "eval.sh"
+            script_path.write_text(executed_script)
+            copied = _docker(
+                ["cp", str(script_path), f"{container}:/tmp/messageboardbench-eval.sh"],
+                environ, run, capture_output=True,
+            )
+            _must(copied, "TestSpec eval-script copy")
+        evaluated = _docker(
+            [
+                "exec", container, "bash", "-c",
+                "bash /tmp/messageboardbench-eval.sh 2>&1",
+            ],
+            environ, run, capture_output=True, timeout=timeout_seconds,
+        )
+        output = evaluated.stdout + (
+            "\n[stderr]\n" + evaluated.stderr if evaluated.stderr else ""
+        )
+        validate_command_statuses(output, monitored_indices)
+        statuses = parse_target_statuses(record, output)
+        return evaluated, output, statuses, sha256_text(eval_script), eval_script
+    finally:
+        _docker(["rm", "--force", container], environ, run, capture_output=True)
+
+
 def run_trial(
     record: Mapping[str, Any],
     *,
@@ -219,112 +367,41 @@ def run_trial(
     memory: str = "8g",
     timeout_seconds: int = 600,
 ) -> TrialResult:
-    """Run nochange or oracle in a fresh, network-disabled remote container."""
+    """Run nochange or oracle through the exact paid fresh-grader lifecycle."""
     if split not in {"original", "conflicting"} or mode not in {"nochange", "oracle"}:
         raise ValueError("split/mode must be original|conflicting and nochange|oracle")
     image, directives, test_command = swebench_spec(record)
     image_id, repo_digests = image_identity(image, environ, run)
     patch_files(str(record["test_patch"]))
-    container = "mbb-swe-" + uuid.uuid4().hex[:12]
     out_dir.mkdir(parents=True, exist_ok=True)
     output_path = out_dir / f"{split}-{mode}.txt"
-
-    started = _docker(
-        [
-            "run", "--detach", "--rm", "--name", container, "--network", "none",
-            "--memory", memory, "--workdir", "/testbed", image, "sleep", "infinity",
-        ],
-        environ,
-        run,
-        capture_output=True,
+    model_patch = str(record["patch"]) if mode == "oracle" else ""
+    tested, combined, statuses, eval_script_sha256, eval_script = run_fresh_grader(
+        record, model_patch=model_patch, image=repo_digests[0], environ=environ, run=run,
+        memory=memory, timeout_seconds=timeout_seconds,
     )
-    _must(started, "container start")
-    try:
-        base = str(record["base_commit"])
-        reset = _docker(
-            ["exec", container, "git", "reset", "--hard", base], environ, run,
-            capture_output=True,
-        )
-        _must(reset, "base reset")
-        cleaned = _docker(
-            ["exec", container, "git", "clean", "-fd"], environ, run,
-            capture_output=True,
-        )
-        _must(cleaned, "repository clean")
-
-        with tempfile.TemporaryDirectory(prefix="mbb-swe-") as tmp:
-            temp = Path(tmp)
-            test_patch = temp / "test.patch"
-            test_patch.write_text(str(record["test_patch"]))
-            copied = _docker(
-                ["cp", str(test_patch), f"{container}:/tmp/test.patch"], environ, run,
-                capture_output=True,
-            )
-            _must(copied, "test-patch copy")
-            checked = _docker(
-                ["exec", container, "git", "apply", "--check", "/tmp/test.patch"],
-                environ, run, capture_output=True,
-            )
-            _must(checked, "test-patch check")
-            applied = _docker(
-                ["exec", container, "git", "apply", "/tmp/test.patch"], environ, run,
-                capture_output=True,
-            )
-            _must(applied, "test-patch apply")
-            if mode == "oracle":
-                oracle_patch = temp / "oracle.patch"
-                oracle_patch.write_text(str(record["patch"]))
-                copied = _docker(
-                    ["cp", str(oracle_patch), f"{container}:/tmp/oracle.patch"], environ,
-                    run, capture_output=True,
-                )
-                _must(copied, "oracle-patch copy")
-                checked = _docker(
-                    ["exec", container, "git", "apply", "--check", "/tmp/oracle.patch"],
-                    environ, run, capture_output=True,
-                )
-                _must(checked, "oracle-patch check")
-                applied = _docker(
-                    ["exec", container, "git", "apply", "/tmp/oracle.patch"], environ,
-                    run, capture_output=True,
-                )
-                _must(applied, "oracle-patch apply")
-
-        command = [*shlex.split(test_command), *directives]
-        shell_command = " ".join(shlex.quote(part) for part in command)
-        tested = _docker(
-            [
-                "exec", container, "bash", "-lc",
-                "source /opt/miniconda3/bin/activate && conda activate testbed && "
-                + shell_command,
-            ],
-            environ,
-            run,
-            capture_output=True,
-            timeout=timeout_seconds,
-        )
-        combined = tested.stdout + ("\n[stderr]\n" + tested.stderr if tested.stderr else "")
-        output_path.write_text(combined)
-        statuses = parse_target_statuses(record, combined)
-        accepted = {"PASSED", "XFAIL"}
-        resolved = tested.returncode == 0 and all(
-            status in accepted for status in statuses.values()
-        )
-        return TrialResult(
-            split=split,
-            mode=mode,
-            exit_code=tested.returncode,
-            output_file=output_path.name,
-            output_sha256=sha256_text(combined),
-            image=image,
-            image_id=image_id,
-            repo_digests=repo_digests,
-            test_command=command,
-            target_statuses=statuses,
-            resolved=resolved,
-        )
-    finally:
-        _docker(["rm", "--force", container], environ, run, capture_output=True)
+    output_path.write_text(combined)
+    eval_script_path = out_dir / f"{split}-{mode}-eval-script.sh"
+    eval_script_path.write_text(eval_script)
+    accepted = {"PASSED", "XFAIL"}
+    resolved = bool(statuses) and all(status in accepted for status in statuses.values())
+    return TrialResult(
+        split=split,
+        mode=mode,
+        exit_code=tested.returncode,
+        output_file=output_path.name,
+        output_sha256=sha256_text(combined),
+        image=image,
+        image_id=image_id,
+        repo_digests=repo_digests,
+        test_command=[*shlex.split(test_command), *directives],
+        target_statuses=statuses,
+        resolved=resolved,
+        grader_container_fresh=True,
+        eval_script_sha256=eval_script_sha256,
+        eval_script_file=eval_script_path.name,
+        model_patch_sha256=sha256_text(model_patch),
+    )
 
 
 def validate_expected_matrix(results: Sequence[TrialResult]) -> None:
@@ -384,7 +461,7 @@ def manifest(
         image_id, repo_digests = next(iter(identities))
         remote_image = {"id": image_id, "repo_digests": list(repo_digests)}
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "dataset": DATASET,
         "dataset_revision": require_revision(revision),
         "instance_id": instance_id,
@@ -395,6 +472,8 @@ def manifest(
         "remote_image": remote_image,
         "test_command": [*shlex.split(command), *directives],
         "network": "none",
+        "grader_isolation": "fresh-container-per-scoring-attempt",
+        "grading_lifecycle": GRADING_LIFECYCLE,
         "original_test_patch_sha256": sha256_text(str(original["test_patch"])),
         "conflicting_test_patch_sha256": sha256_text(str(conflicting["test_patch"])),
         "oracle_patch_sha256": sha256_text(str(original["patch"])),

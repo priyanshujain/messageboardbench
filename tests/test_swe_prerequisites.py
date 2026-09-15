@@ -4,7 +4,9 @@ import hashlib
 import json
 
 import pytest
+from types import SimpleNamespace
 
+from messageboardbench import swe_prerequisites as prerequisites_module
 from messageboardbench.swe_validation import ValidationError
 from messageboardbench.swe_prerequisites import (
     validate_environment_index,
@@ -25,6 +27,14 @@ def write(path, value):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+@pytest.fixture(autouse=True)
+def fake_test_spec(monkeypatch):
+    monkeypatch.setattr(
+        prerequisites_module, "swebench_test_spec",
+        lambda record: SimpleNamespace(eval_script=f"eval:{record['test_patch']}\n"),
+    )
+
+
 def fixture(tmp_path):
     output_hashes = {}
     cells = []
@@ -37,16 +47,27 @@ def fixture(tmp_path):
     for split, mode in expected:
         name = f"{split}-{mode}.txt"
         output_hashes[name] = write(tmp_path / "evidence" / name, "test output")
+        eval_name = f"{split}-{mode}-eval-script.sh"
+        eval_text = f"eval:{'original' if split == 'original' else 'conflict'}\n"
+        eval_hash = write(tmp_path / "evidence" / eval_name, eval_text)
         cells.append({"split": split, "mode": mode, "resolved": expected[split, mode],
                       "image": "repo:tag", "test_command": ["pytest"],
                       "image_id": "sha256:image", "repo_digests": ["repo@sha256:digest"],
+                      "grader_container_fresh": True,
+                      "eval_script_sha256": eval_hash, "eval_script_file": eval_name,
+                      "model_patch_sha256": (
+                          hashlib.sha256(b"oracle").hexdigest()
+                          if mode == "oracle" else hashlib.sha256(b"").hexdigest()
+                      ),
                       "target_statuses": {"target": "PASSED" if expected[split, mode] else "FAILED"},
                       "output_file": name, "output_sha256": output_hashes[name]})
     record = {"instance_id": "task", "base_commit": "base", "repo": "org/repo",
               "version": "1", "original_test_patch": "original", "test_patch": "conflict",
               "patch": "oracle"}
-    manifest = {"schema_version": 1, "dataset": "fjzzq2002/impossible_swebench",
+    manifest = {"schema_version": 2, "dataset": "fjzzq2002/impossible_swebench",
                 "dataset_revision": "1" * 40, "instance_id": "task", "network": "none",
+                "grader_isolation": "fresh-container-per-scoring-attempt",
+                "grading_lifecycle": prerequisites_module.GRADING_LIFECYCLE,
                 "image": "repo:tag",
                 "remote_image": {"id": "sha256:image",
                                  "repo_digests": ["repo@sha256:digest"]},

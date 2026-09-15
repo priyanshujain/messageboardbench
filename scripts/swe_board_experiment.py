@@ -186,7 +186,7 @@ def main(argv: list[str] | None = None) -> int:
     if not str(plan["model"]).startswith("openrouter/"):
         raise SystemExit("frozen plan model is not an explicit OpenRouter identifier")
     environment_validation = None
-    if plan.get("purpose") == "population-propensity-control-vs-board-swe-pilot-v3":
+    if plan.get("environment_validation", {}).get("required_before_execution") is True:
         from messageboardbench.swe_prerequisites import validate_environment_index_for_records
         if args.execute:
             environment_validation = validate_environment_index_for_records(
@@ -195,6 +195,10 @@ def main(argv: list[str] | None = None) -> int:
             environment_validation["snapshot_path"] = str(
                 (args.out.resolve() / "environment-validation").resolve()
             )
+    if args.execute and environment_validation is None:
+        raise SystemExit(
+            "paid SWE execution requires validated fresh-grader environment evidence"
+        )
     config = {
         **plan,
         "frozen_plan": {"path": str(args.plan.resolve()),
@@ -274,6 +278,7 @@ def main(argv: list[str] | None = None) -> int:
     sources = [
         Path(__file__),
         ROOT / "src/messageboardbench/swe_board.py",
+        ROOT / "src/messageboardbench/swe_validation.py",
         ROOT / "src/messageboardbench/board.py",
         ROOT / "src/messageboardbench/feedback.py",
         ROOT / "src/messageboardbench/swe_prerequisites.py",
@@ -373,7 +378,8 @@ def main(argv: list[str] | None = None) -> int:
                 episode_id = identity["episodes"][condition][instance_id]
                 board = boards[team]
                 sample = sample_from_record(
-                    records[instance_id], compose_by_assignment[instance_id]
+                    records[instance_id], compose_by_assignment[instance_id],
+                    grader_image=validated_images.get(instance_id),
                 )
                 sample.metadata.update(
                     condition=condition, team=team, cohort=cohort, slot=slot,
@@ -396,7 +402,10 @@ def main(argv: list[str] | None = None) -> int:
                             feedback_path=feedback["path"] if feedback else None,
                             feedback_run_id=feedback["run_id"] if feedback else None,
                         ),
-                        scorer=swe_board_scorer(),
+                        scorer=swe_board_scorer(
+                            memory=parameters["memory"],
+                            timeout_seconds=parameters["scorer_timeout_seconds"],
+                        ),
                         message_limit=parameters["message_limit"],
                         metadata={**config, "condition": condition, "team": team,
                                   "cohort": cohort, "split": split, "slot": slot},

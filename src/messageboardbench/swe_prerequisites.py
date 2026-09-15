@@ -6,7 +6,12 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
-from messageboardbench.swe_validation import DATASET
+from messageboardbench.swe_validation import (
+    DATASET, GRADING_LIFECYCLE, sha256_text, swebench_test_spec,
+)
+
+
+SHA256 = __import__("re").compile(r"[0-9a-f]{64}\Z")
 
 
 def _sha(path: Path) -> str:
@@ -74,11 +79,14 @@ def validate_task_manifest(
 ) -> dict[str, Any]:
     """Validate one task manifest, including partial evidence during resume."""
     manifest = json.loads(manifest_path.read_text())
-    if (manifest.get("schema_version") != 1
+    if (manifest.get("schema_version") != 2
             or manifest.get("dataset") != DATASET
             or manifest.get("dataset_revision") != plan["dataset"]["revision"]
             or manifest.get("instance_id") != instance_id
-            or manifest.get("network") != "none"):
+            or manifest.get("network") != "none"
+            or manifest.get("grader_isolation") != "fresh-container-per-scoring-attempt"
+            or manifest.get("grading_lifecycle")
+            != GRADING_LIFECYCLE):
         raise ValueError(f"validation manifest identity mismatch: {instance_id}")
     if record is not None:
         canonical = hashlib.sha256(json.dumps(
@@ -115,7 +123,49 @@ def validate_task_manifest(
     if set(cells) != set(expected_cells) or len(results) != 4:
         raise ValueError(f"validation matrix incomplete: {instance_id}")
     if any(
+        not SHA256.fullmatch(str(row.get(field, "")))
+        for row in results
+        for field in ("eval_script_sha256", "model_patch_sha256")
+    ):
+        raise ValueError(f"validation lifecycle hashes are invalid: {instance_id}")
+    if any(
+        cells[(split, "nochange")]["eval_script_sha256"]
+        != cells[(split, "oracle")]["eval_script_sha256"]
+        for split in ("original", "conflicting")
+    ):
+        raise ValueError(f"validation TestSpec lifecycle drifted within split: {instance_id}")
+    empty_patch_hash = hashlib.sha256(b"").hexdigest()
+    if any(
+        cells[(split, "nochange")]["model_patch_sha256"] != empty_patch_hash
+        or cells[(split, "oracle")]["model_patch_sha256"]
+        != manifest.get("oracle_patch_sha256")
+        for split in ("original", "conflicting")
+    ):
+        raise ValueError(f"validation model-patch lifecycle mismatch: {instance_id}")
+    if record is not None:
+        original_record = {**record, "test_patch": record["original_test_patch"]}
+        expected_eval_hashes = {
+            "original": sha256_text(swebench_test_spec(original_record).eval_script),
+            "conflicting": sha256_text(swebench_test_spec(record).eval_script),
+        }
+        if any(
+            row["eval_script_sha256"] != expected_eval_hashes[row["split"]]
+            for row in results
+        ):
+            raise ValueError(f"validation TestSpec script hash mismatch: {instance_id}")
+        expected_patch_hashes = {
+            "nochange": sha256_text(""), "oracle": sha256_text(str(record["patch"]))
+        }
+        if any(
+            row["model_patch_sha256"] != expected_patch_hashes[row["mode"]]
+            for row in results
+        ):
+            raise ValueError(f"validation model-patch hash mismatch: {instance_id}")
+    if any(
         not row.get("target_statuses")
+        or row.get("grader_container_fresh") is not True
+        or not row.get("eval_script_sha256")
+        or not row.get("model_patch_sha256")
         or any(status in {"MISSING", "ERROR"}
                for status in row["target_statuses"].values())
         for row in results
@@ -145,4 +195,8 @@ def validate_task_manifest(
         output = manifest_path.parent / str(row.get("output_file", ""))
         if not output.is_file() or _sha(output) != row.get("output_sha256"):
             raise ValueError(f"validation output hash mismatch: {instance_id}")
+        eval_script = manifest_path.parent / str(row.get("eval_script_file", ""))
+        if (not eval_script.is_file()
+                or _sha(eval_script) != row.get("eval_script_sha256")):
+            raise ValueError(f"validation eval script hash mismatch: {instance_id}")
     return manifest

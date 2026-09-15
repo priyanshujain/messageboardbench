@@ -3,6 +3,7 @@ from __future__ import annotations
 import subprocess
 import sys
 import types
+from pathlib import Path
 
 import pytest
 
@@ -148,13 +149,91 @@ def test_semantic_audit_is_bound_to_pair_hashes():
 
 
 def test_missing_target_is_not_resolved(monkeypatch):
+    constants = types.ModuleType("swebench.harness.constants")
+    constants.START_TEST_OUTPUT = "START"
+    constants.END_TEST_OUTPUT = "END"
     grading = types.ModuleType("swebench.harness.grading")
     grading.MAP_REPO_TO_PARSER = {
         "owner/repo": lambda output: {"tests/test_x.py::test_bug": "PASSED"}
     }
+    monkeypatch.setitem(sys.modules, "swebench.harness.constants", constants)
     monkeypatch.setitem(sys.modules, "swebench.harness.grading", grading)
-    statuses = module.parse_target_statuses(record(), "output")
+    statuses = module.parse_target_statuses(record(), "setup START output END cleanup")
     assert statuses == {
         "tests/test_x.py::test_bug": "PASSED",
         "tests/test_x.py::test_old": "MISSING",
     }
+
+
+def test_fresh_grader_runs_exact_testspec_script_with_install_and_network_none(monkeypatch):
+    from swebench.harness.constants import END_TEST_OUTPUT, START_TEST_OUTPUT
+
+    commands = [
+        "repo-install --offline", "git checkout base tests/x.py",
+        "git apply evaluator", f": '{START_TEST_OUTPUT}'", "pytest tests/x.py",
+        f": '{END_TEST_OUTPUT}'", "git checkout base tests/x.py",
+    ]
+    eval_script = "#!/bin/bash\nset -uxo pipefail\n" + "\n".join(commands) + "\n"
+    monkeypatch.setattr(
+        module, "swebench_test_spec", lambda value: types.SimpleNamespace(
+            eval_script=eval_script, eval_script_list=commands
+        )
+    )
+    monkeypatch.setattr(
+        module, "parse_target_statuses", lambda value, output: {"target": "PASSED"}
+    )
+    calls = []
+    copied = {}
+
+    def run(command, **kwargs):
+        calls.append(command)
+        if command[:2] == ["docker", "cp"]:
+            copied[command[-1].split(":", 1)[1]] = Path(command[-2]).read_text()
+        stdout = "ok"
+        if command[-1] == "bash /tmp/messageboardbench-eval.sh 2>&1":
+            monitored = set(range(len(commands))) - {3, 4, 5}
+            stdout = "\n".join(
+                f"__MBB_EVAL_COMMAND_{index:04d}__=0" for index in monitored
+            ) + "\ntarget passed"
+        return subprocess.CompletedProcess(command, 0, stdout, "")
+
+    evaluated, output, statuses, script_hash, preserved_script = module.run_fresh_grader(
+        record(), model_patch="diff --git a/x b/x\n", image="repo@sha256:digest",
+        environ={"DOCKER_HOST": module.REMOTE_DOCKER_HOST}, run=run,
+    )
+    assert evaluated.returncode == 0
+    assert output.endswith("target passed")
+    assert statuses == {"target": "PASSED"}
+    assert script_hash == module.sha256_text(eval_script)
+    assert preserved_script == eval_script
+    starts = [call for call in calls if call[:3] == ["docker", "run", "--detach"]]
+    assert len(starts) == 1
+    assert "--network" in starts[0] and starts[0][starts[0].index("--network") + 1] == "none"
+    executed = copied["/tmp/messageboardbench-eval.sh"]
+    assert all(command in executed for command in commands)
+    assert "__MBB_EVAL_COMMAND_0000__" in executed
+    assert "__MBB_EVAL_COMMAND_0004__" not in executed
+    assert copied["/tmp/model.patch"] == "diff --git a/x b/x\n"
+    assert calls[-1][0:3] == ["docker", "rm", "--force"]
+
+
+def test_fresh_grader_rejects_non_remote_docker_before_start(monkeypatch):
+    monkeypatch.setattr(
+        module, "swebench_test_spec", lambda value: types.SimpleNamespace(
+            eval_script="test", eval_script_list=[]
+        )
+    )
+    with pytest.raises(module.ValidationError, match="fresh grader requires"):
+        module.run_fresh_grader(
+            record(), model_patch="", image="repo", environ={"DOCKER_HOST": "local"}
+        )
+
+
+def test_setup_install_statuses_fail_closed():
+    with pytest.raises(module.ValidationError, match="indices: 2"):
+        module.validate_command_statuses(
+            "__MBB_EVAL_COMMAND_0001__=0\n__MBB_EVAL_COMMAND_0002__=1\n",
+            {1, 2},
+        )
+    with pytest.raises(module.ValidationError, match="did not report every"):
+        module.validate_command_statuses("__MBB_EVAL_COMMAND_0001__=0\n", {1, 2})
