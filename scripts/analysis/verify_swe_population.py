@@ -90,7 +90,8 @@ def environment_validation_matches_plan(
             if (
                 set(row) != {
                     "instance_id", "manifest_path", "manifest_sha256",
-                    "validated_image", "validated_image_id", "validated_repo_digest"
+                    "validated_image", "validated_image_id", "validated_image_ref",
+                    "validated_repo_digest",
                 }
                 or not Path(row["manifest_path"]).as_posix().endswith(
                     "/" + Path(entry["path"]).as_posix()
@@ -98,7 +99,11 @@ def environment_validation_matches_plan(
                 or row["manifest_sha256"] != entry["sha256"]
                 or row["validated_image"] != validated["image"]
                 or row["validated_image_id"] != remote_image["id"]
-                or row["validated_repo_digest"] != remote_image["repo_digests"][0]
+                or row["validated_image_ref"] != remote_image["immutable_ref"]
+                or row["validated_repo_digest"] != (
+                    remote_image["repo_digests"][0]
+                    if remote_image["repo_digests"] else None
+                )
             ):
                 return False
     except (KeyError, OSError, ValueError, json.JSONDecodeError):

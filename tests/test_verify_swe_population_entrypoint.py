@@ -103,6 +103,7 @@ def test_environment_validation_uses_preserved_snapshot(tmp_path, monkeypatch):
                 "manifest_sha256": digest(archived_manifest),
                 "validated_image": "image",
                 "validated_image_id": "image-id",
+                "validated_image_ref": "repo-digest",
                 "validated_repo_digest": "repo-digest",
             }],
         }
@@ -110,7 +111,8 @@ def test_environment_validation_uses_preserved_snapshot(tmp_path, monkeypatch):
     from messageboardbench import swe_prerequisites
     monkeypatch.setattr(swe_prerequisites, "validate_task_manifest", lambda *args, **kwargs: {
         "image": "image",
-        "remote_image": {"id": "image-id", "repo_digests": ["repo-digest"]},
+        "remote_image": {"id": "image-id", "repo_digests": ["repo-digest"],
+                         "immutable_ref": "repo-digest"},
     })
 
     assert matches(manifest, frozen, tmp_path / "run")

@@ -105,7 +105,6 @@ def recover_terminal_rows(out: Path) -> list[dict]:
 
 def cleanup_matched_images(
     out: Path, team: int, cohort: int, instance_ids: list[str], records: dict,
-    validated_images: dict[str, str] | None = None,
 ) -> None:
     """Remove only explicit, re-pullable tags after both matched arms terminate."""
     path = out / "image-lifecycle.json"
@@ -117,7 +116,9 @@ def cleanup_matched_images(
     record = {"team": team, "cohort": cohort, "images": []}
     failed = False
     for instance_id in instance_ids:
-        image = (validated_images or {}).get(instance_id) or swebench_spec(records[instance_id])[0]
+        # Remove the mutable local tag, not an immutable ID/digest that may still
+        # have another tag reference. Identity was already frozen before execution.
+        image = swebench_spec(records[instance_id])[0]
         inspected = subprocess.run(
             ["docker", "image", "inspect", image, "--format", "{{json .}}"],
             capture_output=True, text=True, env=os.environ,
@@ -247,7 +248,7 @@ def main(argv: list[str] | None = None) -> int:
     team_plans = plan["team_plans"]
     configs = out / "compose"
     validated_images = {
-        row["instance_id"]: row["validated_repo_digest"]
+        row["instance_id"]: row["validated_image_ref"]
         for row in (environment_validation or {}).get("validated_instances", [])
     }
     compose_by_assignment = {
@@ -366,7 +367,7 @@ def main(argv: list[str] | None = None) -> int:
                 if all((team, arm, instance_id) in terminal
                        for arm in CONDITIONS for instance_id in selected):
                     cleanup_matched_images(
-                        out, team, cohort, selected, records, validated_images
+                        out, team, cohort, selected, records
                     )
                 continue
             tasks = []
@@ -460,7 +461,7 @@ def main(argv: list[str] | None = None) -> int:
             )
             if matched_complete:
                 cleanup_matched_images(
-                    out, team, cohort, selected, records, validated_images
+                    out, team, cohort, selected, records
                 )
         status["status"] = "completed"
     except BaseException as exc:

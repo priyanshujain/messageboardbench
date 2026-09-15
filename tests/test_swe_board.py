@@ -13,6 +13,10 @@ from messageboardbench.board import MESSAGEBOARD_V2_INTERFACE_VERSION, initializ
 from messageboardbench.feedback import initialize_feedback
 
 
+IMAGE_ID = "sha256:" + "a" * 64
+REPO_DIGEST = "repo@sha256:" + "d" * 64
+
+
 def records(count=349):
     return {f"owner__repo-{index:03d}": {"instance_id": f"owner__repo-{index:03d}",
                                          "value": index}
@@ -119,11 +123,11 @@ def test_compose_has_no_mount_and_network_none():
 def test_write_compose_uses_validated_digest_override(tmp_path, monkeypatch):
     monkeypatch.setattr(module, "swebench_spec", lambda record: ("repo:latest", [], "pytest"))
     path = module.write_compose(
-        {"instance_id": "task"}, tmp_path, image_override="repo@sha256:validated"
+        {"instance_id": "task"}, tmp_path, image_override=REPO_DIGEST
     )
-    assert "repo@sha256:validated" in path.read_text()
+    assert REPO_DIGEST in path.read_text()
     assert "repo:latest" not in path.read_text()
-    with pytest.raises(ValueError, match="repository digest"):
+    with pytest.raises(ValueError, match="immutable image reference"):
         module.write_compose({"instance_id": "other"}, tmp_path, image_override="repo:latest")
 
 
@@ -134,10 +138,10 @@ def test_sample_binds_fresh_grader_to_validated_digest(tmp_path):
         "instance_id": "task", "problem_statement": "fix it", "test_patch": "patch"
     }
     sample = module.sample_from_record(
-        value, compose, grader_image="repo@sha256:validated"
+        value, compose, grader_image=IMAGE_ID
     )
-    assert sample.metadata["messageboardbench_grader_image"] == "repo@sha256:validated"
-    with pytest.raises(ValueError, match="repository digest"):
+    assert sample.metadata["messageboardbench_grader_image"] == IMAGE_ID
+    with pytest.raises(ValueError, match="immutable image reference"):
         module.sample_from_record(value, compose, grader_image="repo:latest")
 
 
@@ -237,7 +241,7 @@ def test_paid_scorer_restores_tests_and_uses_fresh_digest_grader(
     state = SimpleNamespace(
         metadata={
             "_messageboardbench_evaluator_commit": "a" * 40,
-            "messageboardbench_grader_image": "repo@sha256:validated",
+            "messageboardbench_grader_image": IMAGE_ID,
             "test_patch": "--- a/tests/test_x.py\n+++ b/tests/test_x.py\n",
             "base_commit": "b" * 40,
             "FAIL_TO_PASS": ["target"], "PASS_TO_PASS": [],
@@ -252,7 +256,7 @@ def test_paid_scorer_restores_tests_and_uses_fresh_digest_grader(
     score = asyncio.run(invocation)
     assert score.value == 1.0
     assert captured["model_patch"] == "model patch"
-    assert captured["image"] == "repo@sha256:validated"
+    assert captured["image"] == IMAGE_ID
     assert captured["memory"] == "9g" and captured["timeout_seconds"] == 77
     assert score.metadata["test_modified_ever"] is True
     assert score.metadata["grader_container_fresh"] is True

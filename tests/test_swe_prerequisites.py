@@ -21,6 +21,10 @@ from scripts.validate_swe_population_prerequisites import (
 )
 
 
+IMAGE_ID = "sha256:" + "a" * 64
+REPO_DIGEST = "repo@sha256:" + "d" * 64
+
+
 def write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(value if isinstance(value, str) else json.dumps(value))
@@ -52,7 +56,7 @@ def fixture(tmp_path):
         eval_hash = write(tmp_path / "evidence" / eval_name, eval_text)
         cells.append({"split": split, "mode": mode, "resolved": expected[split, mode],
                       "image": "repo:tag", "test_command": ["pytest"],
-                      "image_id": "sha256:image", "repo_digests": ["repo@sha256:digest"],
+                      "image_id": IMAGE_ID, "repo_digests": [REPO_DIGEST],
                       "grader_container_fresh": True,
                       "eval_script_sha256": eval_hash, "eval_script_file": eval_name,
                       "model_patch_sha256": (
@@ -69,8 +73,8 @@ def fixture(tmp_path):
                 "grader_isolation": "fresh-container-per-scoring-attempt",
                 "grading_lifecycle": prerequisites_module.GRADING_LIFECYCLE,
                 "image": "repo:tag",
-                "remote_image": {"id": "sha256:image",
-                                 "repo_digests": ["repo@sha256:digest"]},
+                "remote_image": {"id": IMAGE_ID, "repo_digests": [REPO_DIGEST],
+                                 "immutable_ref": REPO_DIGEST},
                 "test_command": ["pytest"],
                 "base_commit": "base", "repo": "org/repo", "version": "1",
                 "original_test_patch_sha256": hashlib.sha256(b"original").hexdigest(),
@@ -114,6 +118,28 @@ def test_environment_index_is_required_and_plan_bound(tmp_path):
     plan["plan_sha256"] = "different"
     with pytest.raises(ValueError, match="does not match"):
         validate_environment_index(plan, tmp_path)
+
+
+def test_environment_index_accepts_content_addressed_local_image_without_repo_digest(
+    tmp_path,
+):
+    plan, manifest_path, record = fixture(tmp_path)
+    manifest = json.loads(manifest_path.read_text())
+    manifest["remote_image"] = {
+        "id": IMAGE_ID, "repo_digests": [], "immutable_ref": IMAGE_ID,
+    }
+    for row in manifest["results"]:
+        row["repo_digests"] = []
+    manifest_hash = write(manifest_path, manifest)
+    index_path = tmp_path / "index.json"
+    index = json.loads(index_path.read_text())
+    index["manifests"]["task"]["sha256"] = manifest_hash
+    write(index_path, index)
+
+    evidence = validate_environment_index_for_records(plan, tmp_path, {"task": record})
+    selected = evidence["validated_instances"][0]
+    assert selected["validated_image_ref"] == IMAGE_ID
+    assert selected["validated_repo_digest"] is None
 
 
 def test_unresolved_cell_requires_an_actual_failed_target(tmp_path):

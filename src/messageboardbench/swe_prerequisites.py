@@ -65,7 +65,10 @@ def validate_environment_index_for_records(
             "manifest_sha256": entry["sha256"],
             "validated_image": manifest["image"],
             "validated_image_id": remote_image["id"],
-            "validated_repo_digest": remote_image["repo_digests"][0],
+            "validated_image_ref": remote_image["immutable_ref"],
+            "validated_repo_digest": (
+                remote_image["repo_digests"][0] if remote_image["repo_digests"] else None
+            ),
         })
     return {"index_path": str(index_path), "index_sha256": _sha(index_path),
             "validated_instances": evidence}
@@ -187,9 +190,13 @@ def validate_task_manifest(
     if len(commands) != 1 or list(next(iter(commands))) != manifest.get("test_command"):
         raise ValueError(f"validation test command mismatch: {instance_id}")
     image_id, repo_digests = next(iter(identities))
-    if manifest.get("remote_image") != {
-        "id": image_id, "repo_digests": list(repo_digests)
-    } or not repo_digests:
+    from messageboardbench.swe_validation import immutable_image_reference
+    expected_remote_image = {
+        "id": image_id,
+        "repo_digests": list(repo_digests),
+        "immutable_ref": immutable_image_reference(image_id, repo_digests),
+    }
+    if manifest.get("remote_image") != expected_remote_image:
         raise ValueError(f"validation remote image mismatch: {instance_id}")
     for row in results:
         output = manifest_path.parent / str(row.get("output_file", ""))

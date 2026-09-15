@@ -10,6 +10,10 @@ import pytest
 from messageboardbench import swe_validation as module
 
 
+IMAGE_ID = "sha256:" + "a" * 64
+REPO_DIGEST = "repo@sha256:" + "d" * 64
+
+
 def record(**changes):
     value = {
         "instance_id": "owner__repo-1",
@@ -34,8 +38,8 @@ def result(split: str, mode: str, *, resolved: bool, exit_code: int):
         output_file=f"{split}-{mode}.txt",
         output_sha256="0" * 64,
         image="swebench/sweb.eval.x86_64.example:latest",
-        image_id="sha256:abc",
-        repo_digests=["swebench/example@sha256:def"],
+        image_id=IMAGE_ID,
+        repo_digests=[REPO_DIGEST],
         test_command=["pytest", "tests/test_x.py"],
         target_statuses={"tests/test_x.py::test_bug": "PASSED" if resolved else "FAILED"},
         resolved=resolved,
@@ -115,16 +119,30 @@ def test_matrix_rejects_image_identity_drift():
 def test_image_identity_requires_digest_and_amd64():
     def run(command, **kwargs):
         payload = {
-            "Id": "sha256:abc",
-            "RepoDigests": ["repo@sha256:def"],
+            "Id": IMAGE_ID,
+            "RepoDigests": [REPO_DIGEST],
             "Os": "linux",
             "Architecture": "amd64",
         }
         return subprocess.CompletedProcess(command, 0, __import__("json").dumps(payload), "")
 
     assert module.image_identity("repo:tag", {"DOCKER_HOST": module.REMOTE_DOCKER_HOST}, run) == (
-        "sha256:abc", ["repo@sha256:def"]
+        IMAGE_ID, [REPO_DIGEST]
     )
+
+
+def test_image_identity_accepts_local_content_address_without_repo_digest():
+    def run(command, **kwargs):
+        payload = {
+            "Id": IMAGE_ID, "RepoDigests": [], "Os": "linux", "Architecture": "amd64",
+        }
+        return subprocess.CompletedProcess(command, 0, __import__("json").dumps(payload), "")
+
+    identity = module.image_identity(
+        "local:tag", {"DOCKER_HOST": module.REMOTE_DOCKER_HOST}, run
+    )
+    assert identity == (IMAGE_ID, [])
+    assert module.immutable_image_reference(*identity) == IMAGE_ID
 
 
 def test_semantic_audit_is_bound_to_pair_hashes():
@@ -198,7 +216,7 @@ def test_fresh_grader_runs_exact_testspec_script_with_install_and_network_none(m
         return subprocess.CompletedProcess(command, 0, stdout, "")
 
     evaluated, output, statuses, script_hash, preserved_script = module.run_fresh_grader(
-        record(), model_patch="diff --git a/x b/x\n", image="repo@sha256:digest",
+        record(), model_patch="diff --git a/x b/x\n", image=REPO_DIGEST,
         environ={"DOCKER_HOST": module.REMOTE_DOCKER_HOST}, run=run,
     )
     assert evaluated.returncode == 0

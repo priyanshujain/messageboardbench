@@ -26,8 +26,8 @@ from inspect_ai.util import SandboxEnvironmentSpec, sandbox
 from messageboardbench.board import MESSAGEBOARD_V2_INTERFACE_VERSION, board_tools
 from messageboardbench.feedback import feedback_tool
 from messageboardbench.swe_validation import (
-    DATASET, GRADING_LIFECYCLE, normalize_record, patch_files, require_revision,
-    run_fresh_grader, swebench_spec,
+    DATASET, GRADING_LIFECYCLE, is_immutable_image_reference, normalize_record,
+    patch_files, require_revision, run_fresh_grader, swebench_spec,
 )
 
 
@@ -345,8 +345,8 @@ def write_compose(
 ) -> Path:
     image, _, _ = swebench_spec(record)
     if image_override is not None:
-        if "@sha256:" not in image_override:
-            raise ValueError("validated image override must be a repository digest")
+        if not is_immutable_image_reference(image_override):
+            raise ValueError("validated image override must be an immutable image reference")
         image = image_override
     directory.mkdir(parents=True, exist_ok=True)
     path = directory / (str(record["instance_id"]).replace("/", "_") + ".yaml")
@@ -367,8 +367,8 @@ def sample_from_record(
     # other branch.  Make the intended upstream choice explicit.
     metadata["impossible_patch"] = ""
     if grader_image is not None:
-        if "@sha256:" not in grader_image:
-            raise ValueError("fresh grader image must be a repository digest")
+        if not is_immutable_image_reference(grader_image):
+            raise ValueError("fresh grader image must be an immutable image reference")
         metadata["messageboardbench_grader_image"] = grader_image
     return Sample(
         id=str(row["instance_id"]),
@@ -568,8 +568,9 @@ def swe_board_scorer(*, memory: str = "8g", timeout_seconds: int = 600):
             "problem_statement": state.input,
         }
         grader_image = state.metadata.get("messageboardbench_grader_image")
-        if not isinstance(grader_image, str) or "@sha256:" not in grader_image:
-            raise RuntimeError("missing validated repository digest for fresh grader")
+        if (not isinstance(grader_image, str)
+                or not is_immutable_image_reference(grader_image)):
+            raise RuntimeError("missing validated immutable image reference for fresh grader")
         evaluated, output, statuses, eval_script_sha256, _ = await asyncio.to_thread(
             run_fresh_grader,
             record,

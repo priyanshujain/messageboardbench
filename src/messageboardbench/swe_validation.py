@@ -19,6 +19,8 @@ DATASET = "fjzzq2002/impossible_swebench"
 REMOTE_DOCKER_HOST = "ssh://pj@100.68.126.75"
 GRADING_LIFECYCLE = "upstream-testspec-eval-commands-status-monitored-v2"
 FULL_SHA = re.compile(r"[0-9a-f]{40}\Z")
+IMAGE_ID = re.compile(r"sha256:[0-9a-f]{64}\Z")
+REPO_DIGEST = re.compile(r"[^\s@]+@sha256:[0-9a-f]{64}\Z")
 PATCH_PATH_RE = re.compile(r"^(?:--- a/|\+\+\+ b/)(.+)$", re.MULTILINE)
 
 
@@ -207,12 +209,26 @@ def image_identity(
         platform = f"{value['Os']}/{value['Architecture']}"
     except (KeyError, TypeError, json.JSONDecodeError) as exc:
         raise ValidationError("Docker returned an invalid image identity") from exc
-    if platform != "linux/amd64" or not image_id or not repo_digests:
+    if (platform != "linux/amd64" or not IMAGE_ID.fullmatch(str(image_id))
+            or any(not REPO_DIGEST.fullmatch(str(value)) for value in repo_digests)):
         raise ValidationError(
-            f"image must be linux/amd64 with an ID and repository digest; got {platform}, "
+            f"image must be linux/amd64 with a content-addressed ID; got {platform}, "
             f"id={image_id!r}, digests={repo_digests!r}"
         )
     return image_id, repo_digests
+
+
+def immutable_image_reference(image_id: str, repo_digests: Sequence[str]) -> str:
+    """Prefer a registry digest, falling back to Docker's content-addressed image ID."""
+    if not IMAGE_ID.fullmatch(image_id):
+        raise ValidationError(f"invalid Docker image ID: {image_id!r}")
+    if any(not REPO_DIGEST.fullmatch(value) for value in repo_digests):
+        raise ValidationError("invalid Docker repository digest")
+    return sorted(repo_digests)[0] if repo_digests else image_id
+
+
+def is_immutable_image_reference(value: str) -> bool:
+    return bool(IMAGE_ID.fullmatch(value) or REPO_DIGEST.fullmatch(value))
 
 
 def _docker(
@@ -286,8 +302,8 @@ def run_fresh_grader(
     """
     if environ.get("DOCKER_HOST") != REMOTE_DOCKER_HOST:
         raise ValidationError(f"fresh grader requires DOCKER_HOST={REMOTE_DOCKER_HOST}")
-    if "@sha256:" not in image:
-        raise ValidationError("fresh grader image must be an inspected repository digest")
+    if not is_immutable_image_reference(image):
+        raise ValidationError("fresh grader image must be an inspected immutable reference")
     spec = swebench_test_spec(record)
     eval_script = spec.eval_script
     executed_script, monitored_indices = instrument_eval_script(spec.eval_script_list)
@@ -377,7 +393,9 @@ def run_trial(
     output_path = out_dir / f"{split}-{mode}.txt"
     model_patch = str(record["patch"]) if mode == "oracle" else ""
     tested, combined, statuses, eval_script_sha256, eval_script = run_fresh_grader(
-        record, model_patch=model_patch, image=repo_digests[0], environ=environ, run=run,
+        record, model_patch=model_patch,
+        image=immutable_image_reference(image_id, repo_digests),
+        environ=environ, run=run,
         memory=memory, timeout_seconds=timeout_seconds,
     )
     output_path.write_text(combined)
@@ -459,7 +477,11 @@ def manifest(
         if len(identities) != 1:
             raise ValidationError("manifest cannot record divergent remote image identities")
         image_id, repo_digests = next(iter(identities))
-        remote_image = {"id": image_id, "repo_digests": list(repo_digests)}
+        remote_image = {
+            "id": image_id,
+            "repo_digests": list(repo_digests),
+            "immutable_ref": immutable_image_reference(image_id, repo_digests),
+        }
     return {
         "schema_version": 2,
         "dataset": DATASET,
