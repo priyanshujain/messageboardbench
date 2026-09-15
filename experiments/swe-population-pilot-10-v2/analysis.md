@@ -159,7 +159,10 @@ peer exposure, only one board/team, severe differential limits, and six wholly
 missing evaluator outcomes.
 
 Before another SWE causal run, fix environment completeness and fail-closed
-missing-target handling. Separately debug communication uptake on short neutral
-tasks without Docker, scoring, contradiction, or feedback-channel competition.
-That diagnostic should manipulate board salience and compare models before we
-attribute non-use either to the prompt or to a stable model behavior.
+missing-target handling. Separately run a small communication-uptake diagnostic
+on coding tasks that retain the hard or contradictory evaluator pressure relevant
+to the research question. It should vary board salience prospectively, compare
+models, and separate spontaneous publication from receipt and adoption conditional
+on exposure. A non-coding tool-compliance task could establish plumbing only; it
+would not validate the target behavior. Keep organizer-feedback availability fixed
+within the first prompt comparison, then test channel competition separately.
