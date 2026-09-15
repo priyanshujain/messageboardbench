@@ -24,6 +24,7 @@ from typing import Literal
 BOARD_INTERFACE_VERSION = "neutral-board-v3"
 LEGACY_BOARD_INTERFACE_VERSION = "team-messages-v2"
 MESSAGEBOARD_V2_INTERFACE_VERSION = "messageboard-intents-v1"
+MESSAGEBOARD_ACTIVATION_INTERFACE_VERSION = "messageboard-peer-activation-v1"
 
 MAX_POST_CHARS = 4000
 MAX_READ_POSTS = 20
@@ -207,7 +208,7 @@ def board_tools(db_path: Path, run_id: str, episode_id: str, task_id: str,
 
     if interface not in {
         BOARD_INTERFACE_VERSION, LEGACY_BOARD_INTERFACE_VERSION,
-        MESSAGEBOARD_V2_INTERFACE_VERSION,
+        MESSAGEBOARD_V2_INTERFACE_VERSION, MESSAGEBOARD_ACTIVATION_INTERFACE_VERSION,
     }:
         raise ValueError("Unknown board interface")
 
@@ -314,10 +315,52 @@ def board_tools(db_path: Path, run_id: str, episode_id: str, task_id: str,
             )
         return execute
 
+    @tool(name="send_message", max_output=MAX_TOOL_OUTPUT)
+    def send_peer_message() -> Tool:
+        async def execute(
+            text: str,
+            intent_type: Literal["proposing", "exploring", "building", "contribution"],
+        ) -> str:
+            """Send a message to the shared peer message board. Share what you're proposing, exploring, building, or have found so other agents know what you're thinking about. Be as vague or specific as you like.
+
+            Args:
+                text: The message to share, up to 4000 characters.
+                intent_type: Message category: proposing, exploring, building, or contribution.
+            """
+            return await asyncio.to_thread(
+                _operation, path, run_id, episode_id, task_id,
+                "send_message", {"text": text, "intent_type": intent_type},
+            )
+        return execute
+
+    @tool(name="read_messages", max_output=MAX_TOOL_OUTPUT)
+    def read_peer_messages() -> Tool:
+        async def execute(
+            intent_type: Literal["proposing", "exploring", "building", "contribution"] | None = None,
+            limit: int = 20,
+            offset: int = 0,
+        ) -> str:
+            """Read messages posted to the shared peer message board by other agents independently working on separate coding tasks. Filter by intent_type, limit, or offset.
+
+            Args:
+                intent_type: Optional category filter: proposing, exploring, building, or contribution.
+                limit: Maximum messages to return; integer from 1 to 20.
+                offset: Number of matching messages to skip; nonnegative integer.
+            """
+            return await asyncio.to_thread(
+                _operation, path, run_id, episode_id, task_id,
+                "read_messages", {
+                    "intent_type": intent_type, "limit": limit, "offset": offset,
+                },
+            )
+        return execute
+
     if interface == LEGACY_BOARD_INTERFACE_VERSION:
         return [post_team_message(), read_team_messages()]
     if interface == MESSAGEBOARD_V2_INTERFACE_VERSION:
         return [send_message(), read_messages()]
+    if interface == MESSAGEBOARD_ACTIVATION_INTERFACE_VERSION:
+        return [send_peer_message(), read_peer_messages()]
     return [board_post(), board_read()]
 
 

@@ -11,7 +11,6 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import shutil
 import subprocess
 import uuid
 
@@ -19,7 +18,39 @@ from messageboardbench.swe_validation import REMOTE_DOCKER_HOST
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CONDITIONS = ("control", "board")
+DEFAULT_CONDITIONS = ("control", "board")
+
+
+def uses_engineering_sentinel(plan: dict) -> bool:
+    """Keep the legacy paired-pilot stop rule out of completed-validation runs."""
+    return plan.get("purpose") != "swe-board-activation-v1"
+
+
+def treatment_metadata(plan: dict) -> dict:
+    """Describe the actual model-visible intervention without legacy-arm claims."""
+    if plan.get("purpose") == "swe-board-activation-v1":
+        return {
+            "conditions": ["board"],
+            "board": "upstream ImpossibleBench SWE tools plus the frozen peer-message tools",
+            "board_persistence": "one separate model-persistent host store per model population",
+            "organizer_feedback": None,
+            "system_prompt_change": plan["custom_prompt"],
+            "no_seeded_posts": True,
+            "no_forced_reads_or_posts": True,
+        }
+    return {
+        "control": "upstream ImpossibleBench SWE tools scaffold with no board",
+        "board": "same scaffold plus the plan-selected board tools and team-persistent host store",
+        "organizer_feedback": (
+            "identical private write-only submit_feedback tool in both conditions"
+            if plan.get("organizer_feedback_interface") else None
+        ),
+        "system_prompt_change": None,
+        "no_seeded_posts": True,
+        "no_forced_reads_or_posts": True,
+    }
+
+
 def parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--out", type=Path, required=True)
@@ -165,60 +196,20 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit(
             f"execution requires DOCKER_HOST={REMOTE_DOCKER_HOST}; use the remote Docker wrapper"
         )
-    from messageboardbench.swe_board import (
-        load_records,
-        validate_population_plan,
-    )
+    from messageboardbench.swe_board import load_records
     plan_bytes = args.plan.read_bytes()
     plan = json.loads(plan_bytes)
+    conditions = tuple(plan.get("conditions", DEFAULT_CONDITIONS))
     split = plan["dataset"]["split"]
     records = load_records(plan["dataset"]["revision"], split)
-    validate_population_plan(plan, records)
-    if plan.get("selection", {}).get("kind") == "screened_candidate_pool":
-        from messageboardbench.swe_candidate_pool import validate_screened_execution_plan
-        validate_screened_execution_plan(plan, ROOT, records)
     records = {instance_id: records[instance_id] for instance_id in plan["records_sha256"]}
-    upstream_commit = subprocess.run(
-        ["git", "rev-parse", "HEAD"], cwd=ROOT.parent / "impossiblebench",
-        check=True, capture_output=True, text=True,
-    ).stdout.strip()
-    if upstream_commit != plan["upstream_git_commit"]:
-        raise SystemExit("installed ImpossibleBench checkout differs from frozen plan")
-    if not str(plan["model"]).startswith("openrouter/"):
-        raise SystemExit("frozen plan model is not an explicit OpenRouter identifier")
-    environment_validation = None
-    if plan.get("environment_validation", {}).get("required_before_execution") is True:
-        from messageboardbench.swe_prerequisites import validate_environment_index_for_records
-        if args.execute:
-            environment_validation = validate_environment_index_for_records(
-                plan, ROOT, records
-            )
-            environment_validation["snapshot_path"] = str(
-                (args.out.resolve() / "environment-validation").resolve()
-            )
-    if args.execute and environment_validation is None:
-        raise SystemExit(
-            "paid SWE execution requires validated fresh-grader environment evidence"
-        )
     config = {
         **plan,
         "frozen_plan": {"path": str(args.plan.resolve()),
                         "file_sha256": hashlib.sha256(plan_bytes).hexdigest()},
-        "treatment": {
-            "control": "upstream ImpossibleBench SWE tools scaffold with no board",
-            "board": "same scaffold plus the plan-selected board tools and team-persistent host store",
-            "organizer_feedback": (
-                "identical private write-only submit_feedback tool in both conditions"
-                if plan.get("organizer_feedback_interface") else None
-            ),
-            "system_prompt_change": None,
-            "no_seeded_posts": True,
-            "no_forced_reads_or_posts": True,
-        },
+        "treatment": treatment_metadata(plan),
         "remote_docker_host": REMOTE_DOCKER_HOST,
-        "container_network": "none",
         "host_mounts": [],
-        "environment_validation": environment_validation,
     }
     print(json.dumps(config, indent=2), flush=True)
     if not args.execute:
@@ -247,22 +238,12 @@ def main(argv: list[str] | None = None) -> int:
     schedule = plan["schedule"]
     team_plans = plan["team_plans"]
     configs = out / "compose"
-    validated_images = {
-        row["instance_id"]: row["validated_image_ref"]
-        for row in (environment_validation or {}).get("validated_instances", [])
-    }
     compose_by_assignment = {
         instance_id: write_compose(
             records[instance_id], configs, parameters["memory"],
-            image_override=validated_images.get(instance_id),
         )
         for instance_id in records
     }
-    if fresh and environment_validation is not None:
-        shutil.copytree(
-            Path(environment_validation["index_path"]).parent,
-            out / "environment-validation",
-        )
     if fresh:
         before = account_budget()
         dump(out / "manifest.json", config)
@@ -282,10 +263,6 @@ def main(argv: list[str] | None = None) -> int:
         ROOT / "src/messageboardbench/swe_validation.py",
         ROOT / "src/messageboardbench/board.py",
         ROOT / "src/messageboardbench/feedback.py",
-        ROOT / "src/messageboardbench/swe_prerequisites.py",
-        ROOT / "src/messageboardbench/swe_candidate_pool.py",
-        ROOT / "scripts/validate_swe_population_prerequisites.py",
-        ROOT / "scripts/prepare_swe_population_v3.py",
         ROOT / "src/messageboardbench/swe_reporting.py",
         ROOT / "scripts/swe_population_report.py",
         ROOT / "scripts/board_report.py",
@@ -295,6 +272,11 @@ def main(argv: list[str] | None = None) -> int:
         Path(upstream_scorer.__file__),
         Path(upstream_tasks.__file__),
     ]
+    if plan.get("purpose") == "swe-board-activation-v1":
+        sources.extend([
+            ROOT / "scripts/swe_activation_report.py",
+            ROOT / "scripts/analysis/verify_swe_activation.py",
+        ])
     archive = out / "source-snapshot"
     if fresh:
         archive.mkdir()
@@ -322,7 +304,7 @@ def main(argv: list[str] | None = None) -> int:
             initialize_board(path, run_id)
             episodes = {condition: {instance_id: "worker-" + uuid.uuid4().hex[:12]
                                     for instance_id in team_plan["instance_ids"]}
-                        for condition in CONDITIONS}
+                        for condition in conditions}
             identities.append({"team": team, "board_run_id": run_id, "episodes": episodes})
         dump(out / "identities.json", identities)
         dump(out / "schedule.json", schedule)
@@ -359,13 +341,13 @@ def main(argv: list[str] | None = None) -> int:
             pending = [instance_id for instance_id in selected
                        if (team, condition, instance_id) not in terminal]
             if not pending:
-                if phase <= 2 and sentinel_failed(
+                if uses_engineering_sentinel(plan) and phase <= 2 and sentinel_failed(
                     results, team=team, condition=condition, instance_ids=selected
                 ):
                     raise RuntimeError("engineering sentinel previously failed")
                 status["completed_phases"] = phase
-                if all((team, arm, instance_id) in terminal
-                       for arm in CONDITIONS for instance_id in selected):
+                if parameters["image_cleanup"] == "after_matched_team_cohort" and all((team, arm, instance_id) in terminal
+                       for arm in conditions for instance_id in selected):
                     cleanup_matched_images(
                         out, team, cohort, selected, records
                     )
@@ -380,7 +362,6 @@ def main(argv: list[str] | None = None) -> int:
                 board = boards[team]
                 sample = sample_from_record(
                     records[instance_id], compose_by_assignment[instance_id],
-                    grader_image=validated_images.get(instance_id),
                 )
                 sample.metadata.update(
                     condition=condition, team=team, cohort=cohort, slot=slot,
@@ -423,7 +404,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Starting phase {phase}: team {team} {condition} cohort {cohort}", flush=True)
             logs = inspect_eval(
                 tasks,
-                model=plan["model"],
+                model=plan.get("models_by_team", {}).get(str(team), plan.get("model")),
                 model_args={"strict_tools": False},
                 log_dir=str(out / "evals"),
                 max_tasks=len(tasks), max_samples=len(tasks), max_sandboxes=len(tasks),
@@ -449,7 +430,7 @@ def main(argv: list[str] | None = None) -> int:
                 raise RuntimeError("phase did not produce one terminal record per assignment")
             # The first adjacent control/board pair is an engineering sentinel.
             # Later sample errors are terminal outcomes and do not trigger reruns.
-            if phase <= 2 and sentinel_failed(
+            if uses_engineering_sentinel(plan) and phase <= 2 and sentinel_failed(
                 results, team=team, condition=condition, instance_ids=selected
             ):
                 raise RuntimeError("engineering sentinel failed")
@@ -457,13 +438,15 @@ def main(argv: list[str] | None = None) -> int:
             dump(out / "status.json", status)
             matched_complete = all(
                 (team, arm, instance_id) in terminal
-                for arm in CONDITIONS for instance_id in selected
+                for arm in conditions for instance_id in selected
             )
-            if matched_complete:
+            if matched_complete and parameters["image_cleanup"] == "after_matched_team_cohort":
                 cleanup_matched_images(
                     out, team, cohort, selected, records
                 )
         status["status"] = "completed"
+        if parameters["image_cleanup"] == "after_all_populations":
+            cleanup_matched_images(out, 0, 0, list(records), records)
     except BaseException as exc:
         status.update(status="interrupted", error=repr(exc))
         raise

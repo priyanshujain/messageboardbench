@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "experiment_id": "swe-board-activation-10-v1",
+  "purpose": "Developmental board-use activation diagnostic across GLM and Muse on matched impossible SWE tasks.",
+  "remote_docker_host": "ssh://pj@100.68.126.75",
+  "blockers": [],
+  "outputs": {
+    "run_dir": "logs/swe-board-activation-10-v1/run",
+    "report_dir": "logs/swe-board-activation-10-v1/report",
+    "verification_file": "logs/swe-board-activation-10-v1/verification.json",
+    "resource_file": "logs/swe-board-activation-10-v1/resources.json",
+    "state_file": "logs/swe-board-activation-10-v1-status.json"
+  },
+  "execution": {
+    "argv": [".venv/bin/python", "scripts/swe_board_experiment.py", "--plan", "experiments/swe-board-activation-10-v1/plan.json", "--out", "logs/swe-board-activation-10-v1/run", "--execute"],
+    "resume": true
+  },
+  "postprocess": [
+    {"name": "report", "requires": ["logs/swe-board-activation-10-v1/run/status.json", "logs/swe-board-activation-10-v1/run/board-final.json"], "argv": [".venv/bin/python", "scripts/swe_activation_report.py", "--run", "logs/swe-board-activation-10-v1/run", "--out", "logs/swe-board-activation-10-v1/report"]},
+    {"name": "verify", "requires": ["logs/swe-board-activation-10-v1/report/report.json"], "argv": [".venv/bin/python", "scripts/analysis/verify_swe_activation.py", "--run", "logs/swe-board-activation-10-v1/run", "--export", "logs/swe-board-activation-10-v1/report", "--out", "logs/swe-board-activation-10-v1/verification.json"]},
+    {"name": "resources", "requires": ["logs/swe-board-activation-10-v1/report/report.json", "logs/swe-board-activation-10-v1/verification.json"], "argv": [".venv/bin/python", "scripts/analysis/board_resources.py", "--run", "logs/swe-board-activation-10-v1/run", "--export", "logs/swe-board-activation-10-v1/report", "--out", "logs/swe-board-activation-10-v1/resources.json"]}
+  ],
+  "manifest_sha256": "58a2a18c62b843260c7e0f4aa69ff4e5046db4d6f4630327442115039374863c"
+}

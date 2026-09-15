@@ -6,6 +6,7 @@ import pytest
 
 from messageboardbench.board import (
     LEGACY_BOARD_INTERFACE_VERSION,
+    MESSAGEBOARD_ACTIVATION_INTERFACE_VERSION,
     MESSAGEBOARD_V2_INTERFACE_VERSION,
     MAX_POST_CHARS,
     board_tools,
@@ -186,3 +187,19 @@ def test_v2_schema_does_not_change_neutral_or_legacy_response_bytes(tmp_path):
     assert 'intent_type' not in response['post']
     viewed = json.loads(asyncio.run(read()))
     assert 'intent_type' not in viewed['posts'][0]
+
+
+def test_activation_interface_has_neutral_peer_wording_and_typed_read(tmp_path):
+    from inspect_ai.tool import ToolDef
+
+    path = initialize_board(tmp_path / 'activation.db', 'activation')
+    tools = board_tools(
+        path, 'activation', 'episode', 'task',
+        interface=MESSAGEBOARD_ACTIVATION_INTERFACE_VERSION,
+    )
+    send, read = map(ToolDef, tools)
+    assert [send.name, read.name] == ['send_message', 'read_messages']
+    assert 'shared peer message board' in send.description
+    assert 'independently working on separate coding tasks' in read.description
+    assert set(read.parameters.model_dump()['properties']) == {'intent_type', 'limit', 'offset'}
+    assert 'organizer' not in (send.description + read.description).lower()

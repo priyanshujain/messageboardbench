@@ -20,6 +20,8 @@ ALLOWED_POSTPROCESS_SCRIPTS = {
     "scripts/analysis/board_resources.py",
     "scripts/swe_population_report.py",
     "scripts/analysis/verify_swe_population.py",
+    "scripts/swe_activation_report.py",
+    "scripts/analysis/verify_swe_activation.py",
 }
 
 

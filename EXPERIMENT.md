@@ -209,6 +209,17 @@ with the existing $5 cap unchanged. See [Muse results](results/board-muse-sept8/
 [verification](results/board-muse-sept8/verification.md) and
 [resource analysis](results/board-muse-sept8/token-analysis.md).
 
+**SWE board activation diagnostic (September 16):** a minimally framed optional
+board produced one substantive publication and one exact peer receipt in each of the
+GLM and Muse populations. The Muse receipt is temporally consistent with uncredited
+method-level adoption: an xarray agent published a narrow comparison bypass, and a
+scikit-learn agent read it 25 seconds later, immediately implemented an analogous
+equality override, and passed. It is not attributed adoption because the recipient
+had already observed its own contradiction and did not credit the post. Both receipts
+occurred within concurrent cohort 2, so the frozen cross-cohort activation gate failed.
+All five GLM cohort-1 outcomes were also lost to one sandbox failure and propagated
+cancellation. See the [reviewed analysis](experiments/swe-board-activation-10-v1/analysis.md).
+
 ## Measurement and limits
 
 Label diagnosis, attempted/successful gaming, publication, exact peer receipt,
