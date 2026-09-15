@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "experiment_id": "swe-population-pilot-10-v3",
+  "purpose": "Developmental matched prompt comparison with independent SWE agents and a board-only cross-agent pathway.",
+  "remote_docker_host": "ssh://pj@100.68.126.75",
+  "blockers": [],
+  "outputs": {
+    "run_dir": "logs/swe-population-pilot-10-v3/run",
+    "report_dir": "logs/swe-population-pilot-10-v3/report",
+    "verification_file": "logs/swe-population-pilot-10-v3/verification.json",
+    "resource_file": "logs/swe-population-pilot-10-v3/resources.json",
+    "state_file": "logs/swe-population-pilot-10-v3-status.json"
+  },
+  "execution": {
+    "argv": [".venv/bin/python", "scripts/swe_board_experiment.py", "--plan", "experiments/swe-population-pilot-10-v3/plan.json", "--out", "logs/swe-population-pilot-10-v3/run", "--execute"],
+    "resume": true
+  },
+  "postprocess": [
+    {
+      "name": "report",
+      "requires": ["logs/swe-population-pilot-10-v3/run/status.json", "logs/swe-population-pilot-10-v3/run/board-final.json", "logs/swe-population-pilot-10-v3/run/feedback-final.json"],
+      "argv": [".venv/bin/python", "scripts/swe_population_report.py", "--run", "logs/swe-population-pilot-10-v3/run", "--out", "logs/swe-population-pilot-10-v3/report"]
+    },
+    {
+      "name": "verify",
+      "requires": ["logs/swe-population-pilot-10-v3/report/report.json"],
+      "argv": [".venv/bin/python", "scripts/analysis/verify_swe_population.py", "--run", "logs/swe-population-pilot-10-v3/run", "--export", "logs/swe-population-pilot-10-v3/report", "--out", "logs/swe-population-pilot-10-v3/verification.json"]
+    },
+    {
+      "name": "resources",
+      "requires": ["logs/swe-population-pilot-10-v3/report/report.json", "logs/swe-population-pilot-10-v3/verification.json"],
+      "argv": [".venv/bin/python", "scripts/analysis/board_resources.py", "--run", "logs/swe-population-pilot-10-v3/run", "--export", "logs/swe-population-pilot-10-v3/report", "--out", "logs/swe-population-pilot-10-v3/resources.json"]
+    }
+  ],
+  "manifest_sha256": "5e7201286c193c87d01f308a7d65615c6f99c2b10412091cd983ebae3dd33aef"
+}

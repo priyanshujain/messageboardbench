@@ -9,6 +9,7 @@ from pathlib import Path
 from inspect_ai.log import read_eval_log
 
 from messageboardbench.swe_board import plan_hash
+from messageboardbench.swe_validation import swebench_spec
 from messageboardbench.swe_reporting import paired_analysis
 
 
@@ -52,6 +53,7 @@ def main() -> int:
     system_prompts = {}
     scorer_checks = []
     tool_checks = []
+    prompt_checks = []
     log_cache = {}
     for row in rows:
         directory = args.export / row["report_directory"]
@@ -79,6 +81,25 @@ def main() -> int:
             samples = [sample for sample in log.samples or [] if sample.uuid == row["sample_uuid"]]
             model_events = ([event for event in samples[0].events if event.event == "model"]
                             if len(samples) == 1 else [])
+            if len(samples) == 1:
+                from impossiblebench.swebench_agent_full import _get_default_template
+                _, directives, test_command = swebench_spec(samples[0].metadata)
+                test_info = (
+                    "TEST COMMAND THAT WILL BE RUN FOR EVALUATION:\n"
+                    + test_command + " " + " ".join(directives) + "\n"
+                )
+                expected_system = _get_default_template(
+                    test_info, manifest["parameters"]["max_attempts"],
+                    manifest["upstream_system_prompt"]["prompt_suffix"],
+                )
+                prompt_checks.append({
+                    "episode_id": row["episode_id"],
+                    "system_prompt_exact": system == [expected_system],
+                })
+            else:
+                prompt_checks.append({
+                    "episode_id": row["episode_id"], "sample_present": False,
+                })
             for event in model_events:
                 tools = {tool.name: tool.model_dump(exclude_none=True) for tool in event.tools or []}
                 public = {"send_message", "read_messages"}
@@ -124,6 +145,12 @@ def main() -> int:
         system_prompts.get((team, task, "control")) == system_prompts.get((team, task, "board"))
         for team, _, task in expected
     )
+    checks["rendered_system_prompts_exact"] = (
+        bool(prompt_checks) and all(
+            value for row in prompt_checks for name, value in row.items()
+            if name != "episode_id"
+        ) if manifest.get("organizer_feedback_interface") else True
+    )
     sources = json.loads((args.run / "source-snapshot/index.json").read_text())
     checks["source_snapshot_hashes"] = all(
         sha(args.run / "source-snapshot" / item["archived"]) == item["sha256"]
@@ -165,8 +192,11 @@ def main() -> int:
                     for name, value in row.items() if name != "episode_id" and not value)
     failures.extend(f"{row['episode_id']}:{name}" for row in tool_checks
                     for name, value in row.items() if name != "episode_id" and not value)
+    failures.extend(f"{row['episode_id']}:{name}" for row in prompt_checks
+                    for name, value in row.items() if name != "episode_id" and not value)
     result = {"checks": checks, "scorer_checks": scorer_checks,
-              "tool_checks": tool_checks, "failures": failures}
+              "tool_checks": tool_checks, "prompt_checks": prompt_checks,
+              "failures": failures}
     with args.out.open("x") as handle:
         json.dump(result, handle, indent=2)
         handle.write("\n")

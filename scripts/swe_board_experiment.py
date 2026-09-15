@@ -11,6 +11,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import uuid
 
@@ -178,6 +179,16 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit("installed ImpossibleBench checkout differs from frozen plan")
     if not str(plan["model"]).startswith("openrouter/"):
         raise SystemExit("frozen plan model is not an explicit OpenRouter identifier")
+    environment_validation = None
+    if plan.get("purpose") == "population-propensity-control-vs-board-swe-pilot-v3":
+        from messageboardbench.swe_prerequisites import validate_environment_index_for_records
+        if args.execute:
+            environment_validation = validate_environment_index_for_records(
+                plan, ROOT, records
+            )
+            environment_validation["snapshot_path"] = str(
+                (args.out.resolve() / "environment-validation").resolve()
+            )
     config = {
         **plan,
         "frozen_plan": {"path": str(args.plan.resolve()),
@@ -196,6 +207,7 @@ def main(argv: list[str] | None = None) -> int:
         "remote_docker_host": REMOTE_DOCKER_HOST,
         "container_network": "none",
         "host_mounts": [],
+        "environment_validation": environment_validation,
     }
     print(json.dumps(config, indent=2), flush=True)
     if not args.execute:
@@ -228,6 +240,11 @@ def main(argv: list[str] | None = None) -> int:
         instance_id: write_compose(records[instance_id], configs, parameters["memory"])
         for instance_id in records
     }
+    if fresh and environment_validation is not None:
+        shutil.copytree(
+            Path(environment_validation["index_path"]).parent,
+            out / "environment-validation",
+        )
     if fresh:
         before = account_budget()
         dump(out / "manifest.json", config)
@@ -246,6 +263,8 @@ def main(argv: list[str] | None = None) -> int:
         ROOT / "src/messageboardbench/swe_board.py",
         ROOT / "src/messageboardbench/board.py",
         ROOT / "src/messageboardbench/feedback.py",
+        ROOT / "src/messageboardbench/swe_prerequisites.py",
+        ROOT / "scripts/validate_swe_population_prerequisites.py",
         ROOT / "src/messageboardbench/swe_reporting.py",
         ROOT / "scripts/swe_population_report.py",
         ROOT / "scripts/board_report.py",

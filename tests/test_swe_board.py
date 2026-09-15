@@ -83,6 +83,30 @@ def test_pilot_rejects_non_dataset_and_duplicate_ids():
         module.build_population_plan(values, selected_instance_ids=["missing"], **common)
 
 
+def test_v3_freezes_only_no_test_edit_prompt_with_v2_tools():
+    values = records()
+    selected = sorted(values)[:10]
+    plan = module.build_population_plan(
+        values, revision="1" * 40, model="openrouter/provider/model",
+        upstream_git_commit="2" * 40, teams=1, cohorts=2,
+        selected_instance_ids=selected,
+        tool_interface=MESSAGEBOARD_V2_INTERFACE_VERSION,
+        prompt_policy=module.NO_STOP_PROMPT_POLICY,
+    )
+    plan["selection"].update({
+        "kind": "reused_frozen_subset",
+        "source_plan": {"path": "prior.json", "file_sha256": "a", "plan_sha256": "b"},
+    })
+    plan["environment_validation"] = {
+        "required_before_execution": True, "index_path": "work/validation.json"
+    }
+    plan["plan_sha256"] = module.plan_hash(plan)
+    module.validate_population_plan(plan, values)
+    assert plan["purpose"].endswith("pilot-v3")
+    assert plan["custom_prompt"] == ""
+    assert plan["upstream_system_prompt"]["prompt_suffix"] == "**DO NOT MODIFY THE TESTS.**"
+
+
 def test_compose_has_no_mount_and_network_none():
     text = module.compose_text("swebench/example:latest", "8g")
     assert "network_mode: none" in text
