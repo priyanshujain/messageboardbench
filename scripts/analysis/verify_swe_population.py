@@ -10,7 +10,100 @@ from inspect_ai.log import read_eval_log
 
 from messageboardbench.swe_board import plan_hash
 from messageboardbench.swe_validation import swebench_spec
-from messageboardbench.swe_reporting import paired_analysis
+from messageboardbench.swe_reporting import paired_analysis, strict_analysis_rows, summarize
+
+
+def manifest_matches_frozen_plan(manifest: dict, frozen_plan: dict) -> bool:
+    """Compare unchanged plan fields; runtime validation evidence is checked separately."""
+    return all(
+        key == "environment_validation" or manifest.get(key) == value
+        for key, value in frozen_plan.items()
+    )
+
+
+def environment_validation_matches_plan(
+    manifest: dict, frozen_plan: dict, run_dir: Path
+) -> bool:
+    declaration = frozen_plan.get("environment_validation")
+    runtime = manifest.get("environment_validation")
+    if declaration is None:
+        return runtime is None
+    if not isinstance(declaration, dict) or not isinstance(runtime, dict):
+        return False
+    declared_path = declaration.get("index_path")
+    runtime_path = runtime.get("index_path")
+    if (
+        declaration.get("required_before_execution") is not True
+        or not isinstance(declared_path, str)
+        or not isinstance(runtime_path, str)
+        or Path(declared_path).is_absolute()
+        or not Path(runtime_path).is_absolute()
+    ):
+        return False
+    snapshot = run_dir.resolve() / "environment-validation"
+    if (
+        not Path(runtime_path).as_posix().endswith("/" + Path(declared_path).as_posix())
+        or runtime.get("snapshot_path") != str(snapshot)
+        or set(runtime) != {
+            "index_path", "index_sha256", "validated_instances", "snapshot_path"
+        }
+    ):
+        return False
+    try:
+        index_path = snapshot / "index.json"
+        index = json.loads(index_path.read_text())
+        selected = list(frozen_plan["selection"]["instance_ids"])
+        if (
+            sha(index_path) != runtime.get("index_sha256")
+            or index.get("schema_version") != 1
+            or index.get("status") != "validated"
+            or index.get("plan_sha256") != frozen_plan.get("plan_sha256")
+            or index.get("dataset") != frozen_plan.get("dataset")
+            or set(index.get("manifests", {})) != set(selected)
+            or {
+                instance_id: entry.get("sha256")
+                for instance_id, entry in index.get("manifests", {}).items()
+            } != frozen_plan["selection"]["selected_manifest_sha256"]
+        ):
+            return False
+        ledger = frozen_plan["selection"]["screening_ledger"]
+        if sha(snapshot / "ledger.json") != ledger["file_sha256"]:
+            return False
+        from messageboardbench.swe_prerequisites import validate_task_manifest
+        runtime_instances = {
+            row["instance_id"]: row for row in runtime["validated_instances"]
+        }
+        if set(runtime_instances) != set(selected):
+            return False
+        screen_root = Path(declared_path).parent
+        for instance_id in selected:
+            entry = index["manifests"][instance_id]
+            relative_manifest = Path(entry["path"]).relative_to(screen_root)
+            archived_manifest = snapshot / relative_manifest
+            if sha(archived_manifest) != entry["sha256"]:
+                return False
+            validated = validate_task_manifest(
+                frozen_plan, instance_id, archived_manifest, record=None
+            )
+            row = runtime_instances[instance_id]
+            remote_image = validated["remote_image"]
+            if (
+                set(row) != {
+                    "instance_id", "manifest_path", "manifest_sha256",
+                    "validated_image", "validated_image_id", "validated_repo_digest"
+                }
+                or not Path(row["manifest_path"]).as_posix().endswith(
+                    "/" + Path(entry["path"]).as_posix()
+                )
+                or row["manifest_sha256"] != entry["sha256"]
+                or row["validated_image"] != validated["image"]
+                or row["validated_image_id"] != remote_image["id"]
+                or row["validated_repo_digest"] != remote_image["repo_digests"][0]
+            ):
+                return False
+    except (KeyError, OSError, ValueError, json.JSONDecodeError):
+        return False
+    return True
 
 
 def sha(path: Path) -> str:
@@ -32,7 +125,15 @@ def main() -> int:
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     manifest = json.loads((args.run / "manifest.json").read_text())
-    frozen_plan = json.loads(Path(manifest["frozen_plan"]["path"]).read_text())
+    sources = json.loads((args.run / "source-snapshot/index.json").read_text())
+    plan_sources = [
+        item for item in sources
+        if item["source"] == manifest["frozen_plan"]["path"]
+    ]
+    if len(plan_sources) != 1:
+        raise ValueError("frozen plan is not uniquely preserved in the source snapshot")
+    archived_plan_path = args.run / "source-snapshot" / plan_sources[0]["archived"]
+    frozen_plan = json.loads(archived_plan_path.read_text())
     rows = json.loads((args.export / "episodes.json").read_text())
     operations = json.loads((args.export / "board-operations.json").read_text())
     report = json.loads((args.export / "report.json").read_text())
@@ -42,8 +143,14 @@ def main() -> int:
         "unique_episodes": len({row["episode_id"] for row in rows}) == len(rows),
         "control_has_no_board_operations": board_operations_are_board_only(rows, operations),
         "plan_self_hash": frozen_plan["plan_sha256"] == plan_hash(frozen_plan),
-        "manifest_matches_plan": all(manifest.get(key) == value for key, value in frozen_plan.items()),
-        "paired_analysis_recomputed": report.get("paired") == paired_analysis(rows),
+        "frozen_plan_file_sha256": (
+            manifest["frozen_plan"]["file_sha256"] == sha(archived_plan_path)
+            == plan_sources[0]["sha256"]
+        ),
+        "manifest_matches_plan": manifest_matches_frozen_plan(manifest, frozen_plan),
+        "environment_validation_matches_plan": environment_validation_matches_plan(
+            manifest, frozen_plan, args.run
+        ),
     }
     expected = {(team["team"], condition, instance_id)
                 for team in manifest["team_plans"] for instance_id in team["instance_ids"]
@@ -55,12 +162,14 @@ def main() -> int:
     tool_checks = []
     prompt_checks = []
     log_cache = {}
+    artifacts_by_episode = {}
     for row in rows:
         directory = args.export / row["report_directory"]
         messages = json.loads((directory / "messages.json").read_text())
         system = [message["content"] for message in messages if message["role"] == "system"]
         system_prompts[row["team"], row["task_id"], row["condition"]] = system
         artifacts = json.loads((directory / "final-artifacts.json").read_text())
+        artifacts_by_episode[row["episode_id"]] = artifacts
         statuses = artifacts.get("strict_target_statuses")
         scorer_checks.append({
             "episode_id": row["episode_id"],
@@ -141,6 +250,20 @@ def main() -> int:
                 })
             if not model_events:
                 tool_checks.append({"episode_id": row["episode_id"], "model_event_present": False})
+    analysis_rows = strict_analysis_rows(rows, artifacts_by_episode)
+    checks["paired_analysis_recomputed"] = report.get("paired") == paired_analysis(analysis_rows)
+    checks["primary_analysis_recomputed"] = report.get("primary") == {
+        condition: summarize(
+            [row for row in analysis_rows if row["condition"] == condition],
+            manifest["instance_count"],
+        )
+        for condition in ("control", "board")
+    }
+    checks["excluded_outcomes_recomputed"] = report.get("excluded_outcomes") == [
+        {"episode_id": row["episode_id"], "condition": row["condition"],
+         "task_id": row["task_id"], "reason": row["outcome_exclusion"]}
+        for row in analysis_rows if row.get("outcome_exclusion")
+    ]
     checks["system_prompt_bytes_matched"] = all(
         system_prompts.get((team, task, "control")) == system_prompts.get((team, task, "board"))
         for team, _, task in expected
@@ -151,16 +274,29 @@ def main() -> int:
             if name != "episode_id"
         ) if manifest.get("organizer_feedback_interface") else True
     )
-    sources = json.loads((args.run / "source-snapshot/index.json").read_text())
     checks["source_snapshot_hashes"] = all(
         sha(args.run / "source-snapshot" / item["archived"]) == item["sha256"]
         for item in sources
     )
     report_sources = [item for item in sources
                       if item["source"].endswith("/scripts/swe_population_report.py")]
+    postprocess_sources = report.get("postprocess_source_snapshot") or []
+    postprocess_sources_valid = bool(postprocess_sources) and all(
+        sha(args.export / item["archived"]) == item["sha256"]
+        for item in postprocess_sources
+    )
     checks["specialized_report_source_in_provenance"] = (
-        (len(report_sources) == 1
-         and report.get("report_script_sha256") == report_sources[0]["sha256"])
+        (
+            len(report_sources) == 1
+            and (
+                report.get("report_script_sha256") == report_sources[0]["sha256"]
+                or (
+                    postprocess_sources_valid
+                    and report.get("report_script_sha256")
+                    == postprocess_sources[0].get("sha256")
+                )
+            )
+        )
         if manifest.get("organizer_feedback_interface") else True
     )
     if manifest.get("organizer_feedback_interface"):

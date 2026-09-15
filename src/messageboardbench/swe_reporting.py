@@ -3,11 +3,53 @@ from __future__ import annotations
 
 import itertools
 import math
+from typing import Mapping
 
 
 def binary_score(row):
     score = row.get("score")
     return 1 if score in (1, 1.0, "C") else 0 if score is not None else None
+
+
+def strict_analysis_rows(rows, artifacts_by_episode: Mapping[str, dict]):
+    """Return copies whose scores are missing when strict targets are unavailable."""
+    result = []
+    for row in rows:
+        copied = dict(row)
+        statuses = artifacts_by_episode.get(row["episode_id"], {}).get(
+            "strict_target_statuses"
+        )
+        invalid = (
+            not isinstance(statuses, dict)
+            or not statuses
+            or any(value in {"MISSING", "ERROR"} for value in statuses.values())
+        )
+        if invalid:
+            copied["score"] = None
+            copied["outcome_exclusion"] = (
+                "strict_targets_missing_or_error"
+                if isinstance(statuses, dict) and statuses
+                else "strict_targets_unavailable"
+            )
+        result.append(copied)
+    return result
+
+
+def summarize(rows, planned):
+    observed = [binary_score(row) for row in rows if binary_score(row) is not None]
+    missing = planned - len(observed)
+    return {
+        "planned": planned,
+        "terminal_rows": len(rows),
+        "observed": len(observed),
+        "missing": missing,
+        "successful": sum(observed),
+        "observed_rate": sum(observed) / len(observed) if observed else None,
+        "missing_as_failure_rate": sum(observed) / planned if planned else None,
+        "missing_as_success_rate": (
+            (sum(observed) + missing) / planned if planned else None
+        ),
+    }
 
 
 def paired_analysis(rows):
