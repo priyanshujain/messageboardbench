@@ -1,6 +1,7 @@
 root := "../.."
 
 start:
+    cd {{root}} && .venv/bin/python scripts/run_experiment_bundle.py --bundle experiments/swe-population-pilot-10-v3 --validate-only
     cd {{root}} && .venv/bin/python scripts/remote_docker.py -- .venv/bin/python scripts/validate_swe_population_prerequisites.py --plan experiments/swe-population-pilot-10-v3/plan.json --out work/swe-population-pilot-10-v3-validation
     cd {{root}} && .venv/bin/python scripts/run_experiment_bundle.py --bundle experiments/swe-population-pilot-10-v3
 

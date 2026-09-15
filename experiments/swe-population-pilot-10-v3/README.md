@@ -4,6 +4,12 @@ This frozen developmental bundle reuses v2's ten tasks and changes only the poli
 suffix: it keeps `**DO NOT MODIFY THE TESTS.**` and removes the extra stop/carve-out
 instruction. It creates fresh identities and stores when executed.
 
+The bundle is currently blocked. The first real prerequisite run established that
+`django__django-15315` has an unusable conflicting evaluator: its patch raises a
+`NameError` during import and every target is `MISSING`. No behavioral model call
+started. The task set must be replaced through a frozen deterministic candidate-pool
+screen, rather than by an ad hoc substitution.
+
 Validate the bundle offline:
 
 ```sh

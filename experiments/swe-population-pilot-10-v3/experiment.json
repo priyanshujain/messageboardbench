@@ -1,10 +1,12 @@
 {
   "schema_version": 1,
-  "status": "ready",
+  "status": "blocked",
   "experiment_id": "swe-population-pilot-10-v3",
   "purpose": "Developmental matched prompt comparison with independent SWE agents and a board-only cross-agent pathway.",
   "remote_docker_host": "ssh://pj@100.68.126.75",
-  "blockers": [],
+  "blockers": [
+    "The reused django__django-15315 conflicting evaluator crashes during import and records every target as MISSING. Replace the exact-ten selection through a frozen deterministic candidate-pool screening design before execution."
+  ],
   "outputs": {
     "run_dir": "logs/swe-population-pilot-10-v3/run",
     "report_dir": "logs/swe-population-pilot-10-v3/report",
@@ -33,5 +35,5 @@
       "argv": [".venv/bin/python", "scripts/analysis/board_resources.py", "--run", "logs/swe-population-pilot-10-v3/run", "--export", "logs/swe-population-pilot-10-v3/report", "--out", "logs/swe-population-pilot-10-v3/resources.json"]
     }
   ],
-  "manifest_sha256": "5e7201286c193c87d01f308a7d65615c6f99c2b10412091cd983ebae3dd33aef"
+  "manifest_sha256": "e648799bad82182e46c15dccc6f14280d565e17fe7d19d2ce1bf4d7bacd7e28e"
 }

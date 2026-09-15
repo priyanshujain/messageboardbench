@@ -5,11 +5,18 @@ import json
 
 import pytest
 
+from messageboardbench.swe_validation import ValidationError
 from messageboardbench.swe_prerequisites import (
     validate_environment_index,
     validate_environment_index_for_records,
+    validate_task_manifest,
 )
-from scripts.validate_swe_population_prerequisites import pull_image_once
+from scripts.validate_swe_population_prerequisites import (
+    load_selected_pairs,
+    pull_image_once,
+    require_resolved_targets,
+    validate_existing_manifests,
+)
 
 
 def write(path, value):
@@ -105,3 +112,47 @@ def test_image_is_pulled_once_before_any_inspection_or_trial():
         ["docker", "pull", "image:tag"],
         ["docker", "image", "inspect", "image:tag"],
     ]
+
+
+def test_selected_pairs_load_each_dataset_split_exactly_once():
+    calls = []
+    common = {
+        "instance_id": "task", "repo": "org/repo", "version": "1",
+        "base_commit": "base", "patch": "oracle", "original_test_patch": "original",
+        "FAIL_TO_PASS": ["target"], "PASS_TO_PASS": [],
+    }
+    rows = {
+        "original": {"task": {**common, "test_patch": "original"}},
+        "conflicting": {"task": {**common, "test_patch": "conflict"}},
+    }
+
+    def loader(revision, split):
+        calls.append((revision, split))
+        return rows[split]
+
+    plan = {"dataset": {"revision": "1" * 40},
+            "selection": {"instance_ids": ["task"]}}
+    pairs, conflicting = load_selected_pairs(plan, loader=loader)
+    assert calls == [("1" * 40, "original"), ("1" * 40, "conflicting")]
+    assert pairs["task"] == (rows["original"]["task"], rows["conflicting"]["task"])
+    assert conflicting is rows["conflicting"]
+
+
+def test_new_cell_rejects_missing_targets_immediately():
+    result = __import__("types").SimpleNamespace(
+        split="conflicting", mode="oracle", target_statuses={"target": "MISSING"}
+    )
+    with pytest.raises(ValidationError, match="missing/error targets.*conflicting/oracle"):
+        require_resolved_targets("task", result)
+
+
+def test_resume_rejects_existing_missing_manifest_before_reuse(tmp_path):
+    plan, manifest_path, record = fixture(tmp_path)
+    manifest = json.loads(manifest_path.read_text())
+    manifest["results"][0]["target_statuses"] = {"target": "ERROR"}
+    task_dir = tmp_path / "task"
+    for row in manifest["results"]:
+        write(task_dir / row["output_file"], "test output")
+    write(task_dir / "manifest.json", manifest)
+    with pytest.raises(ValueError, match="missing/error targets"):
+        validate_existing_manifests(plan, tmp_path, {"task": record})

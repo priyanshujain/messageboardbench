@@ -44,73 +44,15 @@ def validate_environment_index_for_records(
             or set(index.get("manifests", {})) != set(selected)):
         raise ValueError("environment validation index does not match the frozen plan")
     evidence = []
-    expected_cells = {
-        ("original", "nochange"): False,
-        ("original", "oracle"): True,
-        ("conflicting", "nochange"): False,
-        ("conflicting", "oracle"): False,
-    }
     for instance_id in selected:
         entry = index["manifests"][instance_id]
         manifest_path = _local(root, entry.get("path"))
         if _sha(manifest_path) != entry.get("sha256"):
             raise ValueError(f"validation manifest hash mismatch: {instance_id}")
-        manifest = json.loads(manifest_path.read_text())
-        if (manifest.get("schema_version") != 1
-                or manifest.get("dataset") != DATASET
-                or manifest.get("dataset_revision") != plan["dataset"]["revision"]
-                or manifest.get("instance_id") != instance_id
-                or manifest.get("network") != "none"):
-            raise ValueError(f"validation manifest identity mismatch: {instance_id}")
-        if records is not None:
-            record = records.get(instance_id)
-            if record is None:
-                raise ValueError(f"frozen validation record missing: {instance_id}")
-            canonical = hashlib.sha256(json.dumps(
-                dict(record), sort_keys=True, separators=(",", ":")
-            ).encode()).hexdigest()
-            expected_hashes = {
-                "base_commit": record.get("base_commit"),
-                "repo": record.get("repo"),
-                "version": record.get("version"),
-                "original_test_patch_sha256": hashlib.sha256(
-                    str(record.get("original_test_patch", "")).encode()
-                ).hexdigest(),
-                "conflicting_test_patch_sha256": hashlib.sha256(
-                    str(record.get("test_patch", "")).encode()
-                ).hexdigest(),
-                "oracle_patch_sha256": hashlib.sha256(
-                    str(record.get("patch", "")).encode()
-                ).hexdigest(),
-            }
-            if (canonical != plan.get("records_sha256", {}).get(instance_id)
-                    or any(manifest.get(key) != value
-                           for key, value in expected_hashes.items())):
-                raise ValueError(f"validation patches do not match frozen record: {instance_id}")
-        results = manifest.get("results")
-        if not isinstance(results, list):
-            raise ValueError(f"validation results missing: {instance_id}")
-        cells = {(row.get("split"), row.get("mode")): row for row in results}
-        if set(cells) != set(expected_cells) or len(results) != 4:
-            raise ValueError(f"validation matrix incomplete: {instance_id}")
-        identities = {(row.get("image_id"), tuple(row.get("repo_digests") or []))
-                      for row in results}
-        if len(identities) != 1 or any(
-            cells[cell].get("resolved") is not expected
-            for cell, expected in expected_cells.items()
-        ):
-            raise ValueError(f"validation matrix outcome mismatch: {instance_id}")
-        if any(
-            not row.get("target_statuses")
-            or any(status in {"MISSING", "ERROR"}
-                   for status in row["target_statuses"].values())
-            for row in results
-        ):
-            raise ValueError(f"validation contains missing/error targets: {instance_id}")
-        for row in results:
-            output = manifest_path.parent / str(row.get("output_file", ""))
-            if not output.is_file() or _sha(output) != row.get("output_sha256"):
-                raise ValueError(f"validation output hash mismatch: {instance_id}")
+        record = records.get(instance_id) if records is not None else None
+        if records is not None and record is None:
+            raise ValueError(f"frozen validation record missing: {instance_id}")
+        validate_task_manifest(plan, instance_id, manifest_path, record)
         evidence.append({
             "instance_id": instance_id,
             "manifest_path": str(manifest_path),
@@ -118,3 +60,72 @@ def validate_environment_index_for_records(
         })
     return {"index_path": str(index_path), "index_sha256": _sha(index_path),
             "validated_instances": evidence}
+
+
+def validate_task_manifest(
+    plan: Mapping[str, Any],
+    instance_id: str,
+    manifest_path: Path,
+    record: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Validate one task manifest, including partial evidence during resume."""
+    manifest = json.loads(manifest_path.read_text())
+    if (manifest.get("schema_version") != 1
+            or manifest.get("dataset") != DATASET
+            or manifest.get("dataset_revision") != plan["dataset"]["revision"]
+            or manifest.get("instance_id") != instance_id
+            or manifest.get("network") != "none"):
+        raise ValueError(f"validation manifest identity mismatch: {instance_id}")
+    if record is not None:
+        canonical = hashlib.sha256(json.dumps(
+            dict(record), sort_keys=True, separators=(",", ":")
+        ).encode()).hexdigest()
+        expected_hashes = {
+            "base_commit": record.get("base_commit"),
+            "repo": record.get("repo"),
+            "version": record.get("version"),
+            "original_test_patch_sha256": hashlib.sha256(
+                str(record.get("original_test_patch", "")).encode()
+            ).hexdigest(),
+            "conflicting_test_patch_sha256": hashlib.sha256(
+                str(record.get("test_patch", "")).encode()
+            ).hexdigest(),
+            "oracle_patch_sha256": hashlib.sha256(
+                str(record.get("patch", "")).encode()
+            ).hexdigest(),
+        }
+        if (canonical != plan.get("records_sha256", {}).get(instance_id)
+                or any(manifest.get(key) != value
+                       for key, value in expected_hashes.items())):
+            raise ValueError(f"validation patches do not match frozen record: {instance_id}")
+    results = manifest.get("results")
+    if not isinstance(results, list):
+        raise ValueError(f"validation results missing: {instance_id}")
+    expected_cells = {
+        ("original", "nochange"): False,
+        ("original", "oracle"): True,
+        ("conflicting", "nochange"): False,
+        ("conflicting", "oracle"): False,
+    }
+    cells = {(row.get("split"), row.get("mode")): row for row in results}
+    if set(cells) != set(expected_cells) or len(results) != 4:
+        raise ValueError(f"validation matrix incomplete: {instance_id}")
+    if any(
+        not row.get("target_statuses")
+        or any(status in {"MISSING", "ERROR"}
+               for status in row["target_statuses"].values())
+        for row in results
+    ):
+        raise ValueError(f"validation contains missing/error targets: {instance_id}")
+    identities = {(row.get("image_id"), tuple(row.get("repo_digests") or []))
+                  for row in results}
+    if len(identities) != 1 or any(
+        cells[cell].get("resolved") is not expected
+        for cell, expected in expected_cells.items()
+    ):
+        raise ValueError(f"validation matrix outcome mismatch: {instance_id}")
+    for row in results:
+        output = manifest_path.parent / str(row.get("output_file", ""))
+        if not output.is_file() or _sha(output) != row.get("output_sha256"):
+            raise ValueError(f"validation output hash mismatch: {instance_id}")
+    return manifest
