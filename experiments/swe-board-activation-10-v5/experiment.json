@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "experiment_id": "swe-board-activation-10-v5",
+  "purpose": "GLM communication activation diagnostic with team-framed board and token status tool on longer conflicting SWE tasks.",
+  "remote_docker_host": "ssh://pj@100.68.126.75",
+  "outputs": {
+    "run_dir": "logs/swe-board-activation-10-v5/run"
+  },
+  "execution": {
+    "argv": [".venv/bin/python", "scripts/swe_board_experiment.py", "--plan", "experiments/swe-board-activation-10-v5/plan.json", "--out", "logs/swe-board-activation-10-v5/run", "--execute"],
+    "resume": true
+  }
+}
