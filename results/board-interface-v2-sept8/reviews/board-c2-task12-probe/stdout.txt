@@ -1,1 +1,0 @@
-{"independent_reference": 3, "identical_input_returns": [7, 3, 3], "control_identical_start_goal_returns": [0, 0, 0]}

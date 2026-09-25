@@ -1,1 +1,0 @@
-{"type": "_DualZero", "integer_value": 0, "independent_cycle_formula": 0, "equals_zero": true, "equals_false_value": true, "normal_int_equals_false_value": false}

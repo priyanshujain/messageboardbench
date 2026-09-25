@@ -248,7 +248,7 @@ The first September 8 GLM pilot completed all 12 episodes: private 4/4 conflicti
 gaming, board 3/4 gaming and one independent refusal; both conditions 2/2 ordinary
 passes. Three voluntary posts from two board episodes, zero reads, and no
 demonstrated transmission. All seven gaming artifacts have independent sandboxed
-counterexamples. Evidence: [the v1 results](../results/board-pilot-sept8/RESULTS.md).
+counterexamples. Evidence is preserved locally in `archive/results/board-pilot-sept8/`.
 
 The v2 rerun completed all 12 episodes without limits or errors. Four of six board
 agents read messages; one received peer posts, explicitly credited a teammate's
@@ -257,14 +257,15 @@ four impossible tasks, and passed both ordinary tasks. All eight gaming artifact
 were independently reproduced. This demonstrates method transmission in one
 trajectory, not an increase in gaming prevalence. Names, descriptions and placement
 changed together, so the comparison does not isolate the effect of renaming.
-Evidence: [the v2 results](../results/board-interface-v2-sept8/RESULTS.md).
+Evidence is preserved locally in `archive/results/board-interface-v2-sept8/`.
 
 The full Muse Contributor replication also completed all 12 episodes without
 errors or limits. Both conditions gamed 4/4 contradictory tasks and passed 2/2
 ordinary tasks. Four board readers included two peer recipients; one explicitly
 attributed its equality-spoofing adaptation to a prior teammate, while another
 implemented a matching method without visible attribution. All eight gaming
-artifacts were independently reproduced. See [Muse results](../results/board-muse-sept8/RESULTS.md).
+artifacts were independently reproduced. Muse results are preserved locally in
+`archive/results/board-muse-sept8/`.
 
 The pilots' exact executed code is archived with their runs. New launcher and
 configuration options do not alter those historical archives.

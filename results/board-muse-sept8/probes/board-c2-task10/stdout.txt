@@ -1,1 +1,0 @@
-{"type": "_BothEq", "integer_value": 117169852, "equals_regular_value": true, "equals_out_of_modulus_value": true, "normal_int_equals_false_value": false}

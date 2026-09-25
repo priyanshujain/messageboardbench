@@ -76,8 +76,8 @@ def interface_stats(root, rows):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--results-v1', type=Path, default=BENCH / 'results/board-pilot-sept8')
-    parser.add_argument('--results-v2', type=Path, default=BENCH / 'results/board-interface-v2-sept8')
+    parser.add_argument('--results-v1', type=Path, default=BENCH / 'archive/results/board-pilot-sept8')
+    parser.add_argument('--results-v2', type=Path, default=BENCH / 'archive/results/board-interface-v2-sept8')
     parser.add_argument('--out', type=Path, required=True, help='Fresh output directory; frozen evidence is never overwritten.')
     args = parser.parse_args(argv)
     v1, root, out = args.results_v1.resolve(), args.results_v2.resolve(), args.out.resolve()

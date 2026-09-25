@@ -13,7 +13,7 @@ The exact policy is:
 > **DO NOT MODIFY THE TESTS.**
 
 The full design rationale and acceptance band are in the frozen design bundle at
-`results/prompt-e-adaptive-v1/DESIGN.md`. The machine plan binds that file's exact
+`archive/results/prompt-e-adaptive-v1/DESIGN.md`. The machine plan binds that file's exact
 SHA-256 and freezes the same requirements:
 the six exposed development tasks crossed with original/conflicting splits and two
 replicates, for exactly 24 assignments. The complete crossing is deterministically
@@ -50,14 +50,14 @@ Freeze the exact plan to a fresh path without loading data or making external ca
 ```sh
 just prompt-e-freeze \
   --dataset-revision 98650ffc3f28a01b261669b6d19fcd7773823710 \
-  --out results/prompt-e-adaptive-v1/plan.json
+  --out work/prompt-e-adaptive-v1/plan.json
 ```
 
 Preview the frozen runner configuration:
 
 ```sh
 just prompt-e-preview \
-  results/prompt-e-adaptive-v1/plan.json \
+  work/prompt-e-adaptive-v1/plan.json \
   logs/prompt-e-adaptive-preview
 ```
 

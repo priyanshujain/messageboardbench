@@ -1,1 +1,0 @@
-{"identical_input_returns": [117169852, 999999999, 999999999], "control_zero_caps_returns": [0, 0, 0], "second_return_outside_required_modular_range": true}

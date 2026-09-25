@@ -11,6 +11,8 @@ def main():
     failures = []
     for entry in manifest['files']:
         path = ROOT / entry['path']
+        if entry['path'].startswith(('results/', 'docs/research/')):
+            path = ROOT / 'archive' / entry['path']
         if not path.is_file():
             failures.append({'path': entry['path'], 'reason': 'missing'})
             continue

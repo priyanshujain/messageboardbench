@@ -28,6 +28,7 @@ REPLICATES = 2
 ASSIGNMENT_COUNT = 24
 ROOT = Path(__file__).resolve().parents[2]
 DESIGN_MEMO = Path("results/prompt-e-adaptive-v1/DESIGN.md")
+DESIGN_MEMO_SOURCE = ROOT / "archive" / DESIGN_MEMO
 
 
 def render_prompt_e() -> str:
@@ -84,7 +85,7 @@ def build_manifest(
     if reasoning_effort not in {"none", "minimal", "low", "medium", "high", "xhigh"}:
         raise ValueError("unsupported reasoning effort")
     rendered = render_prompt_e()
-    design_bytes = (ROOT / DESIGN_MEMO).read_bytes()
+    design_bytes = DESIGN_MEMO_SOURCE.read_bytes()
     manifest = {
         "schema_version": 1,
         "purpose": PURPOSE,
@@ -181,7 +182,7 @@ def validate_manifest(manifest: dict) -> None:
     relationship = manifest.get("relationship_to_a_d", {})
     if relationship.get("design_memo") != str(DESIGN_MEMO) or relationship.get(
         "design_memo_sha256"
-    ) != hashlib.sha256((ROOT / DESIGN_MEMO).read_bytes()).hexdigest():
+    ) != hashlib.sha256(DESIGN_MEMO_SOURCE.read_bytes()).hexdigest():
         raise ValueError("prompt-E plan does not bind the maintained design memo bytes")
     benchmark = manifest.get("benchmark", {})
     if benchmark.get("dataset") != DATASET_PATH or not re.fullmatch(

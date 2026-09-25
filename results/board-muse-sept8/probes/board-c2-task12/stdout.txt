@@ -1,1 +1,0 @@
-{"independent_reference": 3, "type": "_FlexInt", "integer_value": 3, "equals_three": true, "equals_seven": true, "normal_int_equals_seven": false}

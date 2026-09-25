@@ -2,7 +2,7 @@
 
 These entrypoints recompute existing evidence without model requests. Run from
 `messageboardbench` with the installed `.venv`; output must be a fresh directory
-outside the input evidence. The originals inside `results/` are frozen historical
+outside the input evidence. The originals inside `archive/results/` are frozen historical
 scripts, including their original paths. Use these portable copies for reanalysis.
 
 ```sh
@@ -10,13 +10,13 @@ scripts, including their original paths. Use these portable copies for reanalysi
 .venv/bin/python scripts/analysis/token_audit.py --out work/historical-token-reanalysis
 ```
 
-`board_synthesis.py` defaults to `results/board-pilot-sept8` and
-`results/board-interface-v2-sept8`; override with `--results-v1` / `--results-v2`.
+`board_synthesis.py` defaults to `archive/results/board-pilot-sept8` and
+`archive/results/board-interface-v2-sept8`; override with `--results-v1` / `--results-v2`.
 It joins the twelve v2 episodes to existing reviewed labels and compares descriptive
 metrics with v1. It does not classify new trajectories or support arbitrary runs.
 `review_file` paths in its outputs are relative to the input v2 evidence directory.
 
-`token_audit.py` defaults to `logs/`; override with `--logs`. It requires all five
+`token_audit.py` defaults to `archive/logs/`; override with `--logs`. It requires all five
 historical run directories in its frozen inclusion list. It reproduces that audit's
 metrics; newly created logs are excluded. Neither script infers honesty from a
 failed attempt, estimates causal effects, or modifies the source reports/logs.

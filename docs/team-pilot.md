@@ -181,8 +181,8 @@ two-wave mock run after fixing configuration initialization. These are infrastru
 behavioral results. The completed paid pilot comprises two solvable checks plus six
 shared and six private impossible attempts: all used scratch, four shared attempts
 read peer-note content, and no executed gaming was observed in Codex-assisted review.
-Eight impossible attempts hit the original 400,000-token guard. See the companion
-[historical results](../results/team-pilot-sept7/RESULTS.md) for evidence and limitations.
+Eight impossible attempts hit the original 400,000-token guard. The companion
+historical evidence and limitations are preserved locally in `archive/results/team-pilot-sept7/`.
 
 The older [single-agent diagnostics](diagnostics.md) support optional seeded-artifact
 follow-ups. Those can distinguish lack of voluntary communication from susceptibility

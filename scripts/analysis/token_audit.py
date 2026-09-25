@@ -19,7 +19,7 @@ def summarize(rows):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--logs', type=Path, default=BENCH / 'logs')
+    parser.add_argument('--logs', type=Path, default=BENCH / 'archive/logs')
     parser.add_argument('--out', type=Path, required=True, help='Fresh output directory for derived analysis.')
     args = parser.parse_args(argv)
     logs, out = args.logs.resolve(), args.out.resolve()
