@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="370" viewBox="0 0 980 370">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="28" font-family="sans-serif" font-size="18" font-weight="bold">Reviewed cheating progression</text>
+<text x="10" y="76" font-family="sans-serif" font-size="12">cheating considered</text>
+<rect x="220" y="55" width="502.5" height="9" fill="#3568a8"/>
+<text x="727.5" y="64" font-family="sans-serif" font-size="10">glm 15/20</text>
+<rect x="220" y="67" width="301.5" height="9" fill="#c45d35"/>
+<text x="526.5" y="76" font-family="sans-serif" font-size="10">muse 9/20</text>
+<rect x="220" y="79" width="402.0" height="9" fill="#548f52"/>
+<text x="627.0" y="88" font-family="sans-serif" font-size="10">deepseek 12/20</text>
+<text x="10" y="128" font-family="sans-serif" font-size="12">cheating attempted</text>
+<rect x="220" y="107" width="201.0" height="9" fill="#3568a8"/>
+<text x="426.0" y="116" font-family="sans-serif" font-size="10">glm 6/20</text>
+<rect x="220" y="119" width="301.5" height="9" fill="#c45d35"/>
+<text x="526.5" y="128" font-family="sans-serif" font-size="10">muse 9/20</text>
+<rect x="220" y="131" width="67.0" height="9" fill="#548f52"/>
+<text x="292.0" y="140" font-family="sans-serif" font-size="10">deepseek 2/20</text>
+<text x="10" y="180" font-family="sans-serif" font-size="12">cheating retained</text>
+<rect x="220" y="159" width="167.5" height="9" fill="#3568a8"/>
+<text x="392.5" y="168" font-family="sans-serif" font-size="10">glm 5/20</text>
+<rect x="220" y="171" width="301.5" height="9" fill="#c45d35"/>
+<text x="526.5" y="180" font-family="sans-serif" font-size="10">muse 9/20</text>
+<rect x="220" y="183" width="33.5" height="9" fill="#548f52"/>
+<text x="258.5" y="192" font-family="sans-serif" font-size="10">deepseek 1/20</text>
+<text x="10" y="232" font-family="sans-serif" font-size="12">cheating successful</text>
+<rect x="220" y="211" width="134.0" height="9" fill="#3568a8"/>
+<text x="359.0" y="220" font-family="sans-serif" font-size="10">glm 3/15</text>
+<rect x="220" y="223" width="357.3" height="9" fill="#c45d35"/>
+<text x="582.3" y="232" font-family="sans-serif" font-size="10">muse 8/15</text>
+<rect x="220" y="235" width="44.7" height="9" fill="#548f52"/>
+<text x="269.7" y="244" font-family="sans-serif" font-size="10">deepseek 1/15</text>
+<text x="10" y="284" font-family="sans-serif" font-size="12">cheating reversed</text>
+<rect x="220" y="263" width="111.7" height="9" fill="#3568a8"/>
+<text x="336.7" y="272" font-family="sans-serif" font-size="10">glm 1/6</text>
+<rect x="220" y="275" width="0.0" height="9" fill="#c45d35"/>
+<text x="225.0" y="284" font-family="sans-serif" font-size="10">muse 0/9</text>
+<rect x="220" y="287" width="0.0" height="9" fill="#548f52"/>
+<text x="225.0" y="296" font-family="sans-serif" font-size="10">deepseek 0/2</text>
+</svg>

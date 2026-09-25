@@ -1,4 +1,0 @@
-root := "../.."
-
-start:
-    cd {{root}} && .venv/bin/python scripts/remote_docker.py -- .venv/bin/python scripts/swe_board_experiment.py --plan experiments/swe-board-activation-10-v4/plan.json --out logs/swe-board-activation-10-v4/run --execute

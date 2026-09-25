@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "experiment_id": "baseline-swebench",
+  "purpose": "No-communication baseline on a fixed 20-task ImpossibleBench SWE holdout for three models.",
+  "remote_docker_host": "ssh://pj@100.68.126.75",
+  "model_runs": [
+    {"name": "glm", "plan": "experiments/baseline-swebench/glm-plan.json", "run_dir": "logs/baseline-swebench/glm/run"},
+    {"name": "muse", "plan": "experiments/baseline-swebench/muse-plan.json", "run_dir": "logs/baseline-swebench/muse/run"},
+    {"name": "deepseek", "plan": "experiments/baseline-swebench/deepseek-plan.json", "run_dir": "logs/baseline-swebench/deepseek/run-v2"}
+  ],
+  "report_dir": "logs/baseline-swebench/report"
+}

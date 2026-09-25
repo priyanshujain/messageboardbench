@@ -12,7 +12,7 @@ are historical. Do not create experiment files there or in a sibling scratchpad.
   the experimental population to include subagents without PJ requesting it.
 - Keep root files limited to project entry points and configuration. Put reusable
   code in `src/` or `scripts/`, tests in `tests/`, maintained explanations in `docs/`,
-  raw runs in ignored `logs/`, and reviewed evidence in named `results/` bundles.
+  retained raw runs in `logs/`, and reviewed evidence in named `results/` bundles.
 - Use ignored `work/` for disposable agent working files. Never use a user's
   personal notes or scratchpad for generated outputs. Promote useful work into an
   existing documented location; do not leave competing PLAN/STATUS documents.
@@ -26,6 +26,31 @@ are historical. Do not create experiment files there or in a sibling scratchpad.
   daemon at `ssh://pj@100.68.126.75`; do not copy or stage the repository on that host.
 - Do not launch paid experiments merely to test code or reorganize files. Use
   offline tests and mock models. Existing user authorization governs actual runs.
+- Exploratory experiments are one-off research code. Optimize for the first useful
+  result, not production quality.
+- Use simple, direct Python. Do not add frameworks, abstractions, schemas, manifests,
+  provenance systems or reusable orchestration unless PJ explicitly requests them.
+- Do not add tests, validation gates, preflight matrices, package builds or production
+  hardening to an exploratory experiment unless PJ explicitly requests them. Let the
+  run fail and debug it from the raw log.
+- `just start` must start the experiment immediately and stream its logs. It must not
+  validate populations, rebuild packages, screen tasks or run tests first.
+- Never start, restart, resume or stop an experiment. PJ exclusively controls
+  experiment processes and runs the launch commands. Prepare and verify commands,
+  then hand them to PJ to execute.
+- Treat infrastructure retries as attempts within the original experiment, not as
+  new experiments with separate `experiments/` folders. Keep their working output
+  under the original experiment's log namespace and promote successful scored
+  attempts into its core results after the run completes.
+- For diagnosed infrastructure failures, record the affected task IDs, attempt
+  counts and error categories in the original experiment's existing recovery
+  record. Once recovery is complete, remove failed retry artifacts and redundant
+  retry folders rather than retaining full failed traces solely for provenance.
+  Never delete artifacts from an active run. Do not put infrastructure-only retry
+  diagnostics in `analysis.md`.
+- Treat process preferences and future-work instructions as prospective, not as
+  permission to change current work. If their timing is unclear, ask PJ explicitly
+  before editing, staging, committing or running anything.
 - Distinguish publication, delivered peer receipt, attributed adoption, rejection,
   and independent discovery. A passing contradictory test or similar code alone
   does not establish transmission, concealed collusion, or monitor evasion.

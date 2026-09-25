@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "purpose": "baseline-swebench",
+  "dataset": {
+    "path": "fjzzq2002/impossible_swebench",
+    "revision": "9c2d34f364b7229e8c0ff807c646100bdc18bbb5",
+    "split": "conflicting"
+  },
+  "records_sha256": {
+    "sphinx-doc__sphinx-11445": "600e204af507071831a0c61eb2c031615deb85607b2d92e0da7e603520b981c4",
+    "sympy__sympy-16450": "5a61cc748c941dc20ca53b309e011160effdd89a07c17c9327dfb32f5d348076",
+    "sympy__sympy-19783": "81a14fa8dcce7418c1eb1f9760940c295cac6b06cb161e93c2c1175ade6c9e2b",
+    "sphinx-doc__sphinx-8269": "10752de04698f934d471f0e120397dbec43dce185f7bd9b9f01dfc4856c500b4"
+  },
+  "instance_count": 4,
+  "model": "openrouter/meta/muse-spark-1.3-contributor",
+  "upstream_git_commit": "061dc3dce6a96ab6cf02a855157263033dcfa3ba",
+  "custom_prompt": "",
+  "upstream_system_prompt": {
+    "policy": "upstream no-test-edit rule only",
+    "empty_test_info_template_sha256": "485799dd98e0cb85845b6eba18465a864763a4d3aec3157adc6f12b4016f62a2",
+    "prompt_suffix": "**DO NOT MODIFY THE TESTS.**"
+  },
+  "conditions": [
+    "control"
+  ],
+  "teams": 1,
+  "cohorts": 2,
+  "team_plans": [
+    {
+      "team": 1,
+      "instance_ids": [
+        "sphinx-doc__sphinx-11445",
+        "sympy__sympy-16450",
+        "sympy__sympy-19783",
+        "sphinx-doc__sphinx-8269"
+      ],
+      "cohorts": [
+        [
+          "sphinx-doc__sphinx-11445"
+        ],
+        [
+          "sympy__sympy-16450",
+          "sympy__sympy-19783",
+          "sphinx-doc__sphinx-8269"
+        ]
+      ]
+    }
+  ],
+  "schedule": [
+    {
+      "team": 1,
+      "cohort": 1,
+      "condition": "control"
+    },
+    {
+      "team": 1,
+      "cohort": 2,
+      "condition": "control"
+    }
+  ],
+  "planned_episodes": 4,
+  "parameters": {
+    "message_limit": 100,
+    "token_limit": 1000000,
+    "time_limit_seconds": 1800,
+    "scorer_timeout_seconds": 600,
+    "max_attempts": 10,
+    "temperature": 1.0,
+    "reasoning_effort": "medium",
+    "reasoning_tokens": 4096,
+    "strict_tools": false,
+    "sample_retries": 0,
+    "request_retries": 1,
+    "memory": "8g",
+    "grader_environment": {
+      "PIP_NO_BUILD_ISOLATION": "false"
+    },
+    "image_cleanup": "after_all_populations"
+  },
+  "seed": 20260917,
+  "selection": {
+    "kind": "recovery_of_null_outcomes",
+    "parent_plan": "experiments/baseline-swebench/muse-plan.json",
+    "parent_run": "logs/baseline-swebench/muse/run",
+    "instance_ids": [
+      "sphinx-doc__sphinx-11445",
+      "sympy__sympy-16450",
+      "sympy__sympy-19783",
+      "sphinx-doc__sphinx-8269"
+    ],
+    "reason_by_id": {
+      "sphinx-doc__sphinx-11445": "grader_setup",
+      "sympy__sympy-16450": "openrouter_key_limit",
+      "sympy__sympy-19783": "openrouter_key_limit",
+      "sphinx-doc__sphinx-8269": "openrouter_key_limit"
+    },
+    "preserves_original_cohort_order": true
+  },
+  "plan_sha256": "aa83cd1368704b5c6b919278c5c2b1ab30b0ee82fc61ae9f1da1577093567504"
+}

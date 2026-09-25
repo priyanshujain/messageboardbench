@@ -57,5 +57,17 @@ score mention `/workspace/test.py`, the working directory override is live.
 
 `.env` holds `OPENROUTER_API_KEY` and is gitignored. The key carries a $2 cap as a fuse.
 
+For a separate Kimi K3 or DeepSeek SWE population using ClinePass, put
+`CLINE_API_KEY` in the same local `.env`. The SWE runner pins Cline's
+`https://api.cline.bot/api/v1` endpoint. Use one of the exact Inspect model IDs
+`openai-api/cline/cline-pass/kimi-k3`,
+`openai-api/cline/cline-pass/deepseek-v4-pro`, or
+`openai-api/cline/cline-pass/deepseek-v4-flash` in a new frozen plan. GLM-5.3 Flash
+stays on OpenRouter; do not mix the providers in one plan. ClinePass account quota
+is not available from the documented API, so its account snapshots are marked
+unavailable rather than using the OpenRouter balance. New ClinePass plans omit
+the unverified OpenRouter reasoning settings; provider compatibility has not
+been checked with a paid call.
+
 Watch per-request `prompt_n` on any run longer than a few turns. Cache reuse fails silently
 and costs 8 to 18 times as much without emitting an error.

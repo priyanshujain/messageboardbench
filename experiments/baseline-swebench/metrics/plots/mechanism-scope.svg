@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="538" viewBox="0 0 1100 538">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="28" font-family="sans-serif" font-size="18" font-weight="bold">Attempted mechanism by maximum episode scope</text>
+<text x="390" y="58" font-family="sans-serif" font-size="11">narrow</text>
+<text x="500" y="58" font-family="sans-serif" font-size="11">object api</text>
+<text x="610" y="58" font-family="sans-serif" font-size="11">package</text>
+<text x="720" y="58" font-family="sans-serif" font-size="11">process global</text>
+<text x="830" y="58" font-family="sans-serif" font-size="11">evaluation pipeline</text>
+<text x="940" y="58" font-family="sans-serif" font-size="11">external system</text>
+<text x="10" y="96" font-family="sans-serif" font-size="11">literal special case</text>
+<rect x="390" y="78" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="95" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="78" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="95" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="78" width="90" height="24" fill="#7b9fc8"/>
+<text x="616" y="95" font-family="sans-serif" font-size="10">0/1/0</text>
+<rect x="720" y="78" width="90" height="24" fill="#7b9fc8"/>
+<text x="726" y="95" font-family="sans-serif" font-size="10">0/2/0</text>
+<rect x="830" y="78" width="90" height="24" fill="#eeeeee"/>
+<text x="836" y="95" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="940" y="78" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="95" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="130" font-family="sans-serif" font-size="11">call history or cache</text>
+<rect x="390" y="112" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="129" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="112" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="129" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="112" width="90" height="24" fill="#7b9fc8"/>
+<text x="616" y="129" font-family="sans-serif" font-size="10">0/1/0</text>
+<rect x="720" y="112" width="90" height="24" fill="#7b9fc8"/>
+<text x="726" y="129" font-family="sans-serif" font-size="10">0/2/0</text>
+<rect x="830" y="112" width="90" height="24" fill="#eeeeee"/>
+<text x="836" y="129" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="940" y="112" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="129" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="164" font-family="sans-serif" font-size="11">protocol or equality spoof</text>
+<rect x="390" y="146" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="163" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="146" width="90" height="24" fill="#7b9fc8"/>
+<text x="506" y="163" font-family="sans-serif" font-size="10">3/4/2</text>
+<rect x="610" y="146" width="90" height="24" fill="#eeeeee"/>
+<text x="616" y="163" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="720" y="146" width="90" height="24" fill="#7b9fc8"/>
+<text x="726" y="163" font-family="sans-serif" font-size="10">0/1/0</text>
+<rect x="830" y="146" width="90" height="24" fill="#eeeeee"/>
+<text x="836" y="163" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="940" y="146" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="163" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="198" font-family="sans-serif" font-size="11">caller stack source or test detection</text>
+<rect x="390" y="180" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="197" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="180" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="197" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="180" width="90" height="24" fill="#eeeeee"/>
+<text x="616" y="197" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="720" y="180" width="90" height="24" fill="#eeeeee"/>
+<text x="726" y="197" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="830" y="180" width="90" height="24" fill="#eeeeee"/>
+<text x="836" y="197" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="940" y="180" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="197" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="232" font-family="sans-serif" font-size="11">global runtime mutation</text>
+<rect x="390" y="214" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="231" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="214" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="231" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="214" width="90" height="24" fill="#eeeeee"/>
+<text x="616" y="231" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="720" y="214" width="90" height="24" fill="#7b9fc8"/>
+<text x="726" y="231" font-family="sans-serif" font-size="10">0/3/0</text>
+<rect x="830" y="214" width="90" height="24" fill="#eeeeee"/>
+<text x="836" y="231" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="940" y="214" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="231" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="266" font-family="sans-serif" font-size="11">protected test edit</text>
+<rect x="390" y="248" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="265" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="248" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="265" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="248" width="90" height="24" fill="#eeeeee"/>
+<text x="616" y="265" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="720" y="248" width="90" height="24" fill="#eeeeee"/>
+<text x="726" y="265" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="830" y="248" width="90" height="24" fill="#7b9fc8"/>
+<text x="836" y="265" font-family="sans-serif" font-size="10">3/1/0</text>
+<rect x="940" y="248" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="265" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="300" font-family="sans-serif" font-size="11">test runner evaluator or grader interference</text>
+<rect x="390" y="282" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="299" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="282" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="299" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="282" width="90" height="24" fill="#eeeeee"/>
+<text x="616" y="299" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="720" y="282" width="90" height="24" fill="#eeeeee"/>
+<text x="726" y="299" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="830" y="282" width="90" height="24" fill="#7b9fc8"/>
+<text x="836" y="299" font-family="sans-serif" font-size="10">2/0/0</text>
+<rect x="940" y="282" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="299" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="334" font-family="sans-serif" font-size="11">environment or dependency manipulation</text>
+<rect x="390" y="316" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="333" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="316" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="333" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="316" width="90" height="24" fill="#eeeeee"/>
+<text x="616" y="333" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="720" y="316" width="90" height="24" fill="#eeeeee"/>
+<text x="726" y="333" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="830" y="316" width="90" height="24" fill="#eeeeee"/>
+<text x="836" y="333" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="940" y="316" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="333" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="368" font-family="sans-serif" font-size="11">external solution retrieval or reuse</text>
+<rect x="390" y="350" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="367" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="350" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="367" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="350" width="90" height="24" fill="#eeeeee"/>
+<text x="616" y="367" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="720" y="350" width="90" height="24" fill="#eeeeee"/>
+<text x="726" y="367" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="830" y="350" width="90" height="24" fill="#eeeeee"/>
+<text x="836" y="367" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="940" y="350" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="367" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="402" font-family="sans-serif" font-size="11">side channel</text>
+<rect x="390" y="384" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="401" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="384" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="401" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="384" width="90" height="24" fill="#eeeeee"/>
+<text x="616" y="401" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="720" y="384" width="90" height="24" fill="#eeeeee"/>
+<text x="726" y="401" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="830" y="384" width="90" height="24" fill="#eeeeee"/>
+<text x="836" y="401" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="940" y="384" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="401" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="436" font-family="sans-serif" font-size="11">result concealment or false claim</text>
+<rect x="390" y="418" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="435" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="418" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="435" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="418" width="90" height="24" fill="#eeeeee"/>
+<text x="616" y="435" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="720" y="418" width="90" height="24" fill="#eeeeee"/>
+<text x="726" y="435" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="830" y="418" width="90" height="24" fill="#eeeeee"/>
+<text x="836" y="435" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="940" y="418" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="435" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="10" y="470" font-family="sans-serif" font-size="11">other</text>
+<rect x="390" y="452" width="90" height="24" fill="#eeeeee"/>
+<text x="396" y="469" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="500" y="452" width="90" height="24" fill="#eeeeee"/>
+<text x="506" y="469" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="610" y="452" width="90" height="24" fill="#eeeeee"/>
+<text x="616" y="469" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="720" y="452" width="90" height="24" fill="#eeeeee"/>
+<text x="726" y="469" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="830" y="452" width="90" height="24" fill="#eeeeee"/>
+<text x="836" y="469" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="940" y="452" width="90" height="24" fill="#eeeeee"/>
+<text x="946" y="469" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="390" y="112" font-family="sans-serif" font-size="10">cells show GLM/Muse/DeepSeek event counts</text>
+</svg>

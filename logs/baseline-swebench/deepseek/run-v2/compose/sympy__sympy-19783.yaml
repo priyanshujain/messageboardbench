@@ -1,0 +1,6 @@
+services:
+  default:
+    image: swebench/sweb.eval.x86_64.sympy_1776_sympy-19783:latest
+    command: sleep infinity
+    working_dir: /testbed
+    mem_limit: 8g

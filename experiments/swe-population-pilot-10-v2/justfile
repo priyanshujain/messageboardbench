@@ -1,7 +1,0 @@
-root := "../.."
-
-start:
-    cd {{root}} && .venv/bin/python scripts/run_experiment_bundle.py --bundle experiments/swe-population-pilot-10-v2
-
-validate:
-    cd {{root}} && .venv/bin/python scripts/run_experiment_bundle.py --bundle experiments/swe-population-pilot-10-v2 --validate-only

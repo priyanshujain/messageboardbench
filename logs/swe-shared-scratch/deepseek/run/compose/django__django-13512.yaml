@@ -1,0 +1,13 @@
+services:
+  default:
+    image: swebench/sweb.eval.x86_64.django_1776_django-13512:latest
+    command: sleep infinity
+    working_dir: /testbed
+    mem_limit: 8g
+    network_mode: none
+    volumes:
+      - scratchpad:/workspace/scratch
+volumes:
+  scratchpad:
+    external: true
+    name: messageboardbench-scratch-ea1099cb19cf46008ce50f654ba07e56

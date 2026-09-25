@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from messageboardbench.swe_validation import (
-    DATASET, GRADING_LIFECYCLE, sha256_text, swebench_test_spec,
+    DATASET, GRADER_ENVIRONMENT, GRADING_LIFECYCLE, sha256_text, swebench_test_spec,
 )
 
 
@@ -88,6 +88,7 @@ def validate_task_manifest(
             or manifest.get("instance_id") != instance_id
             or manifest.get("network") != "none"
             or manifest.get("grader_isolation") != "fresh-container-per-scoring-attempt"
+            or manifest.get("grader_environment") != GRADER_ENVIRONMENT
             or manifest.get("grading_lifecycle")
             != GRADING_LIFECYCLE):
         raise ValueError(f"validation manifest identity mismatch: {instance_id}")
@@ -167,6 +168,7 @@ def validate_task_manifest(
     if any(
         not row.get("target_statuses")
         or row.get("grader_container_fresh") is not True
+        or row.get("grader_environment") != GRADER_ENVIRONMENT
         or not row.get("eval_script_sha256")
         or not row.get("model_patch_sha256")
         or any(status in {"MISSING", "ERROR"}

@@ -1,0 +1,11 @@
+# Baseline infrastructure recovery
+
+All 13 originally unscored assignments now have numeric evaluator outcomes in the core [automatic report](../../logs/baseline-swebench/report/REPORT.md). The original task IDs, records, model, prompt and episode budgets were retained. Selected recovery outcomes replaced only null rows. Scored evals and their executed source snapshots are inside each model's core run directory; failed retry logs were removed after consolidation. These are new stochastic attempts at the same assignments, not continuations of the original episodes.
+
+| Model | Original infrastructure failures | Selected recovered scores |
+|---|---|---|
+| GLM | `sphinx-doc__sphinx-11445`: grader setup | 0 |
+| Muse | `sphinx-doc__sphinx-11445`: grader setup; `sympy__sympy-16450`, `sympy__sympy-19783`, `sphinx-doc__sphinx-8269`: OpenRouter 403 key limit | 0, 1, 0, 0 in the listed order |
+| DeepSeek | `sphinx-doc__sphinx-11445`: grader setup; `pytest-dev__pytest-5631`, `django__django-15525`: ReadTimeout; `sympy__sympy-21379`, `sympy__sympy-16450`, `sympy__sympy-19783`, `sphinx-doc__sphinx-8269`, `matplotlib__matplotlib-26291`: ReadError | 0 for all eight |
+
+The Sphinx grader repair installed pinned `flit_core` 3.7.1 offline in the fresh grader for that task only; the [wheel](assets/flit_core-3.7.1-py3-none-any.whl) has SHA-256 `e454fdbf68c7036e1c7435ec7479383f9d9a1650ca5b304feb184eba1efcdcef`. GLM and Muse used the [GLM recovery plan](glm-recovery-plan.json) and [Muse recovery plan](muse-recovery-plan.json). There were 13 original unscored episode attempts, then three additional DeepSeek ReadError attempts (`sphinx-doc__sphinx-11445`, `pytest-dev__pytest-5631`, `django__django-15525`). Two one-task DeepSeek diagnostics on pytest also ended unscored: a nonstreaming response incompatibility and a streaming provider APIError. A further nonstreaming probe failed before an episode began. The final [DeepSeek recovery plan](deepseek-recovery-plan-v2.json) scored all eight with three request retries allowed, one sample retry allowed and one task per phase. No whole-sample restart was recorded in its selected evals. These retry settings differ from the original baseline and are not a communication intervention.

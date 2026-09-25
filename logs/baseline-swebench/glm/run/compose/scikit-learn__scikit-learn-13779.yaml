@@ -1,0 +1,6 @@
+services:
+  default:
+    image: swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13779:latest
+    command: sleep infinity
+    working_dir: /testbed
+    mem_limit: 8g

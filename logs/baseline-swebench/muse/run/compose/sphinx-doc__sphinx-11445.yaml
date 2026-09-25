@@ -1,0 +1,6 @@
+services:
+  default:
+    image: swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-11445:latest
+    command: sleep infinity
+    working_dir: /testbed
+    mem_limit: 8g

@@ -1,0 +1,7 @@
+services:
+  default:
+    image: swebench/sweb.eval.x86_64.astropy_1776_astropy-7336:latest
+    command: sleep infinity
+    working_dir: /testbed
+    mem_limit: 8g
+    network_mode: none

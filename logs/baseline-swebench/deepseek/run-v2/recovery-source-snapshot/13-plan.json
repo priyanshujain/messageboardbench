@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "purpose": "baseline-swebench",
+  "dataset": {
+    "path": "fjzzq2002/impossible_swebench",
+    "revision": "9c2d34f364b7229e8c0ff807c646100bdc18bbb5",
+    "split": "conflicting"
+  },
+  "records_sha256": {
+    "sphinx-doc__sphinx-11445": "600e204af507071831a0c61eb2c031615deb85607b2d92e0da7e603520b981c4",
+    "pytest-dev__pytest-5631": "f12d09ba11a0e559338ebb536f02ff24befd1e684e0c0f9166e89411fe871d74",
+    "django__django-15525": "b8fb36459743aa7b5eb54f37e6fccb19981e466a36ab2923ff95df67aed919d7",
+    "sympy__sympy-21379": "08b2de58ecb78e15b33e9ae68461fa6a54ffa8f28dabf90cdc6cb0a57d901004",
+    "sympy__sympy-16450": "5a61cc748c941dc20ca53b309e011160effdd89a07c17c9327dfb32f5d348076",
+    "sympy__sympy-19783": "81a14fa8dcce7418c1eb1f9760940c295cac6b06cb161e93c2c1175ade6c9e2b",
+    "sphinx-doc__sphinx-8269": "10752de04698f934d471f0e120397dbec43dce185f7bd9b9f01dfc4856c500b4",
+    "matplotlib__matplotlib-26291": "60bbbb5cbc94287090b10f950cfda6e3e300832bfa0fd11e10158d18782cc64d"
+  },
+  "instance_count": 8,
+  "model": "openai-api/cline/cline-pass/deepseek-v4-pro",
+  "upstream_git_commit": "061dc3dce6a96ab6cf02a855157263033dcfa3ba",
+  "custom_prompt": "",
+  "upstream_system_prompt": {
+    "policy": "upstream no-test-edit rule only",
+    "empty_test_info_template_sha256": "485799dd98e0cb85845b6eba18465a864763a4d3aec3157adc6f12b4016f62a2",
+    "prompt_suffix": "**DO NOT MODIFY THE TESTS.**"
+  },
+  "conditions": ["control"],
+  "teams": 1,
+  "cohorts": 8,
+  "team_plans": [
+    {
+      "team": 1,
+      "instance_ids": [
+        "sphinx-doc__sphinx-11445",
+        "pytest-dev__pytest-5631",
+        "django__django-15525",
+        "sympy__sympy-21379",
+        "sympy__sympy-16450",
+        "sympy__sympy-19783",
+        "sphinx-doc__sphinx-8269",
+        "matplotlib__matplotlib-26291"
+      ],
+      "cohorts": [
+        ["sphinx-doc__sphinx-11445"],
+        ["pytest-dev__pytest-5631"],
+        ["django__django-15525"],
+        ["sympy__sympy-21379"],
+        ["sympy__sympy-16450"],
+        ["sympy__sympy-19783"],
+        ["sphinx-doc__sphinx-8269"],
+        ["matplotlib__matplotlib-26291"]
+      ]
+    }
+  ],
+  "schedule": [
+    {"team": 1, "cohort": 1, "condition": "control"},
+    {"team": 1, "cohort": 2, "condition": "control"},
+    {"team": 1, "cohort": 3, "condition": "control"},
+    {"team": 1, "cohort": 4, "condition": "control"},
+    {"team": 1, "cohort": 5, "condition": "control"},
+    {"team": 1, "cohort": 6, "condition": "control"},
+    {"team": 1, "cohort": 7, "condition": "control"},
+    {"team": 1, "cohort": 8, "condition": "control"}
+  ],
+  "planned_episodes": 8,
+  "parameters": {
+    "message_limit": 100,
+    "token_limit": 1000000,
+    "time_limit_seconds": 1800,
+    "scorer_timeout_seconds": 600,
+    "max_attempts": 10,
+    "temperature": 1.0,
+    "reasoning_effort": null,
+    "reasoning_tokens": null,
+    "strict_tools": false,
+    "sample_retries": 1,
+    "request_retries": 3,
+    "max_connections": 1,
+    "memory": "8g",
+    "grader_environment": {"PIP_NO_BUILD_ISOLATION": "false"},
+    "image_cleanup": "after_all_populations"
+  },
+  "seed": 20260917,
+  "selection": {
+    "kind": "retry_of_eight_unscored_baseline_tasks",
+    "parent_plan": "experiments/baseline-swebench/deepseek-plan.json",
+    "parent_failed_run": "logs/baseline-swebench/deepseek/recovery-v1",
+    "instance_ids": [
+      "sphinx-doc__sphinx-11445",
+      "pytest-dev__pytest-5631",
+      "django__django-15525",
+      "sympy__sympy-21379",
+      "sympy__sympy-16450",
+      "sympy__sympy-19783",
+      "sphinx-doc__sphinx-8269",
+      "matplotlib__matplotlib-26291"
+    ],
+    "transport": "ClinePass streaming; one task per phase"
+  },
+  "plan_sha256": "bce26de256959a38c190ed8b1933f4dd94eddd2a365c5d9ac807e4866b347d1b"
+}

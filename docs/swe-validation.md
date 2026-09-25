@@ -27,8 +27,9 @@ The executable refuses every Docker daemon except
 `ssh://pj@100.68.126.75` reporting `linux/amd64`. Source and Python remain local.
 The Docker client streams only the selected test and oracle patches into a fresh
 ephemeral container; the repository is never staged on the Docker host. Each container
-uses `--network none`, an 8 GiB default memory limit, and the registry image resolved by
-SWE-bench 4.1.0's `make_test_spec` API.
+uses `--network none`, an 8 GiB default memory limit, and the registry image resolved
+by SWE-bench 4.1.0's `make_test_spec` API. `PIP_NO_BUILD_ISOLATION=false` keeps editable
+installs from attempting to download build dependencies during grading.
 
 The gate requires:
 
@@ -55,7 +56,11 @@ process exit code and successful SWE-bench parsing of every declared target. Thi
 stricter than the historical behavior scorer because readiness must reject collection,
 parser, or missing-test failures instead of treating shell success alone as evidence.
 
-Raw stdout/stderr and hashes are written under the requested ignored `work/` directory.
+The exact upstream evaluation script is written before its grader container starts.
+Combined stdout and labeled stderr are written immediately after evaluation, before
+setup, evaluator, or cleanup status validation can reject the trial. Successful trial
+manifests bind these files by hash. The files live under the requested ignored `work/`
+directory, so a failed gate retains diagnostic evidence but is not reviewed evidence.
 Do not promote a bundle to `results/` until the added contradiction, collected tests,
 and per-test statuses have been reviewed. Passing this gate establishes infrastructure
 readiness for one paired instance only. Multiple distinct audited IDs are still needed

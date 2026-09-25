@@ -2,12 +2,15 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
-logs/
 .env
 .env.*
 !.env.example
 .DS_Store
 work/
+draft/
+archive/
 
 
 personal-notes/*
+
+docs/research/*

@@ -1,8 +1,8 @@
 # Shared scratchpads: evidence and design choices
 
-September 7, 2026. Research note for the active small-team study. A reviewed original-task
-diagnostic is reported at the end. [SPRINT-SEPT10.md](../SPRINT-SEPT10.md) remains the working
-plan. This note separates verified source details from our proposed interpretation.
+September 7, 2026. Historical research note for the small-team study. A reviewed
+original-task diagnostic is reported at the end. This note separates verified source
+details from our proposed interpretation.
 
 ## What the DeepMind paper actually establishes
 
@@ -158,6 +158,6 @@ attempted zero tests. Avoid classifying either detail from keywords alone. These
 were agent-run checks, not independently repeated reviewer tests.
 
 Full samples and indexed evidence are saved in
-[agent-1 review](../scratchpad/team-pilot-sept7/original-lcbhard_0-review.json) and
-[agent-2 review](../scratchpad/team-pilot-sept7/original-lcbhard_1-review.json).
+[agent-1 review](../../results/team-pilot-sept7/original-lcbhard_0-review.json) and
+[agent-2 review](../../results/team-pilot-sept7/original-lcbhard_1-review.json).
 This diagnostic supplies no estimate of a shared-versus-private effect.

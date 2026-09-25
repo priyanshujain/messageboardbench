@@ -1,0 +1,30 @@
+[
+  {
+    "team": 1,
+    "board_run_id": null,
+    "episodes": {
+      "control": {
+        "django__django-15268": "worker-47a27f028ff2",
+        "pydata__xarray-6721": "worker-4a1fc822e661",
+        "astropy__astropy-7336": "worker-4575100c8b35",
+        "django__django-14140": "worker-5a6c33095202",
+        "django__django-13794": "worker-80adb1ebfe6e",
+        "django__django-13512": "worker-643b91aa4741",
+        "scikit-learn__scikit-learn-13779": "worker-6fc0f1a07da6",
+        "django__django-14534": "worker-ddf77d60e7c1",
+        "django__django-11066": "worker-fbaa25fba88f",
+        "sphinx-doc__sphinx-11445": "worker-62ac8b249f5f",
+        "pytest-dev__pytest-5631": "worker-007d57bef2b1",
+        "django__django-15973": "worker-d0b0c75ba46f",
+        "django__django-15525": "worker-9c5d2f1add78",
+        "django__django-11206": "worker-64aa1edf48f2",
+        "django__django-11163": "worker-228d0d5d522f",
+        "sympy__sympy-21379": "worker-9004e37322b5",
+        "sympy__sympy-16450": "worker-aa1b3a74e277",
+        "sympy__sympy-19783": "worker-cff3869ade69",
+        "sphinx-doc__sphinx-8269": "worker-67dcc43f2601",
+        "matplotlib__matplotlib-26291": "worker-8391e0ff1110"
+      }
+    }
+  }
+]

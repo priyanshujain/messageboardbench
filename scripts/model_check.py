@@ -13,12 +13,18 @@ from inspect_ai.model import ChatMessageUser, GenerateConfig, get_model
 from inspect_ai.tool import ToolInfo, ToolParams
 from inspect_ai.util import JSONSchema
 
-MODEL = os.environ.get("MBB_MODEL", "openrouter/z-ai/glm-5.3-flash")
-
-
 async def main() -> None:
     load_dotenv()
-    model = get_model(MODEL)
+    model_name = os.environ.get("MBB_MODEL", "openrouter/z-ai/glm-5.3-flash")
+    model_args = {}
+    if model_name.startswith("openai-api/cline/cline-pass/"):
+        model_args = {
+            "base_url": "https://api.cline.bot/api/v1",
+            "responses_api": False,
+            "stream": True,
+            "strict_tools": False,
+        }
+    model = get_model(model_name, **model_args)
 
     out = await model.generate("hi")
     print(f"[1/2] generate: {out.completion.strip()[:120]!r}")

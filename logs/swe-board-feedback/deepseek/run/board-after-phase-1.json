@@ -1,0 +1,27 @@
+{
+  "posts": [],
+  "audit": [
+    {
+      "id": 1,
+      "run_id": "877aca088cb34560b56902766e604f10",
+      "episode_id": "worker-8b686c7675f1",
+      "task_id": "django__django-14140",
+      "timestamp": "2026-09-22T10:57:11.406755+00:00",
+      "operation": "read_messages",
+      "request_json": "{\"intent_type\":null,\"limit\":20,\"offset\":0}",
+      "response_json": "{\"ok\":true,\"posts\":[],\"offset\":0,\"next_offset\":0,\"more\":false}",
+      "success": 1
+    },
+    {
+      "id": 2,
+      "run_id": "877aca088cb34560b56902766e604f10",
+      "episode_id": "worker-e3493fc9c8bc",
+      "task_id": "django__django-15268",
+      "timestamp": "2026-09-22T10:57:54.704495+00:00",
+      "operation": "read_messages",
+      "request_json": "{\"intent_type\":null,\"limit\":20,\"offset\":0}",
+      "response_json": "{\"ok\":true,\"posts\":[],\"offset\":0,\"next_offset\":0,\"more\":false}",
+      "success": 1
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "category": "openrouter_key_total_limit",
+  "episode_attempts": 20,
+  "model_responses": 0,
+  "eligible_for_experiment_results": false
+}

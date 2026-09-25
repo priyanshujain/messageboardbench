@@ -1,0 +1,40 @@
+{
+  "upgrade": "terminal-grader-null-v1",
+  "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/scripts/swe_board_experiment.py",
+  "base_sha256": "98480d79c0fa4775df9d4f205051bcd51239721f5102af50119fc1626a409796",
+  "recovery_sha256": "fafac9dc51b7ebcf0962ea366ef1d606745518fbf8d543ac566cdaa3084269c7",
+  "archived": "swe_board_experiment.py",
+  "base_index_sha256": "3429432d016b1de445b40c56364f31d0f0d1fa0e4e1661c9e10cbaf70c4c3fa1",
+  "reason": "retain completed model trajectories with grader-only null outcomes",
+  "created_at": "2026-09-22T08:23:31.069850+00:00",
+  "preexisting_evals": [
+    {
+      "path": "evals/2026-09-21T17-46-27-00-00_swe-population-t1-board-c1-p1_7wi4XRUohPMcgNbm4odwii.eval",
+      "sha256": "eb0d702f22a14a8209044db21997e4158b44ac31ba6fa7cc36a8eee55d7e1628"
+    },
+    {
+      "path": "evals/2026-09-21T17-46-27-00-00_swe-population-t1-board-c1-p2_V6dXhsHKgAWnFhLBL6EdNL.eval",
+      "sha256": "9a0459d359fd61359d9572306746c8c42b86809c79ea9d535b322e41d6c80fbf"
+    },
+    {
+      "path": "evals/2026-09-21T17-46-27-00-00_swe-population-t1-board-c1-p3_ZdQHh6xtikeJqDgippSmor.eval",
+      "sha256": "94683c6d5a4e87e600db96b30fa392d687a870e9b20966b807d8393b04d15929"
+    },
+    {
+      "path": "evals/2026-09-21T17-46-27-00-00_swe-population-t1-board-c1-p4_FRQBZcP37WcC6hSmtZRBCV.eval",
+      "sha256": "b68df4937673e5b2b86cd5cf89afae25a7bff28df617d19200885a27259595cd"
+    },
+    {
+      "path": "evals/2026-09-21T17-46-27-00-00_swe-population-t1-board-c1-p5_A5QJ2VUH49pADUa4AZXJAc.eval",
+      "sha256": "5b43935370214191f376f0e06a52028e634f51c0354e5c7de3fd4ed3006c8aee"
+    },
+    {
+      "path": "evals/2026-09-21T20-37-02-00-00_swe-population-t1-board-c1-p2_GPDWWucSycuT8UJuXWCzf4.eval",
+      "sha256": "9794c69d72b7ff9a9f536e2f5a444e8f5ba835ba12df7c4fd4f416a8ae68e98f"
+    },
+    {
+      "path": "evals/2026-09-21T20-37-02-00-00_swe-population-t1-board-c1-p3_D5VQis7FQgG6nf3dYFpJ2y.eval",
+      "sha256": "54b65d6d5047b8b79b0a3ac3c12f516a3eae53e83b1c903655f717173c246b0f"
+    }
+  ]
+}

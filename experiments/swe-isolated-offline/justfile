@@ -1,0 +1,6 @@
+root := "../.."
+
+start:
+    cd {{root}} && .venv/bin/python scripts/remote_docker.py -- .venv/bin/python -u scripts/swe_board_experiment.py --plan experiments/swe-isolated-offline/glm-plan.json --out logs/swe-isolated-offline/glm/run --execute
+    cd {{root}} && .venv/bin/python scripts/remote_docker.py -- .venv/bin/python -u scripts/swe_board_experiment.py --plan experiments/swe-isolated-offline/muse-plan.json --out logs/swe-isolated-offline/muse/run --execute
+    cd {{root}} && .venv/bin/python scripts/remote_docker.py -- .venv/bin/python -u scripts/swe_board_experiment.py --plan experiments/swe-isolated-offline/deepseek-plan.json --out logs/swe-isolated-offline/deepseek/run --execute

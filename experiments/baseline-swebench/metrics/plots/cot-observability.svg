@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="266" viewBox="0 0 980 266">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="28" font-family="sans-serif" font-size="18" font-weight="bold">Reasoning observability and unresolved information</text>
+<text x="10" y="76" font-family="sans-serif" font-size="12">reasoning message coverage</text>
+<rect x="220" y="55" width="371.7" height="9" fill="#3568a8"/>
+<text x="596.7" y="64" font-family="sans-serif" font-size="10">glm 446/804</text>
+<rect x="220" y="67" width="422.9" height="9" fill="#c45d35"/>
+<text x="647.9" y="76" font-family="sans-serif" font-size="10">muse 445/705</text>
+<rect x="220" y="79" width="163.7" height="9" fill="#548f52"/>
+<text x="388.7" y="88" font-family="sans-serif" font-size="10">deepseek 184/753</text>
+<text x="10" y="128" font-family="sans-serif" font-size="12">readable reasoning message coverage</text>
+<rect x="220" y="107" width="371.7" height="9" fill="#3568a8"/>
+<text x="596.7" y="116" font-family="sans-serif" font-size="10">glm 446/804</text>
+<rect x="220" y="119" width="0.0" height="9" fill="#c45d35"/>
+<text x="225.0" y="128" font-family="sans-serif" font-size="10">muse 0/705</text>
+<rect x="220" y="131" width="163.7" height="9" fill="#548f52"/>
+<text x="388.7" y="140" font-family="sans-serif" font-size="10">deepseek 184/753</text>
+<text x="10" y="180" font-family="sans-serif" font-size="12">episode with unresolved information label</text>
+<rect x="220" y="159" width="502.5" height="9" fill="#3568a8"/>
+<text x="727.5" y="168" font-family="sans-serif" font-size="10">glm 15/20</text>
+<rect x="220" y="171" width="502.5" height="9" fill="#c45d35"/>
+<text x="727.5" y="180" font-family="sans-serif" font-size="10">muse 15/20</text>
+<rect x="220" y="183" width="603.0" height="9" fill="#548f52"/>
+<text x="828.0" y="192" font-family="sans-serif" font-size="10">deepseek 18/20</text>
+</svg>

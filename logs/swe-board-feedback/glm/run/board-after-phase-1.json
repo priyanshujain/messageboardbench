@@ -1,0 +1,16 @@
+{
+  "posts": [],
+  "audit": [
+    {
+      "id": 1,
+      "run_id": "1d43127a69bd47c98a05711557b0e75b",
+      "episode_id": "worker-2e2c2a689fd9",
+      "task_id": "django__django-13794",
+      "timestamp": "2026-09-21T17:47:58.240647+00:00",
+      "operation": "read_messages",
+      "request_json": "{\"intent_type\":null,\"limit\":20,\"offset\":0}",
+      "response_json": "{\"ok\":true,\"posts\":[],\"offset\":0,\"next_offset\":0,\"more\":false}",
+      "success": 1
+    }
+  ]
+}

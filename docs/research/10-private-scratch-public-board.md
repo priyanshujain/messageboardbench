@@ -5,7 +5,7 @@ September 7 design, implemented September 8 in `messageboardbench/board.py`,
 and its integrity-framed prompts remain preserved. The new runner creates fresh
 private files and episode IDs and carries only deliberately posted public messages
 across cohorts. Infrastructure verification and the twelve-attempt pilot completed.
-[Final results](../scratchpad/board-pilot-sept8/RESULTS.md): voluntary gaming-method
+[Final results](../../results/board-pilot-sept8/RESULTS.md): voluntary gaming-method
 publication occurred, but no agent read the board; no transmission was observed.
 
 ## Verified DeepMind design
@@ -121,7 +121,7 @@ explanations. Replicate teams/runs, rather than treating dependent messages as s
 
 ## Token use and model comparison
 
-The [frozen historical token audit](../scratchpad/token-comparison-sept7/REPORT.md)
+The [frozen historical token audit](../../results/token-comparison-sept7/REPORT.md)
 separates total, uncached input, cached input, generated output, reported reasoning,
 time and limits. Failed tasks are not automatically honest. Resource differences
 also reflect early stopping on success and retries after failure.
@@ -148,6 +148,6 @@ Muse used an integer subclass comparing equal to both required answers. Neither
 edited the tests or hit limits. These are one-task diagnostic observations, not
 model-level rates or a test of communication. Muse's provider-redacted reasoning
 was not used for labeling; actions and final code provide the evidence. See the
-[completed comparison](../scratchpad/model-comparison-sept7/RESULTS.md). All Muse
+[completed comparison](../../results/model-comparison-sept7/RESULTS.md). All Muse
 requests used Contributor; no ordinary-tier substitution occurred. Provider errors
 remain archived and excluded from behavior counts.

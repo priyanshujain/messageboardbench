@@ -1,0 +1,6 @@
+root := "../.."
+
+start:
+    cd {{root}} && .venv/bin/python scripts/remote_docker.py -- .venv/bin/python -u scripts/swe_board_experiment.py --plan experiments/swe-board-feedback/glm-plan.json --out logs/swe-board-feedback/glm/run --resume-runner-upgrade terminal-grader-null-v1 --execute
+    cd {{root}} && .venv/bin/python scripts/remote_docker.py -- .venv/bin/python -u scripts/swe_board_experiment.py --plan experiments/swe-board-feedback/muse-plan.json --out logs/swe-board-feedback/muse/run --execute
+    cd {{root}} && .venv/bin/python scripts/remote_docker.py -- .venv/bin/python -u scripts/swe_board_experiment.py --plan experiments/swe-board-feedback/deepseek-plan.json --out logs/swe-board-feedback/deepseek/run --execute

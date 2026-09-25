@@ -1,0 +1,22 @@
+[
+  {
+    "team": 1,
+    "cohort": 1,
+    "condition": "board"
+  },
+  {
+    "team": 1,
+    "cohort": 2,
+    "condition": "board"
+  },
+  {
+    "team": 1,
+    "cohort": 3,
+    "condition": "board"
+  },
+  {
+    "team": 1,
+    "cohort": 4,
+    "condition": "board"
+  }
+]

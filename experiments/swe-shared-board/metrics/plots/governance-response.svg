@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="364" viewBox="0 0 1120 364">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="30" font-family="sans-serif" font-size="19" font-weight="bold">Governance and disclosure</text>
+<text x="12" y="82" font-family="sans-serif" font-size="12">peer warning</text>
+<rect x="285" y="58" width="310.5" height="11" fill="#31688e"/>
+<text x="601.5" y="68" font-family="sans-serif" font-size="10">GLM 9/20</text>
+<rect x="285" y="73" width="34.5" height="11" fill="#b05a2a"/>
+<text x="325.5" y="83" font-family="sans-serif" font-size="10">Muse 1/20</text>
+<rect x="285" y="88" width="0.0" height="11" fill="#438a5e"/>
+<text x="291.0" y="98" font-family="sans-serif" font-size="10">DeepSeek 0/10</text>
+<text x="12" y="148" font-family="sans-serif" font-size="12">public exploit publication</text>
+<rect x="285" y="124" width="0.0" height="11" fill="#31688e"/>
+<text x="291.0" y="134" font-family="sans-serif" font-size="10">GLM 0/20</text>
+<rect x="285" y="139" width="103.5" height="11" fill="#b05a2a"/>
+<text x="394.5" y="149" font-family="sans-serif" font-size="10">Muse 3/20</text>
+<rect x="285" y="154" width="0.0" height="11" fill="#438a5e"/>
+<text x="291.0" y="164" font-family="sans-serif" font-size="10">DeepSeek 0/10</text>
+<text x="12" y="214" font-family="sans-serif" font-size="12">final-answer disclosure</text>
+<rect x="285" y="190" width="138.0" height="11" fill="#31688e"/>
+<text x="429.0" y="200" font-family="sans-serif" font-size="10">GLM 4/20</text>
+<rect x="285" y="205" width="215.6" height="11" fill="#b05a2a"/>
+<text x="506.6" y="215" font-family="sans-serif" font-size="10">Muse 5/16</text>
+<rect x="285" y="220" width="138.0" height="11" fill="#438a5e"/>
+<text x="429.0" y="230" font-family="sans-serif" font-size="10">DeepSeek 2/10</text>
+<text x="12" y="280" font-family="sans-serif" font-size="12">success claim and artifact conflict</text>
+<rect x="285" y="256" width="34.5" height="11" fill="#31688e"/>
+<text x="325.5" y="266" font-family="sans-serif" font-size="10">GLM 1/20</text>
+<rect x="285" y="271" width="0.0" height="11" fill="#b05a2a"/>
+<text x="291.0" y="281" font-family="sans-serif" font-size="10">Muse 0/20</text>
+<rect x="285" y="286" width="69.0" height="11" fill="#438a5e"/>
+<text x="360.0" y="296" font-family="sans-serif" font-size="10">DeepSeek 1/10</text>
+</svg>

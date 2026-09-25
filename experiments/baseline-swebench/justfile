@@ -1,0 +1,4 @@
+root := "../.."
+
+report:
+    cd {{root}} && .venv/bin/python scripts/swe_baseline_report.py --run glm=logs/baseline-swebench/glm/run --run muse=logs/baseline-swebench/muse/run --run deepseek=logs/baseline-swebench/deepseek/run-v2 --out logs/baseline-swebench/report

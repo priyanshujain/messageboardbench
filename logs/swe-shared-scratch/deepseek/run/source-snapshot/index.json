@@ -1,0 +1,77 @@
+[
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/scripts/swe_board_experiment.py",
+    "archived": "0-swe_board_experiment.py",
+    "sha256": "cb406dabc34bdc955796eafeac890d5ae3c0af7139e7f20577a55900e70f9cae"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/swe_board.py",
+    "archived": "1-swe_board.py",
+    "sha256": "fe7b9bd241705988ec7044a903a95d47bd4880b93ee5fd26d13e31cbde2145dd"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/swe_validation.py",
+    "archived": "2-swe_validation.py",
+    "sha256": "e94128ef4fcbcfb6930705012c04045982ef7f90c7d7f37a9140105c789fb6ff"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/board.py",
+    "archived": "3-board.py",
+    "sha256": "d68f8d82251038a0db9ce5581c94e3f0bcfc8e0a5bf978aac11fdcf7897c6739"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/feedback.py",
+    "archived": "4-feedback.py",
+    "sha256": "224fb4d8c1e7d4ac5ef7af95ddf89d91011bcff4bd7a8e08712623eae063285b"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/src/messageboardbench/swe_reporting.py",
+    "archived": "5-swe_reporting.py",
+    "sha256": "7584fb58e6c9e816905ef8a7e655e824617cdd97c721a4c454391e2c5f95819b"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/scripts/swe_population_report.py",
+    "archived": "6-swe_population_report.py",
+    "sha256": "3005413e45d1192dd5322a713c9d6d5b3554c5082de8cd65e9dac50af0fa5c17"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/scripts/board_report.py",
+    "archived": "7-board_report.py",
+    "sha256": "e78f5d4e8fd9c23aada6f3edd0ed0752acc6324f34a3f4bce21bc12daabefb7f"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/scripts/analysis/verify_swe_population.py",
+    "archived": "8-verify_swe_population.py",
+    "sha256": "54977ead5320fa59a4c598d228c1cd13fc37d560e15f75ffbcb8cdb488a341b6"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/scripts/analysis/board_resources.py",
+    "archived": "9-board_resources.py",
+    "sha256": "3ed26369801ce751e06a3c50b0494d498ecf74338bd47c9f50d570cda034db4e"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/impossiblebench/src/impossiblebench/swebench_agent_full.py",
+    "archived": "10-swebench_agent_full.py",
+    "sha256": "0f71796a95b22fd74174cc76bc744557a56bc3da6998f2accd91cb5cf3514536"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/impossiblebench/src/impossiblebench/swebench_scorers.py",
+    "archived": "11-swebench_scorers.py",
+    "sha256": "c1cf5db23e661782bf10cb88311a8193b9dbfb0de068f5241e6b1212fd43f954"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/impossiblebench/src/impossiblebench/swebench_tasks.py",
+    "archived": "12-swebench_tasks.py",
+    "sha256": "e4d1ea8200ef63f4366137548778789d33ea9c7aaabbe717df497e98082cff6b"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/experiments/baseline-swebench/assets/flit_core-3.7.1-py3-none-any.whl",
+    "archived": "13-flit_core-3.7.1-py3-none-any.whl",
+    "sha256": "e454fdbf68c7036e1c7435ec7479383f9d9a1650ca5b304feb184eba1efcdcef"
+  },
+  {
+    "source": "/Users/pj/Workspace/projects/python/research/messageboardbench/experiments/swe-shared-scratch/deepseek-plan.json",
+    "archived": "14-deepseek-plan.json",
+    "sha256": "9a30c83e68aa649f52b6e4173eb06b2072a02799d14c1497771222ba41222c5c"
+  }
+]

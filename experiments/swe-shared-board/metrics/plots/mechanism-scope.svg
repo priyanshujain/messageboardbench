@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="375" viewBox="0 0 1140 375">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="30" font-family="sans-serif" font-size="19" font-weight="bold">Attempted mechanism by scope</text>
+<text x="410" y="62" font-family="sans-serif" font-size="10">narrow</text>
+<text x="525" y="62" font-family="sans-serif" font-size="10">object api</text>
+<text x="640" y="62" font-family="sans-serif" font-size="10">package</text>
+<text x="755" y="62" font-family="sans-serif" font-size="10">process global</text>
+<text x="870" y="62" font-family="sans-serif" font-size="10">evaluation pipeline</text>
+<text x="985" y="62" font-family="sans-serif" font-size="10">external system</text>
+<text x="12" y="97" font-family="sans-serif" font-size="11">literal special case</text>
+<rect x="405" y="78" width="102" height="27" fill="#e9eef2"/>
+<text x="412" y="96" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="520" y="78" width="102" height="27" fill="#88aeca"/>
+<text x="527" y="96" font-family="sans-serif" font-size="10">0/2/1</text>
+<rect x="635" y="78" width="102" height="27" fill="#e9eef2"/>
+<text x="642" y="96" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="750" y="78" width="102" height="27" fill="#88aeca"/>
+<text x="757" y="96" font-family="sans-serif" font-size="10">0/3/0</text>
+<rect x="865" y="78" width="102" height="27" fill="#e9eef2"/>
+<text x="872" y="96" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="980" y="78" width="102" height="27" fill="#e9eef2"/>
+<text x="987" y="96" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="12" y="137" font-family="sans-serif" font-size="11">call history or cache</text>
+<rect x="405" y="118" width="102" height="27" fill="#e9eef2"/>
+<text x="412" y="136" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="520" y="118" width="102" height="27" fill="#e9eef2"/>
+<text x="527" y="136" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="635" y="118" width="102" height="27" fill="#e9eef2"/>
+<text x="642" y="136" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="750" y="118" width="102" height="27" fill="#88aeca"/>
+<text x="757" y="136" font-family="sans-serif" font-size="10">0/1/0</text>
+<rect x="865" y="118" width="102" height="27" fill="#88aeca"/>
+<text x="872" y="136" font-family="sans-serif" font-size="10">1/0/0</text>
+<rect x="980" y="118" width="102" height="27" fill="#e9eef2"/>
+<text x="987" y="136" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="12" y="177" font-family="sans-serif" font-size="11">protocol or equality spoof</text>
+<rect x="405" y="158" width="102" height="27" fill="#e9eef2"/>
+<text x="412" y="176" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="520" y="158" width="102" height="27" fill="#88aeca"/>
+<text x="527" y="176" font-family="sans-serif" font-size="10">1/4/1</text>
+<rect x="635" y="158" width="102" height="27" fill="#88aeca"/>
+<text x="642" y="176" font-family="sans-serif" font-size="10">0/1/0</text>
+<rect x="750" y="158" width="102" height="27" fill="#88aeca"/>
+<text x="757" y="176" font-family="sans-serif" font-size="10">0/3/0</text>
+<rect x="865" y="158" width="102" height="27" fill="#e9eef2"/>
+<text x="872" y="176" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="980" y="158" width="102" height="27" fill="#e9eef2"/>
+<text x="987" y="176" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="12" y="217" font-family="sans-serif" font-size="11">global runtime mutation</text>
+<rect x="405" y="198" width="102" height="27" fill="#e9eef2"/>
+<text x="412" y="216" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="520" y="198" width="102" height="27" fill="#e9eef2"/>
+<text x="527" y="216" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="635" y="198" width="102" height="27" fill="#e9eef2"/>
+<text x="642" y="216" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="750" y="198" width="102" height="27" fill="#88aeca"/>
+<text x="757" y="216" font-family="sans-serif" font-size="10">0/4/0</text>
+<rect x="865" y="198" width="102" height="27" fill="#e9eef2"/>
+<text x="872" y="216" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="980" y="198" width="102" height="27" fill="#e9eef2"/>
+<text x="987" y="216" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="12" y="257" font-family="sans-serif" font-size="11">protected test edit</text>
+<rect x="405" y="238" width="102" height="27" fill="#e9eef2"/>
+<text x="412" y="256" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="520" y="238" width="102" height="27" fill="#e9eef2"/>
+<text x="527" y="256" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="635" y="238" width="102" height="27" fill="#e9eef2"/>
+<text x="642" y="256" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="750" y="238" width="102" height="27" fill="#e9eef2"/>
+<text x="757" y="256" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="865" y="238" width="102" height="27" fill="#88aeca"/>
+<text x="872" y="256" font-family="sans-serif" font-size="10">3/1/1</text>
+<rect x="980" y="238" width="102" height="27" fill="#e9eef2"/>
+<text x="987" y="256" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="12" y="297" font-family="sans-serif" font-size="11">test runner evaluator or grader interference</text>
+<rect x="405" y="278" width="102" height="27" fill="#e9eef2"/>
+<text x="412" y="296" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="520" y="278" width="102" height="27" fill="#e9eef2"/>
+<text x="527" y="296" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="635" y="278" width="102" height="27" fill="#e9eef2"/>
+<text x="642" y="296" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="750" y="278" width="102" height="27" fill="#e9eef2"/>
+<text x="757" y="296" font-family="sans-serif" font-size="10">0/0/0</text>
+<rect x="865" y="278" width="102" height="27" fill="#88aeca"/>
+<text x="872" y="296" font-family="sans-serif" font-size="10">1/0/0</text>
+<rect x="980" y="278" width="102" height="27" fill="#e9eef2"/>
+<text x="987" y="296" font-family="sans-serif" font-size="10">0/0/0</text>
+<text x="405" y="360" font-family="sans-serif" font-size="10" fill="#555">Cells show GLM/Muse/DeepSeek event counts.</text>
+</svg>

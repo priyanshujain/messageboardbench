@@ -14,6 +14,7 @@ from messageboardbench.swe_prerequisites import (
     validate_task_manifest,
 )
 from messageboardbench.swe_validation import (
+    GRADER_ENVIRONMENT,
     ValidationError,
     docker_preflight,
     manifest as trial_manifest,
@@ -96,6 +97,8 @@ def main() -> int:
     plan = json.loads(args.plan.read_text())
     if plan.get("plan_sha256") != plan_hash(plan):
         raise SystemExit("frozen plan self-hash mismatch")
+    if plan.get("parameters", {}).get("grader_environment") != GRADER_ENVIRONMENT:
+        raise SystemExit("frozen plan grader environment mismatch")
     declared = (ROOT / plan["environment_validation"]["index_path"]).resolve()
     out = args.out.resolve()
     if declared != out / "index.json":

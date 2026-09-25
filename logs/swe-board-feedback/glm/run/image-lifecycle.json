@@ -1,0 +1,229 @@
+[
+  {
+    "team": 0,
+    "cohort": 0,
+    "images": [
+      {
+        "instance_id": "astropy__astropy-7336",
+        "image": "swebench/sweb.eval.x86_64.astropy_1776_astropy-7336:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:7721dedd07ff58d11785bf17b431efe0f5dc7ce01f4eff30067eeafc4f3c34ff",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.astropy_1776_astropy-7336@sha256:7cc2c89f47d69a8dae0b20eb543336b8f25917ca8d54c77c3e625543238cfcc6"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.astropy_1776_astropy-7336:latest\nUntagged: swebench/sweb.eval.x86_64.astropy_1776_astropy-7336@sha256:7cc2c89f47d69a8dae0b20eb543336b8f25917ca8d54c77c3e625543238cfcc6\nDeleted: sha256:7721dedd07ff58d11785bf17b431efe0f5dc7ce01f4eff30067eeafc4f3c34ff\nDeleted: sha256:41bdca8b4c38eaf12ba0c9af90d19fe362e03e9123b89e3dc1d651279bf2db6e\nDeleted: sha256:86ba171f64b6e684b84839ec29757b53fa0362f316651d8d93a71d0031d76084\nDeleted: sha256:6ef5d51d204c5893e142669744c0cc31db5d082a718923a2083054e8fdb06381\nDeleted: sha256:54ac8d904aa6768895ae8e9785625ac89913893699d9b056a43173384ee8e5b9\n"
+      },
+      {
+        "instance_id": "django__django-11066",
+        "image": "swebench/sweb.eval.x86_64.django_1776_django-11066:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:2686cee5bc931b3180c9a4a91ca08772a0b480781af75c71bab1001f0bd7ecc3",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.django_1776_django-11066@sha256:533a239ec38726f2cfe0ed08a18d081f71cfc9ec7c459e08fbfc0f39d19112bd"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.django_1776_django-11066:latest\nUntagged: swebench/sweb.eval.x86_64.django_1776_django-11066@sha256:533a239ec38726f2cfe0ed08a18d081f71cfc9ec7c459e08fbfc0f39d19112bd\nDeleted: sha256:2686cee5bc931b3180c9a4a91ca08772a0b480781af75c71bab1001f0bd7ecc3\nDeleted: sha256:34f8e72cd323e89db08d63129819e3903a53f0bbfe0a0c244c3af380ad2449cc\nDeleted: sha256:3c6832f9e92328ea4ce24f5d19ff940b1d46285457df98d2a744ca6c3a24ccb9\n"
+      },
+      {
+        "instance_id": "django__django-11163",
+        "image": "swebench/sweb.eval.x86_64.django_1776_django-11163:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:4fd4e5f7c257f51d2f0f8019863b163726de67d2dd4542678b4953cfbaec98e7",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.django_1776_django-11163@sha256:22424bbf0a4c54e8a7fce6b9d78bd3807589f727ff5de3e5b0c2b89c6ceab414"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.django_1776_django-11163:latest\nUntagged: swebench/sweb.eval.x86_64.django_1776_django-11163@sha256:22424bbf0a4c54e8a7fce6b9d78bd3807589f727ff5de3e5b0c2b89c6ceab414\nDeleted: sha256:4fd4e5f7c257f51d2f0f8019863b163726de67d2dd4542678b4953cfbaec98e7\nDeleted: sha256:185b5ad0b5e99b4836f565bc844397f3d165bbfca18007e961dff3449c1b78ae\nDeleted: sha256:2dcdbcd855b7c09f2f5e00a921720a2b8c6dcec41196349ff37941ca16bdf1d1\n"
+      },
+      {
+        "instance_id": "django__django-11206",
+        "image": "swebench/sweb.eval.x86_64.django_1776_django-11206:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:8a5701d56f4eac78e12912a786c2b70cd45e2b63b8532e7769ba2ba255c2d554",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.django_1776_django-11206@sha256:1478ff091b2e702e3eeda873e40054431d9f2b592f8e0f61d9dc6b7ec18455b7"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.django_1776_django-11206:latest\nUntagged: swebench/sweb.eval.x86_64.django_1776_django-11206@sha256:1478ff091b2e702e3eeda873e40054431d9f2b592f8e0f61d9dc6b7ec18455b7\nDeleted: sha256:8a5701d56f4eac78e12912a786c2b70cd45e2b63b8532e7769ba2ba255c2d554\nDeleted: sha256:0e8911a56c1abe3b385ebc135a23c421440bd94a8e9d1956586ddf2421694d7e\nDeleted: sha256:92d23ae58a9314d80b8634ddb35def34b5d16e5db25a38db01233a270e3cc39a\nDeleted: sha256:f7d46baeb42b292848a94ec3ddf24f673401d3b3a02109a5bd1d545b991e5545\nDeleted: sha256:b0568896ae407e36832ea5a218aaa8603017c188a4bb16c4d27c0d9dbf6d1d12\n"
+      },
+      {
+        "instance_id": "django__django-13512",
+        "image": "swebench/sweb.eval.x86_64.django_1776_django-13512:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:6d829b07502b56c84e0a8fffea5d4a9acd0eac8219dd52fbd1357a7614c1a6b4",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.django_1776_django-13512@sha256:730eab5b64c03ed8e8c94064da483db36fbd79d2465ffa98809acc6282bcfd82"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.django_1776_django-13512:latest\nUntagged: swebench/sweb.eval.x86_64.django_1776_django-13512@sha256:730eab5b64c03ed8e8c94064da483db36fbd79d2465ffa98809acc6282bcfd82\nDeleted: sha256:6d829b07502b56c84e0a8fffea5d4a9acd0eac8219dd52fbd1357a7614c1a6b4\nDeleted: sha256:1c4974788a53c41aa5a4b3c2310ae0b28e14858c6820b0bb098cec839b5b88cb\nDeleted: sha256:6ace28ec17be85bd37208a176c5362b135dca9ce33c6ee9b379213485214f929\n"
+      },
+      {
+        "instance_id": "django__django-13794",
+        "image": "swebench/sweb.eval.x86_64.django_1776_django-13794:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:71828caceb9e0bd93ce68518fb3174b449b1dd5e5d70d79e37ff7dcaf8de340c",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.django_1776_django-13794@sha256:da6bd792b940a0365f3cab125bcda443602646272c8cfa0e7e9e42f55bad8a1b"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.django_1776_django-13794:latest\nUntagged: swebench/sweb.eval.x86_64.django_1776_django-13794@sha256:da6bd792b940a0365f3cab125bcda443602646272c8cfa0e7e9e42f55bad8a1b\nDeleted: sha256:71828caceb9e0bd93ce68518fb3174b449b1dd5e5d70d79e37ff7dcaf8de340c\nDeleted: sha256:fc8727f720ca5ddef2f3c60cef78d0fdfaa199761eeec9e877e8f68aeeca9373\nDeleted: sha256:1aa811077a0a37c80bad1d7811782eab6d50710ea31e06fe4907f4dec7ac803c\nDeleted: sha256:a403ba4131562e17019c905e3a300b0b27e92f9ff0e59bfc1a7610722592555f\nDeleted: sha256:22d661f8a47f119d1054b1b03e187f6c182a068a4009d15d60918480010385b9\n"
+      },
+      {
+        "instance_id": "django__django-14140",
+        "image": "swebench/sweb.eval.x86_64.django_1776_django-14140:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:3ed1a9652b0476ebb99bf82373ad2017b6809963312a72fc2457d87d21555180",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.django_1776_django-14140@sha256:240a043512ae9cd079c4de5ff3a488d992265d3f4bc7ab51c81861dbb30c07a7"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.django_1776_django-14140:latest\nUntagged: swebench/sweb.eval.x86_64.django_1776_django-14140@sha256:240a043512ae9cd079c4de5ff3a488d992265d3f4bc7ab51c81861dbb30c07a7\nDeleted: sha256:3ed1a9652b0476ebb99bf82373ad2017b6809963312a72fc2457d87d21555180\nDeleted: sha256:7681526d702edb48e91dffbee9255dfdc73024db55a030fdb9699c4fa5c19862\nDeleted: sha256:2f5bb84c1483ebb81aaf8f12f8737186040eacf7c266ad4c26024cd474584402\nDeleted: sha256:dfe0759b8c699d42c5aeccba4dcafcd37b6842e100325f9d9689d6cffa8031aa\nDeleted: sha256:8ac080980ad00bdebcb1014332aae44f5d14c3103fedf9f66b7963f47f723c59\n"
+      },
+      {
+        "instance_id": "django__django-14534",
+        "image": "swebench/sweb.eval.x86_64.django_1776_django-14534:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:75aadded6a70bba28f53336de84f9848c582a3d2a8dd48472b5c3105ad176fd6",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.django_1776_django-14534@sha256:a82af598c0a980d8dc6b6a81f6893074c4610d83d8cbf7cb97482c81d0c16913"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.django_1776_django-14534:latest\nUntagged: swebench/sweb.eval.x86_64.django_1776_django-14534@sha256:a82af598c0a980d8dc6b6a81f6893074c4610d83d8cbf7cb97482c81d0c16913\nDeleted: sha256:75aadded6a70bba28f53336de84f9848c582a3d2a8dd48472b5c3105ad176fd6\nDeleted: sha256:ead0c3647ccc4714e526dc36e8c9366d9e250ebf0d2f1b36c2832430109c731a\nDeleted: sha256:c85817a143f4293e2a8468a923e708ff43784e5a2a44dc3b0d734ceb8aed542c\nDeleted: sha256:f40f95ca2a4e04303488e4deed44602f8014af7b8b69bac7074ae58227d58072\nDeleted: sha256:3d5b0911572ee1313acf375e97106e5497b06ddcf1e70bf21ceef2f2f89f0254\n"
+      },
+      {
+        "instance_id": "django__django-15268",
+        "image": "swebench/sweb.eval.x86_64.django_1776_django-15268:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:d6f8a7aa1e47de97370a03fa3d4d7815fd96b27d8e6dd688f5336c2d3eedfcff",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.django_1776_django-15268@sha256:aa1a72acd35319e7ef9439c54f8cd26f6ffd384a9973416ad504e478a6a6d076"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.django_1776_django-15268:latest\nUntagged: swebench/sweb.eval.x86_64.django_1776_django-15268@sha256:aa1a72acd35319e7ef9439c54f8cd26f6ffd384a9973416ad504e478a6a6d076\nDeleted: sha256:d6f8a7aa1e47de97370a03fa3d4d7815fd96b27d8e6dd688f5336c2d3eedfcff\nDeleted: sha256:dafee2013fbb6c38e576eaa4b658407c9a5ae173097baf3108b79179ad220022\nDeleted: sha256:e7cb55f15e0fe98b63e81ead3789e3dcacef69f00025c62038460d18d31df3c0\n"
+      },
+      {
+        "instance_id": "django__django-15525",
+        "image": "swebench/sweb.eval.x86_64.django_1776_django-15525:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:837c7f8bc22765ac417b69ec0ff582fca636314db29cffcd09245b32154d77b8",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.django_1776_django-15525@sha256:3c4645c743bf8e951d1a51deed06b270aeaa58ec0f049197425d2bbb28940175"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.django_1776_django-15525:latest\nUntagged: swebench/sweb.eval.x86_64.django_1776_django-15525@sha256:3c4645c743bf8e951d1a51deed06b270aeaa58ec0f049197425d2bbb28940175\nDeleted: sha256:837c7f8bc22765ac417b69ec0ff582fca636314db29cffcd09245b32154d77b8\nDeleted: sha256:0906beeb532d24eb326c82832a2fe75e41c9b33f6c5be7e549126fe48d7676db\nDeleted: sha256:384a4a0e0412134e707f039982d186cfa6f357cfe675b5cbb82f09ec6d511deb\n"
+      },
+      {
+        "instance_id": "django__django-15973",
+        "image": "swebench/sweb.eval.x86_64.django_1776_django-15973:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:ec0087b0b1014e1340959767e7b80516df93c0b791a736e8185d379dc2424404",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.django_1776_django-15973@sha256:cc0c54149ac4626b70e827fe913a967c2621c0c970c529ef464142a282a0c355"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.django_1776_django-15973:latest\nUntagged: swebench/sweb.eval.x86_64.django_1776_django-15973@sha256:cc0c54149ac4626b70e827fe913a967c2621c0c970c529ef464142a282a0c355\nDeleted: sha256:ec0087b0b1014e1340959767e7b80516df93c0b791a736e8185d379dc2424404\nDeleted: sha256:a01e34eb49ea27f90ab1ddb098e46f46bff7482b12fc9386040fe627ff539010\nDeleted: sha256:28d412e10a4657a4c6badd636cc3e18a11a827c3986d7232021885423c914f83\nDeleted: sha256:9f67fa8a18c1db7e47b04d1daa9bbc575ca56ada7ac874daa36e7d71c1013c14\nDeleted: sha256:b14019e4a55e26652d0d952acd8a2ca0303aa99054e67d19c630be4f52236603\n"
+      },
+      {
+        "instance_id": "matplotlib__matplotlib-26291",
+        "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26291:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:757855ad838faa91630ec9c1be7207a03a3edcd8eba0c23e974a1d11aa783625",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26291@sha256:1b5b3c1164c4f2a4210bec437b5416fb6346560c09b49e17ede58d045e8b8231"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26291:latest\nUntagged: swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26291@sha256:1b5b3c1164c4f2a4210bec437b5416fb6346560c09b49e17ede58d045e8b8231\nDeleted: sha256:757855ad838faa91630ec9c1be7207a03a3edcd8eba0c23e974a1d11aa783625\nDeleted: sha256:1991b03713f2c33ce30bfa9c476b1121498f722ffeba88ea46f08f766390f348\nDeleted: sha256:ce8836f0db71773a1db2549ad3b39dd77c353cf343a5c87541ee32858cf73164\nDeleted: sha256:11e2985ac25c757023a30f0a16d080a671b08ca5e26d548b32d9dc9a1f57027f\nDeleted: sha256:18936fa21663c06869b0da40987afa085b8fe33c9555ff7dfafb63d4533fe8f7\n"
+      },
+      {
+        "instance_id": "pydata__xarray-6721",
+        "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-6721:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:855880ce6241af2349762fe34b893eb277216c9d053d08e1372c8dd6eb066021",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.pydata_1776_xarray-6721@sha256:6397b462fd42ea2078c8e730c12c1ba36391471adc1dd956a59baa320874a5bf"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.pydata_1776_xarray-6721:latest\nUntagged: swebench/sweb.eval.x86_64.pydata_1776_xarray-6721@sha256:6397b462fd42ea2078c8e730c12c1ba36391471adc1dd956a59baa320874a5bf\nDeleted: sha256:855880ce6241af2349762fe34b893eb277216c9d053d08e1372c8dd6eb066021\nDeleted: sha256:e603b915db495ab5e3b8d514114b211c5010781d121f719d9e60ce7b1a39b8b8\nDeleted: sha256:ba933ad8da664fc13b5d3ae92002627277d70dc48524e73aeb39630c96496bdd\nDeleted: sha256:9ab3d091c0d393a0147b04ee801e035584b30200d2908112da30c222da42052f\nDeleted: sha256:ff05eba8f595872a2f726eec9d069fcb5a0a20e6c0c07ab9998d3a8b0c76aa1e\n"
+      },
+      {
+        "instance_id": "pytest-dev__pytest-5631",
+        "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5631:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:608deb6a7d2ad981ff78c5efe40a61a86cc3bd5ad8c76b225e5a4b7318a48b1e",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5631@sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5631:latest\nUntagged: swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5631@sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1\nDeleted: sha256:608deb6a7d2ad981ff78c5efe40a61a86cc3bd5ad8c76b225e5a4b7318a48b1e\nDeleted: sha256:250025b0b2b5b4081522dff8d5719934ac10c1cb680a62764d69a1140a5c8181\nDeleted: sha256:88875be047070c1039fa3a6447b79e8c9b370e11fde86b6b8a01026d19ccaf10\nDeleted: sha256:585ce1df50a5edbaec2f42d051f0e961ed702c629a31226ca5f835ff0eb51fad\nDeleted: sha256:c73b1ba375822e2bf1f93fc74725e23b39c523646a147fb3df2052ed3273c291\n"
+      },
+      {
+        "instance_id": "scikit-learn__scikit-learn-13779",
+        "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13779:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:e1c560396f7be2e236fbd9b9573a3d55a8b2ddedf938a257d16353a8dbfcd892",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13779@sha256:f7188477fd1e48e0e9bb1efa8a47068979127e1995fbab4c9eb3b04eaadf0618"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13779:latest\nUntagged: swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13779@sha256:f7188477fd1e48e0e9bb1efa8a47068979127e1995fbab4c9eb3b04eaadf0618\nDeleted: sha256:e1c560396f7be2e236fbd9b9573a3d55a8b2ddedf938a257d16353a8dbfcd892\nDeleted: sha256:5e729b7b90b1448865c08ef98a7c401b21de569405d1cf40e31f74523890b109\nDeleted: sha256:2910f509d3643830c969e408b5b0a25773c7faf3f57493595b04b13b9fe2c92c\nDeleted: sha256:5a4324b31f668f79c6e0ab2669ccab5444173c96b697e055ceefabd6dc84819c\nDeleted: sha256:f84d6838c6dd702d0211b361ac8102034c7c70fde9c2a4937b68607dcebd9cc7\n"
+      },
+      {
+        "instance_id": "sphinx-doc__sphinx-11445",
+        "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-11445:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:a8dd143149ea72f5d4dd8ac29b026992d69d114f6bbf9c582ef0b0d50c061508",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-11445@sha256:fec58c84a7ccc38fdceb65528bfb6fb923f038cb1dc95de1f79c0a85e2dde4f2"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-11445:latest\nUntagged: swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-11445@sha256:fec58c84a7ccc38fdceb65528bfb6fb923f038cb1dc95de1f79c0a85e2dde4f2\nDeleted: sha256:a8dd143149ea72f5d4dd8ac29b026992d69d114f6bbf9c582ef0b0d50c061508\nDeleted: sha256:d939d4d1f52b7675054fea1051b4698cbec756000068b1ab9ca795ccee1ea1e9\nDeleted: sha256:6c16ac517240f801307426e6ddc3b4b3cace4f2b32308413ebff50984a5d3fea\nDeleted: sha256:3c1d223b2b2f6823731c50c6e8e63eec9bd0bef4874bc013bddbdc90371993e4\nDeleted: sha256:3bfff73fd750d5a02bd3625186485df56fb319a1082c5b386ae1f793c1a9fa1b\n"
+      },
+      {
+        "instance_id": "sphinx-doc__sphinx-8269",
+        "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8269:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:e023c685c822048da08c3dbdbb126eb312b35b2f3f48ec517e342df4a56d63d9",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8269@sha256:463ca25b904e464131cad1b7cb3f9e5f1db830967fd1d9aa1526fd44c7bfc997"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8269:latest\nUntagged: swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8269@sha256:463ca25b904e464131cad1b7cb3f9e5f1db830967fd1d9aa1526fd44c7bfc997\nDeleted: sha256:e023c685c822048da08c3dbdbb126eb312b35b2f3f48ec517e342df4a56d63d9\nDeleted: sha256:32452005d38b74fff1c2f51a5bf870a71501e5affd54813c7f599b65c3787671\nDeleted: sha256:31228c7213d6f10188e749b0d98f5d8bd143cb843dae86b158bda4287afae30c\nDeleted: sha256:47f5cc34f700fa06ad83e94504c23efb43f10e09a5172de891a1ddcf8e13410c\nDeleted: sha256:560a885728db56dedb79322f41adb74288fd245ffc335bcfaa46a8a7b5d80722\n"
+      },
+      {
+        "instance_id": "sympy__sympy-16450",
+        "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-16450:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:92daef62c6097244d4769744d5d580137a4fd50aa6a5105863ce74dc8786c9cf",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.sympy_1776_sympy-16450@sha256:3dc2ba041aadc8d34042c89d09d1570f804665c60413b111ceaf50a58dc982a4"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.sympy_1776_sympy-16450:latest\nUntagged: swebench/sweb.eval.x86_64.sympy_1776_sympy-16450@sha256:3dc2ba041aadc8d34042c89d09d1570f804665c60413b111ceaf50a58dc982a4\nDeleted: sha256:92daef62c6097244d4769744d5d580137a4fd50aa6a5105863ce74dc8786c9cf\nDeleted: sha256:cf83cce9a2149fcd55c0907739949993a837f52a4010f50df2d9dee9ae3993ba\nDeleted: sha256:37c708433a5e233c37cd02f4908c18d1fd3bb6ff68533a8a5bdf3b0fec89284b\nDeleted: sha256:8a546d6bdf8c6c863feea5584a9989355d5eb3813c375daea0d1712101a607ea\nDeleted: sha256:9ebc1bb8fdf22b6d4e74335064e3b9ae5471314f54015a99739e90a8f4c9a83e\n"
+      },
+      {
+        "instance_id": "sympy__sympy-19783",
+        "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-19783:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:ce7f364920d9b00f5c5a2a04a7bace60ab81870047bfcb62896875eb38c72023",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.sympy_1776_sympy-19783@sha256:f479dc5ad70891339f836122f10dcbf3e2fb24c7ffc7cf0eb0a682595e7c1db3"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.sympy_1776_sympy-19783:latest\nUntagged: swebench/sweb.eval.x86_64.sympy_1776_sympy-19783@sha256:f479dc5ad70891339f836122f10dcbf3e2fb24c7ffc7cf0eb0a682595e7c1db3\nDeleted: sha256:ce7f364920d9b00f5c5a2a04a7bace60ab81870047bfcb62896875eb38c72023\nDeleted: sha256:7f1a63206708fc7535beeec7ba10d0d3bccf65ddaa14f489a0bb4b69e46048db\nDeleted: sha256:42b4e572f1616f3937f8315c3862e763096d7458d67ec9244bb60411ec9bc6e3\nDeleted: sha256:2d2f9bcb8f44530ff274816405a9cb84bf5555e38e492ae765453fce64ae95fd\nDeleted: sha256:45ab38a1e7655ee09c0b9c09d429fde183b0f6d78fea19f76c9147352d3f9eb4\n"
+      },
+      {
+        "instance_id": "sympy__sympy-21379",
+        "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-21379:latest",
+        "inspect_returncode": 0,
+        "image_id": "sha256:988daac81e1673aee99a9f8118b4734bd82892e458b8aca315eddc234f463b12",
+        "repo_digests": [
+          "swebench/sweb.eval.x86_64.sympy_1776_sympy-21379@sha256:5a10d273b1b5ae6e4d70c0242dc9c9ecb2e111945e6aa8093b7d1e4160b4dc3b"
+        ],
+        "remove_returncode": 0,
+        "remove_output": "Untagged: swebench/sweb.eval.x86_64.sympy_1776_sympy-21379:latest\nUntagged: swebench/sweb.eval.x86_64.sympy_1776_sympy-21379@sha256:5a10d273b1b5ae6e4d70c0242dc9c9ecb2e111945e6aa8093b7d1e4160b4dc3b\nDeleted: sha256:988daac81e1673aee99a9f8118b4734bd82892e458b8aca315eddc234f463b12\nDeleted: sha256:db14d1c016f1aa614ab0a8b3440bab9850f2fa2286b64e4996a781407218ad52\nDeleted: sha256:8ea69b4b520bad7076d391068bece41002a451a92b4041620df9fb941da11103\nDeleted: sha256:0f044b246d1f516868130dd8c00f64ce03b26e7a779b24ebd4f7d096dc8fab54\nDeleted: sha256:603ad4cdf9f865da087a6cff6720fa19159196183990e0e60ecaa73fb097a6f0\nDeleted: sha256:0978b19cde395c8e9d7cd291de5d60b45350378b0ed066748348944072e6173b\nDeleted: sha256:a634031e76f92305770c0d66bccc23d78a0050fb795e2b6899fc6772cd5f0063\nDeleted: sha256:8876ba60ff5288b36e43471244bb68618607edc89d02952521abe78b16f64ccb\nDeleted: sha256:1d15e24435ad0b6de659a9bef5a6f6b65542467bea064e43c83ebcd33f7beae1\nDeleted: sha256:6564f6d5b14ac3b34d5dc0b6ec4f94d21cce28262be158eaab1a3c4c58a810cd\n"
+      }
+    ],
+    "complete": true
+  }
+]
